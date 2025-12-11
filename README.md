@@ -10,7 +10,6 @@
 
 **Fecha: 2do cuatrimestre 2025**
 
-**Fecha estimada de presentacion final Martes 3 de Marzo del 2026**
 
 ### **1\. Selección del proyecto a implementar**
 
@@ -281,6 +280,12 @@ Esto hace que el proyecto propuesto constituya una alternativa accesible, inclus
 <td></td>
 <td>6.3</td>
 <td>El sistema deberá ser seguro y confiable, priorizando evitar omitir eventos reales.</td>
+</tr>
+
+<tr>
+<td>Fecha estimada de presentación final</td>
+<td>7.1</td>
+<td>Martes 3 de Marzo del 2026.</td>
 </tr>
 
 </tbody>
