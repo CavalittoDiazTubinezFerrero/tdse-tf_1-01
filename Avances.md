@@ -102,13 +102,13 @@ A continuación se detalla el informe de avances del trabajo práctico final a p
 <td>Interfaz física</td>
 <td>5.1</td>
 <td>El sistema contará con botones o switches para seleccionar modo de operación.</td>
-<td></td>
+<td>🟡</td>
 </tr>
 <tr>
 <td></td>
 <td>5.2</td>
 <td>El sistema tendrá un indicador LED básico de funcionamiento (encendido / alerta).</td>
-<td></td>
+<td>🟡</td>
 </tr>
 
 <tr>
