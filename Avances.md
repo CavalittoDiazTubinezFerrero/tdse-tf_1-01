@@ -51,7 +51,7 @@ A continuación se detalla el informe de avances del trabajo práctico final a p
 <td></td>
 <td>2.2</td>
 <td>El usuario podrá configurar sensibilidad y parámetros mediante botones o interfaz sencilla</td>
-<td></td>
+<td>🟡</td>
 </tr>
 <tr>
 <td></td>
