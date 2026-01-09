@@ -32,13 +32,13 @@ A continuación se detalla el informe de avances del trabajo práctico final a p
 <td>Adquisición</td>
 <td>1.1</td>
 <td>El sistema contará con un micrófono para captar sonidos del entorno.</td>
-<td>🟡</td>
+<td>✅</td>
 </tr>
 <tr>
 <td></td>
 <td>1.2</td>
 <td>El sistema digitalizará la señal sonora mediante el ADC de la placa STM.</td>
-<td></td>
+<td>🟡</td>
 </tr>
 
 <tr>
