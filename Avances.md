@@ -38,33 +38,33 @@ A continuación se detalla el informe de avances del trabajo práctico final a p
 <td></td>
 <td>1.2</td>
 <td>El sistema digitalizará la señal sonora mediante el ADC de la placa STM.</td>
-<td>🟡</td>
+<td>✅</td>
 </tr>
 
 <tr>
 <td>Procesamiento</td>
 <td>2.1</td>
 <td>El sistema deberá detectar sonidos relevantes (llanto, alarma, golpes, palabra clave).</td>
-<td>🟡</td>
+<td>✅</td>
 </tr>
 <tr>
 <td></td>
 <td>2.2</td>
 <td>El usuario podrá configurar sensibilidad y parámetros mediante botones o interfaz sencilla</td>
-<td>🟡</td>
+<td>✅</td>
 </tr>
 <tr>
 <td></td>
 <td>2.3</td>
 <td>El sistema almacenará parámetros configurables en memoria.</td>
-<td></td>
+<td>🟡</td>
 </tr>
 
 <tr>
 <td>Notificación</td>
 <td>3.1</td>
 <td>El sistema enviará notificaciones a un dispositivo móvil vía Bluetooth .</td>
-<td></td>
+<td>🟡</td>
 </tr>
 <tr>
 <td></td>
@@ -110,12 +110,18 @@ A continuación se detalla el informe de avances del trabajo práctico final a p
 <td>El sistema tendrá un indicador LED básico de funcionamiento (encendido / alerta).</td>
 <td>✅</td>
 </tr>
+<tr>
+<td></td>
+<td>5.2</td>
+<td>El sistema emitirá un pitido al ser encendido.</td>
+<td></td>
+</tr>
 
 <tr>
 <td>Requisitos de operación</td>
 <td>6.1</td>
 <td>El dispositivo deberá funcionar sin conexión a internet.</td>
-<td></td>
+<td>✅</td>
 </tr>
 <tr>
 <td></td>
@@ -134,3 +140,8 @@ A continuación se detalla el informe de avances del trabajo práctico final a p
 </table>
 
 <p align="center"><em>Tabla 2.1: Requisitos del proyecto</em></p>
+
+
+**Comentarios:**
+
+2.1 La detección de palabras clave o sonidos específicos nos está tomando más del tiempo estimado, por lo que decidimos limitar este punto, por ahora, a la detección de sonidos solo cuando sobrepasa un umbral configurable, de esta manera podemos avanzar con tópicos más relevantes para la materia.
