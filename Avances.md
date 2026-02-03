@@ -83,7 +83,7 @@ A continuación se detalla el informe de avances del trabajo práctico final a p
 <td>Aplicación</td>
 <td>4.1</td>
 <td>La aplicación mostrará alertas visuales asociadas a los sonidos detectados.</td>
-<td></td>
+<td>🟡</td>
 </tr>
 <tr>
 <td></td>
