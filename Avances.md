@@ -64,19 +64,19 @@ A continuación se detalla el informe de avances del trabajo práctico final a p
 <td>Notificación</td>
 <td>3.1</td>
 <td>El sistema enviará notificaciones a un dispositivo móvil vía Bluetooth .</td>
-<td>🟡</td>
+<td>✅</td>
 </tr>
 <tr>
 <td></td>
 <td>3.2</td>
 <td>Las notificaciones deberán incluir el tipo de sonido detectado.</td>
-<td></td>
+<td>🟡</td>
 </tr>
 <tr>
 <td></td>
 <td>3.3</td>
 <td>Las notificaciones deberán ser inmediatas ante detección de eventos críticos.</td>
-<td></td>
+<td>✅</td>
 </tr>
 
 <tr>
@@ -95,7 +95,7 @@ A continuación se detalla el informe de avances del trabajo práctico final a p
 <td></td>
 <td>4.3</td>
 <td>La aplicación deberá indicar el estado de conexión Bluetooth del dispositivo.</td>
-<td></td>
+<td>✅</td>
 </tr>
 
 <tr>
@@ -112,7 +112,7 @@ A continuación se detalla el informe de avances del trabajo práctico final a p
 </tr>
 <tr>
 <td></td>
-<td>5.2</td>
+<td>5.3</td>
 <td>El sistema emitirá un pitido al ser encendido.</td>
 <td></td>
 </tr>
@@ -127,7 +127,7 @@ A continuación se detalla el informe de avances del trabajo práctico final a p
 <td></td>
 <td>6.2</td>
 <td>El sistema deberá tener bajo consumo energético.</td>
-<td></td>
+<td>✅</td>
 </tr>
 <tr>
 <td></td>
