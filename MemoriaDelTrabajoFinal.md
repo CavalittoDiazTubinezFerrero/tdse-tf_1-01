@@ -45,7 +45,9 @@ The system is based on a development board integrating a microcontroller with an
 - [**Registro de versiones**](#registro-de-versiones)
 - [**Introducción general**](#introducción-general)
   - [1.1 Análisis de necesidad y objetivos](#11-análisis-de-necesidad-y-objetivos)
-  - [1.2 Descripción general del sistema](#13-descripción-general-del-sistema)
+  - [1.2 Descripción general del sistema](#12-descripción-general-del-sistema)
+- [**Introducción específica**](#introducción-específica) 
+  - [2.1 Requisitos](#21-requisitos)
   - 
 - [**Bibliografía**](#bibliografía)
     
@@ -86,7 +88,7 @@ La aplicación móvil fue desarrollada utilizando la herramienta MIT App Invento
 
 En la Figura 1.2.1 se presenta el diagrama en bloques general del sistema, donde se observan los principales módulos y su interconexión.
 
-<img width="600" src="DiagramaenBloques.jpg" >
+<img width="600" src="DiagramaenBloquesdetallado.png" >
 
 **Figura 1.2.1**: Diagrama en bloques general de BeepBuddy.
 
@@ -94,7 +96,119 @@ El funcionamiento general del dispositivo puede resumirse de la siguiente manera
 
 En las próximas secciones se describirá con mayor detalle los módulos utilizados y sus características.
 
+# **CAPÍTULO 2**
+
+# **Introducción específica** 
+
+## **2.1 Requisitos**
+
+Habiendo analizado las características principales del monitor, se definieron los principales requisitos para que el sistema cumpla con su función de forma correcta y resulte útil para su propósito. Para esto, se realizó una tabla definiendo los principales requisitos a implementar, mostrado en la Tabla 2.1.1.
+
+**Tabla 2.1.1**: Requisitos del proyecto.
+
+<table>
+<thead>
+<tr>
+<th>Grupo</th>
+<th>ID</th>
+<th>Descripción</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>Adquisición</td>
+<td>1.1</td>
+<td>El sistema cuenta con un micrófono para captar sonidos del entorno.</td>
+</tr>
+<tr>
+<td></td>
+<td>1.2</td>
+<td>El sistema digitaliza la señal sonora mediante el ADC de la placa STM.</td>
+</tr>
+
+<tr>
+<td>Procesamiento</td>
+<td>2.1</td>
+<td>El sistema detectar sonido relevantes (llanto, alarma, golpes, palabra clave).</td>
+</tr>
+<tr>
+<td></td>
+<td>2.2</td>
+<td>El usuario puede configurar sensibilidad y parámetros mediante la interfaz de la aplicación.</td>
+</tr>
+<tr>
+<td></td>
+<td>2.3</td>
+<td>El sistema almacena parámetros configurables en memoria junto con un historial de alertas.</td>
+</tr>
+
+<tr>
+<td>Notificación</td>
+<td>3.1</td>
+<td>El sistema envía notificaciones a un dispositivo móvil vía Bluetooth .</td>
+</tr>
+<tr>
+<td></td>
+<td>3.2</td>
+<td>Las notificaciones deberán incluir el tipo de sonido detectado.<span style="color:red"><strong>⚠ ESPERAR RTA. DE MARI</strong></span></td>
+</tr>
+<tr>
+<td></td>
+<td>3.3</td>
+<td>Las notificaciones son inmediatas ante detección de eventos críticos.</td>
+</tr>
+
+<tr>
+<td>Aplicación</td>
+<td>4.1</td>
+<td>La aplicación muestra alertas visuales asociadas a los sonidos detectados.</td>
+</tr>
+<tr>
+<td></td>
+<td>4.2</td>
+<td>La aplicación permite consultar el historial de alertas.</td>
+</tr>
+<tr>
+<td></td>
+<td>4.3</td>
+<td>La aplicación indica el estado de conexión Bluetooth del dispositivo.</td>
+</tr>
+
+<tr>
+<td>Interfaz física</td>
+<td>5.1</td>
+<td>El sistema cuenta con botones y switches para seleccionar modo de operación.</td>
+</tr>
+<tr>
+<td></td>
+<td>5.2</td>
+<td>El sistema cuenta con indicadores LEDs básicos de funcionamiento (encendido/apagado, modo y estado de conexión Bluetooth).</td>
+</tr>
+
+<tr>
+<td>Requisitos de operación</td>
+<td>6.1</td>
+<td>El dispositivo funciona sin conexión a internet.</td>
+</tr>
+<tr>
+<td></td>
+<td>6.2</td>
+<td>El sistema tiene bajo consumo energético.</td>
+</tr>
+<tr>
+<td></td>
+<td>6.3</td>
+<td>El sistema es seguro y confiable, priorizando evitar omitir eventos reales.</td>
+</tr>
+
+</tbody>
+</table>
+
 <span style="color:red"><strong>⚠ CONTINUAR DESDE ACÁ EL CAPÍTULO 2</strong></span>
 
 # **Bibliografía** 
 \[1\] MIT App Inventor. [Online]. Available: https://appinventor.mit.edu/
+\[2\] Google Gemini. [Online]. Available: https://gemini.google.com/app?hl=es_419
+\[3\] Chat GPT. [Online]. Available: https://chatgpt.com
