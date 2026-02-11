@@ -48,6 +48,7 @@ The system is based on a development board integrating a microcontroller with an
   - [1.2 Descripción general del sistema](#12-descripción-general-del-sistema)
 - [**Introducción específica**](#introducción-específica) 
   - [2.1 Requisitos](#21-requisitos)
+  - [2.2 Caso de uso](#22-caso-de-uso)
   - 
 - [**Bibliografía**](#bibliografía)
     
@@ -205,6 +206,18 @@ Habiendo analizado las características principales del monitor, se definieron l
 
 </tbody>
 </table>
+
+
+## **2.2 Caso de uso**
+
+**Tabla 2.2.1**: Caso de uso.
+
+| Elemento | Definición |
+| :---- | :---- |
+| Disparador | Se produce un sonido en el entorno que supera el umbral de sensibilidad configurado. |
+| Precondiciones | El sistema se encuentra encendido. El dispositivo está correctamente alimentado. El módulo Bluetooth se encuentra emparejado con la aplicación móvil. Los parámetros de sensibilidad están configurados.  |
+| Flujo principal | El micrófono capta el sonido del entorno y lo convierte en una señal eléctrica analógica. El microcontrolador digitaliza la señal mediante el conversor analógico-digital y procesa las muestras adquiridas en tiempo real. Si el nivel del sonido supera el umbral configurado, el algoritmo de detección valida el evento como relevante. El microcontrolador envía una notificación a través del módulo Bluetooth al dispositivo móvil. La aplicación recibe el evento, lo muestra en pantalla y genera una alerta visual para el usuario. |
+| Flujos alternativos | a. El sonido detectado no supera el umbral configurado. El sistema continúa monitoreando sin generar notificación. b. El módulo Bluetooth no se encuentra conectado al dispositivo móvil. El evento puede registrarse localmente, pero no se envía notificación. c. El usuario modifica los parámetros de sensibilidad desde la aplicación. El sistema actualiza la configuración y continúa operando con los nuevos valores. |
 
 <span style="color:red"><strong>⚠ CONTINUAR DESDE ACÁ EL CAPÍTULO 2</strong></span>
 
