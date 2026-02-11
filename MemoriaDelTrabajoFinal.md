@@ -56,7 +56,7 @@ The system is based on a development board integrating a microcontroller with an
 | Revisión | Cambios realizados | Fecha |
 | :---: | ----- | ----- |
 | 1.0 | Creación del documento | 10/02/2026 |
-| 1.1 | Redacción del primer capítulo | ... |
+| 1.1 | Redacción del primer capítulo | 11/02/2026 |
 | 1.2 | Redacción del segundo capítulo | ... |
 | 1.3 | Redacción del tercer capítulo | ... |
 | 1.4 | Redacción final | ... |
