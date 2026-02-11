@@ -223,5 +223,7 @@ Habiendo analizado las características principales del monitor, se definieron l
 
 # **Bibliografía** 
 \[1\] MIT App Inventor. [Online]. Available: https://appinventor.mit.edu/
+
 \[2\] Google Gemini. [Online]. Available: https://gemini.google.com/app?hl=es_419
+
 \[3\] Chat GPT. [Online]. Available: https://chatgpt.com
