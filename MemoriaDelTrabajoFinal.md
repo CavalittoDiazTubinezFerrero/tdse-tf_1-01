@@ -32,3 +32,23 @@ El sistema está compuesto por una plataforma de desarrollo provista por la cát
 This work presents the design and implementation of BeepBuddy, an embedded system for real-time detection and notification of acoustic events. The system is intended as an assistive solution for individuals with hearing impairments and as a support tool in caregiving scenarios, generating alerts when relevant environmental sounds are identified. The proposed device provides a portable and configurable platform for acoustic monitoring in everyday environments.
 
 The system is based on a development board integrating a microcontroller with an analog-to-digital converter, hardware timers, and a low-energy Bluetooth communication module. Audio acquisition and control logic were implemented in the C programming language, while the mobile application for system configuration and notification reception was developed using MIT App Inventor. The project required the integration of hardware and software following modular design principles and efficient resource management typical of embedded systems. This document describes the system architecture, design methodology, implementation details, and validation results.
+
+
+
+# Índice General
+
+- [**Registro de versiones**](#registro-de-versiones)
+(completar a medida que vayamos haciendo el informe)
+
+
+## Registro de versiones
+
+| Revisión | Cambios realizados | Fecha |
+| :---: | ----- | ----- |
+| 1.0 | Creación del documento | 10/02/2026 |
+| 1.1 | Redacción del primer capítulo | ... |
+| 1.2 | Redacción del segundo capítulo | ... |
+| 1.3 | Redacción del tercer capítulo | ... |
+| 1.4 | Redacción final | ... |
+
+### 
