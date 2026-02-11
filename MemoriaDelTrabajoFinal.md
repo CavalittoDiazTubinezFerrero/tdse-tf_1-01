@@ -6,7 +6,7 @@
 
 Memoria del Trabajo Final:
 
-***BeepBuddy* - Dispositivo de monitoreo auditivo**
+***BeepBuddy* - Dispositivo de monitoreo acústico**
 
 **Autores:**
 
