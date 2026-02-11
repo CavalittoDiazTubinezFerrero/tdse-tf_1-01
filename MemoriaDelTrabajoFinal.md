@@ -48,7 +48,7 @@ The system is based on a development board integrating a microcontroller with an
   - [1.2 Descripción general del sistema](#12-descripción-general-del-sistema)
 - [**Introducción específica**](#introducción-específica) 
   - [2.1 Requisitos](#21-requisitos)
-  - [2.2 Caso de uso](#22-caso-de-uso)
+  - [2.2 Descripción de uso](#22-descripción-de-uso)
   - 
 - [**Bibliografía**](#bibliografía)
     
@@ -208,9 +208,9 @@ Habiendo analizado las características principales del monitor, se definieron l
 </table>
 
 
-## **2.2 Caso de uso**
+## **2.2 Descripción de uso**
 
-**Tabla 2.2.1**: Caso de uso.
+**Tabla 2.2.1**: Descripción de uso.
 
 | Elemento | Definición |
 | :---- | :---- |
