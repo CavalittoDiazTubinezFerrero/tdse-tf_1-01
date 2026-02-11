@@ -6,7 +6,7 @@
 
 Memoria del Trabajo Final:
 
-***BeepBuddy***
+***BeepBuddy* - Dispositivo de monitoreo auditivo**
 
 **Autores:**
 
@@ -44,7 +44,8 @@ The system is based on a development board integrating a microcontroller with an
 - [**Introducción general**](#introducción-general)
   - [1.1 Análisis de necesidad y objetivos](#11-análisis-de-necesidad-y-objetivos)
   - [1.2 Proyectos similares y análisis comparativo](#12-proyectos-similares-y-análisis-comparativo)
-  -
+  - [1.3 Descripción general del sistema](#13-descripción-general-del-sistema)
+  - 
 - [**Bibliografía**](#bibliografía)
     
 <span style="color:red"><strong>⚠ IR COMPLETANDO A MEDIDA QUE SE VAYAN ESCRIBIENDO CADA UNA DE LAS SECCIONES</strong></span>
