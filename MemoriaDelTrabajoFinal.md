@@ -26,6 +26,8 @@ En este trabajo se presenta el diseño e implementación de BeepBuddy, un sistem
 
 El sistema está compuesto por una plataforma de desarrollo provista por la cátedra de Taller de Sistemas Embebidos de la Facultad de Ingeniería de la Universidad de Buenos Aires que integra un microcontrolador con conversor analógico-digital, temporizadores y un módulo de comunicación Bluetooth de bajo consumo. El procesamiento de audio y la lógica de control fueron desarrollados en lenguaje C, mientras que la aplicación móvil utilizada para la configuración y recepción de notificaciones se implementó mediante la herramienta MIT App Inventor. El desarrollo del proyecto implicó la integración de hardware y software bajo criterios de diseño modular y uso eficiente de recursos. En esta memoria se describen la motivación, la arquitectura del sistema, las decisiones de diseño adoptadas y las pruebas realizadas para validar su funcionamiento.
 
+<span style="color:red"><strong>⚠ REVISAR ÚLTIMA ORACIÓN!! VER SI DESP EFECTIVAMENTE SE HABLA DE ESTO EN EL INFORME</strong></span>
+
 
 **ABSTRACT**
 
@@ -33,12 +35,14 @@ This work presents the design and implementation of BeepBuddy, an embedded syste
 
 The system is based on a development board integrating a microcontroller with an analog-to-digital converter, hardware timers, and a low-energy Bluetooth communication module. Audio acquisition and control logic were implemented in the C programming language, while the mobile application for system configuration and notification reception was developed using MIT App Inventor. The project required the integration of hardware and software following modular design principles and efficient resource management typical of embedded systems. This document describes the system architecture, design methodology, implementation details, and validation results.
 
+<span style="color:red"><strong>⚠ REVISAR ÚLTIMA ORACIÓN!! VER SI DESP EFECTIVAMENTE SE HABLA DE ESTO EN EL INFORME</strong></span>
 
 
 # Índice General
 
 - [**Registro de versiones**](#registro-de-versiones)
-(completar a medida que vayamos haciendo el informe)
+- 
+<span style="color:red"><strong>⚠ IR COMPLETANDO A MEDIDA QUE SE VAYAN ESCRIBIENDO CADA UNA DE LAS SECCIONES</strong></span>
 
 
 ## Registro de versiones
@@ -51,4 +55,12 @@ The system is based on a development board integrating a microcontroller with an
 | 1.3 | Redacción del tercer capítulo | ... |
 | 1.4 | Redacción final | ... |
 
+<span style="color:red"><strong>⚠ IR COMPLETANDO A MEDIDA QUE SE VAYAN ESCRIBIENDO CADA UNA DE LAS SECCIONES</strong></span>
+ 
 ### 
+
+# **CAPÍTULO 1** 
+
+# **Introducción general** 
+
+## **1.1 Análisis de necesidad y objetivos** 
