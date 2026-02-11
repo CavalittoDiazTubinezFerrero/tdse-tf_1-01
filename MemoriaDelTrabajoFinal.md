@@ -106,5 +106,7 @@ El funcionamiento general del dispositivo puede resumirse de la siguiente manera
 
 En las próximas secciones se describirá con mayor detalle los módulos utilizados y sus características.
 
+<span style="color:red"><strong>⚠ CONTINUAR DESDE ACÁ EL CAPÍTULO 2</strong></span>
+
 # **Bibliografía** 
 \[1\] MIT App Inventor. [Online]. Available: https://appinventor.mit.edu/
