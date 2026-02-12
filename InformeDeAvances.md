@@ -57,7 +57,7 @@ A continuación se detalla el informe de avances del trabajo práctico final a p
 <td></td>
 <td>2.3</td>
 <td>El sistema almacenará parámetros configurables en memoria.</td>
-<td>🟡</td>
+<td>✅</td>
 </tr>
 
 <tr>
@@ -114,7 +114,7 @@ A continuación se detalla el informe de avances del trabajo práctico final a p
 <td></td>
 <td>5.3</td>
 <td>El sistema emitirá un pitido al ser encendido.</td>
-<td></td>
+<td>✅</td>
 </tr>
 
 <tr>
