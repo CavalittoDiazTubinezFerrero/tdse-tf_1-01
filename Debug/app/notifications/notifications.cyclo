@@ -1,0 +1,4 @@
+../app/notifications/notifications.c:9:6:Notifications_OnCommand	7
+../app/notifications/notifications.c:33:6:Notifications_SendConfig	1
+../app/notifications/notifications.c:46:6:Notifications_SendNoiseDetected	1
+../app/notifications/notifications.c:53:6:Notifications_SendAlertHistory	1

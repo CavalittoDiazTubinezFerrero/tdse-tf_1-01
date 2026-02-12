@@ -27,5 +27,12 @@ Core/Startup \
 Drivers/STM32F1xx_HAL_Driver/Src \
 app \
 app/modes \
+app/notifications \
+app/sound_detection \
+config \
+hardware/audio \
+hardware/bluetooth \
 hardware/buttons \
+hardware/buzzer \
+hardware/leds \
 

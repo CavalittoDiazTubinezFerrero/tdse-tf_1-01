@@ -1,7 +1,6 @@
 #include "dip_switch.h"
 #include "stm32f1xx_hal.h"
 
-
 #define DIP1_PORT GPIOA
 #define DIP1_PIN GPIO_PIN_1
 

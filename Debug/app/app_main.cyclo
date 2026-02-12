@@ -1,2 +1,2 @@
-../app/app_main.c:4:7:App_Init	1
-../app/app_main.c:9:6:App_Loop	1
+../app/app_main.c:15:7:App_Init	2
+../app/app_main.c:34:6:App_Loop	3

@@ -1,0 +1,3 @@
+../app/sound_detection/sound_detector.c:11:10:SoundDetector_GetThreshold	16	static
+../app/sound_detection/sound_detector.c:22:6:Sound_IsDetected	24	static
+../app/sound_detection/sound_detector.c:36:6:SoundDetector_SetThreshold	24	static

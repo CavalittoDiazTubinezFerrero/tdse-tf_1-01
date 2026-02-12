@@ -31,7 +31,12 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+extern ADC_HandleTypeDef hadc1;
 
+extern TIM_HandleTypeDef htim2;
+extern TIM_HandleTypeDef htim3;
+
+extern UART_HandleTypeDef huart1;
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -49,6 +54,8 @@ extern "C" {
 
 /* USER CODE END EM */
 
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
 
@@ -60,10 +67,10 @@ void Error_Handler(void);
 #define B1_Pin GPIO_PIN_13
 #define B1_GPIO_Port GPIOC
 #define B1_EXTI_IRQn EXTI15_10_IRQn
+#define MIC_Pin GPIO_PIN_0
+#define MIC_GPIO_Port GPIOA
 #define DIP_SWITCH_1_Pin GPIO_PIN_1
 #define DIP_SWITCH_1_GPIO_Port GPIOA
-#define USART_TX_Pin GPIO_PIN_2
-#define USART_TX_GPIO_Port GPIOA
 #define USART_RX_Pin GPIO_PIN_3
 #define USART_RX_GPIO_Port GPIOA
 #define DIP_SWITCH_2_Pin GPIO_PIN_4
@@ -72,12 +79,26 @@ void Error_Handler(void);
 #define LD2_GPIO_Port GPIOA
 #define DIP_SWITCH_3_Pin GPIO_PIN_0
 #define DIP_SWITCH_3_GPIO_Port GPIOB
+#define LED_1_Pin GPIO_PIN_10
+#define LED_1_GPIO_Port GPIOB
+#define TIM3_CH2_Pin GPIO_PIN_7
+#define TIM3_CH2_GPIO_Port GPIOC
+#define LED_4_Pin GPIO_PIN_8
+#define LED_4_GPIO_Port GPIOA
+#define USART1_TX_Pin GPIO_PIN_9
+#define USART1_TX_GPIO_Port GPIOA
+#define USART1_RX_Pin GPIO_PIN_10
+#define USART1_RX_GPIO_Port GPIOA
 #define TMS_Pin GPIO_PIN_13
 #define TMS_GPIO_Port GPIOA
 #define TCK_Pin GPIO_PIN_14
 #define TCK_GPIO_Port GPIOA
 #define SWO_Pin GPIO_PIN_3
 #define SWO_GPIO_Port GPIOB
+#define LED_2_Pin GPIO_PIN_4
+#define LED_2_GPIO_Port GPIOB
+#define LED_3_Pin GPIO_PIN_5
+#define LED_3_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 

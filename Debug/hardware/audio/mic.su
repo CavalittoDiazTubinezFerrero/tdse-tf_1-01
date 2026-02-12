@@ -1,0 +1,2 @@
+../hardware/audio/mic.c:10:10:Mic_ReadRaw	16	static
+../hardware/audio/mic.c:20:10:Mic_Init	2064	static

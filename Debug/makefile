@@ -9,7 +9,14 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include hardware/leds/subdir.mk
+-include hardware/buzzer/subdir.mk
 -include hardware/buttons/subdir.mk
+-include hardware/bluetooth/subdir.mk
+-include hardware/audio/subdir.mk
+-include config/subdir.mk
+-include app/sound_detection/subdir.mk
+-include app/notifications/subdir.mk
 -include app/modes/subdir.mk
 -include app/subdir.mk
 -include Drivers/STM32F1xx_HAL_Driver/Src/subdir.mk
@@ -64,7 +71,7 @@ main-build: tdse-tf.elf secondary-outputs
 
 # Tool invocations
 tdse-tf.elf tdse-tf.map: $(OBJS) $(USER_OBJS) C:\Users\Maria\ Diaz\Documents\embebidos\BeepBuddy\tdse-tf\STM32F103RBTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "tdse-tf.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\Maria Diaz\Documents\embebidos\BeepBuddy\tdse-tf\STM32F103RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="tdse-tf.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+	arm-none-eabi-gcc -o "tdse-tf.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\Maria Diaz\Documents\embebidos\BeepBuddy\tdse-tf\STM32F103RBTX_FLASH.ld" -Wl,-Map="tdse-tf.map" -Wl,--gc-sections -static -specs=rdimon.specs --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
