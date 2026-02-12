@@ -153,11 +153,6 @@ Habiendo analizado las características principales del monitor, se definieron l
 <tr>
 <td></td>
 <td>3.2</td>
-<td>Las notificaciones deberán incluir el tipo de sonido detectado.<span style="color:red"><strong>⚠ ESPERAR RTA. DE MARI</strong></span></td>
-</tr>
-<tr>
-<td></td>
-<td>3.3</td>
 <td>Las notificaciones son inmediatas ante detección de eventos críticos.</td>
 </tr>
 
