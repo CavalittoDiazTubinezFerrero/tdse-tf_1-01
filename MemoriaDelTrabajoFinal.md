@@ -242,7 +242,7 @@ Como microcontrolador del sistema se utilizó la placa NUCLEO-F103RB conectada a
 ## **2.3.3 Módulo de micrófono**
 Para la detección acústica se utilizó un módulo sensor de sonido con micrófono regulable Arduino Nubbeo del tipo KY-037 como se observa en la Figura 2.3.3 \[5\].
 
-<img width="300" src="MóduloMicrófono" >
+<img width="300" src="MóduloMicrófono.jpg" >
 
 **Figura 2.3.3**: Módulo de micrófono.
 
