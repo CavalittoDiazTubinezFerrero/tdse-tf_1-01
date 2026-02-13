@@ -214,11 +214,20 @@ Habiendo analizado las características principales del monitor, se definieron l
 | Flujo principal | El micrófono capta el sonido del entorno y lo convierte en una señal eléctrica analógica. El microcontrolador digitaliza la señal mediante el conversor analógico-digital y procesa las muestras adquiridas en tiempo real. Si el nivel del sonido supera el umbral configurado, el algoritmo de detección valida el evento como relevante. El microcontrolador envía una notificación a través del módulo Bluetooth al dispositivo móvil. La aplicación recibe el evento, lo muestra en pantalla y genera una alerta visual para el usuario. |
 | Flujos alternativos | a. El sonido detectado no supera el umbral configurado. El sistema continúa monitoreando sin generar notificación. b. El módulo Bluetooth no se encuentra conectado al dispositivo móvil. El evento puede registrarse localmente, pero no se envía notificación. c. El usuario modifica los parámetros de sensibilidad desde la aplicación. El sistema actualiza la configuración y continúa operando con los nuevos valores. |
 
+## **2.3 Descripción de los módulos del sistema**
+## **2.3.1 Alimentación**
+<span style="color:red"><strong>⚠ NO SÉ BIEN CÓMO EXPLICAR ESTA PARTE</strong></span>
+<span style="color:red"><strong>⚠ PONER UNA </strong></span>
+## **2.3.2 Microcontrolador**
+Como controlador principal del sistema se utilizó la placa NUCLEO-F103RB conectado a la computadora portátil a través de un cable USB _Type A Type mini B_ \[2\]. La elección de esta placa recayó exclusivamente en que fue la propuesta por la cátedra de la asignatura y fue con la que se trabajó a lo largo del ciclo lectivo. La placa se programó en C++ a través de la plataforma *Keil Studio Cloud* y se muestra en la Figura 2.3.2 .
+
 <span style="color:red"><strong>⚠ CONTINUAR DESDE ACÁ EL CAPÍTULO 2</strong></span>
 
 # **Bibliografía** 
 \[1\] MIT App Inventor. [Online]. Available: https://appinventor.mit.edu/
 
-\[2\] Google Gemini. [Online]. Available: https://gemini.google.com/app?hl=es_419
+\[2\] Manual de usuario de la placa NUCLEO-F103RB. [Online]. Available: https://www.st.com/en/evaluation-tools/nucleo-f103rb.html
 
-\[3\] Chat GPT. [Online]. Available: https://chatgpt.com
+\[.\] Google Gemini. [Online]. Available: https://gemini.google.com/app?hl=es_419
+
+\[.\] Chat GPT. [Online]. Available: https://chatgpt.com
