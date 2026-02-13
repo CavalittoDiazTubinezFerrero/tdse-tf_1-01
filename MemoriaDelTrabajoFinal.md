@@ -52,6 +52,7 @@ The system is based on a development board integrating a microcontroller with an
   - [2.3 Descripción de los módulos del sistema](#23-descripción-de-los-módulos-del-sistema)
     - [2.3.1 Alimentación](#231-alimentación)
     - [2.3.2 Microcontrolador](#232-microcontrolador)
+    - [2.3.3 Módulo de micrófono](#233-módulo-de-micrófono)
     - 
 - [**Bibliografía**](#bibliografía)
     
@@ -223,7 +224,7 @@ La alimentación de BeepBuddy se realizó mediante la placa de desarrollo NUCLEO
 
 El puerto _USB_ proporcionó una tensión nominal de 5 V _DC_. La placa NUCLEO incorpora reguladores de tensión internos que generan 3,3 V para el microcontrolador y permiten disponer de líneas de 5 V y 3,3 V para la alimentación de dispositivos externos (como se muestra en la Figura 2.3.1), tales como el _buzzer_ y el módulo _Bluetooth BLE_, ambos conectados a 3,3 V.
 
-<img width="300" src="MicrocontroladorReferenciadeDiseño.jpg" >
+<img width="600" src="MicrocontroladorReferenciadeDiseño.jpg" >
 
 **Figura 2.3.1**: Referencia de diseño de la placa NUCLEO-F103RB tomada de las guías de trabajo de la cátedra \[3\].
 
