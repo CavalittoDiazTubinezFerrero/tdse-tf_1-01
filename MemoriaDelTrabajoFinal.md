@@ -219,7 +219,11 @@ Habiendo analizado las características principales del monitor, se definieron l
 <span style="color:red"><strong>⚠ NO SÉ BIEN CÓMO EXPLICAR ESTA PARTE</strong></span>
 <span style="color:red"><strong>⚠ PONER UNA FOTO </strong></span>
 ## **2.3.2 Microcontrolador**
-Como controlador principal del sistema se utilizó la placa NUCLEO-F103RB conectado a la computadora portátil a través de un cable USB _Type A Type mini B_ \[2\]. La elección de esta placa recayó exclusivamente en que fue la propuesta por la cátedra de la asignatura y fue con la que se trabajó a lo largo del ciclo lectivo. La placa se programó en C++ a través de la plataforma *Keil Studio Cloud* y se muestra en la Figura 2.3.2 .
+Como controlador principal del sistema se utilizó la placa NUCLEO-F103RB conectada a la computadora portátil a través de un cable USB _Type A Type mini B_ \[2\]. La elección de la misma recayó exclusivamente en que fue la propuesta por la cátedra de la asignatura y fue con la que se trabajó a lo largo del ciclo lectivo. La placa se programó en C a través de la aplicación *STM32CubeIDE 1.19.0* y se muestra en la Figura 2.3.2. \[3\].
+
+<img width="300" src="Microcontrolador.webp" >
+
+**Figura 2.3.2**: Placa NUCLEO-F103RB.
 
 <span style="color:red"><strong>⚠ CONTINUAR DESDE ACÁ EL CAPÍTULO 2</strong></span>
 
@@ -227,6 +231,8 @@ Como controlador principal del sistema se utilizó la placa NUCLEO-F103RB conect
 \[1\] MIT App Inventor. [Online]. Available: https://appinventor.mit.edu/
 
 \[2\] Manual de usuario de la placa NUCLEO-F103RB. [Online]. Available: https://www.st.com/en/evaluation-tools/nucleo-f103rb.html
+
+\[3\] STM32CubeIDE. Integrated Development Environment for STM32. [Online]. Available:https://www.st.com/en/development-tools/stm32cubeide.html
 
 \[.\] Google Gemini. [Online]. Available: https://gemini.google.com/app?hl=es_419
 
