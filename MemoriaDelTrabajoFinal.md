@@ -222,33 +222,50 @@ Habiendo analizado las características principales del monitor, se definieron l
 ## **2.3.1 Alimentación**
 La alimentación de BeepBuddy se realizó mediante la placa de desarrollo NUCLEO-F103RB, la cual se conectó a una computadora portátil a través de un cable _USB Type A Type mini B_ \[2\].
 
-El puerto _USB_ proporcionó una tensión nominal de 5 V _DC_. La placa NUCLEO incorpora reguladores de tensión internos que generan 3,3 V para el microcontrolador y permiten disponer de líneas de 5 V y 3,3 V para la alimentación de dispositivos externos (como se muestra en la Figura 2.3.1), tales como el _buzzer_ y el módulo _Bluetooth BLE_, ambos conectados a 3,3 V.
+El puerto _USB_ proporcionó una tensión nominal de 5 V _DC_. La placa NUCLEO incorpora reguladores de tensión internos que generan 3,3 V para el microcontrolador y permiten disponer de líneas de 5 V y 3,3 V para la alimentación de dispositivos externos (como se muestra en la Figura 2.3.1.1), tales como el _buzzer_ y el módulo _Bluetooth BLE_, ambos conectados a 3,3 V.
 
 <img width="600" src="MicrocontroladorReferenciadeDiseño.jpg" >
 
-**Figura 2.3.1**: Referencia de diseño de la placa NUCLEO-F103RB tomada de las guías de trabajo de la cátedra \[3\].
+**Figura 2.3.1.1**: Referencia de diseño de la placa NUCLEO-F103RB tomada de las guías de trabajo de la cátedra \[3\].
 
 Por otro lado, el módulo del micrófono se alimentó directamente desde el pin de 5 V provisto por la placa, compartiendo masa común con el resto del sistema.
 
 Cabe destacar que esta configuración resultó adecuada para la etapa de prototipo (_MVP_). En una versión autónoma futura del dispositivo sería necesario incorporar una fuente regulada independiente.
 
 ## **2.3.2 Microcontrolador**
-Como microcontrolador del sistema se utilizó la placa NUCLEO-F103RB conectada a la computadora portátil a través de un cable _USB Type A Type mini B_. La elección de la misma recayó exclusivamente en que fue la propuesta por la cátedra de la asignatura y fue con la que se trabajó a lo largo del ciclo lectivo. La placa se programó en C a través de la aplicación *STM32CubeIDE 1.19.0* y se muestra en la Figura 2.3.2 \[4\].
+Como microcontrolador del sistema se utilizó la placa NUCLEO-F103RB conectada a la computadora portátil a través de un cable _USB Type A Type mini B_. La elección de la misma recayó exclusivamente en que fue la propuesta por la cátedra de la asignatura y fue con la que se trabajó a lo largo del ciclo lectivo. La placa se programó en C a través de la aplicación *STM32CubeIDE 1.19.0* y se muestra en la Figura 2.3.2.1 \[4\].
 
 <img width="300" src="Microcontrolador.webp" >
 
-**Figura 2.3.2**: Placa NUCLEO-F103RB.
+**Figura 2.3.2.1**: Placa NUCLEO-F103RB.
 
 ## **2.3.3 Módulo de micrófono**
-Para la detección acústica se utilizó un módulo sensor de sonido con micrófono regulable Arduino Nubbeo del tipo KY-037 como se observa en la Figura 2.3.3 \[5\].
+Para la detección acústica se utilizó un módulo sensor de sonido con micrófono regulable Arduino Nubbeo del tipo KY-037 como se observa en la Figura 2.3.3.1 \[5\].
 
-<img width="300" src="MóduloMicrófono.jpg" >
+<img width="400" src="MóduloMicrófono.jpg" >
 
-**Figura 2.3.3**: Módulo de micrófono.
+**Figura 2.3.3.1**: Módulo de micrófono.
 
 El mismo, permite detectar la presencia de sonido ambiente y generar una salida digital cuando el nivel de sonido supera el umbral configurable a partir del potenciómetro incorporado en la placa (el cual se ajustó aproximadamente a la mitad del rango de operación del micrófono), y una salida analógica proporcional a la amplitud de la señal captada por el sensor.
 
 El micrófono electret convierte la onda sonora en una señal eléctrica analógica de baja amplitud, la cual es amplificada por el circuito interno del módulo. Posteriormente, el comparador interno evalúa si la señal amplificada supera el umbral y, si esto ocurre, la salida digital cambia de estado y se enciende el LED indicador de detección. Por útlimo, la salida analógica entrega una señal proporcional a la amplitud del sonido captado, permitiendo su lectura mediante el conversor analógico-digital del microcontrolador.
+
+## **2.3.4 Módulo _Bluetooth_**
+Para la comunicación inalámbrica entre BeepBuddy y el dispositivo móvil receptor, se utilizó un módulo _Bluetooth_ compatible con _Bluetooth Low Energy (BLE)_ del tipo HM-10, como se observa en las Figuras 2.3.4.1 y 2.3.4.2.
+
+<img width="400" src="MóduloBluetooth.webp" >
+
+**Figura 2.3.4.1**: Módulo _Bluetooth_ parte de arriba.
+
+<img width="400" src="MóduloBluetooth2.webp" >
+
+**Figura 2.3.4.2**: Módulo _Bluetooth_ parte de abajo.
+
+El módulo HM-10 es un adaptador inalámbrico que implementa la especificación _Bluetooth 4.0 BLE_, permitiendo la transmisión de datos en la banda _ISM_ de 2.4 GHz (_Industrial, Scientific and Medical_, rango de frecuencias de radio libre de licencia que cualquier dispositivo puede usar sin necesidad de permiso especial). Este módulo facilita el enlace inalámbrico entre el microcontrolador y el dispositivo móvil emparejado, posibilitando el envío de notificaciones y la configuración remota del sistema.
+
+Desde el punto de vista funcional, el HM-10 dispone de una interfaz de comunicación serial _UART_ (_Universal Asynchronous Receiver/Transmitter_, el cual envía y recibe datos de a un bit a la vez, de forma secuencial) que permite intercambiar datos entre el microcontrolador y el módulo _Bluetooth_. Cuando el microcontrolador detecta un evento de sonido que cumple los criterios de detección configurados, transmite un paquete de datos a través de la interfaz _UART_ al módulo HM-10, el cual lo reenvía inalámbricamente al dispositivo móvil emparejado previamente.
+
+<span style="color:red"><strong>⚠ CONTINUAR DESDE ACÁ EL CAP. 2</strong></span>
 
 # **Bibliografía** 
 \[1\] MIT App Inventor. [Online]. Available: https://appinventor.mit.edu/
