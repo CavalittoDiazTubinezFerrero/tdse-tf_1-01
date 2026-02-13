@@ -266,8 +266,9 @@ El módulo HM-10 es un adaptador inalámbrico que implementa la especificación 
 
 Desde el punto de vista funcional, el HM-10 dispone de una interfaz de comunicación serial _UART_ (_Universal Asynchronous Receiver/Transmitter_, el cual envía y recibe datos de a un bit a la vez, de forma secuencial) que permite intercambiar datos entre el microcontrolador y el módulo _Bluetooth_. Cuando el microcontrolador detecta un evento de sonido que cumple los criterios de detección configurados, transmite un paquete de datos a través de la interfaz _UART_ al módulo HM-10, el cual lo reenvía inalámbricamente al dispositivo móvil emparejado previamente.
 
-<span style="color:red"><strong>⚠ CONTINUAR DESDE ACÁ EL CAP. 2</strong></span>
+## **2.3.4 _Buzzer_ **
 
+<span style="color:red"><strong>⚠ CONTINUAR DESDE ACÁ EL CAP. 2</strong></span>
 # **Bibliografía** 
 \[1\] MIT App Inventor. [Online]. Available: https://appinventor.mit.edu/
 
