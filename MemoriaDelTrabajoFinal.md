@@ -53,6 +53,7 @@ The system is based on a development board integrating a microcontroller with an
     - [2.3.1 Alimentación](#231-alimentación)
     - [2.3.2 Microcontrolador](#232-microcontrolador)
     - [2.3.3 Módulo de micrófono](#233-módulo-de-micrófono)
+    - [2.3.4 Módulo _Bluetooth_](#234-módulo-bluetooth)
     - 
 - [**Bibliografía**](#bibliografía)
     
@@ -251,15 +252,15 @@ El mismo, permite detectar la presencia de sonido ambiente y generar una salida 
 El micrófono electret convierte la onda sonora en una señal eléctrica analógica de baja amplitud, la cual es amplificada por el circuito interno del módulo. Posteriormente, el comparador interno evalúa si la señal amplificada supera el umbral y, si esto ocurre, la salida digital cambia de estado y se enciende el LED indicador de detección. Por útlimo, la salida analógica entrega una señal proporcional a la amplitud del sonido captado, permitiendo su lectura mediante el conversor analógico-digital del microcontrolador.
 
 ## **2.3.4 Módulo _Bluetooth_**
-Para la comunicación inalámbrica entre BeepBuddy y el dispositivo móvil receptor, se utilizó un módulo _Bluetooth_ compatible con _Bluetooth Low Energy (BLE)_ del tipo HM-10, como se observa en las Figuras 2.3.4.1 y 2.3.4.2.
+Para la comunicación inalámbrica entre BeepBuddy y el dispositivo móvil receptor, se utilizó un módulo _Bluetooth_ compatible con _Bluetooth Low Energy (BLE)_ del tipo HM-10, como se observa en las Figuras 2.3.4.1 y 2.3.4.2 \[6\]\[7\].
 
 <img width="400" src="MóduloBluetooth.webp" >
 
-**Figura 2.3.4.1**: Módulo _Bluetooth_ parte de arriba.
+**Figura 2.3.4.1**: Módulo _Bluetooth_ (vista superior).
 
 <img width="400" src="MóduloBluetooth2.webp" >
 
-**Figura 2.3.4.2**: Módulo _Bluetooth_ parte de abajo.
+**Figura 2.3.4.2**: Módulo _Bluetooth_ (vista inferior).
 
 El módulo HM-10 es un adaptador inalámbrico que implementa la especificación _Bluetooth 4.0 BLE_, permitiendo la transmisión de datos en la banda _ISM_ de 2.4 GHz (_Industrial, Scientific and Medical_, rango de frecuencias de radio libre de licencia que cualquier dispositivo puede usar sin necesidad de permiso especial). Este módulo facilita el enlace inalámbrico entre el microcontrolador y el dispositivo móvil emparejado, posibilitando el envío de notificaciones y la configuración remota del sistema.
 
@@ -277,6 +278,10 @@ Desde el punto de vista funcional, el HM-10 dispone de una interfaz de comunicac
 \[4\] STM32CubeIDE. Integrated Development Environment for STM32. [Online]. Available:https://www.st.com/en/development-tools/stm32cubeide.html
 
 \[5\] Manual de usuario del módulo de micrófono. [Online]. Available: https://www.alldatasheet.com/datasheet-pdf/download/1284506/JOY-IT/KY037.html
+
+\[6\] Módulo HM-10 bluetooth 4.0 BLE a UART. TodoMicro. [Online]. Available: https://www.todomicro.com.ar/comunicacion/637-modulo-hm-10-bluetooth-40-ble-a-uart.html?srsltid=AfmBOopp0r5laITQYUaryYYiX3FX0pVC3rmiN0xScYLpI9sgNRYFOCRr
+
+\[7\] Manual de usuario del módulo _Bluetooth_. [Online]. Available: https://www.alldatasheet.com/datasheet-pdf/download/1179058/ETC1/HM-10.html
 
 \[.\] Google Gemini. [Online]. Available: https://gemini.google.com/app?hl=es_419
 
