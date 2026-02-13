@@ -244,7 +244,7 @@ Como microcontrolador del sistema se utilizó la placa NUCLEO-F103RB conectada a
 ## **2.3.3 Módulo de micrófono**
 Para la detección acústica se utilizó un módulo sensor de sonido con micrófono regulable Arduino Nubbeo del tipo KY-037 como se observa en la Figura 2.3.3.1 \[5\].
 
-<img width="400" src="MóduloMicrófono.jpg" >
+<img width="300" src="MóduloMicrófono.jpg" >
 
 **Figura 2.3.3.1**: Módulo de micrófono.
 
@@ -255,11 +255,11 @@ El micrófono electret convierte la onda sonora en una señal eléctrica analóg
 ## **2.3.4 Módulo _Bluetooth_**
 Para la comunicación inalámbrica entre BeepBuddy y el dispositivo móvil receptor, se utilizó un módulo _Bluetooth_ compatible con _Bluetooth Low Energy (BLE)_ del tipo HM-10, como se observa en las Figuras 2.3.4.1 y 2.3.4.2 \[6\]\[7\].
 
-<img width="400" src="MóduloBluetooth.webp" >
+<img width="300" src="MóduloBluetooth.webp" >
 
 **Figura 2.3.4.1**: Módulo _Bluetooth_ (vista superior).
 
-<img width="400" src="MóduloBluetooth2.webp" >
+<img width="300" src="MóduloBluetooth2.webp" >
 
 **Figura 2.3.4.2**: Módulo _Bluetooth_ (vista inferior).
 
@@ -270,11 +270,11 @@ Desde el punto de vista funcional, el HM-10 dispone de una interfaz de comunicac
 ## **2.3.4 Módulo _buzzer_**
 En el dispositivo desarrollado, el _buzzer_ (observado en las Figuras 2.3.4.1 y 2.3.4.2) se implementó exclusivamente para emitir un breve pitido cuando el _switch_ principal pasa del estado _OFF_ a _ON_, indicando al usuario que el sistema ha sido energizado correctamente \[8\]\[9\].
 
-<img width="400" src="MóduloBuzzer.jpg">
+<img width="300" src="MóduloBuzzer.jpg">
 
 Figura 2.3.4.1: Módulo _buzzer_ (vista superior).
 
-<img width="400" src="MóduloBuzzer2.jpg">
+<img width="300" src="MóduloBuzzer2.jpg">
 
 Figura 2.3.4.2: Módulo _buzzer_ (vista inferior).
 
