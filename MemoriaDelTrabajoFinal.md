@@ -54,6 +54,7 @@ The system is based on a development board integrating a microcontroller with an
     - [2.3.2 Microcontrolador](#232-microcontrolador)
     - [2.3.3 Módulo de micrófono](#233-módulo-de-micrófono)
     - [2.3.4 Módulo _Bluetooth_](#234-módulo-bluetooth)
+    - [2.3.5 Módulo _buzzer_](#235-módulo-buzzer)
     - 
 - [**Bibliografía**](#bibliografía)
     
@@ -266,9 +267,24 @@ El módulo HM-10 es un adaptador inalámbrico que implementa la especificación 
 
 Desde el punto de vista funcional, el HM-10 dispone de una interfaz de comunicación serial _UART_ (_Universal Asynchronous Receiver/Transmitter_, el cual envía y recibe datos de a un bit a la vez, de forma secuencial) que permite intercambiar datos entre el microcontrolador y el módulo _Bluetooth_. Cuando el microcontrolador detecta un evento de sonido que cumple los criterios de detección configurados, transmite un paquete de datos a través de la interfaz _UART_ al módulo HM-10, el cual lo reenvía inalámbricamente al dispositivo móvil emparejado previamente.
 
-## **2.3.4 _Buzzer_ **
+## **2.3.4 Módulo _buzzer_**
+En el dispositivo desarrollado, el _buzzer_ (observado en las Figuras 2.3.4.1 y 2.3.4.2) se implementó exclusivamente para emitir un breve pitido cuando el _switch_ principal pasa del estado _OFF_ a _ON_, indicando al usuario que el sistema ha sido energizado correctamente \[8\]\[9\].
+
+<img width="400" src="MóduloBuzzer.jpg">
+
+Figura 2.3.4.1: Módulo _buzzer_ (vista superior).
+
+<img width="400" src="MóduloBuzzer2.jpg">
+
+Figura 2.3.4.2: Módulo _buzzer_ (vista inferior).
+
+El mismo, está basado en un transductor piezoeléctrico, el cual produce sonido cuando se le aplica una señal eléctrica alterna que provoca la vibración mecánica de un diafragma cerámico.
+
+Si bien el módulo fue comercializado como un _buzzer_ activo (es decir, con oscilador interno y capaz de funcionar al aplicarle una tensión continua), experimentalmente se verificó que no generaba sonido ante la aplicación de una señal continua. Por este motivo, fue necesario excitarlo mediante una señal cuadrada generada por el microcontrolador mediante modulación por ancho de pulso (_PWM_), suministrando así la señal alterna requerida para su funcionamiento.
+
 
 <span style="color:red"><strong>⚠ CONTINUAR DESDE ACÁ EL CAP. 2</strong></span>
+
 # **Bibliografía** 
 \[1\] MIT App Inventor. [Online]. Available: https://appinventor.mit.edu/
 
@@ -283,6 +299,10 @@ Desde el punto de vista funcional, el HM-10 dispone de una interfaz de comunicac
 \[6\] Módulo HM-10 bluetooth 4.0 BLE a UART. TodoMicro. [Online]. Available: https://www.todomicro.com.ar/comunicacion/637-modulo-hm-10-bluetooth-40-ble-a-uart.html?srsltid=AfmBOopp0r5laITQYUaryYYiX3FX0pVC3rmiN0xScYLpI9sgNRYFOCRr
 
 \[7\] Manual de usuario del módulo _Bluetooth_. [Online]. Available: https://www.alldatasheet.com/datasheet-pdf/download/1179058/ETC1/HM-10.html
+
+\[8\] Módulo Buzzer Activo 3.3v A 5v. [Online]. Available: https://www.mercadolibre.com.ar/modulo-buzzer-activo-33v-a-5v/p/MLA2048303554?pdp_filters=seller_id%3A302249631#polycard_client=recommendations_vip-seller_data_items-above&reco_backend=ranker-retsys-same-seller&reco_model=rk_entity_sameseller&reco_client=vip-seller_data_items-above&reco_item_pos=0&reco_backend_type=low_level&reco_id=4009794f-8183-4ec4-8aa5-5448369b409f&wid=MLA752290080&sid=recos
+
+\[9\] Manual de usuario del módulo _buzzer_. [Online]. Available: https://www.alldatasheet.com/datasheet-pdf/pdf/169124/ETC2/EFM-236L.html
 
 \[.\] Google Gemini. [Online]. Available: https://gemini.google.com/app?hl=es_419
 
