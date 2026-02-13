@@ -217,7 +217,7 @@ Habiendo analizado las características principales del monitor, se definieron l
 ## **2.3 Descripción de los módulos del sistema**
 ## **2.3.1 Alimentación**
 <span style="color:red"><strong>⚠ NO SÉ BIEN CÓMO EXPLICAR ESTA PARTE</strong></span>
-<span style="color:red"><strong>⚠ PONER UNA </strong></span>
+<span style="color:red"><strong>⚠ PONER UNA FOTO </strong></span>
 ## **2.3.2 Microcontrolador**
 Como controlador principal del sistema se utilizó la placa NUCLEO-F103RB conectado a la computadora portátil a través de un cable USB _Type A Type mini B_ \[2\]. La elección de esta placa recayó exclusivamente en que fue la propuesta por la cátedra de la asignatura y fue con la que se trabajó a lo largo del ciclo lectivo. La placa se programó en C++ a través de la plataforma *Keil Studio Cloud* y se muestra en la Figura 2.3.2 .
 
