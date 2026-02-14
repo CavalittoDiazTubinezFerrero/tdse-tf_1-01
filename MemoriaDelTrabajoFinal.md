@@ -55,7 +55,7 @@ The system is based on a development board integrating a microcontroller with an
     - [2.3.3 Módulo de micrófono](#233-módulo-de-micrófono)
     - [2.3.4 Módulo _Bluetooth_](#234-módulo-bluetooth)
     - [2.3.5 Módulo _buzzer_](#235-módulo-buzzer)
-    - [2.3.6 Interfaz de usuario: _DIP switch_ y LEDs](#236-interfaz-de-usuario:-DIP-switch-y-LEDs)
+    - [2.3.6 Interfaz de usuario: _DIP switch_ y LEDs](#236-interfaz-de-usuario-dip-switch-y-leds)
   - [**Diseño e implementación**](#diseño-e-implementación)
     - [3.1 Diseño del _hardware_](#31-diseño-del-hardware)
     - 
