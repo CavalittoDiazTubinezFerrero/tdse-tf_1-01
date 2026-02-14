@@ -282,6 +282,8 @@ El mismo, está basado en un transductor piezoeléctrico, el cual produce sonido
 
 Si bien el módulo fue comercializado como un _buzzer_ activo (es decir, con oscilador interno y capaz de funcionar al aplicarle una tensión continua), experimentalmente se verificó que no generaba sonido ante la aplicación de una señal continua. Por este motivo, fue necesario excitarlo mediante una señal cuadrada generada por el microcontrolador mediante modulación por ancho de pulso (_PWM_), suministrando así la señal alterna requerida para su funcionamiento.
 
+## **2.3.5 Interfaz usuario: _switch_ y LEDs**
+
 
 <span style="color:red"><strong>⚠ CONTINUAR DESDE ACÁ EL CAP. 2</strong></span>
 
