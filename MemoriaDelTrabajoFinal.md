@@ -55,19 +55,22 @@ The system is based on a development board integrating a microcontroller with an
     - [2.3.3 Módulo de micrófono](#233-módulo-de-micrófono)
     - [2.3.4 Módulo _Bluetooth_](#234-módulo-bluetooth)
     - [2.3.5 Módulo _buzzer_](#235-módulo-buzzer)
+    - [2.3.6 Interfaz de usuario: _DIP switch_ y LEDs](#236-interfaz-de-usuario:-DIP-switch-y-LEDs)
+  - [**Diseño e implementación**](#diseño-e-implementación)
+    - [3.1 Diseño del _hardware_](#31-diseño-del-hardware)
     - 
 - [**Bibliografía**](#bibliografía)
-    
+
 <span style="color:red"><strong>⚠ IR COMPLETANDO A MEDIDA QUE SE VAYAN ESCRIBIENDO CADA UNA DE LAS SECCIONES</strong></span>
 
 
 ## Registro de versiones
 
-| Revisión | Cambios realizados | Fecha |
+| Revisión | Cambios realizados | Fecha de finalización |
 | :---: | ----- | ----- |
 | 1.0 | Creación del documento | 10/02/2026 |
 | 1.1 | Redacción del primer capítulo | 11/02/2026 |
-| 1.2 | Redacción del segundo capítulo | ... |
+| 1.2 | Redacción del segundo capítulo | 14/02/2026 |
 | 1.3 | Redacción del tercer capítulo | ... |
 | 1.4 | Redacción final | ... |
 
@@ -267,25 +270,47 @@ El módulo HM-10 es un adaptador inalámbrico que implementa la especificación 
 
 Desde el punto de vista funcional, el HM-10 dispone de una interfaz de comunicación serial _UART_ (_Universal Asynchronous Receiver/Transmitter_, el cual envía y recibe datos de a un bit a la vez, de forma secuencial) que permite intercambiar datos entre el microcontrolador y el módulo _Bluetooth_. Cuando el microcontrolador detecta un evento de sonido que cumple los criterios de detección configurados, transmite un paquete de datos a través de la interfaz _UART_ al módulo HM-10, el cual lo reenvía inalámbricamente al dispositivo móvil emparejado previamente.
 
-## **2.3.4 Módulo _buzzer_**
-En el dispositivo desarrollado, el _buzzer_ (observado en las Figuras 2.3.4.1 y 2.3.4.2) se implementó exclusivamente para emitir un breve pitido cuando el _switch_ principal pasa del estado _OFF_ a _ON_, indicando al usuario que el sistema ha sido energizado correctamente \[8\]\[9\].
+## **2.3.5 Módulo _buzzer_**
+En el dispositivo desarrollado, el _buzzer_ (observado en las Figuras 2.3.5.1 y 2.3.5.2) se implementó exclusivamente para emitir un breve pitido cuando el _switch_ principal pasa del estado _OFF_ a _ON_, indicando al usuario que el sistema ha sido energizado correctamente \[8\]\[9\].
 
 <img width="300" src="MóduloBuzzer.jpg">
 
-Figura 2.3.4.1: Módulo _buzzer_ (vista superior).
+**Figura 2.3.5.1:** Módulo _buzzer_ (vista superior).
 
 <img width="300" src="MóduloBuzzer2.jpg">
 
-Figura 2.3.4.2: Módulo _buzzer_ (vista inferior).
+**Figura 2.3.5.2:** Módulo _buzzer_ (vista inferior).
 
 El mismo, está basado en un transductor piezoeléctrico, el cual produce sonido cuando se le aplica una señal eléctrica alterna que provoca la vibración mecánica de un diafragma cerámico.
 
 Si bien el módulo fue comercializado como un _buzzer_ activo (es decir, con oscilador interno y capaz de funcionar al aplicarle una tensión continua), experimentalmente se verificó que no generaba sonido ante la aplicación de una señal continua. Por este motivo, fue necesario excitarlo mediante una señal cuadrada generada por el microcontrolador mediante modulación por ancho de pulso (_PWM_), suministrando así la señal alterna requerida para su funcionamiento.
 
-## **2.3.5 Interfaz usuario: _switch_ y LEDs**
+## **2.3.6 Interfaz de usuario: _DIP switch_ y LEDs**
+La interfaz de usuario del dispositivo está compuesta por un _DIP switch_ (_Dual In-line Package switch_) de tres posiciones y cuatro _LEDs_ (_Light Emitting Diodes_), los cuales permiten visualizar el estado de funcionamiento y el modo de operación seleccionado \[10\]. Los mismos se muestran a continuación en las Figuras 2.3.6.1 y 2.3.6.2.
 
+<img width="400" src="DIPSwitch.webp">
 
-<span style="color:red"><strong>⚠ CONTINUAR DESDE ACÁ EL CAP. 2</strong></span>
+**Figura 2.3.6.1:** _DIP switch_.
+
+<img width="400" src="LEDs.jpeg">
+
+**Figura 2.3.6.2:** _LEDs_.
+
+La primera posición del _switch_ corresponde al encendido general del sistema. Cuando se la coloca en posición _ON_, el dispositivo se energiza, se enciende el _LED_ verde y el _buzzer_ emite un breve pitido. En caso de que no se seleccione ningún modo de operación, también se enciende el _LED_ rojo, indicando estado por defecto (modo no definido).
+
+La segunda posición del interruptor _DIP_ habilita el modo día, encendiéndose el _LED_ amarillo como indicador visual, mientras que, al colocarlo en la tercera posición, se activa el modo noche encendiéndose el _LED_ azul.
+
+Los modos de operación (día/noche) solo pueden activarse cuando la primera posición (encendido general, inidicada con el _LED_ verde) se encuentra en estado _ON_. Si las tres posiciones del _switch_ se encuentran activadas simultáneamente, el sistema entra nuevamente en el estado de _default_, encendiéndose el _LED_ rojo.
+
+<span style="color:red"><strong>⚠ HAY QUE PONER ALGO SOBRE LA FLASH INTERNA???</strong></span>
+
+# **CAPÍTULO 3**
+
+# **Diseño e implementación**
+
+## **3.1 Diseño del _hardware_**
+
+<span style="color:red"><strong>⚠ CONTINUAR DESDE ACÁ EL CAP. 3</strong></span>
 
 # **Bibliografía** 
 \[1\] MIT App Inventor. [Online]. Available: https://appinventor.mit.edu/
@@ -305,6 +330,8 @@ Si bien el módulo fue comercializado como un _buzzer_ activo (es decir, con osc
 \[8\] Módulo Buzzer Activo 3.3v A 5v. [Online]. Available: https://www.mercadolibre.com.ar/modulo-buzzer-activo-33v-a-5v/p/MLA2048303554?pdp_filters=seller_id%3A302249631#polycard_client=recommendations_vip-seller_data_items-above&reco_backend=ranker-retsys-same-seller&reco_model=rk_entity_sameseller&reco_client=vip-seller_data_items-above&reco_item_pos=0&reco_backend_type=low_level&reco_id=4009794f-8183-4ec4-8aa5-5448369b409f&wid=MLA752290080&sid=recos
 
 \[9\] Manual de usuario del módulo _buzzer_. [Online]. Available: https://www.alldatasheet.com/datasheet-pdf/pdf/169124/ETC2/EFM-236L.html
+
+\[10\] Manual de usuario del _DIP switch_. [Online]. Available: https://www.alldatasheet.es/datasheet-pdf/view/2015587/AGELECTRONICA/DIP-3.html
 
 \[.\] Google Gemini. [Online]. Available: https://gemini.google.com/app?hl=es_419
 
