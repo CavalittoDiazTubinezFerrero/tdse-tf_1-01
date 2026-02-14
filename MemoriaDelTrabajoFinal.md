@@ -288,11 +288,11 @@ Si bien el módulo fue comercializado como un _buzzer_ activo (es decir, con osc
 ## **2.3.6 Interfaz de usuario: _DIP switch_ y LEDs**
 La interfaz de usuario del dispositivo está compuesta por un _DIP switch_ (_Dual In-line Package switch_) de tres posiciones y cuatro _LEDs_ (_Light Emitting Diodes_), los cuales permiten visualizar el estado de funcionamiento y el modo de operación seleccionado \[10\]. Los mismos se muestran a continuación en las Figuras 2.3.6.1 y 2.3.6.2.
 
-<img width="300" src="DipSwitch.webp">
+<img width="150" src="DipSwitch.webp">
 
 **Figura 2.3.6.1:** _DIP switch_.
 
-<img width="250" src="LEDs.jpeg">
+<img width="150" src="LEDs.jpeg">
 
 **Figura 2.3.6.2:** _LEDs_.
 
