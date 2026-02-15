@@ -60,7 +60,11 @@ The system is based on a development board integrating a microcontroller with an
     - [3.1 Diseño del _hardware_](#31-diseño-del-hardware)
     - [3.2 _Firmware_ de _BeepBuddy_](#32-firmware-de-beepbuddy)
     - [3.3 Diseño de la aplicación](#33-diseño-de-la-aplicación)
-  -
+  - [**Ensayos y resultados**](#ensayos-y-resultados)
+    - [4.1 Pruebas funcionales del funcionamiento](#41-pruebas-funcionales-del-funcionamiento)
+    - [4.2 Cumplimiento de requisitos](#42-cumplimiento-de-requisitos)
+    - [4.3 Comparación con otros sistemas similares](#43-comparación-con-otros-sistemas-similares)
+    - 
 - [**Bibliografía**](#bibliografía)
 
 <span style="color:red"><strong>⚠ IR COMPLETANDO A MEDIDA QUE SE VAYAN ESCRIBIENDO CADA UNA DE LAS SECCIONES</strong></span>
@@ -446,7 +450,7 @@ Cabe destacar que cada uno de los requisitos fue cumplido.
 
 <span style="color:red"><strong>⚠ HICIMOS ALGO MÁS QUE NO HAYAMOS DEFINIDO INICIALMENTE???</strong></span>
 
-## **4.4 Comparación con otros sistemas similares**
+## **4.3 Comparación con otros sistemas similares**
 Como se mencionó previamente en la Sección 1.1, el mercado actual cuenta con diversos dispositivos de monitoreo con características relacionadas a la captación y transmisión de sonido. Sin embargo, la mayoría de estos están pensados para usuarios sin limitaciones auditivas y no contemplan específicamente la problemática abordada en este trabajo. Por este motivo, y considerando la diversidad de enfoques presentes en el mercado, resulta complejo establecer una comparación estrictamente equivalente entre el prototipo desarrollado y los dispositivos disponibles, ya que cada uno prioriza distintos criterios de diseño y aplicación.
 
 En este contexto, el aporte principal del presente desarrollo radica en su enfoque inclusivo, orientado a brindar una alternativa accesible frente a soluciones convencionales existentes. Asimismo, el sistema presenta posibilidades de evolución futura, tales como la incorporación de dispositivos de notificación háptica (por ejemplo, mediante una pulsera con vibración) o el uso de sensores portátiles, lo que permitiría mejorar la comodidad y adaptabilidad del usuario.
