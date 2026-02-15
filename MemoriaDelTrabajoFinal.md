@@ -185,7 +185,7 @@ Habiendo analizado las características principales del monitor, se definieron l
 <tr>
 <td>Interfaz física</td>
 <td>5.1</td>
-<td>El sistema cuenta con botones y switches para seleccionar modo de operación.</td>
+<td>El sistema cuenta con switches para seleccionar modo de operación.</td>
 </tr>
 <tr>
 <td></td>
@@ -319,6 +319,139 @@ Para el diseño del prototipo se empleó una
 
 ## **3.3 Diseño de la aplicación**
 <span style="color:red"><strong>⚠ CONTINUAR DESDE ACÁ</strong></span>
+
+# **CAPÍTULO 4**
+
+# **Ensayos y resultados**
+
+## **4.1 Pruebas funcionales de funcionamiento**
+<span style="color:red"><strong>⚠ CONTINUAR DESDE ACÁ</strong></span>
+
+## **4.2 Cumplimiento de requisitos**
+Una vez finalizado el trabajo, se tomó la Tabla 2.1.1 (definida anteriormente en la Sección 2.1) y se definió el estado de cada uno de los requisitos iniciales del dispositivo, detallados a continuación en la Tabla 4.2.1.
+
+**Tabla 4.2.1:** Estado de los requisitos del proyecto. 
+<table>
+<thead>
+<tr>
+<th>Grupo</th>
+<th>ID</th>
+<th>Descripción</th>
+<th>Estado</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>Adquisición</td>
+<td>1.1</td>
+<td>El sistema cuenta con un micrófono para captar sonidos del entorno.</td>
+<td>COMPLETADO</td>
+</tr>
+<tr>
+<td></td>
+<td>1.2</td>
+<td>El sistema digitaliza la señal sonora mediante el ADC de la placa STM.</td>
+<td>COMPLETADO</td>
+</tr>
+
+<tr>
+<td>Procesamiento</td>
+<td>2.1</td>
+<td>El sistema detecta sonidos relevantes (llanto, alarma, golpes, palabra clave).</td>
+<td>COMPLETADO</td>
+</tr>
+<tr>
+<td></td>
+<td>2.2</td>
+<td>El usuario puede configurar sensibilidad y parámetros mediante la interfaz de la aplicación.</td>
+<td>COMPLETADO</td>
+</tr>
+<tr>
+<td></td>
+<td>2.3</td>
+<td>El sistema almacena parámetros configurables en memoria junto con un historial de alertas.</td>
+<td><span style="color:red"><strong>⚠ LO HACE???</strong></span></td>
+</tr>
+
+<tr>
+<td>Notificación</td>
+<td>3.1</td>
+<td>El sistema envía notificaciones a un dispositivo móvil vía Bluetooth.</td>
+<td>COMPLETADO</td>
+</tr>
+<tr>
+<td></td>
+<td>3.2</td>
+<td>Las notificaciones son inmediatas ante la detección de eventos críticos.</td>
+<td>COMPLETADO</td>
+</tr>
+
+<tr>
+<td>Aplicación</td>
+<td>4.1</td>
+<td>La aplicación muestra alertas visuales asociadas a los sonidos detectados.</td>
+<td>COMPLETADO</td>
+</tr>
+<tr>
+<td></td>
+<td>4.2</td>
+<td>La aplicación permite consultar el historial de alertas.</td>
+<td>COMPLETADO</td>
+</tr>
+<tr>
+<td></td>
+<td>4.3</td>
+<td>La aplicación indica el estado de conexión Bluetooth del dispositivo.</td>
+<td>COMPLETADO</td>
+</tr>
+
+<tr>
+<td>Interfaz física</td>
+<td>5.1</td>
+<td>El sistema cuenta con interruptores para seleccionar el modo de operación.</td>
+<td>COMPLETADO</td>
+</tr>
+<tr>
+<td></td>
+<td>5.2</td>
+<td>El sistema cuenta con indicadores LED básicos de funcionamiento (encendido/apagado, modo y estado de conexión Bluetooth).</td>
+<td>COMPLETADO</td>
+</tr>
+
+<tr>
+<td>Requisitos de operación</td>
+<td>6.1</td>
+<td>El dispositivo funciona sin conexión a internet.</td>
+<td>COMPLETADO</td>
+</tr>
+<tr>
+<td></td>
+<td>6.2</td>
+<td>El sistema tiene bajo consumo energético.</td>
+<td><span style="color:red"><strong>⚠ CÓMO LO DEMOSTRAMOS???</strong></span></td>
+</tr>
+<tr>
+<td></td>
+<td>6.3</td>
+<td>El sistema es seguro y confiable, priorizando evitar omitir eventos reales.</td>
+<td>COMPLETADO</td>
+</tr>
+
+</tbody>
+</table>
+
+Cabe destacar que cada uno de los requisitos fue cumplido.
+
+<span style="color:red"><strong>⚠ HICIMOS ALGO MÁS QUE NO HAYAMOS DEFINIDO INICIALMENTE???</strong></span>
+
+## **4.4 Comparación con otros sistemas similares**
+Como se mencionó previamente en la Sección 1.1, el mercado actual cuenta con diversos dispositivos de monitoreo con características relacionadas a la captación y transmisión de sonido. Sin embargo, la mayoría de estos están pensados para usuarios sin limitaciones auditivas y no contemplan específicamente la problemática abordada en este trabajo. Por este motivo, y considerando la diversidad de enfoques presentes en el mercado, resulta complejo establecer una comparación estrictamente equivalente entre el prototipo desarrollado y los dispositivos disponibles, ya que cada uno prioriza distintos criterios de diseño y aplicación.
+
+En este contexto, el aporte principal del presente desarrollo radica en su enfoque inclusivo, orientado a brindar una alternativa accesible frente a soluciones convencionales existentes. Asimismo, el sistema presenta posibilidades de evolución futura, tales como la incorporación de dispositivos de notificación háptica (por ejemplo, mediante una pulsera con vibración) o el uso de sensores portátiles, lo que permitiría mejorar la comodidad y adaptabilidad del usuario.
+
+<span style="color:red"><strong>⚠ CONTINUAR DESDE ACÁ EL CAPÍTULO 4</strong></span>
 
 # **Bibliografía** 
 \[1\] MIT App Inventor. [Online]. Available: https://appinventor.mit.edu/
