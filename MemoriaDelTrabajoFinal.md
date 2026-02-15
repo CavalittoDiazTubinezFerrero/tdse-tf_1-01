@@ -58,11 +58,12 @@ The system is based on a development board integrating a microcontroller with an
     - [2.3.6 Interfaz de usuario: _DIP switch_ y LEDs](#236-interfaz-de-usuario-dip-switch-y-leds)
   - [**Diseño e implementación**](#diseño-e-implementación)
     - [3.1 Diseño del _hardware_](#31-diseño-del-hardware)
-    - 
+    - [3.2 _Firmware_ de _BeepBuddy_](#32-firmware-de-beepbuddy)
+    - [3.3 Diseño de la aplicación](#33-diseño-de-la-aplicación)
+  -
 - [**Bibliografía**](#bibliografía)
 
 <span style="color:red"><strong>⚠ IR COMPLETANDO A MEDIDA QUE SE VAYAN ESCRIBIENDO CADA UNA DE LAS SECCIONES</strong></span>
-
 
 ## Registro de versiones
 
@@ -309,8 +310,15 @@ Los modos de operación (día/noche) solo pueden activarse cuando la primera pos
 # **Diseño e implementación**
 
 ## **3.1 Diseño del _hardware_**
+Para el diseño del prototipo se empleó una
 
-<span style="color:red"><strong>⚠ CONTINUAR DESDE ACÁ EL CAP. 3</strong></span>
+<span style="color:red"><strong>⚠ CONTINUAR DESDE ACÁ</strong></span>
+
+## **3.2 _Firmware_ de _BeepBuddy_**
+<span style="color:red"><strong>⚠ CONTINUAR DESDE ACÁ</strong></span>
+
+## **3.3 Diseño de la aplicación**
+<span style="color:red"><strong>⚠ CONTINUAR DESDE ACÁ</strong></span>
 
 # **Bibliografía** 
 \[1\] MIT App Inventor. [Online]. Available: https://appinventor.mit.edu/
