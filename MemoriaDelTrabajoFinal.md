@@ -67,6 +67,7 @@ The system is based on a development board integrating a microcontroller with an
     - 
 - [**Bibliografía**](#bibliografía)
 
+<span style="color:red"><strong>⚠ LAS SECCIONES DEL CAPÍTULO 3 NO ESTÁN HECHAS!!!</strong></span>
 <span style="color:red"><strong>⚠ IR COMPLETANDO A MEDIDA QUE SE VAYAN ESCRIBIENDO CADA UNA DE LAS SECCIONES</strong></span>
 
 ## Registro de versiones
