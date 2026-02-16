@@ -148,28 +148,28 @@ Habiendo analizado las características principales del monitor, se definieron l
 <tr>
 <td>Procesamiento</td>
 <td>2.1</td>
-<td>El sistema detectar sonido relevantes (llanto, alarma, golpes, palabra clave).</td>
+<td>El sistema detecta sonidos relevantes (llanto, alarma, golpes, palabra clave).</td>
 </tr>
 <tr>
 <td></td>
 <td>2.2</td>
-<td>El usuario puede configurar sensibilidad y parámetros mediante la interfaz de la aplicación.</td>
+<td>El usuario puede configurar sensibilidad y parámetros mediante un switch.</td>
 </tr>
 <tr>
 <td></td>
 <td>2.3</td>
-<td>El sistema almacena parámetros configurables en memoria junto con un historial de alertas.</td>
+<td>El sistema almacena parámetros configurables en memoria.</td>
 </tr>
 
 <tr>
 <td>Notificación</td>
 <td>3.1</td>
-<td>El sistema envía notificaciones a un dispositivo móvil vía Bluetooth .</td>
+<td>El sistema envía notificaciones a un dispositivo móvil vía Bluetooth.</td>
 </tr>
 <tr>
 <td></td>
 <td>3.2</td>
-<td>Las notificaciones son inmediatas ante detección de eventos críticos.</td>
+<td>Las notificaciones son inmediatas ante detección de eventos.</td>
 </tr>
 
 <tr>
@@ -187,16 +187,31 @@ Habiendo analizado las características principales del monitor, se definieron l
 <td>4.3</td>
 <td>La aplicación indica el estado de conexión Bluetooth del dispositivo.</td>
 </tr>
+<tr>
+<td></td>
+<td>4.4</td>
+<td>La aplicación permite definir el umbral de sensibilidad.</td>
+</tr>
+<tr>
+<td></td>
+<td>4.5</td>
+<td>La aplicación permite elegir diferentes modos de funcionamiento.</td>
+</tr>
 
 <tr>
 <td>Interfaz física</td>
 <td>5.1</td>
-<td>El sistema cuenta con switches para seleccionar modo de operación.</td>
+<td>El sistema cuenta con un switch para seleccionar el modo de operación.</td>
 </tr>
 <tr>
 <td></td>
 <td>5.2</td>
 <td>El sistema cuenta con indicadores LEDs básicos de funcionamiento (encendido/apagado, modo y estado de conexión Bluetooth).</td>
+</tr>
+<tr>
+<td></td>
+<td>5.3</td>
+<td>El sistema emite un pitido al ser encendido.</td>
 </tr>
 
 <tr>
@@ -212,12 +227,13 @@ Habiendo analizado las características principales del monitor, se definieron l
 <tr>
 <td></td>
 <td>6.3</td>
-<td>El sistema es seguro y confiable, priorizando evitar omitir eventos reales.</td>
+<td>El sistema es seguro y confiable.</td>
 </tr>
 
 </tbody>
 </table>
 
+<span style="color:red"><strong>⚠ IR VIENDO SI SE AGREGAN NUEVOS REQUISITOS Y SUS ESTADOS EN EL INFORME DE AVANCES</strong></span>
 
 ## **2.2 Descripción de uso**
 
@@ -337,6 +353,7 @@ Para el diseño del prototipo se
 Una vez finalizado el trabajo, se tomó la Tabla 2.1.1 (definida anteriormente en la Sección 2.1) y se definió el estado de cada uno de los requisitos iniciales del dispositivo, detallados a continuación en la Tabla 4.2.1.
 
 **Tabla 4.2.1:** Estado de los requisitos del proyecto. 
+
 <table>
 <thead>
 <tr>
@@ -371,14 +388,14 @@ Una vez finalizado el trabajo, se tomó la Tabla 2.1.1 (definida anteriormente e
 <tr>
 <td></td>
 <td>2.2</td>
-<td>El usuario puede configurar sensibilidad y parámetros mediante la interfaz de la aplicación.</td>
+<td>El usuario puede configurar sensibilidad y parámetros mediante un switch.</td>
 <td>COMPLETADO</td>
 </tr>
 <tr>
 <td></td>
 <td>2.3</td>
-<td>El sistema almacena parámetros configurables en memoria junto con un historial de alertas.</td>
-<td><span style="color:red"><strong>⚠ LO HACE???</strong></span></td>
+<td>El sistema almacena parámetros configurables en memoria.</td>
+<td>COMPLETADO</td>
 </tr>
 
 <tr>
@@ -390,7 +407,7 @@ Una vez finalizado el trabajo, se tomó la Tabla 2.1.1 (definida anteriormente e
 <tr>
 <td></td>
 <td>3.2</td>
-<td>Las notificaciones son inmediatas ante la detección de eventos críticos.</td>
+<td>Las notificaciones son inmediatas ante detección de eventos.</td>
 <td>COMPLETADO</td>
 </tr>
 
@@ -412,17 +429,35 @@ Una vez finalizado el trabajo, se tomó la Tabla 2.1.1 (definida anteriormente e
 <td>La aplicación indica el estado de conexión Bluetooth del dispositivo.</td>
 <td>COMPLETADO</td>
 </tr>
+<tr>
+<td></td>
+<td>4.4</td>
+<td>La aplicación permite definir el umbral de sensibilidad.</td>
+<td>COMPLETADO</td>
+</tr>
+<tr>
+<td></td>
+<td>4.5</td>
+<td>La aplicación permite elegir diferentes modos de funcionamiento.</td>
+<td>COMPLETADO</td>
+</tr>
 
 <tr>
 <td>Interfaz física</td>
 <td>5.1</td>
-<td>El sistema cuenta con interruptores para seleccionar el modo de operación.</td>
+<td>El sistema cuenta con un switch para seleccionar el modo de operación.</td>
 <td>COMPLETADO</td>
 </tr>
 <tr>
 <td></td>
 <td>5.2</td>
-<td>El sistema cuenta con indicadores LED básicos de funcionamiento (encendido/apagado, modo y estado de conexión Bluetooth).</td>
+<td>El sistema cuenta con indicadores LEDs básicos de funcionamiento (encendido/apagado, modo y estado de conexión Bluetooth).</td>
+<td>COMPLETADO</td>
+</tr>
+<tr>
+<td></td>
+<td>5.3</td>
+<td>El sistema emite un pitido al ser encendido.</td>
 <td>COMPLETADO</td>
 </tr>
 
@@ -436,21 +471,20 @@ Una vez finalizado el trabajo, se tomó la Tabla 2.1.1 (definida anteriormente e
 <td></td>
 <td>6.2</td>
 <td>El sistema tiene bajo consumo energético.</td>
-<td><span style="color:red"><strong>⚠ CÓMO LO DEMOSTRAMOS???</strong></span></td>
+<td>COMPLETADO</td>
 </tr>
 <tr>
 <td></td>
 <td>6.3</td>
-<td>El sistema es seguro y confiable, priorizando evitar omitir eventos reales.</td>
+<td>El sistema es seguro y confiable.</td>
 <td>COMPLETADO</td>
 </tr>
 
 </tbody>
 </table>
 
-Cabe destacar que cada uno de los requisitos fue cumplido.
 
-<span style="color:red"><strong>⚠ HICIMOS ALGO MÁS QUE NO HAYAMOS DEFINIDO INICIALMENTE???</strong></span>
+<span style="color:red"><strong>⚠ IR VIENDO SI SE AGREGAN NUEVOS REQUISITOS Y SUS ESTADOS EN EL INFORME DE AVANCES Y SI ALGUNO NO SE COMPLETA O ALGO ACLARAR CON UN COMENTARIO ACÁ</strong></span>
 
 ## **4.3 Comparación con otros sistemas similares**
 Como se mencionó previamente en la Sección 1.1, el mercado actual cuenta con diversos dispositivos de monitoreo con características relacionadas a la captación y transmisión de sonido. Sin embargo, la mayoría de estos están pensados para usuarios sin limitaciones auditivas y no contemplan específicamente la problemática abordada en este trabajo. Por este motivo, y considerando la diversidad de enfoques presentes en el mercado, resulta complejo establecer una comparación estrictamente equivalente entre el prototipo desarrollado y los dispositivos disponibles, ya que cada uno prioriza distintos criterios de diseño y aplicación.
