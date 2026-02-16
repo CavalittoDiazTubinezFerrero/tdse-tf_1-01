@@ -61,10 +61,12 @@ The system is based on a development board integrating a microcontroller with an
     - [3.2 _Firmware_ de _BeepBuddy_](#32-firmware-de-beepbuddy)
     - [3.3 Diseño de la aplicación](#33-diseño-de-la-aplicación)
   - [**Ensayos y resultados**](#ensayos-y-resultados)
-    - [4.1 Pruebas funcionales del funcionamiento](#41-pruebas-funcionales-del-funcionamiento)
+    - [4.1 Metodología de desarrollo](#41-metodología-de-desarrollo)
     - [4.2 Cumplimiento de requisitos](#42-cumplimiento-de-requisitos)
     - [4.3 Comparación con otros sistemas similares](#43-comparación-con-otros-sistemas-similares)
-    - 
+    - [4.4 Documentación del desarrollo realizado](#44-documentación-del-desarrollo-realizado)
+-
+
 - [**Bibliografía**](#bibliografía)
 
 <span style="color:red"><strong>⚠ LAS SECCIONES DEL CAPÍTULO 3 NO ESTÁN HECHAS!!!</strong></span>
@@ -79,7 +81,9 @@ The system is based on a development board integrating a microcontroller with an
 | 1.1 | Redacción del primer capítulo | 11/02/2026 |
 | 1.2 | Redacción del segundo capítulo | 14/02/2026 |
 | 1.3 | Redacción del tercer capítulo | ... |
-| 1.4 | Redacción final | ... |
+| 1.4 | Redacción del cuarto capítulo | 16/02/2026 |
+| 1.5 | Redacción del quinto capítulo | ... |
+| 1.6 | Revisión y ajustes finales | ... |
 
 <span style="color:red"><strong>⚠ IR COMPLETANDO A MEDIDA QUE SE VAYAN ESCRIBIENDO CADA UNA DE LAS SECCIONES</strong></span>
  
@@ -325,7 +329,7 @@ La segunda posición del interruptor _DIP_ habilita el modo día, encendiéndose
 
 Los modos de operación (día/noche) solo pueden activarse cuando la primera posición (encendido general, inidicada con el _LED_ verde) se encuentra en estado _ON_. Si las tres posiciones del _switch_ se encuentran activadas simultáneamente, el sistema entra nuevamente en el estado de _default_, encendiéndose el _LED_ rojo.
 
-<span style="color:red"><strong>⚠ HAY QUE PONER ALGO SOBRE LA FLASH INTERNA???</strong></span>
+<span style="color:red"><strong>⚠ DÓNDE PONGO LO DE LA FLASH INTERNA??? LA IDEA ES EXPLICAR UN POCO QUÉ ES, QUE SE LA TUVO QUE CONFIGURAR Y DECIR EN QUÉ ARCHIVO SE PUEDE VER EL CÓDIGO</strong></span>
 
 # **CAPÍTULO 3**
 
@@ -346,8 +350,14 @@ Para el diseño del prototipo se
 
 # **Ensayos y resultados**
 
-## **4.1 Pruebas funcionales de funcionamiento**
-<span style="color:red"><strong>⚠ CONTINUAR DESDE ACÁ</strong></span>
+## **4.1 Metodología de desarrollo**
+El desarrollo del trabajo se llevó a cabo de manera incremental, organizándose en distintas etapas que permitieron estructurarlo y recibir devoluciones parciales antes de avanzar a la siguiente instancia. Cada etapa estuvo respaldada por la elaboración de archivos específicos que concentraron la información relevante para su revisión y validación.
+
+En una primera instancia se elaboró el archivo _README.md_, en el cual se presentó el proyecto, se definió su objetivo, la necesidad que motivó su desarrollo, los requisitos funcionales y se realizó una comparación general con productos preexistentes en el mercado \[11\]. Este documento permitió establecer el marco conceptual del trabajo.
+
+Posteriormente, se confeccionó el archivo _Lista_componentes_a_confirmar.txt_, que consistió en un listado preliminar de los componentes electrónicos a utilizar en el prototipo, incluyendo enlaces a las publicaciones correspondientes para su compra \[12\]. Este documento tuvo como finalidad someter la selección de _hardware_ a la revisión del docente antes de efectuar la compra.
+
+Finalmente, se elaboró el _InformeDeAvances.md_, donde se retomaron los requisitos definidos inicialmente y se actualizó periódicamente el estado de cumplimiento de cada uno \[13\]. Este archivo permitió documentar el progreso del desarrollo.
 
 ## **4.2 Cumplimiento de requisitos**
 Una vez finalizado el trabajo, se tomó la Tabla 2.1.1 (definida anteriormente en la Sección 2.1) y se definió el estado de cada uno de los requisitos iniciales del dispositivo, detallados a continuación en la Tabla 4.2.1.
@@ -483,7 +493,6 @@ Una vez finalizado el trabajo, se tomó la Tabla 2.1.1 (definida anteriormente e
 </tbody>
 </table>
 
-
 <span style="color:red"><strong>⚠ IR VIENDO SI SE AGREGAN NUEVOS REQUISITOS Y SUS ESTADOS EN EL INFORME DE AVANCES Y SI ALGUNO NO SE COMPLETA O ALGO ACLARAR CON UN COMENTARIO ACÁ</strong></span>
 
 ## **4.3 Comparación con otros sistemas similares**
@@ -491,7 +500,19 @@ Como se mencionó previamente en la Sección 1.1, el mercado actual cuenta con d
 
 En este contexto, el aporte principal del presente desarrollo radica en su enfoque inclusivo, orientado a brindar una alternativa accesible frente a soluciones convencionales existentes. Asimismo, el sistema presenta posibilidades de evolución futura, tales como la incorporación de dispositivos de notificación háptica (por ejemplo, mediante una pulsera con vibración) o el uso de sensores portátiles, lo que permitiría mejorar la comodidad y adaptabilidad del usuario.
 
-<span style="color:red"><strong>⚠ CONTINUAR DESDE ACÁ EL CAPÍTULO 4</strong></span>
+## **4.4 Documentación del desarrollo realizado**
+A continuación, en la Tabla 4.4.1 muestra la documentación del desarrollo del proyecto.
+
+**Tabla 4.4.1**: Desarrollo del proyecto.
+| Nombre                 | Fecha de Finalización     |
+|------------------------|---------------------------|
+| _README.md_    | 11 de Diciembre del 2025    |
+| _Lista_componentes_a_confirmar.txt_    | 23 de Diciembre del 2025    |
+| _InformeDeAvances.md_    | <span style="color:red"><strong>⚠ SE SIGUE ACTUALIZANDO</strong></span>  |
+| _MemoriaDelTrabajoFinal.md_ | <span style="color:red"><strong>⚠ SE SIGUE ACTUALIZANDO</strong></span>   |
+
+
+<span style="color:red"><strong>⚠ CONTINUAR DESDE ACÁ EL CAPÍTULO 5</strong></span>
 
 # **Bibliografía** 
 \[1\] MIT App Inventor. [Online]. Available: https://appinventor.mit.edu/
@@ -513,6 +534,12 @@ En este contexto, el aporte principal del presente desarrollo radica en su enfoq
 \[9\] Manual de usuario del módulo _buzzer_. [Online]. Available: https://www.alldatasheet.com/datasheet-pdf/pdf/169124/ETC2/EFM-236L.html
 
 \[10\] Manual de usuario del _DIP switch_. [Online]. Available: https://www.alldatasheet.es/datasheet-pdf/view/2015587/AGELECTRONICA/DIP-3.html
+
+\[11\] Archivo _README.md_. [Online]. Available: https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/README.md
+
+\[12\] Archivo _Lista_componentes_a_confirmar.txt_. [Online]. Available: https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/Lista_componentes_a_confirmar.txt
+
+\[13\] Archivo _InformeDeAvances.md_. [Online]. Available: https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/InformeDeAvances.md
 
 \[.\] Google Gemini. [Online]. Available: https://gemini.google.com/app?hl=es_419
 
