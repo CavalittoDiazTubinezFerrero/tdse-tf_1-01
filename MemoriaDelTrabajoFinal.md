@@ -316,7 +316,7 @@ Los modos de operación (día/noche) solo pueden activarse cuando la primera pos
 # **Diseño e implementación**
 
 ## **3.1 Diseño del _hardware_**
-Para el diseño del prototipo se empleó una
+Para el diseño del prototipo se 
 
 <span style="color:red"><strong>⚠ CONTINUAR DESDE ACÁ</strong></span>
 
