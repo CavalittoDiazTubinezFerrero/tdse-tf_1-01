@@ -48,7 +48,7 @@ The system is based on a development board integrating a microcontroller with an
   - [1.2 Descripción general del sistema](#12-descripción-general-del-sistema)
 - [**Introducción específica**](#introducción-específica) 
   - [2.1 Requisitos](#21-requisitos)
-  - [2.2 Descripción de uso](#22-descripción-de-uso)
+  - [2.2 Descripción de uso y máquinas de estado](#22-descripción-de-uso-y-máquinas-de-estado)
   - [2.3 Descripción de los módulos del sistema](#23-descripción-de-los-módulos-del-sistema)
     - [2.3.1 Alimentación](#231-alimentación)
     - [2.3.2 Microcontrolador](#232-microcontrolador)
@@ -239,7 +239,7 @@ Habiendo analizado las características principales del monitor, se definieron l
 
 <span style="color:red"><strong>⚠ IR VIENDO SI SE AGREGAN NUEVOS REQUISITOS Y SUS ESTADOS EN EL INFORME DE AVANCES</strong></span>
 
-## **2.2 Descripción de uso**
+## **2.2 Descripción de uso y máquinas de estado**
 
 **Tabla 2.2.1**: Descripción de uso.
 
@@ -249,6 +249,8 @@ Habiendo analizado las características principales del monitor, se definieron l
 | Precondiciones | El sistema se encuentra encendido. El dispositivo está correctamente alimentado. El módulo Bluetooth se encuentra emparejado con la aplicación móvil. Los parámetros de sensibilidad están configurados.  |
 | Flujo principal | El micrófono capta el sonido del entorno y lo convierte en una señal eléctrica analógica. El microcontrolador digitaliza la señal mediante el conversor analógico-digital y procesa las muestras adquiridas en tiempo real. Si el nivel del sonido supera el umbral configurado, el algoritmo de detección valida el evento como relevante. El microcontrolador envía una notificación a través del módulo Bluetooth al dispositivo móvil. La aplicación recibe el evento, lo muestra en pantalla y genera una alerta visual para el usuario. |
 | Flujos alternativos | a. El sonido detectado no supera el umbral configurado. El sistema continúa monitoreando sin generar notificación. b. El módulo Bluetooth no se encuentra conectado al dispositivo móvil. El evento puede registrarse localmente, pero no se envía notificación. c. El usuario modifica los parámetros de sensibilidad desde la aplicación. El sistema actualiza la configuración y continúa operando con los nuevos valores. |
+
+<span style="color:red"><strong>⚠ AGREGAR LAS MÁQUINAS DE ESTADO (HACER CON ITEMIS CREATE)</strong></span>
 
 ## **2.3 Descripción de los módulos del sistema**
 ## **2.3.1 Alimentación**
@@ -271,8 +273,10 @@ Como microcontrolador del sistema se utilizó la placa NUCLEO-F103RB conectada a
 
 **Figura 2.3.2.1**: Placa NUCLEO-F103RB.
 
+El sistema utiliza la memoria de la _flash_ interna del microcontrolador como almacenamiento no vólatil para conservar la configuración de usuario (_SET_UP_ en los archivos _config.h_ y _config.c_ del proyecto), evitando la pérdida de parámetros ante reinicios o cortes de energía \[5\]. Así, las variables inicializadas en el código se recargan desde la misma a la _RAM_ en cada _reset_, por lo que cualquier modificación realizada en tiempo de ejecución se pierde.
+
 ## **2.3.3 Módulo de micrófono**
-Para la detección acústica se utilizó un módulo sensor de sonido con micrófono regulable Arduino Nubbeo del tipo KY-037 como se observa en la Figura 2.3.3.1 \[5\].
+Para la detección acústica se utilizó un módulo sensor de sonido con micrófono regulable Arduino Nubbeo del tipo KY-037 como se observa en la Figura 2.3.3.1 \[6\].
 
 <img width="300" src="MóduloMicrófono.jpg" >
 
@@ -283,7 +287,7 @@ El mismo, permite detectar la presencia de sonido ambiente y generar una salida 
 El micrófono electret convierte la onda sonora en una señal eléctrica analógica de baja amplitud, la cual es amplificada por el circuito interno del módulo. Posteriormente, el comparador interno evalúa si la señal amplificada supera el umbral y, si esto ocurre, la salida digital cambia de estado y se enciende el LED indicador de detección. Por útlimo, la salida analógica entrega una señal proporcional a la amplitud del sonido captado, permitiendo su lectura mediante el conversor analógico-digital del microcontrolador.
 
 ## **2.3.4 Módulo _Bluetooth_**
-Para la comunicación inalámbrica entre BeepBuddy y el dispositivo móvil receptor, se utilizó un módulo _Bluetooth_ compatible con _Bluetooth Low Energy (BLE)_ del tipo HM-10, como se observa en las Figuras 2.3.4.1 y 2.3.4.2 \[6\]\[7\].
+Para la comunicación inalámbrica entre BeepBuddy y el dispositivo móvil receptor, se utilizó un módulo _Bluetooth_ compatible con _Bluetooth Low Energy (BLE)_ del tipo HM-10, como se observa en las Figuras 2.3.4.1 y 2.3.4.2 \[7\]\[8\].
 
 <img width="300" src="MóduloBluetooth.webp" >
 
@@ -298,7 +302,7 @@ El módulo HM-10 es un adaptador inalámbrico que implementa la especificación 
 Desde el punto de vista funcional, el HM-10 dispone de una interfaz de comunicación serial _UART_ (_Universal Asynchronous Receiver/Transmitter_, el cual envía y recibe datos de a un bit a la vez, de forma secuencial) que permite intercambiar datos entre el microcontrolador y el módulo _Bluetooth_. Cuando el microcontrolador detecta un evento de sonido que cumple los criterios de detección configurados, transmite un paquete de datos a través de la interfaz _UART_ al módulo HM-10, el cual lo reenvía inalámbricamente al dispositivo móvil emparejado previamente.
 
 ## **2.3.5 Módulo _buzzer_**
-En el dispositivo desarrollado, el _buzzer_ (observado en las Figuras 2.3.5.1 y 2.3.5.2) se implementó exclusivamente para emitir un breve pitido cuando el _switch_ principal pasa del estado _OFF_ a _ON_, indicando al usuario que el sistema ha sido energizado correctamente \[8\]\[9\].
+En el dispositivo desarrollado, el _buzzer_ (observado en las Figuras 2.3.5.1 y 2.3.5.2) se implementó exclusivamente para emitir un breve pitido cuando el _switch_ principal pasa del estado _OFF_ a _ON_, indicando al usuario que el sistema ha sido energizado correctamente \[9\]\[10\].
 
 <img width="300" src="MóduloBuzzer.jpg">
 
@@ -313,7 +317,7 @@ El mismo, está basado en un transductor piezoeléctrico, el cual produce sonido
 Si bien el módulo fue comercializado como un _buzzer_ activo (es decir, con oscilador interno y capaz de funcionar al aplicarle una tensión continua), experimentalmente se verificó que no generaba sonido ante la aplicación de una señal continua. Por este motivo, fue necesario excitarlo mediante una señal cuadrada generada por el microcontrolador mediante modulación por ancho de pulso (_PWM_), suministrando así la señal alterna requerida para su funcionamiento.
 
 ## **2.3.6 Interfaz de usuario: _DIP switch_ y LEDs**
-La interfaz de usuario del dispositivo está compuesta por un _DIP switch_ (_Dual In-line Package switch_) de tres posiciones y cuatro _LEDs_ (_Light Emitting Diodes_), los cuales permiten visualizar el estado de funcionamiento y el modo de operación seleccionado \[10\]. Los mismos se muestran a continuación en las Figuras 2.3.6.1 y 2.3.6.2.
+La interfaz de usuario del dispositivo está compuesta por un _DIP switch_ (_Dual In-line Package switch_) de tres posiciones y cuatro _LEDs_ (_Light Emitting Diodes_), los cuales permiten visualizar el estado de funcionamiento y el modo de operación seleccionado \[11\]. Los mismos se muestran a continuación en las Figuras 2.3.6.1 y 2.3.6.2.
 
 <img width="150" src="DipSwitch.webp">
 
@@ -328,8 +332,6 @@ La primera posición del _switch_ corresponde al encendido general del sistema. 
 La segunda posición del interruptor _DIP_ habilita el modo día, encendiéndose el _LED_ amarillo como indicador visual, mientras que, al colocarlo en la tercera posición, se activa el modo noche encendiéndose el _LED_ azul.
 
 Los modos de operación (día/noche) solo pueden activarse cuando la primera posición (encendido general, inidicada con el _LED_ verde) se encuentra en estado _ON_. Si las tres posiciones del _switch_ se encuentran activadas simultáneamente, el sistema entra nuevamente en el estado de _default_, encendiéndose el _LED_ rojo.
-
-<span style="color:red"><strong>⚠ DÓNDE PONGO LO DE LA FLASH INTERNA??? LA IDEA ES EXPLICAR UN POCO QUÉ ES, QUE SE LA TUVO QUE CONFIGURAR Y DECIR EN QUÉ ARCHIVO SE PUEDE VER EL CÓDIGO</strong></span>
 
 # **CAPÍTULO 3**
 
@@ -353,11 +355,11 @@ Para el diseño del prototipo se
 ## **4.1 Metodología de desarrollo**
 El desarrollo del trabajo se llevó a cabo de manera incremental, organizándose en distintas etapas que permitieron estructurarlo y recibir devoluciones parciales antes de avanzar a la siguiente instancia. Cada etapa estuvo respaldada por la elaboración de archivos específicos que concentraron la información relevante para su revisión y validación.
 
-En una primera instancia se elaboró el archivo _README.md_, en el cual se presentó el proyecto, se definió su objetivo, la necesidad que motivó su desarrollo, los requisitos funcionales y se realizó una comparación general con productos preexistentes en el mercado \[11\]. Este documento permitió establecer el marco conceptual del trabajo.
+En una primera instancia se elaboró el archivo _README.md_, en el cual se presentó el proyecto, se definió su objetivo, la necesidad que motivó su desarrollo, los requisitos funcionales y se realizó una comparación general con productos preexistentes en el mercado \[12\]. Este documento permitió establecer el marco conceptual del trabajo.
 
-Posteriormente, se confeccionó el archivo _Lista_componentes_a_confirmar.txt_, que consistió en un listado preliminar de los componentes electrónicos a utilizar en el prototipo, incluyendo enlaces a las publicaciones correspondientes para su compra \[12\]. Este documento tuvo como finalidad someter la selección de _hardware_ a la revisión del docente antes de efectuar la compra.
+Posteriormente, se confeccionó el archivo _Lista_componentes_a_confirmar.txt_, que consistió en un listado preliminar de los componentes electrónicos a utilizar en el prototipo, incluyendo enlaces a las publicaciones correspondientes para su compra \[13\]. Este documento tuvo como finalidad someter la selección de _hardware_ a la revisión del docente antes de efectuar la compra.
 
-Finalmente, se elaboró el _InformeDeAvances.md_, donde se retomaron los requisitos definidos inicialmente y se actualizó periódicamente el estado de cumplimiento de cada uno \[13\]. Este archivo permitió documentar el progreso del desarrollo.
+Finalmente, se elaboró el _InformeDeAvances.md_, donde se retomaron los requisitos definidos inicialmente y se actualizó periódicamente el estado de cumplimiento de cada uno \[14\]. Este archivo permitió documentar el progreso del desarrollo.
 
 ## **4.2 Cumplimiento de requisitos**
 Una vez finalizado el trabajo, se tomó la Tabla 2.1.1 (definida anteriormente en la Sección 2.1) y se definió el estado de cada uno de los requisitos iniciales del dispositivo, detallados a continuación en la Tabla 4.2.1.
@@ -523,23 +525,25 @@ A continuación, en la Tabla 4.4.1 muestra la documentación del desarrollo del 
 
 \[4\] STM32CubeIDE. Integrated Development Environment for STM32. [Online]. Available:https://www.st.com/en/development-tools/stm32cubeide.html
 
-\[5\] Manual de usuario del módulo de micrófono. [Online]. Available: https://www.alldatasheet.com/datasheet-pdf/download/1284506/JOY-IT/KY037.html
+\[5\] Carpeta donde se pueden hallar los archivos _config.h_ y _config.c_. [Online]. Available: https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/tree/23b1ec407466f7fa20007029bb58381ecce89ee9/config
 
-\[6\] Módulo HM-10 bluetooth 4.0 BLE a UART. TodoMicro. [Online]. Available: https://www.todomicro.com.ar/comunicacion/637-modulo-hm-10-bluetooth-40-ble-a-uart.html?srsltid=AfmBOopp0r5laITQYUaryYYiX3FX0pVC3rmiN0xScYLpI9sgNRYFOCRr
+\[6\] Manual de usuario del módulo de micrófono. [Online]. Available: https://www.alldatasheet.com/datasheet-pdf/download/1284506/JOY-IT/KY037.html
 
-\[7\] Manual de usuario del módulo _Bluetooth_. [Online]. Available: https://www.alldatasheet.com/datasheet-pdf/download/1179058/ETC1/HM-10.html
+\[7\] Módulo HM-10 bluetooth 4.0 BLE a UART. TodoMicro. [Online]. Available: https://www.todomicro.com.ar/comunicacion/637-modulo-hm-10-bluetooth-40-ble-a-uart.html?srsltid=AfmBOopp0r5laITQYUaryYYiX3FX0pVC3rmiN0xScYLpI9sgNRYFOCRr
 
-\[8\] Módulo Buzzer Activo 3.3v A 5v. [Online]. Available: https://www.mercadolibre.com.ar/modulo-buzzer-activo-33v-a-5v/p/MLA2048303554?pdp_filters=seller_id%3A302249631#polycard_client=recommendations_vip-seller_data_items-above&reco_backend=ranker-retsys-same-seller&reco_model=rk_entity_sameseller&reco_client=vip-seller_data_items-above&reco_item_pos=0&reco_backend_type=low_level&reco_id=4009794f-8183-4ec4-8aa5-5448369b409f&wid=MLA752290080&sid=recos
+\[8\] Manual de usuario del módulo _Bluetooth_. [Online]. Available: https://www.alldatasheet.com/datasheet-pdf/download/1179058/ETC1/HM-10.html
 
-\[9\] Manual de usuario del módulo _buzzer_. [Online]. Available: https://www.alldatasheet.com/datasheet-pdf/pdf/169124/ETC2/EFM-236L.html
+\[9\] Módulo Buzzer Activo 3.3v A 5v. [Online]. Available: https://www.mercadolibre.com.ar/modulo-buzzer-activo-33v-a-5v/p/MLA2048303554?pdp_filters=seller_id%3A302249631#polycard_client=recommendations_vip-seller_data_items-above&reco_backend=ranker-retsys-same-seller&reco_model=rk_entity_sameseller&reco_client=vip-seller_data_items-above&reco_item_pos=0&reco_backend_type=low_level&reco_id=4009794f-8183-4ec4-8aa5-5448369b409f&wid=MLA752290080&sid=recos
 
-\[10\] Manual de usuario del _DIP switch_. [Online]. Available: https://www.alldatasheet.es/datasheet-pdf/view/2015587/AGELECTRONICA/DIP-3.html
+\[10\] Manual de usuario del módulo _buzzer_. [Online]. Available: https://www.alldatasheet.com/datasheet-pdf/pdf/169124/ETC2/EFM-236L.html
 
-\[11\] Archivo _README.md_. [Online]. Available: https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/README.md
+\[11\] Manual de usuario del _DIP switch_. [Online]. Available: https://www.alldatasheet.es/datasheet-pdf/view/2015587/AGELECTRONICA/DIP-3.html
 
-\[12\] Archivo _Lista_componentes_a_confirmar.txt_. [Online]. Available: https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/Lista_componentes_a_confirmar.txt
+\[12\] Archivo _README.md_. [Online]. Available: https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/README.md
 
-\[13\] Archivo _InformeDeAvances.md_. [Online]. Available: https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/InformeDeAvances.md
+\[13\] Archivo _Lista_componentes_a_confirmar.txt_. [Online]. Available: https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/Lista_componentes_a_confirmar.txt
+
+\[14\] Archivo _InformeDeAvances.md_. [Online]. Available: https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/InformeDeAvances.md
 
 \[.\] Google Gemini. [Online]. Available: https://gemini.google.com/app?hl=es_419
 
