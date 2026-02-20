@@ -57,12 +57,14 @@ The system is based on a development board integrating a microcontroller with an
     - [3.2 _Firmware_ de _BeepBuddy_](#32-firmware-de-beepbuddy)
     - [3.3 Diseño de la aplicación](#33-diseño-de-la-aplicación)
   - [**Ensayos y resultados**](#ensayos-y-resultados)
-    - [4.1 Metodología de desarrollo](#41-metodología-de-desarrollo)
-    - [4.2 Cumplimiento de requisitos](#42-cumplimiento-de-requisitos)
-    - [4.3 Comparación con otros sistemas similares](#43-comparación-con-otros-sistemas-similares)
-    - [4.4 Documentación del desarrollo realizado](#44-documentación-del-desarrollo-realizado)
--
-
+    - [4.1 Mediciones](#41-mediciones)
+      - [4.1.1 Consumo energético](#411-consumo-energético)
+      - [4.1.2 Tiempos de ejecución de cada tarea (WCET)](#412-tiempos-de-ejecución-de-cada-tarea-(wcet))
+      - [4.1.3 Cálculo del factor de uso (U) de la CPU](#413-cálculo-del-factor-de-uso-(u)-de-la-cpu)
+    - [4.2 Metodología de desarrollo](#42-metodología-de-desarrollo)
+    - [4.3 Cumplimiento de requisitos](#43-cumplimiento-de-requisitos)
+    - [4.4 Comparación con otros sistemas similares](#44-comparación-con-otros-sistemas-similares)
+    - [4.5 Documentación del desarrollo realizado](#45-documentación-del-desarrollo-realizado)
 - [**Bibliografía**](#bibliografía)
 
 <span style="color:red"><strong>⚠ LAS SECCIONES DEL CAPÍTULO 3 NO ESTÁN HECHAS!!!</strong></span>
@@ -348,7 +350,20 @@ Para el diseño del prototipo se
 
 # **Ensayos y resultados**
 
-## **4.1 Metodología de desarrollo**
+## **4.1 Mediciones**
+## **4.1.1 Consumo energético**
+<span style="color:red"><strong>⚠ MARI DEBERÍA MEDIRLO Y PASAR LA INFO</strong></span>
+
+## **4.1.2 Tiempos de ejecución de cada tarea (WCET)**
+<span style="color:red"><strong>⚠ MARI DEBERÍA MEDIRLO Y PASAR LA INFO (YA PUDO PONERLO EN EL CÓDIGO)</strong></span>
+
+<span style="color:red"><strong>⚠ Captura de pantalla de "Console & Build Analyzer" luego de compilar la versión final MARI DEBERÍA MEDIRLO Y PASAR LA INFO.</strong></span>
+
+## **4.1.3 Cálculo del factor de uso (U) de la CPU**
+<span style="color:red"><strong>⚠ MARI DEBERÍA MEDIRLO Y PASAR LA INFO</strong></span>
+
+
+## **4.2 Metodología de desarrollo**
 El desarrollo del trabajo se llevó a cabo de manera incremental, organizándose en distintas etapas que permitieron estructurarlo y recibir devoluciones parciales antes de avanzar a la siguiente instancia. Cada etapa estuvo respaldada por la elaboración de archivos específicos que concentraron la información relevante para su revisión y validación.
 
 En una primera instancia se elaboró el archivo _README.md_, en el cual se presentó el proyecto, se definió su objetivo, la necesidad que motivó su desarrollo, los requisitos funcionales y se realizó una comparación general con productos preexistentes en el mercado \[12\]. Este documento permitió establecer el marco conceptual del trabajo.
@@ -357,10 +372,10 @@ Posteriormente, se confeccionó el archivo _Lista_componentes_a_confirmar.txt_, 
 
 Finalmente, se elaboró el _InformeDeAvances.md_, donde se retomaron los requisitos definidos inicialmente y se actualizó periódicamente el estado de cumplimiento de cada uno \[14\]. Este archivo permitió documentar el progreso del desarrollo.
 
-## **4.2 Cumplimiento de requisitos**
-Una vez finalizado el trabajo, se tomó la Tabla 2.1.1 (definida anteriormente en la Sección 2.1) y se definió el estado de cada uno de los requisitos iniciales del dispositivo, detallados a continuación en la Tabla 4.2.1.
+## **4.3 Cumplimiento de requisitos**
+Una vez finalizado el trabajo, se tomó la Tabla 2.1.1 (definida anteriormente en la Sección 2.1) y se definió el estado de cada uno de los requisitos iniciales del dispositivo, detallados a continuación en la Tabla 4.3.1.
 
-**Tabla 4.2.1:** Estado de los requisitos del proyecto. 
+**Tabla 4.3.1:** Estado de los requisitos del proyecto. 
 
 <table>
 <thead>
@@ -493,15 +508,15 @@ Una vez finalizado el trabajo, se tomó la Tabla 2.1.1 (definida anteriormente e
 
 <span style="color:red"><strong>⚠ IR VIENDO SI SE AGREGAN NUEVOS REQUISITOS Y SUS ESTADOS EN EL INFORME DE AVANCES Y SI ALGUNO NO SE COMPLETA O ALGO ACLARAR CON UN COMENTARIO ACÁ</strong></span>
 
-## **4.3 Comparación con otros sistemas similares**
+## **4.4 Comparación con otros sistemas similares**
 Como se mencionó previamente en la Sección 1.1, el mercado actual cuenta con diversos dispositivos de monitoreo con características relacionadas a la captación y transmisión de sonido. Sin embargo, la mayoría de estos están pensados para usuarios sin limitaciones auditivas y no contemplan específicamente la problemática abordada en este trabajo. Por este motivo, y considerando la diversidad de enfoques presentes en el mercado, resulta complejo establecer una comparación estrictamente equivalente entre el prototipo desarrollado y los dispositivos disponibles, ya que cada uno prioriza distintos criterios de diseño y aplicación.
 
 En este contexto, el aporte principal del presente desarrollo radica en su enfoque inclusivo, orientado a brindar una alternativa accesible frente a soluciones convencionales existentes. Asimismo, el sistema presenta posibilidades de evolución futura, tales como la incorporación de dispositivos de notificación háptica (por ejemplo, mediante una pulsera con vibración) o el uso de sensores portátiles, lo que permitiría mejorar la comodidad y adaptabilidad del usuario.
 
-## **4.4 Documentación del desarrollo realizado**
-A continuación, en la Tabla 4.4.1 muestra la documentación del desarrollo del proyecto.
+## **4.5 Documentación del desarrollo realizado**
+A continuación, en la Tabla 4.5.1 muestra la documentación del desarrollo del proyecto.
 
-**Tabla 4.4.1**: Desarrollo del proyecto.
+**Tabla 4.5.1**: Desarrollo del proyecto.
 | Nombre                 | Fecha de Finalización     |
 |------------------------|---------------------------|
 | _README.md_    | 11 de Diciembre del 2025    |
