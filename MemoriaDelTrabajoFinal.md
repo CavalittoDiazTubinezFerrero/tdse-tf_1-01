@@ -439,7 +439,13 @@ Por su parte, la carpeta _hardware_ contiene los archivos _config.c / .h_ (donde
 - _dip_switch.c / .h_: lectura del estado de los interruptores.
 - _buzzer.c / .h_: generación de señal PWM utilizando el temporizador TIM3.
 - _led.c / .h_: control de los indicadores visuales.
-  
+
+En el archivo _main.c_ se implementaron dos _callbacks_ asociados a interrupciones de _hardware_. Por un lado, la función _HAL_UART_RxCpltCallback()_ gestiona la recepción de datos por _UART_ mediante interrupciones. Cada vez que se recibe un _byte_ por _USART1_, la rutina invoca _Bluetooth_OnRxByte()_ para procesarlo y re-habilita inmediatamente la recepción con _HAL_UART_Receive_IT()_. Este esquema evitó el uso de _polling_, redujo el tiempo de _CPU_ ocioso y garantizó una atención inmediata a los datos entrantes sin bloquear la ejecución principal.
+
+Por otro lado, la función _HAL_TIM_PeriodElapsedCallback()_ se ejecuta periódicamente a partir del desborde del temporizador _TIM2_. En cada interrupción se realiza la lectura de una muestra del micrófono y se evalúa si existe detección de sonido mediante _Sound_IsDetected()_. En caso afirmativo, se activa una bandera (_sound_alert_flag_) que luego será procesada en el lazo principal. Este enfoque desacopló la adquisición temporalmente crítica del procesamiento de alto nivel, manteniendo tiempos determinísticos y evitando sobrecargar la rutina de interrupción.
+
+En conjunto, ambos _callbacks_ demuestran un uso adecuado de interrupciones para tareas asíncronas (comunicación serie) y periódicas (muestreo del sensor), favoreciendo una arquitectura eficiente, no bloqueante y coherente con buenas prácticas en sistemas embebidos.
+
 Esta separación entre lógica de aplicación y acceso a _hardware_ permitió mantener una arquitectura clara, donde cada módulo cumplió una función específica y bien delimitada.
 
 Todos los archivos mencionados se encuentran a disposición en la carpeta _stm32-proyect_ \[18\].
@@ -452,7 +458,6 @@ Durante su ejecución, el sistema inicializa los periféricos y luego entra en e
 - Se actualiza el estado del sistema según el modo seleccionado.
 - Se evalúa el nivel de señal respecto al umbral configurado.
 - Se activan indicadores visuales o sonoros cuando corresponde.
-
 
 ## **3.3 Diseño de la aplicación**
 <span style="color:red"><strong>⚠ CONTINUAR DESDE ACÁ</strong></span>
