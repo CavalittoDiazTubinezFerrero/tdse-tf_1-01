@@ -386,7 +386,7 @@ El _buzzer_ fue conectado al pin _PC7_ (_TIM3_CH2_) del microcontrolador configu
 
 El esquema correspondiente se presenta en la Figura 3.1.2 a continuación.
 
-<img width="400" src="EsquemáticoBuzzer.jpg">
+<img width="400" src="EsquemáticoBuzzer.png">
 
 **Figura 3.1.2:** Esquemático del módulo del _buzzer_.
 
@@ -395,20 +395,20 @@ El _DIP switch_ se conectó configurando cada línea como entrada digital del mi
 
 La conexión se muestra en la Figura 3.1.3.
 
-<img width="400" src="EsquemáticoDIPswitch.jpg">
+<img width="400" src="EsquemáticoDIPswitch.png">
 
 **Figura 3.1.3:** Esquemático del _DIP switch_.
 
 ## **3.1.4 Conexión de los _LEDs_**
 Se colocaron los cuatro _LEDs_ indicadores (verde, rojo, amarillo y azul) a los pines del microcontrolador indicados a continuación (configurados como salida digital) y, a través de una resistencia limitadora, a masa:
 
-- _LED_ verde → _PA8_ (1 kΩ)
+- _LED_ verde: _PA8_ (1 kΩ)
 
-- _LED_ rojo → _PB10_ (10 Ω)
+- _LED_ rojo: _PB10_ (10 Ω)
 
-- _LED_ amarillo → _PB4_ (1,8 kΩ)
+- _LED_ amarillo: _PB4_ (1,8 kΩ)
 
-- _LED_ azul → _PB5_ (1 kΩ)
+- _LED_ azul: _PB5_ (1 kΩ)
 
 ## **3.2 _Firmware_ de _BeepBuddy_**
 <span style="color:red"><strong>⚠ CONTINUAR DESDE ACÁ</strong></span>
