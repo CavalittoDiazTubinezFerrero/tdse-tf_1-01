@@ -442,6 +442,8 @@ Por su parte, la carpeta _hardware_ contiene los archivos _config.c / .h_ (donde
   
 Esta separación entre lógica de aplicación y acceso a _hardware_ permitió mantener una arquitectura clara, donde cada módulo cumplió una función específica y bien delimitada.
 
+Todos los archivos mencionados se encuentran a disposición en la carpeta _stm32-proyect_ \[18\].
+
 ## **3.2.2 Flujo de ejecución del _firmware_**
 
 Durante su ejecución, el sistema inicializa los periféricos y luego entra en el ciclo principal, donde:
@@ -670,6 +672,8 @@ A continuación, en la Tabla 4.5.1 muestra la documentación del desarrollo del 
 \[16\] Archivo _Placa_Statechart.ysc_. [Online]. Available: <span style="color:red"><strong>⚠ SUBIR ITEMIS AL REPO CUANDO SE TERMINE EL STATECHART DE LA PLACA</strong></span>
 
 \[17\] Archivo _App_Statechart.ysc_. [Online]. Available: <span style="color:red"><strong>⚠ SUBIR ITEMIS AL REPO CUANDO SE TERMINE EL STATECHART DE LA PLACA</strong></span>
+
+\[18\] Carpeta _stm32-proyect_. [Online]. Available: <span style="color:red"><strong>⚠ SUBIR CARPETA DEL PROYECTO TERMINADA A LA BRANCH QUE SE ENTREGUE</strong></span>
 
 \[.\] Google Gemini. [Online]. Available: https://gemini.google.com/app?hl=es_419
 
