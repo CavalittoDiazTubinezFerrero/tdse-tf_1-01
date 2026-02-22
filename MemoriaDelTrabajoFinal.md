@@ -346,7 +346,33 @@ Los modos de operación (día/noche) solo pueden activarse cuando la primera pos
 # **Diseño e implementación**
 
 ## **3.1 Diseño del _hardware_**
-Para el diseño del prototipo se 
+El diseño de _hardware_ del sistema se basó en la placa, cuya configuración de pines fue realizado mediante la herramienta de inicialización de periféricos (_STM32CubeIDE 1.19.0_), permitiendo asignar las funciones correspondientes a cada módulo externo. Esto se puede observar en la Figura 3.1.a a continuación.
+
+<img width="600" src="ConfigPinesPlaca.jpeg">
+
+**Figura 3.1.a:** Configuración de los pines del NUCLEO-F103RB.
+
+En las Figuras 3.1.b y 3.1.c se incluyen las vistas <span style="color:red"><strong>⚠ PONER FOTO CUANDO ESTÉ SOLDADO Y TERMINADO</strong></span> deL _hardware_ una vez finalizado el proceso de soldadura, permitiendo visualizar la disposición física de los componentes y las conexiones realizadas.
+
+A continuación, se describe la conexión de cada uno de los módulos externos, acompañada por sus respectivos esquemas eléctricos.
+
+## **3.1.1 Conexión del módulo del micrófono**
+El micrófono utilizado posee salida analógica (_AO_), la cual fue conectada al pin _PA0_ (_MIC_) del microcontrolador, configurado como entrada del conversor analógico-digital (_ADC_). La alimentación del módulo se realizó con 5 V y masa común del sistema. La salida digital (_DO_) del módulo no fue utilizada en esta implementación.
+
+Como se muestra en la Figura 3.1.1, el procesamiento de la señal se realiza a partir de la lectura analógica directa del pin _PA0_.
+
+<img width="600" src="EsquemáticoMicro.jpg">
+
+**Figura 3.1.1:** Esquemático del módulo del micrófono.
+
+## **3.1.2 Conexión del módulo _Bluetooth_**
+El pin _TX_ del módulo _Bluetooth_ fue conectado al pin _PA10_ (_USART1_RX_) y el pin _RX_ al _PA9_ (_USART1_TX_), estableciendo la comunicación serial cruzada correspondiente. El módulo fue alimentado con 3.3 V provenientes del pin de alimentación de la placa, el cual fue distribuido a través de la placa experimental para alimentar tanto el _Bluetooth_ como el _buzzer_, ya que el microcontrolador dispone de un único pin de 3.3 V.
+
+Los pines _STATE_ y _EN_ no fueron utilizados en esta implementación. La Figura 3.1.2 presenta el esquema de conexión del módulo.
+
+<img width="600" src="EsquemáticoBlue.jpg">
+
+**Figura 3.1.1:** Esquemático del módulo _Bluetooth_.
 
 <span style="color:red"><strong>⚠ CONTINUAR DESDE ACÁ</strong></span>
 
