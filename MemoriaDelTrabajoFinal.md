@@ -58,6 +58,7 @@ This document describes the system architecture, design methodology, implementat
     - [3.1 Diseño del _hardware_](#31-diseño-del-hardware)
       - [3.1.1 Conexión del módulo del micrófono](#311-conexión-del-módulo-del-micrófono)
       - [3.1.2 Conexión del del módulo _Bluetooth_](#311-conexión-del-módulo-bluetooth)
+      - [3.1.3 Conexión del módulo del _buzzer_](#312-conexión-del-módulo-del-buzzer)
       - 
     - [3.2 _Firmware_ de _BeepBuddy_](#32-firmware-de-beepbuddy)
     - [3.3 Diseño de la aplicación](#33-diseño-de-la-aplicación)
@@ -369,7 +370,7 @@ Como se muestra en la Figura 3.1.1, el procesamiento de la señal se realiza a p
 **Figura 3.1.1:** Esquemático del módulo del micrófono.
 
 ## **3.1.2 Conexión del módulo _Bluetooth_**
-El pin _TX_ del módulo _Bluetooth_ fue conectado al pin _PA10_ (_USART1_RX_) y el pin _RX_ al _PA9_ (_USART1_TX_), estableciendo la comunicación serial cruzada correspondiente. El módulo fue alimentado con 3.3 V provenientes del pin de alimentación de la placa, el cual fue distribuido a través de la placa experimental para alimentar tanto el _Bluetooth_ como el _buzzer_, ya que el microcontrolador dispone de un único pin de 3.3 V.
+El pin _TX_ del módulo _Bluetooth_ fue conectado al pin _PA10_ (_USART1_RX_) y el pin _RX_ al _PA9_ (_USART1_TX_), estableciendo la comunicación serial cruzada correspondiente. El módulo fue alimentado con 3.3 V provenientes del pin de alimentación de la placa, el cual fue distribuido a través de la placa para alimentar tanto el _Bluetooth_ como el _buzzer_, ya que el microcontrolador dispone de un único pin de 3.3 V.
 
 Los pines _STATE_ y _EN_ no fueron utilizados en esta implementación. La Figura 3.1.2 presenta el esquema de conexión del módulo.
 
@@ -377,7 +378,12 @@ Los pines _STATE_ y _EN_ no fueron utilizados en esta implementación. La Figura
 
 **Figura 3.1.1:** Esquemático del módulo _Bluetooth_.
 
-<span style="color:red"><strong>⚠ CONTINUAR DESDE ACÁ</strong></span>
+## **3.1.2 Conexión del módulo del _buzzer_**
+El _buzzer_ fue conectado al pin _PC7_ (_TIM3_CH2_) del microcontrolador configurado como salida del temporizador, permitiendo la generación de señal _PWM_ para la emisión del sonido. La alimentación del módulo se realizó a 3.3 V y masa común.
+
+El esquema correspondiente se presenta en la Figura 3.1.2 a continuación.
+
+<span style="color:red"><strong>⚠ HACER Y AGREGAR ESQUEMA BUZZER</strong></span>
 
 ## **3.2 _Firmware_ de _BeepBuddy_**
 <span style="color:red"><strong>⚠ CONTINUAR DESDE ACÁ</strong></span>
