@@ -411,7 +411,47 @@ Se colocaron los cuatro _LEDs_ indicadores (verde, rojo, amarillo y azul) a los 
 - _LED_ azul: _PB5_ (1 kΩ)
 
 ## **3.2 _Firmware_ de _BeepBuddy_**
-<span style="color:red"><strong>⚠ CONTINUAR DESDE ACÁ</strong></span>
+
+La implementación del firmware se realizó en lenguaje C utilizando el entorno _STM32CubeIDE 1.19.0_. La configuración inicial de la placa STM32F103RB y sus periféricos (_GPIO_, _ADC_, _USART_ y temporizadores) fue generada mediante _STM32CubeMX_, lo que permitió establecer el mapeo de pines y la configuración base del microcontrolador.
+
+El archivo principal del sistema (_main.c_) contiene la inicialización de _hardware_ generada automáticamente y, posteriormente, ejecuta un bucle infinito (_while(1)_) en el cual se invoca de manera periódica la función principal de la aplicación, como se muestra en la Figura 3.2.
+
+<img width="250" src="main.jpeg">
+
+**Figura 3.2:** Líneas de código del archivo _main.c_.
+
+## **3.2.1 Organización modular del _firmware_**
+
+A diferencia de una implementación monolítica, el proyecto fue estructurado en módulos funcionales organizados en carpetas específicas, lo que facilita la lectura, mantenimiento y escalabilidad del código.
+
+La carpeta _app_ concentra la lógica principal del sistema. Dentro de ella se encuentran:
+- _app_main.c / .h_: núcleo de la aplicación y gestión general del flujo.
+- _sound_detector.c / .h_: implementación del algoritmo de detección de sonido.
+- _mode_manager.c / .h_: gestión de los distintos modos de funcionamiento.
+- _notifications.c / .h_: administración del envío y recepción de notificaciones.
+- _logger.c / .h_: registro de eventos del sistema.
+
+Por su parte, la carpeta _hardware_ contiene los módulos encargados de la interacción directa con los periféricos físicos:
+
+-_mic.c / .h_: adquisición de señal analógica del micrófono mediante el ADC.
+-_bluetooth.c / .h_: comunicación serial a través de USART1.
+-_dip_switch.c / .h_: lectura del estado de los interruptores.
+-_buzzer.c / .h_: generación de señal PWM utilizando el temporizador TIM3.
+-_led.c / .h_: control de los indicadores visuales.
+
+Además, esta carpeta incluye los archivos _config.c / .h_, donde se centralizan parámetros configurables del sistema.
+
+Esta separación entre lógica de aplicación y acceso a _hardware_ permitió mantener una arquitectura clara, donde cada módulo cumplió una función específica y bien delimitada.
+
+## **3.2.2 Flujo de ejecución del _firmware_**
+
+Durante su ejecución, el sistema inicializa los periféricos y luego entra en el ciclo principal, donde:
+- Se adquieren muestras del micrófono.
+- Se gestiona la comunicación _Bluetooth_ con la aplicación móvil.
+- Se actualiza el estado del sistema según el modo seleccionado.
+- Se evalúa el nivel de señal respecto al umbral configurado.
+- Se activan indicadores visuales o sonoros cuando corresponde.
+
 
 ## **3.3 Diseño de la aplicación**
 <span style="color:red"><strong>⚠ CONTINUAR DESDE ACÁ</strong></span>
