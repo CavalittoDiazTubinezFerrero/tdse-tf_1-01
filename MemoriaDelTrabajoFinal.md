@@ -62,6 +62,8 @@ This document describes the system architecture, design methodology, implementat
       - [3.1.4 Conexión del _DIP switch_](#314-conexión-del-dip-switch)
       - [3.1.5 Conexión de los _LEDs_](#315-conexión-de-los-leds)
     - [3.2 _Firmware_ de _BeepBuddy_](#32-firmware-de-beepbuddy)
+      - [3.2.1 Organización modular del _firmware_](#321-organización-modular-del-firmware)
+      - [3.2.2 Flujo de ejecución del _firmware_](#322-flujo-de-ejecución-del-firmware)
     - [3.3 Diseño de la aplicación](#33-diseño-de-la-aplicación)
   - [**Ensayos y resultados**](#ensayos-y-resultados)
     - [4.1 Mediciones](#41-mediciones)
