@@ -56,6 +56,9 @@ This document describes the system architecture, design methodology, implementat
     - [2.3.6 Interfaz de usuario: _DIP switch_ y LEDs](#236-interfaz-de-usuario-dip-switch-y-leds)
   - [**Diseño e implementación**](#diseño-e-implementación)
     - [3.1 Diseño del _hardware_](#31-diseño-del-hardware)
+      - [3.1.1 Conexión del módulo del micrófono](#311-conexión-del-módulo-del-micrófono)
+      - [3.1.2 Conexión del del módulo _Bluetooth_](#311-conexión-del-módulo-bluetooth)
+      - 
     - [3.2 _Firmware_ de _BeepBuddy_](#32-firmware-de-beepbuddy)
     - [3.3 Diseño de la aplicación](#33-diseño-de-la-aplicación)
   - [**Ensayos y resultados**](#ensayos-y-resultados)
