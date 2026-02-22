@@ -59,7 +59,8 @@ This document describes the system architecture, design methodology, implementat
       - [3.1.1 Conexión del módulo del micrófono](#311-conexión-del-módulo-del-micrófono)
       - [3.1.2 Conexión del del módulo _Bluetooth_](#311-conexión-del-módulo-bluetooth)
       - [3.1.3 Conexión del módulo del _buzzer_](#312-conexión-del-módulo-del-buzzer)
-      - [3.1.3 Conexión de los _LEDs_](#313-conexión-de-los-leds)
+      - [3.1.4 Conexión del _DIP switch_](#314-conexión-del-dip-switch)
+      - [3.1.5 Conexión de los _LEDs_](#315-conexión-de-los-leds)
     - [3.2 _Firmware_ de _BeepBuddy_](#32-firmware-de-beepbuddy)
     - [3.3 Diseño de la aplicación](#33-diseño-de-la-aplicación)
   - [**Ensayos y resultados**](#ensayos-y-resultados)
@@ -385,14 +386,18 @@ El _buzzer_ fue conectado al pin _PC7_ (_TIM3_CH2_) del microcontrolador configu
 
 El esquema correspondiente se presenta en la Figura 3.1.2 a continuación.
 
-<span style="color:red"><strong>⚠ HACER Y AGREGAR ESQUEMA BUZZER</strong></span>
+<img width="400" src="EsquemáticoBuzzer.jpg">
+
+**Figura 3.1.2:** Esquemático del módulo del _buzzer_.
 
 ## **3.1.3 Conexión del _DIP switch_**
 El _DIP switch_ se conectó configurando cada línea como entrada digital del microcontrolador. Los terminales posteriores fueron conectados a _GND_, mientras que los terminales frontales se vincularon a _PA1_ (_DIP_SWITCH_1_), _PA4_ (_DIP_SWITCH_2_) y a _TB0_ (_DIP_SWITCH_3_). Esta configuración permite detectar el estado lógico de cada interruptor mediante lectura digital directa.
 
 La conexión se muestra en la Figura 3.1.3.
 
-<span style="color:red"><strong>⚠ HACER Y AGREGAR ESQUEMA DIP SWITCH</strong></span>
+<img width="400" src="EsquemáticoDIPswitch.jpg">
+
+**Figura 3.1.3:** Esquemático del _DIP switch_.
 
 ## **3.1.4 Conexión de los _LEDs_**
 Se colocaron los cuatro _LEDs_ indicadores (verde, rojo, amarillo y azul) a los pines del microcontrolador indicados a continuación (configurados como salida digital) y, a través de una resistencia limitadora, a masa:
