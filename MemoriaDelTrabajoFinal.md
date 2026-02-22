@@ -59,7 +59,7 @@ This document describes the system architecture, design methodology, implementat
       - [3.1.1 Conexión del módulo del micrófono](#311-conexión-del-módulo-del-micrófono)
       - [3.1.2 Conexión del del módulo _Bluetooth_](#311-conexión-del-módulo-bluetooth)
       - [3.1.3 Conexión del módulo del _buzzer_](#312-conexión-del-módulo-del-buzzer)
-      - 
+      - [3.1.3 Conexión de los _LEDs_](#313-conexión-de-los-leds)
     - [3.2 _Firmware_ de _BeepBuddy_](#32-firmware-de-beepbuddy)
     - [3.3 Diseño de la aplicación](#33-diseño-de-la-aplicación)
   - [**Ensayos y resultados**](#ensayos-y-resultados)
@@ -356,6 +356,8 @@ El diseño de _hardware_ del sistema se basó en la placa, cuya configuración d
 
 **Figura 3.1.a:** Configuración de los pines del NUCLEO-F103RB.
 
+Dado que la placa dispone de un único pin de salida de 3.3 V, se realizó una distribución de dicha tensión mediante la placa para alimentar los módulos correspondientes. Todas las masas fueron unificadas para garantizar referencia común en el sistema.
+
 En las Figuras 3.1.b y 3.1.c se incluyen las vistas <span style="color:red"><strong>⚠ PONER FOTO CUANDO ESTÉ SOLDADO Y TERMINADO</strong></span> deL _hardware_ una vez finalizado el proceso de soldadura, permitiendo visualizar la disposición física de los componentes y las conexiones realizadas.
 
 A continuación, se describe la conexión de cada uno de los módulos externos, acompañada por sus respectivos esquemas eléctricos.
@@ -365,7 +367,7 @@ El micrófono utilizado posee salida analógica (_AO_), la cual fue conectada al
 
 Como se muestra en la Figura 3.1.1, el procesamiento de la señal se realiza a partir de la lectura analógica directa del pin _PA0_.
 
-<img width="600" src="EsquemáticoMicro.jpg">
+<img width="400" src="EsquemáticoMicro.jpg">
 
 **Figura 3.1.1:** Esquemático del módulo del micrófono.
 
@@ -374,7 +376,7 @@ El pin _TX_ del módulo _Bluetooth_ fue conectado al pin _PA10_ (_USART1_RX_) y 
 
 Los pines _STATE_ y _EN_ no fueron utilizados en esta implementación. La Figura 3.1.2 presenta el esquema de conexión del módulo.
 
-<img width="600" src="EsquemáticoBlue.jpg">
+<img width="400" src="EsquemáticoBlue.jpg">
 
 **Figura 3.1.1:** Esquemático del módulo _Bluetooth_.
 
@@ -384,6 +386,24 @@ El _buzzer_ fue conectado al pin _PC7_ (_TIM3_CH2_) del microcontrolador configu
 El esquema correspondiente se presenta en la Figura 3.1.2 a continuación.
 
 <span style="color:red"><strong>⚠ HACER Y AGREGAR ESQUEMA BUZZER</strong></span>
+
+## **3.1.3 Conexión del _DIP switch_**
+El _DIP switch_ se conectó configurando cada línea como entrada digital del microcontrolador. Los terminales posteriores fueron conectados a _GND_, mientras que los terminales frontales se vincularon a _PA1_ (_DIP_SWITCH_1_), _PA4_ (_DIP_SWITCH_2_) y a _TB0_ (_DIP_SWITCH_3_). Esta configuración permite detectar el estado lógico de cada interruptor mediante lectura digital directa.
+
+La conexión se muestra en la Figura 3.1.3.
+
+<span style="color:red"><strong>⚠ HACER Y AGREGAR ESQUEMA DIP SWITCH</strong></span>
+
+## **3.1.4 Conexión de los _LEDs_**
+Se colocaron los cuatro _LEDs_ indicadores (verde, rojo, amarillo y azul) a los pines del microcontrolador indicados a continuación (configurados como salida digital) y, a través de una resistencia limitadora, a masa:
+
+- _LED_ verde → _PA8_ (1 kΩ)
+
+- _LED_ rojo → _PB10_ (10 Ω)
+
+- _LED_ amarillo → _PB4_ (1,8 kΩ)
+
+- _LED_ azul → _PB5_ (1 kΩ)
 
 ## **3.2 _Firmware_ de _BeepBuddy_**
 <span style="color:red"><strong>⚠ CONTINUAR DESDE ACÁ</strong></span>
