@@ -481,16 +481,14 @@ Para la estimación experimental del _Worst Case Execution Time_ (_WCET_) de cad
 
 <span style="color:red"><strong>⚠ Captura de pantalla o valores obtenidos de "Console & Build Analyzer" luego de compilar la versión final</strong></span>
 
-## **4.1.3 Cálculo del factor de uso de la CPU (U)**
-Con el objetivo de evaluar la utilización de recursos del sistema embebido, se analizó el factor de uso de la CPU (U) a partir de la información obtenida durante la compilación del proyecto. Dichos datos fueron extraídos desde la consola de compilación y del análisis de memoria generado por _STM32CubeIDE_ (Figura 4.1.3). En este caso, se evaluaron tanto la memoria _RAM_ como la memoria _FLASH_.
+## **4.1.3 Cálculo del factor de uso (U) de la CPU**
+Con el objetivo de evaluar la utilización de recursos del sistema embebido, se analizó el factor de uso (U) de la CPU a partir de la información obtenida durante la compilación del proyecto. Dichos datos fueron extraídos desde la consola de compilación y del análisis de memoria generado por _STM32CubeIDE_ (Figura 4.1.3). En este caso, se evaluaron tanto la memoria _RAM_ como la memoria _FLASH_.
 
-<img width="250" src="ConsolaFLASH.jpeg">
+<img width="600" src="ConsolaFLASH.jpeg">
 
 **Figura 4.1.3:** Captura de la consola _Build Analyzer_.
 
-Estos valores indican que el sistema utiliza una fracción reducida de los recursos disponibles del microcontrolador STM32F103RB, manteniendo un amplio margen para futuras ampliaciones funcionales o incorporación de nuevas características.
-
-El bajo nivel de ocupación confirma que la arquitectura modular implementada y la organización del firmware resultan eficientes en términos de consumo de memoria.
+Estos valores indican que el sistema utiliza una fracción reducida de los recursos disponibles del microcontrolador STM32F103RB, manteniendo un amplio margen para futuras ampliaciones funcionales o incorporación de nuevas características. Además, confirma que la arquitectura modular implementada y la organización del _firmware_ resultan eficientes en términos de consumo de memoria.
 
 ## **4.2 Metodología de desarrollo**
 El desarrollo del trabajo se llevó a cabo de manera incremental, organizándose en distintas etapas que permitieron estructurarlo y recibir devoluciones parciales antes de avanzar a la siguiente instancia. Cada etapa estuvo respaldada por la elaboración de archivos específicos que concentraron la información relevante para su revisión y validación.
