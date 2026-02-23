@@ -470,10 +470,10 @@ Con el objetivo de evaluar el consumo energético del sistema, se realizaron med
 
 De acuerdo con lo especificado en el manual _UM1724_ (_STM32 Nucleo-64 boards_) y en el esquema eléctrico _MB1136_, la placa dispone de _jumpers_ específicos que permiten medir el consumo de las líneas de 5 V y 3.3 V \[19\]\[20\]. Para realizar la medición correctamente, se retiró el _jumper_ correspondiente a la línea a analizar y se conectó el miliamperímetro en serie entre los pines del mismo, de manera de registrar la corriente total consumida por dicha línea.
 
-Las corrientes medidas fueron las siguientes: 
-<span style="color:red"><strong>⚠ MARI DEBERÍA MEDIRLO Y PASAR LA INFO</strong></span>
-Línea de 5 V: ___ mA
-Línea de 3.3 V: ___ mA
+Las corrientes máximas medidas fueron las siguientes: 
+
+Línea de 5 V: 26.5 mA
+Línea de 3.3 V: 10.2 mA
 
 ## **4.1.2 Tiempos de ejecución de cada tarea (WCET)**
 Para la estimación experimental del _Worst Case Execution Time_ (_WCET_) de cada tarea del sistema se utilizó el contador de ciclos del procesador (_DWT_). Cada función relevante fue instrumentada reiniciando el contador antes de su ejecución y leyendo el tiempo transcurrido en microsegundos inmediatamente después, almacenando el mayor valor observado durante el período de prueba. Con el objetivo de poder recorrer sistemáticamente todos los caminos posibles de ejecución (recepción de comandos, cambios de estado, envío de notificaciones y generación de alertas), el lazo principal del programa fue modificado temporalmente, reemplazando el _while(1)_ infinito por un lazo con duración aproximada de tres minutos. Esto permitió ejecutar múltiples iteraciones bajo distintas condiciones de funcionamiento y registrar valores representativos del tiempo máximo observado para cada tarea. Finalizado el período de medición, los valores de _WCET_ obtenidos fueron impresos mediante _LOGGER_, y posteriormente se restauró la estructura original de ejecución infinita del sistema.
