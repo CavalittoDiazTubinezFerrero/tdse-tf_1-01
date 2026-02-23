@@ -120,7 +120,7 @@ En la Figura 1.2.1 se presenta el diagrama en bloques general del sistema, donde
 
 El funcionamiento general del dispositivo puede resumirse de la siguiente manera: el micrófono capta continuamente los sonidos del entorno y el microcontrolador digitaliza la señal mediante el conversor analógico-digital a una frecuencia de muestreo controlada por temporizadores internos. Las muestras adquiridas son procesadas en tiempo real para determinar si el sonido detectado cumple con los criterios configurados de sensibilidad o corresponde a un evento relevante previamente definido. En caso de detectarse una condición válida, el sistema genera una alerta y la transmite mediante el módulo Bluetooth al dispositivo móvil emparejado. La aplicación recibe la notificación, la muestra de forma visual al usuario y la registra en el historial de eventos. En ausencia de eventos significativos, el sistema continúa monitoreando el entorno de manera autónoma y con bajo consumo energético.
 
-En las próximas secciones se describirá con mayor detalle los módulos utilizados y sus características.
+En las próximas secciones se describen con mayor detalle los módulos utilizados y sus características.
 
 # **CAPÍTULO 2**
 
@@ -340,7 +340,7 @@ La interfaz de usuario del dispositivo está compuesta por un _DIP switch_ (_Dua
 
 **Figura 2.3.6.2:** _LEDs_.
 
-La primera posición del _switch_ corresponde al encendido general del sistema. Cuando se la coloca en posición _ON_, el dispositivo se energiza, se enciende el _LED_ verde y el _buzzer_ emite un breve pitido. En caso de que no se seleccione ningún modo de operación, también se enciende el _LED_ rojo, indicando estado por defecto (modo no definido).
+La primera posición del _switch_ corresponde al encendido general del sistema. Cuando se la coloca en posición _ON_, el dispositivo se energiza, se enciende el _LED_ verde y el _buzzer_ emite un breve pitido. El _LED_ verde comienza a titilar indicando que el sistema se encuentra en espera de vinculación _Bluetooth_; una vez establecida la conexión, el mismo permanece encendido de forma fija. En caso de que no se seleccione ningún modo de operación, también se enciende el _LED_ rojo, indicando estado por defecto (modo no definido).
 
 La segunda posición del interruptor _DIP_ habilita el modo día, encendiéndose el _LED_ amarillo como indicador visual, mientras que, al colocarlo en la tercera posición, se activa el modo noche encendiéndose el _LED_ azul.
 
