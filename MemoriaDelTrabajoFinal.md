@@ -359,7 +359,9 @@ El diseño de _hardware_ del sistema se basó en la placa, cuya configuración d
 
 Dado que la placa dispone de un único pin de salida de 3.3 V, se realizó una distribución de dicha tensión mediante la placa para alimentar los módulos correspondientes. Todas las masas fueron unificadas para garantizar referencia común en el sistema.
 
-En las Figuras 3.1.b y 3.1.c se incluyen las vistas <span style="color:red"><strong>⚠ PONER FOTO CUANDO ESTÉ SOLDADO Y TERMINADO</strong></span> deL _hardware_ una vez finalizado el proceso de soldadura, permitiendo visualizar la disposición física de los componentes y las conexiones realizadas.
+En las Figuras 3.1.b y 3.1.c se incluyen las vistas deL _hardware_ una vez finalizado el proceso de soldadura, permitiendo visualizar la disposición física de los componentes y las conexiones realizadas.
+
+<span style="color:red"><strong>⚠ PONER FOTO CUANDO ESTÉ SOLDADO Y TERMINADO</strong></span>
 
 A continuación, se describe la conexión de cada uno de los módulos externos, acompañada por sus respectivos esquemas eléctricos.
 
@@ -648,7 +650,7 @@ A continuación, en la Tabla 4.5.1 muestra la documentación del desarrollo del 
 |------------------------|---------------------------|
 | _README.md_    | 11 de Diciembre del 2025    |
 | _Lista_componentes_a_confirmar.txt_    | 23 de Diciembre del 2025    |
-| _InformeDeAvances.md_    | <span style="color:red"><strong>⚠ SE SIGUE ACTUALIZANDO</strong></span>  |
+| _InformeDeAvances.md_    | 22 de Febrero del 2026  |
 | _MemoriaDelTrabajoFinal.md_ | <span style="color:red"><strong>⚠ SE SIGUE ACTUALIZANDO</strong></span>   |
 
 
