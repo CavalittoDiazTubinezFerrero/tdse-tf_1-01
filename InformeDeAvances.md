@@ -70,7 +70,7 @@ A continuación se detalla el informe de avances del trabajo práctico final a p
 <td></td>
 <td>3.2</td>
 <td>Las notificaciones deberán incluir el tipo de sonido detectado.</td>
-<td>🟡</td>
+<td>❌</td>
 </tr>
 <tr>
 <td></td>
@@ -83,13 +83,13 @@ A continuación se detalla el informe de avances del trabajo práctico final a p
 <td>Aplicación</td>
 <td>4.1</td>
 <td>La aplicación mostrará alertas visuales asociadas a los sonidos detectados.</td>
-<td>🟡</td>
+<td>✅</td>
 </tr>
 <tr>
 <td></td>
 <td>4.2</td>
 <td>La aplicación deberá permitir consultar el historial de alertas.</td>
-<td></td>
+<td>✅</td>
 </tr>
 <tr>
 <td></td>
@@ -133,7 +133,7 @@ A continuación se detalla el informe de avances del trabajo práctico final a p
 <td></td>
 <td>6.3</td>
 <td>El sistema deberá ser seguro y confiable, priorizando evitar omitir eventos reales.</td>
-<td></td>
+<td>✅</td>
 </tr>
 
 </tbody>
