@@ -99,6 +99,9 @@ void Error_Handler(void);
 #define LED_2_GPIO_Port GPIOB
 #define LED_3_Pin GPIO_PIN_5
 #define LED_3_GPIO_Port GPIOB
+#define BLE_STATE_Pin GPIO_PIN_6
+#define BLE_STATE_GPIO_Port GPIOB
+#define BLE_STATE_EXTI_IRQn EXTI9_5_IRQn
 
 /* USER CODE BEGIN Private defines */
 

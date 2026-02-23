@@ -6,14 +6,17 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../app/app_main.c \
+../app/dwt.c \
 ../app/logger.c 
 
 OBJS += \
 ./app/app_main.o \
+./app/dwt.o \
 ./app/logger.o 
 
 C_DEPS += \
 ./app/app_main.d \
+./app/dwt.d \
 ./app/logger.d 
 
 
@@ -24,7 +27,7 @@ app/%.o app/%.su app/%.cyclo: ../app/%.c app/subdir.mk
 clean: clean-app
 
 clean-app:
-	-$(RM) ./app/app_main.cyclo ./app/app_main.d ./app/app_main.o ./app/app_main.su ./app/logger.cyclo ./app/logger.d ./app/logger.o ./app/logger.su
+	-$(RM) ./app/app_main.cyclo ./app/app_main.d ./app/app_main.o ./app/app_main.su ./app/dwt.cyclo ./app/dwt.d ./app/dwt.o ./app/dwt.su ./app/logger.cyclo ./app/logger.d ./app/logger.o ./app/logger.su
 
 .PHONY: clean-app
 

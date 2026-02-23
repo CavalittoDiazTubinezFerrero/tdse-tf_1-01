@@ -2,10 +2,10 @@
 #define NOTIFICATIONS_H
 
 #include <stdint.h>
+#include <stdbool.h>
 
-void Notifications_OnCommand(char *cmd);
+bool Notifications_ProcessCommand(char *cmd);
 void Notifications_SendNoiseDetected(void);
-void Notifications_SendConfig(void);
-void Notifications_SendAlertHistory(const char *text);
+void Notifications_SendStatusUpdate(void);
 
 #endif

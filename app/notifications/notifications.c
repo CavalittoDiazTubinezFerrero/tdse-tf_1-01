@@ -2,61 +2,61 @@
 #include "mode_manager.h"
 #include "bluetooth.h"
 #include "sound_detector.h"
+#include "config.h"
+#include "logger.h"
+#include "stm32f1xx_hal.h"
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-void Notifications_OnCommand(char *cmd)
+bool Notifications_ProcessCommand(char *cmd)
 {
-	// Comando para cambiar el modo
-    if (strncmp(cmd, "MODE=", 5) == 0)
+    if (strncmp(cmd, "MODE:{", 6) == 0)
     {
-        if (strcmp(&cmd[5], "DIA") == 0)
-        	Mode_UpdateRemote(MODE_DAY);
-        else if (strcmp(&cmd[5], "NOCHE") == 0)
-        	Mode_UpdateRemote(MODE_NIGHT);
-        else if (strcmp(&cmd[5], "OFF") == 0)
-        	Mode_UpdateRemote(MODE_IDLE);
-        else if (strcmp(&cmd[5], "DEFAULT") == 0)
-        	Mode_UpdateRemote(MODE_DEFAULT);
+        char *mode = &cmd[6];
+
+        if (strncmp(mode, "DAY}", 4) == 0)
+            return Mode_UpdateRemote(MODE_DAY);
+
+        else if (strncmp(mode, "NIGHT}", 6) == 0)
+            return Mode_UpdateRemote(MODE_NIGHT);
+
+        else if (strncmp(mode, "IDLE}", 4) == 0)
+            return Mode_UpdateRemote(MODE_IDLE);
+
+        else if (strncmp(mode, "DEFAULT}", 8) == 0)
+            return Mode_UpdateRemote(MODE_DEFAULT);
     }
 
-    // Comando para cambiar el umbral/sensibilidad
-    else if (strncmp(cmd, "TH=", 3) == 0)
+    else if (strncmp(cmd, "SENS:", 5) == 0)
     {
-        uint16_t th = atoi(&cmd[3]);
-        SoundDetector_SetThreshold(th);
+        int threshold = atoi(&cmd[5]);
+
+        if (threshold >= 0 && threshold <= TH_MAX_VALUE)
+        {
+            SoundDetector_SetThreshold((uint16_t)threshold);
+        }
     }
+
+    return false;
 }
 
 
-void Notifications_SendConfig(void)
+
+void Notifications_SendStatusUpdate(void)
 {
-    char msg[32];
+    char buffer[32];
 
-    snprintf(msg, sizeof(msg),
-             "MODE=%d TH=%d\r\n",
-             Mode_Get(),
-			 SoundDetector_GetThreshold());
+    snprintf(buffer, sizeof(buffer), "UMBRAL:%d          ", SoundDetector_GetThreshold());
+    Bluetooth_Send(buffer);
 
-    Bluetooth_Send(msg);
+    snprintf(buffer, sizeof(buffer), "STATUS:%s", Mode_ToString(Mode_Get()));
+    Bluetooth_Send(buffer);
 }
-
 
 void Notifications_SendNoiseDetected(void)
 {
     Bluetooth_Send("ALERTA\r\n");
-    Config_AddAlert("ALERTA\r\n");
 }
 
-
-void Notifications_SendAlertHistory(const char *text)
-{
-    char buffer[ALERT_TEXT_MAX+7]; // 7 bytes de: HIST, + \n + \0
-
-    // Formato para parsear en la app: HIST,<mensaje>\n
-    snprintf(buffer, sizeof(buffer), "HIST,%s\n", text);
-
-    Bluetooth_Send(buffer);
-}
 

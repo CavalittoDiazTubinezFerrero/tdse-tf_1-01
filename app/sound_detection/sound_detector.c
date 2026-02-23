@@ -7,7 +7,6 @@
 volatile uint8_t sound_alert_flag = 0;
 
 
-
 uint16_t SoundDetector_GetThreshold(void)
 {
 	system_mode_t mode = Mode_Get();
@@ -35,8 +34,8 @@ bool Sound_IsDetected(uint16_t adc_value, uint16_t mic_offset)
 
 void SoundDetector_SetThreshold(uint16_t threshold)
 {
-    if (threshold > 250)
-    	threshold = 250;
+    if (threshold > TH_MAX_VALUE)
+    	threshold = TH_MAX_VALUE;
 
     system_mode_t mode = Mode_Get();
 

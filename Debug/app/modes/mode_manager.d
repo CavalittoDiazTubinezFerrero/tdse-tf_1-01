@@ -1,8 +1,8 @@
 app/modes/mode_manager.o: ../app/modes/mode_manager.c \
  ../app/modes/mode_manager.h ../config/config.h \
  ../hardware/buttons/dip_switch.h ../hardware/leds/led.h \
- ../app/modes/mode_manager.h ../hardware/buzzer/buzzer.h \
- ../Core/Inc/main.h ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h \
+ ../app/modes/mode_manager.h \
+ ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h \
  ../Core/Inc/stm32f1xx_hal_conf.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h \
@@ -28,14 +28,15 @@ app/modes/mode_manager.o: ../app/modes/mode_manager.c \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
- ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
+ ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h \
+ ../hardware/buzzer/buzzer.h ../Core/Inc/main.h \
+ ../app/notifications/notifications.h \
+ ../app/sound_detection/sound_detector.h ../config/board.h
 ../app/modes/mode_manager.h:
 ../config/config.h:
 ../hardware/buttons/dip_switch.h:
 ../hardware/leds/led.h:
 ../app/modes/mode_manager.h:
-../hardware/buzzer/buzzer.h:
-../Core/Inc/main.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:
 ../Core/Inc/stm32f1xx_hal_conf.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h:
@@ -63,3 +64,8 @@ app/modes/mode_manager.o: ../app/modes/mode_manager.c \
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h:
+../hardware/buzzer/buzzer.h:
+../Core/Inc/main.h:
+../app/notifications/notifications.h:
+../app/sound_detection/sound_detector.h:
+../config/board.h:

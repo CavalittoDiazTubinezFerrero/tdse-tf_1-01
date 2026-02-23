@@ -5,23 +5,32 @@
 #define CONFIG_FLASH_ADDRESS  0x0801FC00  // última página (F103RB)
 #define CONFIG_MAGIC          0xA5A5A5A5
 
+
 system_config_t g_config;
+
+static const char *mode_to_string[MODE_COUNT] =
+{
+    "DAY",
+    "NIGHT",
+    "DEFAULT",
+    "IDLE"
+};
+
+const char *Mode_ToString(system_mode_t mode)
+{
+    if (mode < MODE_COUNT)
+        return mode_to_string[mode];
+
+    return "UNKNOWN";
+}
 
 static void Config_SetDefaults(void)
 {
 	// umbrales
-    g_config.threshold_by_mode[MODE_DAY]     = 150;
-    g_config.threshold_by_mode[MODE_NIGHT]   = 70;
-    g_config.threshold_by_mode[MODE_DEFAULT] = 100;
-    g_config.threshold_by_mode[MODE_IDLE]    = 250;
-
-    // historial de alertas
-    for (int i = 0; i < ALERT_HISTORY_SIZE; i++)
-    {
-        g_config.alert_history[i].text[0] = '\0';
-    }
-    g_config.alert_index = 0;
-
+    g_config.threshold_by_mode[MODE_DAY]     = 250;
+    g_config.threshold_by_mode[MODE_NIGHT]   = 150;
+    g_config.threshold_by_mode[MODE_DEFAULT] = TH_MAX_VALUE/2;
+    g_config.threshold_by_mode[MODE_IDLE]    = TH_MAX_VALUE;
 
     g_config.magic = CONFIG_MAGIC;
 }
@@ -73,16 +82,4 @@ void Config_Save(void)
     }
 
     HAL_FLASH_Lock();
-}
-
-void Config_AddAlert(const char *text)
-{
-    uint8_t i = g_config.alert_index;
-
-    strncpy(g_config.alert_history[i].text, text, ALERT_TEXT_MAX - 1);
-    g_config.alert_history[i].text[ALERT_TEXT_MAX - 1] = '\0';
-
-    g_config.alert_index = (i + 1) % ALERT_HISTORY_SIZE;
-
-    Config_Save();
 }

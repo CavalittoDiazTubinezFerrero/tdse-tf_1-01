@@ -2,8 +2,14 @@
 #include "dip_switch.h"
 #include "led.h"
 #include "buzzer.h"
-#include <stdint.h>
-
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include "notifications.h"
+#include "config.h"
+#include "sound_detector.h"
+#include "board.h"
 
 #define DIP_SWITCH_1_ACTIVE 4
 #define DIP_SWITCH_2_ACTIVE 2
@@ -12,26 +18,24 @@
 
 static system_mode_t current_mode = MODE_IDLE;
 static system_mode_t last_mode = MODE_IDLE;
+static uint8_t last_dip_switch_value = 0;
 
-static uint8_t remote_mode_active = 0; // Indica si el modo fue fijado remotamente (app)
 
 void Mode_Init(void)
 {
 	current_mode = MODE_IDLE;
 	last_mode = MODE_IDLE;
+
 }
 
 
-void Mode_Update(void)
+bool Mode_Update(void)
 {
-	// tiene prioridad la app para setear modos
-	if (remote_mode_active)
-	    {
-	        return;
-	    }
-
+	bool mode_changed = false;
 	uint8_t dip_switch_value = DipSwitch_Read();
 
+	if (dip_switch_value == last_dip_switch_value)
+		return false;
 
 	switch (dip_switch_value)
 	{
@@ -66,37 +70,65 @@ void Mode_Update(void)
 		 break;
 	}
 
-	// Detectar si salio de MODE_IDLE
+	// Detectar si cambio de modo
 	if (last_mode != current_mode)
 	{
-		Leds_Update(current_mode);
-		if (last_mode == MODE_IDLE && current_mode != MODE_IDLE)
-		{
-			Buzzer_Beep(200);
-		}
+		mode_changed = true;
 		last_mode = current_mode;
+		last_dip_switch_value = dip_switch_value;
 
 	}
-
+	return mode_changed;
 }
 
-/* Solicitud del BLE para */
-void Mode_UpdateRemote(system_mode_t mode)
+bool Mode_UpdateRemote(system_mode_t mode)
 {
-    if (mode < MODE_COUNT)
+    if (mode >= MODE_COUNT)
+        return false;
+
+    if (mode != Mode_Get())
     {
         current_mode = mode;
-        Leds_Update(MODE_IDLE);  // para evr si se recibe el byte por ble
-        remote_mode_active = 1;
+        return true;
     }
+
+    return false;
 }
 
-void Mode_ClearRemote(void)
-{
-    remote_mode_active = 0;
-}
 
 system_mode_t Mode_Get(void)
 {
 	return current_mode;
+}
+
+void Mode_UpdateIndicators(system_mode_t mode,led_t *led1,led_t *led2,led_t *led3)
+{
+	Led_SetStatus(led1, LED_OFF);
+	Led_SetStatus(led2, LED_OFF);
+	Led_SetStatus(led3, LED_OFF);
+
+	switch(mode)
+	{
+    case MODE_IDLE:
+
+        break;
+
+    case MODE_COUNT:
+    case MODE_DEFAULT:
+        Led_SetStatus(led1, LED_ON);
+        break;
+
+    case MODE_DAY:
+        Led_SetStatus(led2, LED_ON);
+        break;
+
+    case MODE_NIGHT:
+        Led_SetStatus(led3, LED_ON);
+        break;
+	}
+
+	Led_Update(led1);
+	Led_Update(led2);
+	Led_Update(led3);
+
 }

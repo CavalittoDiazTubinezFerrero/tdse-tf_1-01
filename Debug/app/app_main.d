@@ -31,7 +31,7 @@ app/app_main.o: ../app/app_main.c ../app/app_main.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h \
  ../Core/Inc/main.h ../app/notifications/notifications.h \
  ../hardware/bluetooth/bluetooth.h ../hardware/leds/led.h \
- ../hardware/buzzer/buzzer.h
+ ../hardware/buzzer/buzzer.h ../app/dwt.h ../config/board.h
 ../app/app_main.h:
 ../app/modes/mode_manager.h:
 ../config/config.h:
@@ -70,3 +70,5 @@ app/app_main.o: ../app/app_main.c ../app/app_main.h \
 ../hardware/bluetooth/bluetooth.h:
 ../hardware/leds/led.h:
 ../hardware/buzzer/buzzer.h:
+../app/dwt.h:
+../config/board.h:

@@ -5,16 +5,12 @@
 #include "notifications.h"
 #include "stm32f1xx_hal.h"
 #include <string.h>
+#include "logger.h"
 
 char rx_buffer[RX_BUFFER_SIZE];
 static uint8_t rx_index = 0;
 volatile uint8_t rx_buffer_ready = 0;
-
-void Bluetooth_Init(void)
-{
-    rx_index = 0;
-    memset(rx_buffer, 0, sizeof(rx_buffer));
-}
+volatile uint8_t ble_connected = 0;
 
 
 void Bluetooth_Send(const char *msg)
@@ -28,14 +24,13 @@ void Bluetooth_Send(const char *msg)
 
 void Bluetooth_OnRxByte(uint8_t byte)
 {
-
-    if (byte == '\n')
+    // Si llega delimitador ';' o null '\0'
+    if (byte == ';' || byte == '\0')
     {
-        rx_buffer[rx_index] = '\0';   // fin de string
-
         if (rx_index > 0)
         {
-        	rx_buffer_ready = 1;
+            rx_buffer[rx_index] = '\0';
+            rx_buffer_ready = 1;
         }
 
         rx_index = 0;
@@ -48,6 +43,16 @@ void Bluetooth_OnRxByte(uint8_t byte)
     }
     else
     {
-        rx_index = 0; // overflow: descartamos
+        rx_index = 0; // overflow
     }
+}
+
+void Bluetooth_OnConnectionChange(uint8_t status)
+{
+	ble_connected = status;
+}
+
+uint8_t Bluetooth_IsConnected(void)
+{
+    return ble_connected;
 }

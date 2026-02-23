@@ -21,6 +21,7 @@
 "./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o"
 "./Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_uart.o"
 "./app/app_main.o"
+"./app/dwt.o"
 "./app/logger.o"
 "./app/modes/mode_manager.o"
 "./app/notifications/notifications.o"

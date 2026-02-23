@@ -1,3 +1,4 @@
-../hardware/bluetooth/bluetooth.c:13:6:Bluetooth_Init	8	static
-../hardware/bluetooth/bluetooth.c:20:6:Bluetooth_Send	16	static
-../hardware/bluetooth/bluetooth.c:29:6:Bluetooth_OnRxByte	16	static
+../hardware/bluetooth/bluetooth.c:16:6:Bluetooth_Send	16	static
+../hardware/bluetooth/bluetooth.c:25:6:Bluetooth_OnRxByte	16	static
+../hardware/bluetooth/bluetooth.c:50:6:Bluetooth_OnConnectionChange	16	static
+../hardware/bluetooth/bluetooth.c:55:9:Bluetooth_IsConnected	4	static

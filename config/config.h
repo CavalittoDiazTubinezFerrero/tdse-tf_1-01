@@ -4,7 +4,8 @@
 #include <stdint.h>
 
 #define ALERT_TEXT_MAX 32
-#define ALERT_HISTORY_SIZE 5
+#define TH_MAX_VALUE 500
+#define ALERT_COOLDOWN_MS 4000
 
 typedef struct
 {
@@ -20,12 +21,11 @@ typedef enum
     MODE_COUNT
 } system_mode_t;
 
+const char *Mode_ToString(system_mode_t mode);
 
 typedef struct
 {
     uint16_t threshold_by_mode[MODE_COUNT];
-    alert_entry_t alert_history[ALERT_HISTORY_SIZE];
-    uint8_t alert_index;
     uint32_t magic;
 } system_config_t;
 

@@ -30,7 +30,9 @@
 #include "logger.h"
 #include "bluetooth.h"
 #include "mic.h"
+#include "dwt.h"
 #include "sound_detector.h"
+#include "board.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -126,7 +128,10 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
-  while (1)
+  //uint32_t start_time = HAL_GetTick();
+
+  //while ((HAL_GetTick() - start_time) < 30000)
+  while(1)
   {
     /* USER CODE END WHILE */
 
@@ -134,6 +139,16 @@ int main(void)
 	App_Loop();
 
   }
+  /*
+  LOGGER_INFO("----- WCET RESULTS -----");
+  LOGGER_INFO("Mode update: %lu us", wcet_mode_update);
+  LOGGER_INFO("Send status update: %lu us", wcet_send_status);
+  LOGGER_INFO("Receive status update: %lu us", wcet_receive_status);
+  LOGGER_INFO("Send alert: %lu us", wcet_send_alert);
+  LOGGER_INFO("leds update: %lu us", wcet_leds_update);
+
+  while(1);
+   */
   /* USER CODE END 3 */
 }
 
@@ -422,7 +437,16 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
+  /*Configure GPIO pin : BLE_STATE_Pin */
+  GPIO_InitStruct.Pin = BLE_STATE_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+  HAL_GPIO_Init(BLE_STATE_GPIO_Port, &GPIO_InitStruct);
+
   /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
+
   HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 
@@ -447,16 +471,22 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     if (htim->Instance != TIM2)
         return;
 
-    HAL_ADC_Start(&hadc1);
-    HAL_ADC_PollForConversion(&hadc1, 1);
-    uint16_t sample = HAL_ADC_GetValue(&hadc1);
-    HAL_ADC_Stop(&hadc1);
+    uint16_t sample = Mic_ReadRaw();
 
     if (Sound_IsDetected(sample, mic_offset))
 	{
 		sound_alert_flag = 1;
 	}
 
+}
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+    if (GPIO_Pin == BLE_STATE_Pin)
+    {
+    	ble_connected = HAL_GPIO_ReadPin(BLE_STATE_PORT, BLE_STATE_PIN);
+    	Bluetooth_OnConnectionChange(ble_connected);
+    }
 }
 /* USER CODE END 4 */
 
