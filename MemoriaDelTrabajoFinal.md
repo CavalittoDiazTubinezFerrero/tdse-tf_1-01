@@ -76,8 +76,6 @@ This document describes the system architecture, design methodology, implementat
     - [4.5 Documentación del desarrollo realizado](#45-documentación-del-desarrollo-realizado)
 - [**Bibliografía**](#bibliografía)
 
-<span style="color:red"><strong>⚠ LAS SECCIONES DEL CAPÍTULO 3 NO ESTÁN HECHAS!!!</strong></span>
-
 <span style="color:red"><strong>⚠ IR COMPLETANDO A MEDIDA QUE SE VAYAN ESCRIBIENDO CADA UNA DE LAS SECCIONES</strong></span>
 
 ## Registro de versiones
@@ -468,12 +466,19 @@ Durante su ejecución, el sistema inicializa los periféricos y luego entra en e
 
 ## **4.1 Mediciones**
 ## **4.1.1 Consumo energético**
+Con el objetivo de evaluar el consumo energético del sistema, se realizaron mediciones de corriente sobre la placa NUCLEO-F103RB utilizando un multímetro digital configurado como miliamperímetro.
+
+De acuerdo con lo especificado en el manual _UM1724_ (_STM32 Nucleo-64 boards_) y en el esquema eléctrico _MB1136_, la placa dispone de _jumpers_ específicos que permiten medir el consumo de las líneas de 5 V y 3.3 V \[19\]\[20\]. Para realizar la medición correctamente, se retiró el _jumper_ correspondiente a la línea a analizar y se conectó el miliamperímetro en serie entre los pines del mismo, de manera de registrar la corriente total consumida por dicha línea.
+
+Las corrientes medidas fueron las siguientes: 
 <span style="color:red"><strong>⚠ MARI DEBERÍA MEDIRLO Y PASAR LA INFO</strong></span>
+Línea de 5 V: ___ mA
+Línea de 3.3 V: ___ mA
 
 ## **4.1.2 Tiempos de ejecución de cada tarea (WCET)**
-<span style="color:red"><strong>⚠ MARI DEBERÍA MEDIRLO Y PASAR LA INFO (YA PUDO PONERLO EN EL CÓDIGO)</strong></span>
+Para la estimación experimental del _Worst Case Execution Time_ (_WCET_) de cada tarea del sistema se utilizó el contador de ciclos del procesador (_DWT_). Cada función relevante fue instrumentada reiniciando el contador antes de su ejecución y leyendo el tiempo transcurrido en microsegundos inmediatamente después, almacenando el mayor valor observado durante el período de prueba. Con el objetivo de poder recorrer sistemáticamente todos los caminos posibles de ejecución (recepción de comandos, cambios de estado, envío de notificaciones y generación de alertas), el lazo principal del programa fue modificado temporalmente, reemplazando el _while(1)_ infinito por un lazo con duración aproximada de tres minutos. Esto permitió ejecutar múltiples iteraciones bajo distintas condiciones de funcionamiento y registrar valores representativos del tiempo máximo observado para cada tarea. Finalizado el período de medición, los valores de _WCET_ obtenidos fueron impresos mediante _LOGGER_, y posteriormente se restauró la estructura original de ejecución infinita del sistema.
 
-<span style="color:red"><strong>⚠ Captura de pantalla de "Console & Build Analyzer" luego de compilar la versión final MARI DEBERÍA MEDIRLO Y PASAR LA INFO.</strong></span>
+<span style="color:red"><strong>⚠ Captura de pantalla o valores obtenidos de "Console & Build Analyzer" luego de compilar la versión final</strong></span>
 
 ## **4.1.3 Cálculo del factor de uso (U) de la CPU**
 <span style="color:red"><strong>⚠ MARI DEBERÍA MEDIRLO Y PASAR LA INFO</strong></span>
@@ -679,6 +684,11 @@ A continuación, en la Tabla 4.5.1 muestra la documentación del desarrollo del 
 \[17\] Archivo _App_Statechart.ysc_. [Online]. Available: <span style="color:red"><strong>⚠ SUBIR ITEMIS AL REPO CUANDO SE TERMINE EL STATECHART DE LA PLACA</strong></span>
 
 \[18\] Carpeta _stm32-proyect_. [Online]. Available: <span style="color:red"><strong>⚠ SUBIR CARPETA DEL PROYECTO TERMINADA A LA BRANCH QUE SE ENTREGUE</strong></span>
+
+\[19\] UM1724 - User manual - STM32 Nucleo-64 boards. [Online]. Available: https://www.st.com/resource/en/user_manual/um1724-stm32-nucleo64-boards-mb11
+36-stmicroelectronics.pdf
+
+\[20\] MB1136 - Electrical Schematic - ST M32 Nucleo-64 boards. [Online]. Available: https://www.st.com/resource/en/schematic_pack/mb1136-default-c04_schematic.pdf)
 
 \[.\] Google Gemini. [Online]. Available: https://gemini.google.com/app?hl=es_419
 
