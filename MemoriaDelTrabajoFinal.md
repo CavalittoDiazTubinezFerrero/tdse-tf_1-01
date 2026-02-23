@@ -85,7 +85,7 @@ This document describes the system architecture, design methodology, implementat
 | 1.0 | Creación del documento | 10/02/2026 |
 | 1.1 | Redacción del primer capítulo | 11/02/2026 |
 | 1.2 | Redacción del segundo capítulo | 14/02/2026 |
-| 1.3 | Redacción del tercer capítulo | ... |
+| 1.3 | Redacción del tercer capítulo | 22/02/2026 |
 | 1.4 | Redacción del cuarto capítulo | 16/02/2026 |
 | 1.5 | Redacción del quinto capítulo | ... |
 | 1.6 | Revisión y ajustes finales | ... |
@@ -460,8 +460,22 @@ Durante su ejecución, el sistema inicializa los periféricos y luego entra en e
 - Se activan indicadores visuales o sonoros cuando corresponde.
 
 ## **3.3 Diseño de la aplicación**
-<span style="color:red"><strong>⚠ CONTINUAR DESDE ACÁ</strong></span>
+Como se indicó anteriormente, la aplicación móvil fue desarrollada en _MIT App Inventor_ utilizando programación basada en bloques. Su función principal es permitir la comunicación con la placa mediante _Bluetooth Low Energy_ (_BLE_), configurar parámetros de funcionamiento y visualizar las alertas generadas por el sistema. En la Figura 3.3.1 se muestran estos bloques y a continuación se explica brevemente el funcionamiento de cada uno de ellos.
 
+<img width="300" src="BloquesApp.png">
+
+**Figura 3.3.1:** Bloques de la aplicación.
+
+En primer lugar, la gestión de conexión se realiza a través del componente _BluetoothLE_. El bloque _BtnBuscar.Click_ inicia la búsqueda de dispositivos disponibles, mientras que _BluetoothLE1.DeviceFound_ construye dinámicamente la lista de dispositivos detectados. Mediante _LP_list.AfterPicking_, el usuario selecciona el dispositivo deseado. Una vez establecida la conexión, _BluetoothLE1.Connected_ actualiza el estado de la interfaz e identifica el dispositivo vinculado, mientras que _BluetoothLE1.Disconnected_ informa cuando no existe conexión activa.
+
+En segundo lugar, la configuración del sistema se realiza mediante el envío de comandos a la placa. El bloque _enviar_umbral.Click_ transmite el valor de sensibilidad seleccionado por el usuario. Asimismo, _Btn_modo_dia.Click_ y _Btn_modo_noche.Click_ permiten seleccionar el modo de funcionamiento correspondiente, mientras que -_Btn_off.Click_ detiene el funcionamiento del dispositivo y desactiva las alertas persistentes.
+
+Finalmente, la recepción y procesamiento de eventos se gestionan mediante _BluetoothLE1.StringsReceived_, que interpreta las cadenas enviadas por la placa y ejecuta las acciones correspondientes en la interfaz. Al iniciar la aplicación, _Screen1.Initialize_ carga el historial previamente almacenado, permitiendo al usuario consultar eventos anteriores.
+
+De esta manera, la aplicación actúa como interfaz de usuario del sistema embebido, centralizando la configuración y visualización de alertas de forma remota. Seguidamente, se adjuntan capturas de pantalla de la interfaz de la aplicación ante diferentes eventos (<span style="color:red"><strong>⚠ AGREGAR SCREENSHOTS QUE ME VA A MANDAR MARI CUANDO LA APP ANDE 100% BIEN Y NOMBRAR LAS FIGURAS ACÁ ADENTRO DE LOS (.)</strong></span>).
+
+La descripción detallada de la implementación de cada bloque y su interconexión lógica puede consultarse en el archivo <span style="color:red"><strong>⚠ PONER NOMBRE DEL ARCHIVO DE LA APP CORRESPONDIENTE CUANDO ESTÉ</strong></span> \[21\].
+ 
 # **CAPÍTULO 4**
 
 # **Ensayos y resultados**
@@ -697,6 +711,8 @@ A continuación, en la Tabla 4.5.1 muestra la documentación del desarrollo del 
 36-stmicroelectronics.pdf
 
 \[20\] MB1136 - Electrical Schematic - ST M32 Nucleo-64 boards. [Online]. Available: https://www.st.com/resource/en/schematic_pack/mb1136-default-c04_schematic.pdf)
+
+\[21\] Archivo de la aplicación móvil <span style="color:red"><strong>⚠ COMPLETAR CON EL NOMRBE DEL ARCHIVO</strong></span>. [Online]. Available: <span style="color:red"><strong>⚠ SUBIR ARCHIVO Y PONER EL LINK</strong></span>
 
 \[.\] Google Gemini. [Online]. Available: https://gemini.google.com/app?hl=es_419
 
