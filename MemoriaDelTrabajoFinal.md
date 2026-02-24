@@ -273,9 +273,15 @@ Habiendo analizado las características principales del monitor, se definieron l
 | Flujo principal | El micrófono capta el sonido del entorno y lo convierte en una señal eléctrica analógica. El microcontrolador digitaliza la señal mediante el conversor analógico-digital y procesa las muestras adquiridas en tiempo real. Si el nivel del sonido supera el umbral configurado, el algoritmo de detección valida el evento como relevante. El microcontrolador envía una notificación a través del módulo Bluetooth al dispositivo móvil. La aplicación recibe el evento, lo muestra en pantalla y genera una alerta visual para el usuario. |
 | Flujos alternativos | a. El sonido detectado no supera el umbral configurado. El sistema continúa monitoreando sin generar notificación. b. El módulo Bluetooth no se encuentra conectado al dispositivo móvil. El evento puede registrarse localmente, pero no se envía notificación. c. El usuario modifica los parámetros de sensibilidad desde la aplicación. El sistema actualiza la configuración y continúa operando con los nuevos valores. |
 
-A continuación, se incorporan los diagramas de estado correspondientes al sistema desarrollado. En primer lugar, en la Figura 2.2.1, se presenta la máquina de estados asociada a la placa, donde se describe el comportamiento del _hardware_ del microcontrolador, incluyendo los estados de inicialización, monitoreo, detección de eventos, notificación y configuración. El modelado fue realizado utilizando la herramienta itemis CREATE, y puede consultarse tanto el archivo _Placa_Statechart.ysc_ como el archivo _Statecharts.exe_ adjunto (ambos en la carpeta _Statecharts_), donde se detallan los estados, eventos y transiciones implementadas \[15\]\[16\].
+A continuación, se incorporan los diagramas de estado correspondientes al sistema desarrollado. En primer lugar, en la Figura 2.2.1, se presenta la máquina de estados asociada a la placa, donde se describe el comportamiento del _hardware_ del microcontrolador, incluyendo los estados de inicialización, monitoreo, detección de eventos, notificación y configuración. El modelado fue realizado utilizando la herramienta itemis CREATE, y pueden consultarse tanto el archivo _Placa_Statechart.ysc_ como el archivo _Statecharts.exe_ adjunto (ambos en la carpeta _Statecharts_), donde se detallan los estados, eventos y transiciones implementadas \[15\]\[16\].
 
-<span style="color:red"><strong>⚠ AGREGAR LA MÁQUINA DE ESTADO DE LA PLACA (SUBIR LOS ARCHIVOS DEL STATECHART Y EL EXCEL)</strong></span>
+<div align="center">
+
+<img width="600" src="Placa_Statechart.png">
+
+<p><strong>Figura 2.2.1</strong>: Máquina de estados de la placa.</p>
+
+</div>
 
 Posteriormente, se incluye la máquina de estados correspondiente a la aplicación móvil (Figura 2.2.2), en la cual se representan los distintos estados vinculados a la conexión _Bluetooth_, recepción de eventos, visualización de alertas y configuración de parámetros. Del mismo modo, el diagrama puede observarse en el archivo _App_Statechart.ysc_ junto con el archivo _Statecharts.exe_ asociado (ambos en la carpeta _Statecharts_), donde se documenta formalmente su estructura \[17\].
 
