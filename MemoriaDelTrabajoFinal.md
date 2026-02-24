@@ -63,7 +63,7 @@ This document describes the system architecture, design methodology, implementat
   - [2.3 Descripción de los módulos del sistema](#23-descripción-de-los-módulos-del-sistema)
     - [2.3.1 Alimentación](#231-alimentación)
     - [2.3.2 Microcontrolador](#232-microcontrolador)
-    - [2.3.3 Módulo de micrófono](#233-módulo-de-micrófono)
+    - [2.3.3 Módulo del micrófono](#233-módulo-de-micrófono)
     - [2.3.4 Módulo _Bluetooth_](#234-módulo-bluetooth)
     - [2.3.5 Módulo _buzzer_](#235-módulo-buzzer)
     - [2.3.6 Interfaz de usuario: _DIP switch_ y LEDs](#236-interfaz-de-usuario-dip-switch-y-leds)
@@ -319,14 +319,14 @@ Como microcontrolador del sistema se utilizó la placa NUCLEO-F103RB conectada a
 
 El sistema utiliza la memoria de la _flash_ interna del microcontrolador como almacenamiento no vólatil para conservar la configuración de usuario (_SET_UP_ en los archivos _config.h_ y _config.c_ del proyecto), evitando la pérdida de parámetros ante reinicios o cortes de energía \[5\]. Así, las variables inicializadas en el código se recargan desde la misma a la _RAM_ en cada _reset_, por lo que cualquier modificación realizada en tiempo de ejecución se pierde.
 
-## **2.3.3 Módulo de micrófono**
+## **2.3.3 Módulo del micrófono**
 Para la detección acústica se utilizó un módulo sensor de sonido con micrófono regulable Arduino Nubbeo del tipo KY-037 como se observa en la Figura 2.3.3.1 \[6\].
 
 <div align="center">
 
 <img width="300" src="MóduloMicrófono.jpg">
 
-<p><strong>Figura 2.3.3.1</strong>: Módulo de micrófono.</p>
+<p><strong>Figura 2.3.3.1</strong>: Módulo del micrófono.</p>
 
 </div>
 
@@ -773,7 +773,7 @@ A continuación, en la Tabla 4.5.1 muestra la documentación del desarrollo del 
 
 \[5\] Carpeta donde se pueden hallar los archivos _config.h_ y _config.c_. [Online]. Available: https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/tree/23b1ec407466f7fa20007029bb58381ecce89ee9/config
 
-\[6\] Manual de usuario del módulo de micrófono. [Online]. Available: https://www.alldatasheet.com/datasheet-pdf/download/1284506/JOY-IT/KY037.html
+\[6\] Manual de usuario del módulo del micrófono. [Online]. Available: https://www.alldatasheet.com/datasheet-pdf/download/1284506/JOY-IT/KY037.html
 
 \[7\] Módulo HM-10 bluetooth 4.0 BLE a UART. TodoMicro. [Online]. Available: https://www.todomicro.com.ar/comunicacion/637-modulo-hm-10-bluetooth-40-ble-a-uart.html?srsltid=AfmBOopp0r5laITQYUaryYYiX3FX0pVC3rmiN0xScYLpI9sgNRYFOCRr
 
