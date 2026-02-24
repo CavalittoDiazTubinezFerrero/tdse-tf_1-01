@@ -66,7 +66,7 @@ This document describes the system architecture, design methodology, implementat
     - [2.3.3 Módulo del micrófono](#233-módulo-de-micrófono)
     - [2.3.4 Módulo _Bluetooth_](#234-módulo-bluetooth)
     - [2.3.5 Módulo _buzzer_](#235-módulo-buzzer)
-    - [2.3.6 Interfaz de usuario: _DIP switch_ y LEDs](#236-interfaz-de-usuario-dip-switch-y-leds)
+    - [2.3.6 Interfaz de usuario: _DIP switch_ y _LEDs_](#236-interfaz-de-usuario-dip-switch-y-leds)
   - [**Diseño e implementación**](#diseño-e-implementación)
     - [3.1 Diseño del _hardware_](#31-diseño-del-hardware)
       - [3.1.1 Conexión del módulo del micrófono](#311-conexión-del-módulo-del-micrófono)
@@ -401,7 +401,7 @@ El mismo, está basado en un transductor piezoeléctrico, el cual produce sonido
 
 Si bien el módulo fue comercializado como un _buzzer_ activo (es decir, con oscilador interno y capaz de funcionar al aplicarle una tensión continua), experimentalmente se verificó que no generaba sonido ante la aplicación de una señal continua. Por este motivo, fue necesario excitarlo mediante una señal cuadrada generada por el microcontrolador mediante modulación por ancho de pulso (_PWM_), suministrando así la señal alterna requerida para su funcionamiento.
 
-## **2.3.6 Interfaz de usuario: _DIP switch_ y LEDs**
+## **2.3.6 Interfaz de usuario: _DIP switch_ y _LEDs_**
 
 La interfaz de usuario del dispositivo está compuesta por un _DIP switch_ (_Dual In-line Package switch_) de tres posiciones y cuatro _LEDs_ (_Light Emitting Diodes_), los cuales permiten visualizar el estado de funcionamiento y el modo de operación seleccionado \[11\]. Los mismos se muestran a continuación en las Figuras 2.3.6.1 y 2.3.6.2.
 
