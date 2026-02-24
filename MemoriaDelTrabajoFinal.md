@@ -858,7 +858,7 @@ Finalmente, el desarrollo futuro incluye la migración del prototipo actual a un
 
 \[19\] UM1724 - User manual - STM32 Nucleo-64 boards. [Online]. Available: https://www.st.com/resource/en/user_manual/um1724-stm32-nucleo64-boards-mb1136-stmicroelectronics.pdf
 
-\[20\] MB1136 - Electrical Schematic - ST M32 Nucleo-64 boards. [Online]. Available: https://www.st.com/resource/en/schematic_pack/mb1136-default-c04_schematic.pdf)
+\[20\] MB1136 - Electrical Schematic - ST M32 Nucleo-64 boards. [Online]. Available: https://www.st.com/resource/en/schematic_pack/mb1136-default-c04_schematic.pdf
 
 \[21\] Archivo de la aplicación móvil _BeepBuddy.apk_. [Online]. Available: https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/7183d1253e6a652f54fe6edf92968422408bb41f/BeepBuddy.apk
 
