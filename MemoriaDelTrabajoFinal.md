@@ -130,7 +130,7 @@ La aplicación móvil fue desarrollada utilizando la herramienta MIT App Invento
 En la Figura 1.2.1 se presenta el diagrama en bloques general del sistema, donde se observan los principales módulos y su interconexión.
 <div align="center">
 
-<img width="600" src="DiagramaenBloquesdetallado.png">
+<img width="600" src="Figuras/DiagramaenBloquesdetallado.png">
 
 <p><strong>Figura 1.2.1</strong>: Diagrama en bloques general de BeepBuddy.</p>
 
@@ -277,7 +277,7 @@ A continuación, se incorporan los diagramas de estado correspondientes al siste
 
 <div align="center">
 
-<img width="600" src="Placa_Statechart.png">
+<img width="600" src="Figuras/Placa_Statechart.png">
 
 <p><strong>Figura 2.2.1</strong>: Máquina de estados de la placa.</p>
 
@@ -287,7 +287,7 @@ Posteriormente, se incluye la máquina de estados correspondiente a la aplicaci�
 
 <div align="center">
 
-<img width="600" src="App_Statechart.png">
+<img width="600" src="Figuras/App_Statechart.png">
 
 <p><strong>Figura 2.2.2</strong>: Máquina de estados de la aplicación móvil.</p>
 
@@ -301,7 +301,7 @@ El puerto _USB_ proporcionó una tensión nominal de 5 V _DC_. La placa NUCLEO i
 
 <div align="center">
 
-<img width="600" src="MicrocontroladorReferenciadeDiseño.jpg">
+<img width="600" src="Figuras/MicrocontroladorReferenciadeDiseño.jpg">
 
 <p><strong>Figura 2.3.1.1</strong>: Referencia de diseño de la placa NUCLEO-F103RB tomada de las guías de trabajo de la cátedra [3].</p>
 
@@ -316,7 +316,7 @@ Como microcontrolador del sistema se utilizó la placa NUCLEO-F103RB conectada a
 
 <div align="center">
 
-<img width="300" src="Microcontrolador.webp">
+<img width="300" src="Figuras/Microcontrolador.webp">
 
 <p><strong>Figura 2.3.2.1</strong>: Placa NUCLEO-F103RB.</p>
 
@@ -329,7 +329,7 @@ Para la detección acústica se utilizó un módulo sensor de sonido con micróf
 
 <div align="center">
 
-<img width="300" src="MóduloMicrófono.jpg">
+<img width="300" src="Figuras/MóduloMicrófono.jpg">
 
 <p><strong>Figura 2.3.3.1</strong>: Módulo del micrófono.</p>
 
@@ -344,7 +344,7 @@ Para la comunicación inalámbrica entre BeepBuddy y el dispositivo móvil recep
 
 <div align="center">
 
-<img width="300" src="MóduloBluetooth.webp">
+<img width="300" src="Figuras/MóduloBluetooth.webp">
 
 <p><strong>Figura 2.3.4.1</strong>: Módulo <em>Bluetooth</em> (vista superior).</p>
 
@@ -352,7 +352,7 @@ Para la comunicación inalámbrica entre BeepBuddy y el dispositivo móvil recep
 
 <div align="center">
 
-<img width="300" src="MóduloBluetooth2.webp">
+<img width="300" src="Figuras/MóduloBluetooth2.webp">
 
 <p><strong>Figura 2.3.4.2</strong>: Módulo <em>Bluetooth</em> (vista inferior).</p>
 
@@ -368,12 +368,12 @@ En el dispositivo desarrollado, el _buzzer_ (observado en las Figuras 2.3.5.1 y 
 <div style="display: flex; justify-content: center; gap: 40px;">
 
 <div align="center">
-<img width="300" src="MóduloBuzzer.jpg">
+<img width="300" src="Figuras/MóduloBuzzer.jpg">
 <p><strong>Figura 2.3.5.1</strong>: Módulo <em>buzzer</em> (vista superior).</p>
 </div>
 
 <div align="center">
-<img width="300" src="MóduloBuzzer2.jpg">
+<img width="300" src="Figuras/MóduloBuzzer2.jpg">
 <p><strong>Figura 2.3.5.2</strong>: Módulo <em>buzzer</em> (vista inferior).</p>
 </div>
 
@@ -389,12 +389,12 @@ La interfaz de usuario del dispositivo está compuesta por un _DIP switch_ (_Dua
 <div style="display: flex; justify-content: center; gap: 60px;">
 
 <div align="center">
-<img width="150" src="DipSwitch.webp">
+<img width="150" src="Figuras/DipSwitch.webp">
 <p><strong>Figura 2.3.6.1</strong>: <em>DIP switch</em>.</p>
 </div>
 
 <div align="center">
-<img width="150" src="LEDs.jpeg">
+<img width="150" src="Figuras/LEDs.jpeg">
 <p><strong>Figura 2.3.6.2</strong>: <em>LEDs</em>.</p>
 </div>
 
@@ -416,7 +416,7 @@ El diseño de _hardware_ del sistema se basó en la placa, cuya configuración d
 
 <div align="center">
 
-<img width="600" src="ConfigPinesPlaca.jpeg">
+<img width="600" src="Figuras/ConfigPinesPlaca.jpeg">
 
 <p><strong>Figura 3.1.a</strong>: Configuración de los pines del NUCLEO-F103RB.</p>
 
@@ -437,7 +437,7 @@ Como se muestra en la Figura 3.1.1, el procesamiento de la señal se realiza a p
 
 <div align="center">
 
-<img width="400" src="EsquemáticoMicro.jpg">
+<img width="400" src="Figuras/EsquemáticoMicro.jpg">
 
 <p><strong>Figura 3.1.1</strong>: Esquemático del módulo del micrófono.</p>
 
@@ -450,7 +450,7 @@ Los pines _STATE_ y _EN_ no fueron utilizados en esta implementación. La Figura
 
 <div align="center">
 
-<img width="400" src="EsquemáticoBlue.jpg">
+<img width="400" src="Figuras/EsquemáticoBlue.jpg">
 
 <p><strong>Figura 3.1.2</strong>: Esquemático del módulo <em>Bluetooth</em>.</p>
 
@@ -463,7 +463,7 @@ El esquema correspondiente se presenta en la Figura 3.1.3 a continuación.
 
 <div align="center">
 
-<img width="400" src="EsquemáticoBuzzer.png">
+<img width="400" src="Figuras/EsquemáticoBuzzer.png">
 
 <p><strong>Figura 3.1.3</strong>: Esquemático del módulo del <em>buzzer</em>.</p>
 
@@ -476,7 +476,7 @@ La conexión se muestra en la Figura 3.1.4..
 
 <div align="center">
 
-<img width="400" src="EsquemáticoDIPswitch.png">
+<img width="400" src="Figuras/EsquemáticoDIPswitch.png">
 
 <p><strong>Figura 3.1.4</strong>: Esquemático del <em>DIP switch</em>.</p>
 
@@ -502,7 +502,7 @@ El archivo principal del sistema (_main.c_) contiene la inicialización de _hard
 
 <div align="center">
 
-<img width="250" src="main.jpeg">
+<img width="250" src="Figuras/main.jpeg">
 
 <p><strong>Figura 3.2</strong>: Líneas de código del archivo <em>main.c</em>.</p>
 
@@ -550,7 +550,7 @@ Como se indicó anteriormente, la aplicación móvil fue desarrollada en _MIT Ap
 
 <div align="center">
 
-<img width="300" src="BloquesApp.png">
+<img width="300" src="Figuras/BloquesApp.png">
 
 <p><strong>Figura 3.3.1</strong>: Bloques de la aplicación.</p>
 
@@ -593,7 +593,7 @@ Con el objetivo de evaluar la utilización de recursos del sistema embebido, se 
 
 <div align="center">
 
-<img width="600" src="ConsolaFLASH.jpeg">
+<img width="600" src="Figuras/ConsolaFLASH.jpeg">
 
 <p><strong>Figura 4.1.3</strong>: Captura de la consola <em>Build Analyzer</em>.</p>
 
