@@ -174,7 +174,7 @@ Los principales desafíos del proyecto radican en la integración del procesamie
 
 #### **1.3.1 Diagrama en bloque**
 En la Figura 1.3.1 se muestra el diagrama en bloques del sistema con los principales módulos del proyecto.
-<img width="600" src="DiagramaenBloques.jpg" >
+<img width="600" src="Figuras/DiagramaenBloques.jpg" >
 
 ### **2\. Elicitación de requisitos y casos de uso**
 
@@ -403,4 +403,5 @@ c) El usuario tiene la app cerrada: se muestra notificación push.
 </table>
 
 <p align="center"><em>Tabla 2.4: Caso de uso 3 — Notificaciones en la aplicación</em></p>
+
 
