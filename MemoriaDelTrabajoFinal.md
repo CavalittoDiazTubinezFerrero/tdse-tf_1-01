@@ -70,7 +70,7 @@ This document describes the system architecture, design methodology, implementat
   - [**Diseño e implementación**](#diseño-e-implementación)
     - [3.1 Diseño del _hardware_](#31-diseño-del-hardware)
       - [3.1.1 Conexión del módulo del micrófono](#311-conexión-del-módulo-del-micrófono)
-      - [3.1.2 Conexión del del módulo _Bluetooth_](#311-conexión-del-módulo-bluetooth)
+      - [3.1.2 Conexión del módulo _Bluetooth_](#311-conexión-del-módulo-bluetooth)
       - [3.1.3 Conexión del módulo del _buzzer_](#312-conexión-del-módulo-del-buzzer)
       - [3.1.4 Conexión del _DIP switch_](#314-conexión-del-dip-switch)
       - [3.1.5 Conexión de los _LEDs_](#315-conexión-de-los-leds)
