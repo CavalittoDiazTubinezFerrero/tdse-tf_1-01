@@ -1,25 +1,37 @@
-<img src="https://github.com/user-attachments/assets/15600b18-f73b-4ba3-a959-47f0048a1ab6" alt="image2" width="30%">
+<div align="center">
 
-**UNIVERSIDAD DE BUENOS AIRES**  
-**Facultad de Ingeniería**  
-**TA134 Taller de Sistemas Embebidos**
+<p align="right">
+<img src="https://github.com/user-attachments/assets/15600b18-f73b-4ba3-a959-47f0048a1ab6" width="200">
+</p>
 
-Memoria del Trabajo Final:
+<strong>UNIVERSIDAD DE BUENOS AIRES</strong><br>
+<strong>Facultad de Ingeniería</strong><br>
 
-***BeepBuddy* - Dispositivo de monitoreo acústico**
+<h2 style="margin: 10px 0 10px 0;">
+TA134 – Taller de Sistemas Embebidos<br>
+Memoria del Trabajo Final
+</h2>
+<h2 style="margin: 10px 0 10px 0;">
+<em>BeepBuddy</em> – Dispositivo de monitoreo acústico
+</h2>
 
-**Autores:**
+<strong>Autores</strong><br>
+**Emilia Cavalitto** – 109394<br>
+**María Teresa Diaz Tubiñez** – 104838<br>
+**Ulises Ferrero** – 105034
 
-**Sra. Emilia Cavalitto - 109394**
+<br>
 
-**Sra. María Teresa Diaz Tubiñez - 104838**
+_Este trabajo fue realizado en la<br>
+Ciudad Autónoma de Buenos Aires,<br>
+entre Diciembre 2025 y Febrero 2026_
 
-**Sr. Ulises Ferrero - 105034**
+<br><br><br>
 
-*Este trabajo fue realizado en la Ciudad Autónoma de Buenos Aires,*   
-*entre Diciembre y Febrero de 2025 y 2026\.*
+</div>
 
-  
+
+
 **RESUMEN**
 
 En este trabajo se presenta el diseño e implementación de BeepBuddy, un sistema embebido destinado a la detección y notificación de eventos sonoros en tiempo real. El mismo fue concebido como una herramienta de asistencia para personas con discapacidad auditiva y como apoyo en el cuidado de personas, permitiendo alertar ante la presencia de sonidos relevantes del entorno. Su objetivo es ofrecer una solución portátil y configurable que facilite el monitoreo acústico en contextos cotidianos.
@@ -37,6 +49,7 @@ The system is based on a development board integrating a microcontroller with an
 
 This document describes the system architecture, design methodology, implementation details, and validation results.
 
+---
 
 # Índice General
 
@@ -78,6 +91,7 @@ This document describes the system architecture, design methodology, implementat
 
 <span style="color:red"><strong>⚠ IR COMPLETANDO A MEDIDA QUE SE VAYAN ESCRIBIENDO CADA UNA DE LAS SECCIONES</strong></span>
 
+---
 ## Registro de versiones
 
 | Revisión | Cambios realizados | Fecha de finalización |
@@ -92,6 +106,7 @@ This document describes the system architecture, design methodology, implementat
 
 <span style="color:red"><strong>⚠ IR COMPLETANDO A MEDIDA QUE SE VAYAN ESCRIBIENDO CADA UNA DE LAS SECCIONES</strong></span>
  
+---
 ### 
 
 # **CAPÍTULO 1** 
@@ -113,15 +128,19 @@ El primero integra un micrófono para la captación de señales acústicas, el m
 La aplicación móvil fue desarrollada utilizando la herramienta MIT App Inventor, permitiendo la visualización de alertas, consulta de historial y verificación del estado de conexión [1].
 
 En la Figura 1.2.1 se presenta el diagrama en bloques general del sistema, donde se observan los principales módulos y su interconexión.
+<div align="center">
 
-<img width="600" src="DiagramaenBloquesdetallado.png" >
+<img width="600" src="DiagramaenBloquesdetallado.png">
 
-**Figura 1.2.1**: Diagrama en bloques general de BeepBuddy.
+<p><strong>Figura 1.2.1</strong>: Diagrama en bloques general de BeepBuddy.</p>
+
+</div>
 
 El funcionamiento general del dispositivo puede resumirse de la siguiente manera: el micrófono capta continuamente los sonidos del entorno y el microcontrolador digitaliza la señal mediante el conversor analógico-digital a una frecuencia de muestreo controlada por temporizadores internos. Las muestras adquiridas son procesadas en tiempo real para determinar si el sonido detectado cumple con los criterios configurados de sensibilidad o corresponde a un evento relevante previamente definido. En caso de detectarse una condición válida, el sistema genera una alerta y la transmite mediante el módulo Bluetooth al dispositivo móvil emparejado. La aplicación recibe la notificación, la muestra de forma visual al usuario y la registra en el historial de eventos. En ausencia de eventos significativos, el sistema continúa monitoreando el entorno de manera autónoma y con bajo consumo energético.
 
 En las próximas secciones se describen con mayor detalle los módulos utilizados y sus características.
 
+---
 # **CAPÍTULO 2**
 
 # **Introducción específica** 
@@ -261,9 +280,13 @@ A continuación, se incorporan los diagramas de estado correspondientes al siste
 
 Posteriormente, se incluye la máquina de estados correspondiente a la aplicación móvil (Figura 2.2.2), en la cual se representan los distintos estados vinculados a la conexión _Bluetooth_, recepción de eventos, visualización de alertas y configuración de parámetros. Del mismo modo, el diagrama puede observarse en el archivo _App_Statechart.ysc_ junto con el archivo _Statecharts.exe_ asociado (ambos en la carpeta _Statecharts_), donde se documenta formalmente su estructura \[17\].
 
-<img width="600" src="App_Statechart.png" >
+<div align="center">
 
-**Figura 2.2.2**: Máquina de estados de la aplicación móvil.
+<img width="600" src="App_Statechart.png">
+
+<p><strong>Figura 2.2.2</strong>: Máquina de estados de la aplicación móvil.</p>
+
+</div>
 
 ## **2.3 Descripción de los módulos del sistema**
 ## **2.3.1 Alimentación**
@@ -271,9 +294,13 @@ La alimentación de BeepBuddy se realizó mediante la placa de desarrollo NUCLEO
 
 El puerto _USB_ proporcionó una tensión nominal de 5 V _DC_. La placa NUCLEO incorpora reguladores de tensión internos que generan 3,3 V para el microcontrolador y permiten disponer de líneas de 5 V y 3,3 V para la alimentación de dispositivos externos (como se muestra en la Figura 2.3.1.1), tales como el _buzzer_ y el módulo _Bluetooth BLE_, ambos conectados a 3,3 V.
 
-<img width="600" src="MicrocontroladorReferenciadeDiseño.jpg" >
+<div align="center">
 
-**Figura 2.3.1.1**: Referencia de diseño de la placa NUCLEO-F103RB tomada de las guías de trabajo de la cátedra \[3\].
+<img width="600" src="MicrocontroladorReferenciadeDiseño.jpg">
+
+<p><strong>Figura 2.3.1.1</strong>: Referencia de diseño de la placa NUCLEO-F103RB tomada de las guías de trabajo de la cátedra [3].</p>
+
+</div>
 
 Por otro lado, el módulo del micrófono se alimentó directamente desde el pin de 5 V provisto por la placa, compartiendo masa común con el resto del sistema.
 
@@ -282,18 +309,26 @@ Cabe destacar que esta configuración resultó adecuada para la etapa de prototi
 ## **2.3.2 Microcontrolador**
 Como microcontrolador del sistema se utilizó la placa NUCLEO-F103RB conectada a la computadora portátil a través de un cable _USB Type A Type mini B_. La elección de la misma recayó exclusivamente en que fue la propuesta por la cátedra de la asignatura y fue con la que se trabajó a lo largo del ciclo lectivo. La placa se programó en C a través de la aplicación *STM32CubeIDE 1.19.0* y se muestra en la Figura 2.3.2.1 \[4\].
 
-<img width="300" src="Microcontrolador.webp" >
+<div align="center">
 
-**Figura 2.3.2.1**: Placa NUCLEO-F103RB.
+<img width="300" src="Microcontrolador.webp">
+
+<p><strong>Figura 2.3.2.1</strong>: Placa NUCLEO-F103RB.</p>
+
+</div>
 
 El sistema utiliza la memoria de la _flash_ interna del microcontrolador como almacenamiento no vólatil para conservar la configuración de usuario (_SET_UP_ en los archivos _config.h_ y _config.c_ del proyecto), evitando la pérdida de parámetros ante reinicios o cortes de energía \[5\]. Así, las variables inicializadas en el código se recargan desde la misma a la _RAM_ en cada _reset_, por lo que cualquier modificación realizada en tiempo de ejecución se pierde.
 
 ## **2.3.3 Módulo de micrófono**
 Para la detección acústica se utilizó un módulo sensor de sonido con micrófono regulable Arduino Nubbeo del tipo KY-037 como se observa en la Figura 2.3.3.1 \[6\].
 
-<img width="300" src="MóduloMicrófono.jpg" >
+<div align="center">
 
-**Figura 2.3.3.1**: Módulo de micrófono.
+<img width="300" src="MóduloMicrófono.jpg">
+
+<p><strong>Figura 2.3.3.1</strong>: Módulo de micrófono.</p>
+
+</div>
 
 El mismo, permite detectar la presencia de sonido ambiente y generar una salida digital cuando el nivel de sonido supera el umbral configurable a partir del potenciómetro incorporado en la placa (el cual se ajustó aproximadamente a la mitad del rango de operación del micrófono), y una salida analógica proporcional a la amplitud de la señal captada por el sensor.
 
@@ -302,13 +337,21 @@ El micrófono electret convierte la onda sonora en una señal eléctrica analóg
 ## **2.3.4 Módulo _Bluetooth_**
 Para la comunicación inalámbrica entre BeepBuddy y el dispositivo móvil receptor, se utilizó un módulo _Bluetooth_ compatible con _Bluetooth Low Energy (BLE)_ del tipo HM-10, como se observa en las Figuras 2.3.4.1 y 2.3.4.2 \[7\]\[8\].
 
-<img width="300" src="MóduloBluetooth.webp" >
+<div align="center">
 
-**Figura 2.3.4.1**: Módulo _Bluetooth_ (vista superior).
+<img width="300" src="MóduloBluetooth.webp">
 
-<img width="300" src="MóduloBluetooth2.webp" >
+<p><strong>Figura 2.3.4.1</strong>: Módulo <em>Bluetooth</em> (vista superior).</p>
 
-**Figura 2.3.4.2**: Módulo _Bluetooth_ (vista inferior).
+</div>
+
+<div align="center">
+
+<img width="300" src="MóduloBluetooth2.webp">
+
+<p><strong>Figura 2.3.4.2</strong>: Módulo <em>Bluetooth</em> (vista inferior).</p>
+
+</div>
 
 El módulo HM-10 es un adaptador inalámbrico que implementa la especificación _Bluetooth 4.0 BLE_, permitiendo la transmisión de datos en la banda _ISM_ de 2.4 GHz (_Industrial, Scientific and Medical_, rango de frecuencias de radio libre de licencia que cualquier dispositivo puede usar sin necesidad de permiso especial). Este módulo facilita el enlace inalámbrico entre el microcontrolador y el dispositivo móvil emparejado, posibilitando el envío de notificaciones y la configuración remota del sistema.
 
@@ -317,13 +360,19 @@ Desde el punto de vista funcional, el HM-10 dispone de una interfaz de comunicac
 ## **2.3.5 Módulo _buzzer_**
 En el dispositivo desarrollado, el _buzzer_ (observado en las Figuras 2.3.5.1 y 2.3.5.2) se implementó exclusivamente para emitir un breve pitido cuando el _switch_ principal pasa del estado _OFF_ a _ON_, indicando al usuario que el sistema ha sido energizado correctamente \[9\]\[10\].
 
+<div style="display: flex; justify-content: center; gap: 40px;">
+
+<div align="center">
 <img width="300" src="MóduloBuzzer.jpg">
+<p><strong>Figura 2.3.5.1</strong>: Módulo <em>buzzer</em> (vista superior).</p>
+</div>
 
-**Figura 2.3.5.1:** Módulo _buzzer_ (vista superior).
-
+<div align="center">
 <img width="300" src="MóduloBuzzer2.jpg">
+<p><strong>Figura 2.3.5.2</strong>: Módulo <em>buzzer</em> (vista inferior).</p>
+</div>
 
-**Figura 2.3.5.2:** Módulo _buzzer_ (vista inferior).
+</div>
 
 El mismo, está basado en un transductor piezoeléctrico, el cual produce sonido cuando se le aplica una señal eléctrica alterna que provoca la vibración mecánica de un diafragma cerámico.
 
@@ -332,13 +381,19 @@ Si bien el módulo fue comercializado como un _buzzer_ activo (es decir, con osc
 ## **2.3.6 Interfaz de usuario: _DIP switch_ y LEDs**
 La interfaz de usuario del dispositivo está compuesta por un _DIP switch_ (_Dual In-line Package switch_) de tres posiciones y cuatro _LEDs_ (_Light Emitting Diodes_), los cuales permiten visualizar el estado de funcionamiento y el modo de operación seleccionado \[11\]. Los mismos se muestran a continuación en las Figuras 2.3.6.1 y 2.3.6.2.
 
+<div style="display: flex; justify-content: center; gap: 60px;">
+
+<div align="center">
 <img width="150" src="DipSwitch.webp">
+<p><strong>Figura 2.3.6.1</strong>: <em>DIP switch</em>.</p>
+</div>
 
-**Figura 2.3.6.1:** _DIP switch_.
-
+<div align="center">
 <img width="150" src="LEDs.jpeg">
+<p><strong>Figura 2.3.6.2</strong>: <em>LEDs</em>.</p>
+</div>
 
-**Figura 2.3.6.2:** _LEDs_.
+</div>
 
 La primera posición del _switch_ corresponde al encendido general del sistema. Cuando se la coloca en posición _ON_, el dispositivo se energiza, se enciende el _LED_ verde y el _buzzer_ emite un breve pitido. El _LED_ verde comienza a titilar indicando que el sistema se encuentra en espera de vinculación _Bluetooth_; una vez establecida la conexión, el mismo permanece encendido de forma fija. En caso de que no se seleccione ningún modo de operación, también se enciende el _LED_ rojo, indicando estado por defecto (modo no definido).
 
@@ -346,6 +401,7 @@ La segunda posición del interruptor _DIP_ habilita el modo día, encendiéndose
 
 Los modos de operación (día/noche) solo pueden activarse cuando la primera posición (encendido general, inidicada con el _LED_ verde) se encuentra en estado _ON_. Si las tres posiciones del _switch_ se encuentran activadas simultáneamente, el sistema entra nuevamente en el estado de _default_, encendiéndose el _LED_ rojo.
 
+---
 # **CAPÍTULO 3**
 
 # **Diseño e implementación**
@@ -353,9 +409,13 @@ Los modos de operación (día/noche) solo pueden activarse cuando la primera pos
 ## **3.1 Diseño del _hardware_**
 El diseño de _hardware_ del sistema se basó en la placa, cuya configuración de pines fue realizado mediante la herramienta de inicialización de periféricos (_STM32CubeIDE 1.19.0_), permitiendo asignar las funciones correspondientes a cada módulo externo. Esto se puede observar en la Figura 3.1.a a continuación.
 
+<div align="center">
+
 <img width="600" src="ConfigPinesPlaca.jpeg">
 
-**Figura 3.1.a:** Configuración de los pines del NUCLEO-F103RB.
+<p><strong>Figura 3.1.a</strong>: Configuración de los pines del NUCLEO-F103RB.</p>
+
+</div>
 
 Dado que la placa dispone de un único pin de salida de 3.3 V, se realizó una distribución de dicha tensión mediante la placa para alimentar los módulos correspondientes. Todas las masas fueron unificadas para garantizar referencia común en el sistema.
 
@@ -370,38 +430,55 @@ El micrófono utilizado posee salida analógica (_AO_), la cual fue conectada al
 
 Como se muestra en la Figura 3.1.1, el procesamiento de la señal se realiza a partir de la lectura analógica directa del pin _PA0_.
 
+<div align="center">
+
 <img width="400" src="EsquemáticoMicro.jpg">
 
-**Figura 3.1.1:** Esquemático del módulo del micrófono.
+<p><strong>Figura 3.1.1</strong>: Esquemático del módulo del micrófono.</p>
+
+</div>
 
 ## **3.1.2 Conexión del módulo _Bluetooth_**
 El pin _TX_ del módulo _Bluetooth_ fue conectado al pin _PA10_ (_USART1_RX_) y el pin _RX_ al _PA9_ (_USART1_TX_), estableciendo la comunicación serial cruzada correspondiente. El módulo fue alimentado con 3.3 V provenientes del pin de alimentación de la placa, el cual fue distribuido a través de la placa para alimentar tanto el _Bluetooth_ como el _buzzer_, ya que el microcontrolador dispone de un único pin de 3.3 V.
 
 Los pines _STATE_ y _EN_ no fueron utilizados en esta implementación. La Figura 3.1.2 presenta el esquema de conexión del módulo.
 
+<div align="center">
+
 <img width="400" src="EsquemáticoBlue.jpg">
 
-**Figura 3.1.1:** Esquemático del módulo _Bluetooth_.
+<p><strong>Figura 3.1.2</strong>: Esquemático del módulo <em>Bluetooth</em>.</p>
 
-## **3.1.2 Conexión del módulo del _buzzer_**
+</div>.
+
+## **3.1.3 Conexión del módulo del _buzzer_**
 El _buzzer_ fue conectado al pin _PC7_ (_TIM3_CH2_) del microcontrolador configurado como salida del temporizador, permitiendo la generación de señal _PWM_ para la emisión del sonido. La alimentación del módulo se realizó a 3.3 V y masa común.
 
-El esquema correspondiente se presenta en la Figura 3.1.2 a continuación.
+El esquema correspondiente se presenta en la Figura 3.1.3 a continuación.
+
+<div align="center">
 
 <img width="400" src="EsquemáticoBuzzer.png">
 
-**Figura 3.1.2:** Esquemático del módulo del _buzzer_.
+<p><strong>Figura 3.1.3</strong>: Esquemático del módulo del <em>buzzer</em>.</p>
 
-## **3.1.3 Conexión del _DIP switch_**
+</div>
+
+## **3.1.4 Conexión del _DIP switch_**
 El _DIP switch_ se conectó configurando cada línea como entrada digital del microcontrolador. Los terminales posteriores fueron conectados a _GND_, mientras que los terminales frontales se vincularon a _PA1_ (_DIP_SWITCH_1_), _PA4_ (_DIP_SWITCH_2_) y a _TB0_ (_DIP_SWITCH_3_). Esta configuración permite detectar el estado lógico de cada interruptor mediante lectura digital directa.
 
-La conexión se muestra en la Figura 3.1.3.
+La conexión se muestra en la Figura 3.1.4..
+
+<div align="center">
 
 <img width="400" src="EsquemáticoDIPswitch.png">
 
-**Figura 3.1.3:** Esquemático del _DIP switch_.
+<p><strong>Figura 3.1.4</strong>: Esquemático del <em>DIP switch</em>.</p>
 
-## **3.1.4 Conexión de los _LEDs_**
+</div>
+
+
+## **3.1.5 Conexión de los _LEDs_**
 Se colocaron los cuatro _LEDs_ indicadores (verde, rojo, amarillo y azul) a los pines del microcontrolador indicados a continuación (configurados como salida digital) y, a través de una resistencia limitadora, a masa:
 
 - _LED_ verde: _PA8_ (1 kΩ)
@@ -418,9 +495,13 @@ La implementación del firmware se realizó en lenguaje C utilizando el entorno 
 
 El archivo principal del sistema (_main.c_) contiene la inicialización de _hardware_ generada automáticamente y, posteriormente, ejecuta un bucle infinito (_while(1)_) en el cual se invoca de manera periódica la función principal de la aplicación, como se muestra en la Figura 3.2.
 
+<div align="center">
+
 <img width="250" src="main.jpeg">
 
-**Figura 3.2:** Líneas de código del archivo _main.c_.
+<p><strong>Figura 3.2</strong>: Líneas de código del archivo <em>main.c</em>.</p>
+
+</div>
 
 ## **3.2.1 Organización modular del _firmware_**
 
@@ -462,9 +543,13 @@ Durante su ejecución, el sistema inicializa los periféricos y luego entra en e
 ## **3.3 Diseño de la aplicación**
 Como se indicó anteriormente, la aplicación móvil fue desarrollada en _MIT App Inventor_ utilizando programación basada en bloques. Su función principal es permitir la comunicación con la placa mediante _Bluetooth Low Energy_ (_BLE_), configurar parámetros de funcionamiento y visualizar las alertas generadas por el sistema. En la Figura 3.3.1 se muestran estos bloques y a continuación se explica brevemente el funcionamiento de cada uno de ellos.
 
+<div align="center">
+
 <img width="300" src="BloquesApp.png">
 
-**Figura 3.3.1:** Bloques de la aplicación.
+<p><strong>Figura 3.3.1</strong>: Bloques de la aplicación.</p>
+
+</div>
 
 En primer lugar, la gestión de conexión se realiza a través del componente _BluetoothLE_. El bloque _BtnBuscar.Click_ inicia la búsqueda de dispositivos disponibles, mientras que _BluetoothLE1.DeviceFound_ construye dinámicamente la lista de dispositivos detectados. Mediante _LP_list.AfterPicking_, el usuario selecciona el dispositivo deseado. Una vez establecida la conexión, _BluetoothLE1.Connected_ actualiza el estado de la interfaz e identifica el dispositivo vinculado, mientras que _BluetoothLE1.Disconnected_ informa cuando no existe conexión activa.
 
@@ -476,6 +561,7 @@ De esta manera, la aplicación actúa como interfaz de usuario del sistema embeb
 
 La descripción detallada de la implementación de cada bloque y su interconexión lógica puede consultarse en el archivo <span style="color:red"><strong>⚠ PONER NOMBRE DEL ARCHIVO DE LA APP CORRESPONDIENTE CUANDO ESTÉ</strong></span> \[21\].
  
+---
 # **CAPÍTULO 4**
 
 # **Ensayos y resultados**
@@ -500,9 +586,13 @@ Para la estimación experimental del _Worst Case Execution Time_ (_WCET_) de cad
 ## **4.1.3 Cálculo del factor de uso (U) de la CPU**
 Con el objetivo de evaluar la utilización de recursos del sistema embebido, se analizó el factor de uso (U) de la CPU a partir de la información obtenida durante la compilación del proyecto. Dichos datos fueron extraídos desde la consola de compilación y del análisis de memoria generado por _STM32CubeIDE_ (Figura 4.1.3). En este caso, se evaluaron tanto la memoria _RAM_ como la memoria _FLASH_.
 
+<div align="center">
+
 <img width="600" src="ConsolaFLASH.jpeg">
 
-**Figura 4.1.3:** Captura de la consola _Build Analyzer_.
+<p><strong>Figura 4.1.3</strong>: Captura de la consola <em>Build Analyzer</em>.</p>
+
+</div>
 
 Estos valores indican que el sistema utiliza una fracción reducida de los recursos disponibles del microcontrolador STM32F103RB, manteniendo un amplio margen para futuras ampliaciones funcionales o incorporación de nuevas características. Además, confirma que la arquitectura modular implementada y la organización del _firmware_ resultan eficientes en términos de consumo de memoria.
 
@@ -667,9 +757,11 @@ A continuación, en la Tabla 4.5.1 muestra la documentación del desarrollo del 
 | _InformeDeAvances.md_    | 22 de Febrero del 2026  |
 | _MemoriaDelTrabajoFinal.md_ | <span style="color:red"><strong>⚠ SE SIGUE ACTUALIZANDO</strong></span>   |
 
+---
 
 <span style="color:red"><strong>⚠ CONTINUAR DESDE ACÁ EL CAPÍTULO 5</strong></span>
 
+---
 # **Bibliografía** 
 \[1\] MIT App Inventor. [Online]. Available: https://appinventor.mit.edu/
 
