@@ -261,7 +261,6 @@ Habiendo analizado las características principales del monitor, se definieron l
 </tbody>
 </table>
 
-<span style="color:red"><strong>⚠ IR VIENDO SI SE AGREGAN NUEVOS REQUISITOS Y SUS ESTADOS EN EL INFORME DE AVANCES</strong></span>
 
 ## **2.2 Descripción de uso y máquinas de estado**
 
@@ -638,7 +637,7 @@ Una vez finalizado el trabajo, se tomó la Tabla 2.1.1 (definida anteriormente e
 <tr>
 <td>Procesamiento</td>
 <td>2.1</td>
-<td>El sistema detecta sonidos relevantes (llanto, alarma, golpes, palabra clave).</td>
+<td>El sistema detecta sonidos relevantes (llanto, alarmas, golpes).</td>
 <td>COMPLETADO</td>
 </tr>
 <tr>
@@ -739,7 +738,7 @@ Una vez finalizado el trabajo, se tomó la Tabla 2.1.1 (definida anteriormente e
 </tbody>
 </table>
 
-<span style="color:red"><strong>⚠ IR VIENDO SI SE AGREGAN NUEVOS REQUISITOS Y SUS ESTADOS EN EL INFORME DE AVANCES Y SI ALGUNO NO SE COMPLETA O ALGO ACLARAR CON UN COMENTARIO ACÁ</strong></span>
+
 
 ## **4.4 Comparación con otros sistemas similares**
 Como se mencionó previamente en la Sección 1.1, el mercado actual cuenta con diversos dispositivos de monitoreo con características relacionadas a la captación y transmisión de sonido. Sin embargo, la mayoría de estos están pensados para usuarios sin limitaciones auditivas y no contemplan específicamente la problemática abordada en este trabajo. Por este motivo, y considerando la diversidad de enfoques presentes en el mercado, resulta complejo establecer una comparación estrictamente equivalente entre el prototipo desarrollado y los dispositivos disponibles, ya que cada uno prioriza distintos criterios de diseño y aplicación.
