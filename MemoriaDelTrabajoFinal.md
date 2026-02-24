@@ -564,7 +564,7 @@ Finalmente, la recepción y procesamiento de eventos se gestionan mediante _Blue
 
 De esta manera, la aplicación actúa como interfaz de usuario del sistema embebido, centralizando la configuración y visualización de alertas de forma remota. Seguidamente, se adjuntan capturas de pantalla de la interfaz de la aplicación ante diferentes eventos (<span style="color:red"><strong>⚠ AGREGAR SCREENSHOTS QUE ME VA A MANDAR MARI CUANDO LA APP ANDE 100% BIEN Y NOMBRAR LAS FIGURAS ACÁ ADENTRO DE LOS (.)</strong></span>).
 
-La descripción detallada de la implementación de cada bloque y su interconexión lógica puede consultarse en el archivo <span style="color:red"><strong>⚠ PONER NOMBRE DEL ARCHIVO DE LA APP CORRESPONDIENTE CUANDO ESTÉ</strong></span> \[21\].
+La descripción detallada de la implementación de cada bloque y su interconexión lógica puede consultarse en el archivo _BeepBuddy.apk_ \[21\].
  
 ---
 # **CAPÍTULO 4**
@@ -809,7 +809,7 @@ A continuación, en la Tabla 4.5.1 muestra la documentación del desarrollo del 
 
 \[20\] MB1136 - Electrical Schematic - ST M32 Nucleo-64 boards. [Online]. Available: https://www.st.com/resource/en/schematic_pack/mb1136-default-c04_schematic.pdf)
 
-\[21\] Archivo de la aplicación móvil <span style="color:red"><strong>⚠ COMPLETAR CON EL NOMRBE DEL ARCHIVO</strong></span>. [Online]. Available: <span style="color:red"><strong>⚠ SUBIR ARCHIVO Y PONER EL LINK</strong></span>
+\[21\] Archivo de la aplicación móvil _BeepBuddy.apk_. [Online]. Available: https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/7183d1253e6a652f54fe6edf92968422408bb41f/BeepBuddy.apk
 
 \[.\] Google Gemini. [Online]. Available: https://gemini.google.com/app?hl=es_419
 
