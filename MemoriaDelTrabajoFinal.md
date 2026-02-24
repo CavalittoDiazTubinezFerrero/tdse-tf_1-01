@@ -262,7 +262,7 @@ Habiendo analizado las características principales del monitor, se definieron l
 </table>
 
 
-## **2.2 Descripción de uso y máquinas de estado**
+## **2.2 Descripción de uso y s de estado**
 
 **Tabla 2.2.1**: Descripción de uso.
 
@@ -796,11 +796,11 @@ A continuación, en la Tabla 4.5.1 muestra la documentación del desarrollo del 
 
 \[14\] Archivo _InformeDeAvances.md_. [Online]. Available: https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/InformeDeAvances.md
 
-\[15\] Archivo _Statecharts.exe_. [Online]. Available: <span style="color:red"><strong>⚠ SUBIR EXCEL AL REPO CUANDO SE TERMINE EL STATECHART DE LA PLACA</strong></span>
+\[15\] Carpeta _Statecharts.exe_. [Online]. Available: https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/tree/Entrega-de-memoria-del-trabajo-final/Statecharts
 
-\[16\] Archivo _Placa_Statechart.ysc_. [Online]. Available: <span style="color:red"><strong>⚠ SUBIR ITEMIS AL REPO CUANDO SE TERMINE EL STATECHART DE LA PLACA</strong></span>
+\[16\] Archivo _Placa_Statechart.ysc_. [Online]. Available: https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/829bed8b9a3a83fd0f2c6891f38c5a664aa42d09/Statecharts/Placa_Statechart.ysc
 
-\[17\] Archivo _App_Statechart.ysc_. [Online]. Available: <span style="color:red"><strong>⚠ SUBIR ITEMIS AL REPO CUANDO SE TERMINE EL STATECHART DE LA PLACA</strong></span>
+\[17\] Archivo _App_Statechart.ysc_. [Online]. Available: https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/829bed8b9a3a83fd0f2c6891f38c5a664aa42d09/Statecharts/App_statechart.ysc
 
 \[18\] Carpeta _stm32-proyect_. [Online]. Available: <span style="color:red"><strong>⚠ SUBIR CARPETA DEL PROYECTO TERMINADA A LA BRANCH QUE SE ENTREGUE</strong></span>
 
