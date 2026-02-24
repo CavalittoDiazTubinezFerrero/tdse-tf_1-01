@@ -15,7 +15,7 @@ Memoria del Trabajo Final
 <em>BeepBuddy</em> – Dispositivo de monitoreo acústico
 </h2>
 
-<strong>Autores</strong><br>
+<strong>Autores:</strong><br>
 **Emilia Cavalitto** – 109394<br>
 **María Teresa Diaz Tubiñez** – 104838<br>
 **Ulises Ferrero** – 105034
