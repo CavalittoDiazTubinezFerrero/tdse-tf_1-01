@@ -95,13 +95,14 @@ This document describes the system architecture, design methodology, implementat
 ---
 ## Registro de versiones
 
-Inicialmente, se adjunta la Tabla 0, la cual registra las diferentes veriones la memoria del trabajo práctico final.
+Inicialmente, se adjunta la Tabla 0, la cual registra las diferentes versiones la memoria del trabajo práctico final.
 <div align="center">
 
 <p><strong>Tabla 0:</strong> Registro de versiones de BeepBuddy.</p>
 
 </div>
 
+<div align="center">
 | Revisión | Cambios realizados | Fecha de finalización |
 | :---: | ----- | ----- |
 | 1.0 | Creación del documento | 10/02/2026 |
@@ -111,7 +112,7 @@ Inicialmente, se adjunta la Tabla 0, la cual registra las diferentes veriones la
 | 1.4 | Redacción del cuarto capítulo | 16/02/2026 |
 | 1.5 | Redacción del quinto capítulo | 24/02/2026 |
 | 1.6 | Revisión y ajustes finales | ... |
-
+</div>
 <span style="color:red"><strong>⚠ IR COMPLETANDO A MEDIDA QUE SE VAYAN ESCRIBIENDO CADA UNA DE LAS SECCIONES</strong></span>
  
 ---
