@@ -314,7 +314,7 @@ La alimentación de _BeepBuddy_ se realizó mediante la placa de desarrollo NUCL
 El puerto _USB_ proporcionó una tensión nominal de 5 V _DC_. La placa NUCLEO incorpora reguladores de tensión internos que generan 3,3 V para el microcontrolador y permiten disponer de líneas de 5 V y 3,3 V para la alimentación de dispositivos externos (como se muestra en la Figura 2.3.1.1), tales como el _buzzer_ y el módulo _Bluetooth BLE_, ambos conectados a 3,3 V.
 
 <div align="center">
-
+  
 <img width="600" src="Figuras/MicrocontroladorReferenciadeDiseño.jpg">
 
 <p><strong>Figura 2.3.1.1</strong>: Referencia de diseño de la placa NUCLEO-F103RB tomada de las guías de trabajo de la cátedra [3].</p>
