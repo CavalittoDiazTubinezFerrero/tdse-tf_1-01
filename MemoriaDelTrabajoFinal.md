@@ -87,9 +87,10 @@ This document describes the system architecture, design methodology, implementat
     - [4.3 Cumplimiento de requisitos](#43-cumplimiento-de-requisitos)
     - [4.4 Comparación con otros sistemas similares](#44-comparación-con-otros-sistemas-similares)
     - [4.5 Documentación del desarrollo realizado](#45-documentación-del-desarrollo-realizado)
+  - [**Conclusiones**](#conclusiones)
+    - [5.1 Resultados obtenidos](#51-resultados-obtenidos)
+    - [5.2 Próximos pasos y posibles futuras mejoras](#52-próximos-pasos-y-posibles-futuras-mejoras)
 - [**Bibliografía**](#bibliografía)
-
-<span style="color:red"><strong>⚠ IR COMPLETANDO A MEDIDA QUE SE VAYAN ESCRIBIENDO CADA UNA DE LAS SECCIONES</strong></span>
 
 ---
 ## Registro de versiones
@@ -101,7 +102,7 @@ This document describes the system architecture, design methodology, implementat
 | 1.2 | Redacción del segundo capítulo | 14/02/2026 |
 | 1.3 | Redacción del tercer capítulo | 22/02/2026 |
 | 1.4 | Redacción del cuarto capítulo | 16/02/2026 |
-| 1.5 | Redacción del quinto capítulo | ... |
+| 1.5 | Redacción del quinto capítulo | 24/02/2026 |
 | 1.6 | Revisión y ajustes finales | ... |
 
 <span style="color:red"><strong>⚠ IR COMPLETANDO A MEDIDA QUE SE VAYAN ESCRIBIENDO CADA UNA DE LAS SECCIONES</strong></span>
@@ -763,8 +764,25 @@ A continuación, en la Tabla 4.5.1 muestra la documentación del desarrollo del 
 | _MemoriaDelTrabajoFinal.md_ | <span style="color:red"><strong>⚠ SE SIGUE ACTUALIZANDO</strong></span>   |
 
 ---
+# **CAPÍTULO 5**
 
-<span style="color:red"><strong>⚠ CONTINUAR DESDE ACÁ EL CAPÍTULO 5</strong></span>
+# **Conclsuiones**
+
+## **5.1 Resultados obtenidos**
+El presente trabajo logró implementar satisfactoriamente un sistema de detección sonora con notificación remota mediante _Bluetooth_, cumpliendo con los objetivos planteados al inicio del proyecto. Se desarrolló un sistema con arquitectura modular y organización mediante máquinas de estado, lo que permitió un funcionamiento ordenado y escalable. El dispositivo detectó eventos sonoros según un umbral configurable y permitió establecer una comunicación bidireccional estable que permitió configurar y supervisar el sistema.
+
+Asimismo, se verificó el correcto funcionamiento eléctrico del sistema mediante mediciones de consumo y análisis de utilización de memoria, confirmando que los recursos del microcontrolador fueron empleados de manera eficiente y con amplio margen para futuras ampliaciones.
+
+En términos generales, se cumplieron los objetivos técnicos propuestos, logrando un prototipo funcional que integró _hardware_, _firmware_ y una aplicación móvil en un sistema coherente y operativo.
+
+## **5.2 Próximos pasos y posibles futuras mejoras**
+La evolución del prototipo contempla su rediseño hacia una versión más compacta y autónoma, incorporando, por ejemplo, una batería recargable integrada que elimine la necesidad de conexión permanente a la _PC_ y permita un uso verdaderamente portátil.
+
+En términos de interfaz física, se prevé la sustitución del _DIP switch_ por botones o controles digitales más ergonómicos, simplificando la selección de modos de operación mejorando así la experiencia del usuario. Asimismo, se plantea la optimización de la interfaz de la aplicación móvil, fortaleciendo el flujo de notificaciones y mejorando su presentación visual para lograr una interacción más clara.
+
+Desde el punto de vista funcional, el sistema se proyecta hacia la incorporación de un módulo de notificación háptica portátil, como una banda o pulsera vibratoria destinada a la persona con dificultad auditiva. Esta mejora permitiría generar alertas por vibración directamente en el usuario, incrementando la accesibilidad y la efectividad del dispositivo.
+
+Finalmente, el desarrollo futuro incluye la migración del prototipo actual a una placa _PCB_ diseñada específicamente para el sistema, integrando los módulos utilizados en un formato reducido y más adecuado para una implementación definitiva
 
 ---
 # **Bibliografía** 
