@@ -481,9 +481,9 @@ El micrófono utilizado posee salida analógica (`AO`), la cual fue conectada al
 
 ## **3.1.2 Conexión del módulo _Bluetooth_**
 
-El pin `TX` del módulo _Bluetooth_ fue conectado al pin `PA10` (`USART1_RX`) y el pin `RX` al `PA9` (`USART1_TX`), estableciendo la comunicación serial cruzada correspondiente. El módulo fue alimentado con 3,3 V provenientes del pin de alimentación de la placa, el cual fue distribuido a través de la placa para alimentar tanto el _Bluetooth_ como el _buzzer_, ya que el microcontrolador dispone de un único pin de 3,3 V.
+El pin `TX` del módulo _Bluetooth_ fue conectado al pin `PA10` (`USART1_RX`) y el pin `RX` al `PA9` (`USART1_TX`), estableciendo la comunicación serial cruzada correspondiente. Por otro lado, el pin `STATE` fue conectado al pin `PB6` (`BLE_STATE`) para conocer el estado de conexión del dispositivo. El módulo fue alimentado con 3,3 V provenientes del pin de alimentación de la placa, el cual fue distribuido a través de la placa para alimentar tanto el _Bluetooth_ como el _buzzer_, ya que el microcontrolador dispone de un único pin de 3,3 V.
 
-Los pines `STATE` y `EN` no fueron utilizados en esta implementación. La Figura 3.1.2 presenta el esquema de conexión del módulo.
+El pin `EN` no fue utilizado en esta implementación. La Figura 3.1.2 presenta el esquema de conexión del módulo.
 
 <div align="center">
 
