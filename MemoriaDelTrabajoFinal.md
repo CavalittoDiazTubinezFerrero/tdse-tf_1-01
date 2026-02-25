@@ -509,7 +509,7 @@ El esquema correspondiente se presenta en la Figura 3.1.3 a continuación.
 
 ## **3.1.4 Conexión del _DIP switch_**
 
-El _DIP switch_ se conectó configurando cada línea como entrada digital del microcontrolador. Los terminales posteriores fueron conectados a `GND`, mientras que los terminales frontales se vincularon a `PA1` (`DIP_SWITCH_1`), `PA4` (`DIP_SWITCH_2`) y a `TB0` (`DIP_SWITCH_3`). Esta configuración permite detectar el estado lógico de cada interruptor mediante lectura digital directa.
+El _DIP switch_ se conectó configurando cada línea como entrada digital del microcontrolador. Los terminales posteriores fueron conectados a `GND`, mientras que los terminales frontales se vincularon a `PA1` (`DIP_SWITCH_1`), `PA4` (`DIP_SWITCH_2`) y a `PB0` (`DIP_SWITCH_3`). Esta configuración permite detectar el estado lógico de cada interruptor mediante lectura digital directa.
 La conexión se muestra en la Figura 3.1.4.
 
 <div align="center">
@@ -550,40 +550,38 @@ El archivo principal del sistema ([`main.c`](https://github.com/CavalittoDiazTub
 
 A diferencia de una implementación monolítica, el proyecto fue estructurado en módulos funcionales organizados en carpetas específicas, lo que facilita la lectura, mantenimiento y escalabilidad del código.
 
-<span style="color:red"><strong>⚠MARI AGREGAR LOS ARCHIVOS QUE HAYA HECHO NUEVOS</strong></span>
-
 La carpeta [`app`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/tree/cabf6f2aa755565a832ac6392c2ffda81915aa82/stm32-project/app) concentra la lógica principal del sistema. En ella se encuentran:
 - `app_main.c / .h`: núcleo de la aplicación y gestión general del flujo.
 - `sound_detector.c / .h`: implementación del algoritmo de detección de sonido.
 - `mode_manager.c / .h`: gestión de los distintos modos de funcionamiento.
 - `notifications.c / .h`: administración del envío y recepción de notificaciones.
 - `logger.c / .h`: registro de eventos del sistema.
+- `dwt.c / .h`: implementación y configuración del contador de ciclos del procesador para la medición de los _WCET_
 
-<span style="color:red"><strong>⚠ MARI AGREGAR LOS ARCHIVOS QUE HAYA HECHO NUEVOS</strong></span>
-<span style="color:red"><strong>⚠ LOA RCHIVOS CONFIG NO ESTÁN EN LA CARPETA DE HARDWARE. ver qué hacer con eso y si quedan acá tmb linkearlos</strong></span
-
-Por su parte, la carpeta [`hardware`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/tree/cabf6f2aa755565a832ac6392c2ffda81915aa82/stm32-project/hardware) contiene los archivos [`config.c`]() y [`config.h`]() (donde se centralizan parámetros configurables del sistema) e incluye los módulos encargados de la interacción directa con los periféricos físicos:
-- `mic.c / .h_: adquisición de señal analógica del micrófono mediante el _ADC_.
+Por su parte, la carpeta [`hardware`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/tree/cabf6f2aa755565a832ac6392c2ffda81915aa82/stm32-project/hardware) incluye los módulos encargados de la interacción directa con los periféricos físicos:
+- `mic.c / .h`: adquisición de señal analógica del micrófono mediante el _ADC_.
 - `bluetooth.c / .h`: comunicación serial a través de _USART1_.
 - `dip_switch.c / .h`: lectura del estado de los interruptores.
 - `buzzer.c / .h`: generación de señal _PWM_ utilizando el temporizador _TIM3_.
 - `led.c / .h`: control de los indicadores visuales.
 
-En el archivo [`main.c`] se implementaron dos _callbacks_ asociados a interrupciones de _hardware_. Por un lado, la función `HAL_UART_RxCpltCallback()` gestiona la recepción de datos por _UART_ mediante interrupciones. Cada vez que se recibe un _byte_ por _USART1_, la rutina invoca `Bluetooth_OnRxByte()` para procesarlo y re-habilita inmediatamente la recepción con `HAL_UART_Receive_IT()`. Este esquema evitó el uso de _polling_, redujo el tiempo de _CPU_ ocioso y garantizó una atención inmediata a los datos entrantes sin bloquear la ejecución principal.
+Y la carpeta [`config`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/tree/cabf6f2aa755565a832ac6392c2ffda81915aa82/stm32-project/config) centraliza las configuraciones del proyecto para facilitar su mantenimiento y modificación sin afectar la lógica principal. Contiene constantes, definiciones y parámetros globales utilizados por la aplicación.
+
+En el archivo [`main.c`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/tree/cabf6f2aa755565a832ac6392c2ffda81915aa82/stm32-project/Core/Src/main.c) se implementaron tres _callbacks_ asociados a interrupciones de _hardware_. Por un lado, la función `HAL_UART_RxCpltCallback()` gestiona la recepción de datos por _UART_ mediante interrupciones. Cada vez que se recibe un _byte_ por _USART1_, la rutina invoca `Bluetooth_OnRxByte()` para procesarlo y re-habilita inmediatamente la recepción con `HAL_UART_Receive_IT()`. Este esquema evitó el uso de _polling_, redujo el tiempo de _CPU_ ocioso y garantizó una atención inmediata a los datos entrantes sin bloquear la ejecución principal.
 
 Por otro lado, la función `HAL_TIM_PeriodElapsedCallback()` se ejecuta periódicamente a partir del desborde del temporizador _TIM2_. En cada interrupción se realiza la lectura de una muestra del micrófono y se evalúa si existe detección de sonido mediante `Sound_IsDetected()`. En caso afirmativo, se activa una bandera (_sound_alert_flag_) que luego será procesada en el lazo principal. Este enfoque desacopló la adquisición temporalmente crítica del procesamiento de alto nivel, manteniendo tiempos determinísticos y evitando sobrecargar la rutina de interrupción.
 
-En conjunto, ambos _callbacks_ demuestran un uso adecuado de interrupciones para tareas asíncronas (comunicación serie) y periódicas (muestreo del sensor), favoreciendo una arquitectura eficiente, no bloqueante y coherente con buenas prácticas en sistemas embebidos.
+Finalmente, la función `HAL_GPIO_EXTI_Callback()` se ejecuta ante la detección de una interrupción externa asociada al pin `BLE_STATE`. Cuando se produce un cambio en dicho pin, se lee para determinar si el módulo Bluetooth se encuentra conectado o desconectado.
+
+En conjunto, los tres _callbacks_ demuestran un uso adecuado de interrupciones para tareas asíncronas (comunicación serie y cambios en el estado de un pin) y periódicas (muestreo del sensor), favoreciendo una arquitectura eficiente, no bloqueante y coherente con buenas prácticas en sistemas embebidos.
 
 Esta separación entre lógica de aplicación y acceso a _hardware_ permitió mantener una arquitectura clara, donde cada módulo cumplió una función específica y bien delimitada. Todos los archivos mencionados se encuentran a disposición en la carpeta [`stm32-proyect`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/tree/cabf6f2aa755565a832ac6392c2ffda81915aa82/stm32-project).
 
 ## **3.2.2 Flujo de ejecución del _firmware_**
 
 Durante su ejecución, el sistema inicializa los periféricos y luego entra en el ciclo principal, donde:
-- Se adquieren muestras del micrófono.
 - Se gestiona la comunicación _Bluetooth_ con la aplicación móvil.
 - Se actualiza el estado del sistema según el modo seleccionado.
-- Se evalúa el nivel de señal respecto al umbral configurado.
 - Se activan indicadores visuales o sonoros cuando corresponde.
 
 ## **3.3 Diseño de la aplicación**
@@ -673,7 +671,7 @@ Los corrientes máximas obtenidas son mostradas en la Tabla 4.1.1.
 
 ## **4.1.2 Tiempos de ejecución de cada tarea (_WCET_)**
 
-Para la estimación experimental del _Worst Case Execution Time_ (_WCET_) de cada tarea del sistema se utilizó el contador de ciclos del procesador (_DWT_). Cada función relevante fue instrumentada reiniciando el contador antes de su ejecución y leyendo el tiempo transcurrido en microsegundos inmediatamente después, almacenando el mayor valor observado durante el período de prueba. Con el objetivo de poder recorrer sistemáticamente todos los caminos posibles de ejecución (recepción de comandos, cambios de estado, envío de notificaciones y generación de alertas), el lazo principal del programa fue modificado temporalmente, reemplazando el `while(1)` infinito por un lazo con duración aproximada de tres minutos. Esto permitió ejecutar múltiples iteraciones bajo distintas condiciones de funcionamiento y registrar valores representativos del tiempo máximo observado para cada tarea. Finalizado el período de medición, los valores de _WCET_ obtenidos fueron impresos mediante _LOGGER_, y posteriormente se restauró la estructura original de ejecución infinita del sistema.
+Para la estimación experimental del _Worst Case Execution Time_ (_WCET_) de cada tarea del sistema se utilizó el contador de ciclos del procesador (_DWT_). Cada función relevante fue instrumentada reiniciando el contador antes de su ejecución y leyendo el tiempo transcurrido en microsegundos inmediatamente después, almacenando el mayor valor observado durante el período de prueba. Con el objetivo de poder recorrer sistemáticamente todos los caminos posibles de ejecución (recepción de comandos, cambios de estado, envío de configuraciones y generación de alertas), el lazo principal del programa fue modificado temporalmente, reemplazando el `while(1)` infinito por un lazo con duración aproximada de dos minutos. Esto permitió ejecutar múltiples iteraciones bajo distintas condiciones de funcionamiento y registrar valores representativos del tiempo máximo observado para cada tarea. Finalizado el período de medición, los valores de _WCET_ obtenidos fueron impresos mediante _LOGGER_INFO()_.
 
 Los valores obtenidos fueron los observados en la Tabla 4.1.2.
 <div align="center">
