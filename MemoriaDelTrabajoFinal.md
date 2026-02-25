@@ -41,13 +41,13 @@ El sistema está compuesto por una plataforma de desarrollo provista por la cát
 En esta memoria se describen la motivación, la arquitectura del sistema, las decisiones de diseño adoptadas y las pruebas realizadas para validar su funcionamiento.
 
 
-**ABSTRACT**
+**_ABSTRACT_**
 
-This work presents the design and implementation of _BeepBuddy_, an embedded system for real-time detection and notification of acoustic events. The system is intended as an assistive solution for individuals with hearing impairments and as a support tool in caregiving scenarios, generating alerts when relevant environmental sounds are identified. The proposed device provides a portable and configurable platform for acoustic monitoring in everyday environments.
+_This work presents the design and implementation of _BeepBuddy_, an embedded system for real-time detection and notification of acoustic events. The system is intended as an assistive solution for individuals with hearing impairments and as a support tool in caregiving scenarios, generating alerts when relevant environmental sounds are identified. The proposed device provides a portable and configurable platform for acoustic monitoring in everyday environments._
 
-The system is based on a development board integrating a microcontroller with an analog-to-digital converter, hardware timers, and a low-energy _Bluetooth_ communication module. Audio acquisition and control logic were implemented in the C programming language, while the mobile application for system configuration and notification reception was developed using [MIT App Inventor](https://appinventor.mit.edu/). The project required the integration of hardware and software following modular design principles and efficient resource management typical of embedded systems, for which the [itemis CREATE](https://www.itemis.com/en/products/itemis-create/) modeling environment was employed.
+_The system is based on a development board integrating a microcontroller with an analog-to-digital converter, hardware timers, and a low-energy _Bluetooth_ communication module. Audio acquisition and control logic were implemented in the C programming language, while the mobile application for system configuration and notification reception was developed using [MIT App Inventor](https://appinventor.mit.edu/). The project required the integration of hardware and software following modular design principles and efficient resource management typical of embedded systems, for which the [itemis CREATE](https://www.itemis.com/en/products/itemis-create/) modeling environment was employed._
 
-This document describes the system architecture, design methodology, implementation details, and validation results.
+_This document describes the system architecture, design methodology, implementation details, and validation results._
 
 ---
 
@@ -604,6 +604,8 @@ Finalmente, la recepción y procesamiento de eventos se gestionan mediante `Blue
 
 De esta manera, la aplicación actúa como interfaz de usuario del sistema embebido, centralizando la configuración y visualización de alertas de forma remota. Seguidamente, se adjuntan capturas de pantalla de la interfaz de la aplicación ante diferentes eventos (Figuras 3.3.2, 3.3.3 y 3.3.4).
 
+<span style="color:red"><strong>⚠ MODIFICAR CAPTURAS DE PANTALLAS POR LA [ULTIMA VERISIÓN</strong></span>
+
 <div align="center">
 
 <img width="300" src="Figuras/CapturaApp1.jpeg">
@@ -617,12 +619,10 @@ De esta manera, la aplicación actúa como interfaz de usuario del sistema embeb
 
 <p><strong>Figura 3.3.3</strong>: Captura de pantalla de la interfaz de la aplicación en Modo Noche con historial de alertas.</p>
 
-<span style="color:red"><strong>⚠ AGREGAR CAPTURA DE PANTALLA DE LA APP CUANDO LLEGA UNA ALERTA</strong></span>
-
 </div>
 <div align="center">
 
-<img width="300" src="Figuras/CapturaApp4.jpeg">
+<img width="300" src="Figuras/CapturaApp3.jpeg">
 
 <p><strong>Figura 3.3.4</strong>: Captura de pantalla de la interfaz de la aplicación al recibir la notificación de alerta.</p>
 
