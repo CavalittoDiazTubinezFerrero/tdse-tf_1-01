@@ -95,7 +95,7 @@ This document describes the system architecture, design methodology, implementat
 ---
 ## Registro de versiones
 
-Inicialmente, se adjunta la Tabla 0, la cual registra las diferentes versiones la memoria del trabajo práctico final.
+Inicialmente, se adjunta la Tabla 0, la cual registra las diferentes versiones de la memoria del trabajo práctico final.
 <div align="center">
 
 <p><strong>Tabla 0:</strong> Registro de versiones de <em>BeepBuddy</em>.</p>
