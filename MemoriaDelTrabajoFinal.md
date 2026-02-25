@@ -556,7 +556,7 @@ La carpeta [`app`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/t
 - `mode_manager.c / .h`: gestión de los distintos modos de funcionamiento.
 - `notifications.c / .h`: administración del envío y recepción de notificaciones.
 - `logger.c / .h`: registro de eventos del sistema.
-- `dwt.c / .h`: implementación y configuración del contador de ciclos del procesador para la medición de los _WCET_
+- `dwt.c / .h`: implementación y configuración del contador de ciclos del procesador para la medición de los _WCET_.
 
 Por su parte, la carpeta [`hardware`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/tree/cabf6f2aa755565a832ac6392c2ffda81915aa82/stm32-project/hardware) incluye los módulos encargados de la interacción directa con los periféricos físicos:
 - `mic.c / .h`: adquisición de señal analógica del micrófono mediante el _ADC_.
@@ -567,7 +567,7 @@ Por su parte, la carpeta [`hardware`](https://github.com/CavalittoDiazTubinezFer
 
 Y la carpeta [`config`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/tree/cabf6f2aa755565a832ac6392c2ffda81915aa82/stm32-project/config) centraliza las configuraciones del proyecto para facilitar su mantenimiento y modificación sin afectar la lógica principal. Contiene constantes, definiciones y parámetros globales utilizados por la aplicación.
 
-En el archivo [`main.c`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/tree/cabf6f2aa755565a832ac6392c2ffda81915aa82/stm32-project/Core/Src/main.c) se implementaron tres _callbacks_ asociados a interrupciones de _hardware_. Por un lado, la función `HAL_UART_RxCpltCallback()` gestiona la recepción de datos por _UART_ mediante interrupciones. Cada vez que se recibe un _byte_ por _USART1_, la rutina invoca `Bluetooth_OnRxByte()` para procesarlo y re-habilita inmediatamente la recepción con `HAL_UART_Receive_IT()`. Este esquema evitó el uso de _polling_, redujo el tiempo de _CPU_ ocioso y garantizó una atención inmediata a los datos entrantes sin bloquear la ejecución principal.
+Por otro lado, en el archivo [`main.c`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/tree/cabf6f2aa755565a832ac6392c2ffda81915aa82/stm32-project/Core/Src/main.c) se implementaron tres _callbacks_ asociados a interrupciones de _hardware_. Por un lado, la función `HAL_UART_RxCpltCallback()` gestiona la recepción de datos por _UART_ mediante interrupciones. Cada vez que se recibe un _byte_ por _USART1_, la rutina invoca `Bluetooth_OnRxByte()` para procesarlo y re-habilita inmediatamente la recepción con `HAL_UART_Receive_IT()`. Este esquema evitó el uso de _polling_, redujo el tiempo de _CPU_ ocioso y garantizó una atención inmediata a los datos entrantes sin bloquear la ejecución principal.
 
 Por otro lado, la función `HAL_TIM_PeriodElapsedCallback()` se ejecuta periódicamente a partir del desborde del temporizador _TIM2_. En cada interrupción se realiza la lectura de una muestra del micrófono y se evalúa si existe detección de sonido mediante `Sound_IsDetected()`. En caso afirmativo, se activa una bandera (_sound_alert_flag_) que luego será procesada en el lazo principal. Este enfoque desacopló la adquisición temporalmente crítica del procesamiento de alto nivel, manteniendo tiempos determinísticos y evitando sobrecargar la rutina de interrupción.
 
@@ -909,7 +909,9 @@ En términos generales, se cumplieron los objetivos técnicos propuestos, logran
 
 ## **5.2 Próximos pasos y posibles futuras mejoras**
 
-La evolución del prototipo contempla su rediseño hacia una versión más compacta y autónoma, incorporando, por ejemplo, una batería recargable integrada que elimine la necesidad de conexión permanente a la _PC_ y permita un uso verdaderamente portátil.
+Actualmente, el dispositivo implementa una lógica de detección basada en la superación de un umbral de amplitud de la señal adquirida por el micrófono. Si bien esta estrategia resulta adecuada para una primera aproximación funcional y permite validar la arquitectura general del sistema, se trata de un algoritmo básico que no distingue entre distintos tipos de eventos sonoros. Como línea de evolución futura, se proyecta la incorporación de técnicas más avanzadas de procesamiento de señales que permitan clasificar distintos patrones acústicos, tales como llantos, llamados específicos o palabras clave (por ejemplo, “ayuda”), incrementando significativamente la inteligencia y utilidad del dispositivo.
+
+La evolución del prototipo contempla también su rediseño hacia una versión más compacta y autónoma, incorporando, por ejemplo, una batería recargable integrada que elimine la necesidad de conexión permanente a la _PC_ y permita un uso verdaderamente portátil.
 
 En términos de interfaz física, se prevé la sustitución del _DIP switch_ por botones o controles digitales más ergonómicos, simplificando la selección de modos de operación mejorando así la experiencia del usuario. Asimismo, se plantea la optimización de la interfaz de la aplicación móvil, fortaleciendo el flujo de notificaciones y mejorando su presentación visual para lograr una interacción más clara.
 
