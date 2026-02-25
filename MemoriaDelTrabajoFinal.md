@@ -487,7 +487,7 @@ El pin `EN` no fue utilizado en esta implementación. La Figura 3.1.2 presenta e
 
 <div align="center">
 
-<img width="400" src="Figuras/EsquemáticoBlue.jpg">
+<img width="400" src="Figuras/EsquemáticoBlue.png">
 
 <p><strong>Figura 3.1.2</strong>: Esquemático del módulo <em>Bluetooth</em>.</p>
 
