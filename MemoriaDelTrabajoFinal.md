@@ -339,9 +339,7 @@ Como microcontrolador del sistema se utilizó la placa [NUCLEO-F103RB](https://w
 
 </div>
 
-<span style="color:red"><strong>⚠ LINKEAR LOS ARCHIVOS CONFIG CUANDO MARI SUBA LA CARPETA STM32-PROYECT</strong></span>
-
-El sistema utiliza la memoria _flash_ interna del microcontrolador como almacenamiento no vólatil para conservar la configuración de usuario (`SET_UP` en los archivos [`config.h`]() y [`config.c`] del proyecto), evitando la pérdida de parámetros ante reinicios o cortes de energía. En cada reinicio, el sistema lee los parámetros previamente guardados en la memoria _flash_ y los carga en memoria _RAM_ para su utilización durante la operación. Por lo tanto, los valores almacenados en la memoria no volátil son los que el dispositivo utiliza de manera habitual, mientras que los definidos en config.c actúan únicamente como valores iniciales o de respaldo.
+El sistema utiliza la memoria _flash_ interna del microcontrolador como almacenamiento no vólatil para conservar la configuración de usuario (`SET_UP` en los archivos [`config.h`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/cabf6f2aa755565a832ac6392c2ffda81915aa82/stm32-project/config/config.h) y [`config.c`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/cabf6f2aa755565a832ac6392c2ffda81915aa82/stm32-project/config/config.c) del proyecto), evitando la pérdida de parámetros ante reinicios o cortes de energía. En cada reinicio, el sistema lee los parámetros previamente guardados en la memoria _flash_ y los carga en memoria _RAM_ para su utilización durante la operación. Por lo tanto, los valores almacenados en la memoria no volátil son los que el dispositivo utiliza de manera habitual, mientras que los definidos en config.c actúan únicamente como valores iniciales o de respaldo.
 
 ## **2.3.3 Módulo del micrófono**
 
@@ -536,9 +534,7 @@ Se colocaron los cuatro _LEDs_ indicadores (verde, rojo, amarillo y azul) a los 
 
 La implementación del _firmware_ se realizó en C utilizando el entorno [STM32CubeIDE 1.19.0](https://www.st.com/en/development-tools/stm32cubeide.html). La configuración inicial de la placa STM32F103RB y sus periféricos (_GPIO_, _ADC_, _USART_ y temporizadores) fue generada mediante [STM32CubeMX](https://www.st.com/content/st_com/en/stm32cubemx.html), lo que permitió establecer el mapeo de pines y la configuración base del microcontrolador.
 
-<span style="color:red"><strong>⚠ LINKEAR EL ARCHIVO MAIN CUANDO MARI SUBA LA CARPETA STM32-PROYECT</strong></span>
-
-El archivo principal del sistema ([`main.c`]) contiene la inicialización de _hardware_ generada automáticamente y, posteriormente, ejecuta un bucle infinito (`while(1)`) en el cual se invoca de manera periódica la función principal de la aplicación, como se muestra en la Figura 3.2.
+El archivo principal del sistema ([`main.c`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/cabf6f2aa755565a832ac6392c2ffda81915aa82/stm32-project/Core/Src/main.c)) contiene la inicialización de _hardware_ generada automáticamente y, posteriormente, ejecuta un bucle infinito (`while(1)`) en el cual se invoca de manera periódica la función principal de la aplicación, como se muestra en la Figura 3.2.
 
 <div align="center">
 
@@ -552,18 +548,19 @@ El archivo principal del sistema ([`main.c`]) contiene la inicialización de _ha
 
 A diferencia de una implementación monolítica, el proyecto fue estructurado en módulos funcionales organizados en carpetas específicas, lo que facilita la lectura, mantenimiento y escalabilidad del código.
 
-<span style="color:red"><strong>⚠ LINKEAR CARPETA APP MAIN CUANDO MARI SUBA LA CARPETA STM32-PROYECT. MARI AGREGAR LOS ARCHIVOS QUE HAYA HECHO NUEVOS</strong></span>
+<span style="color:red"><strong>⚠MARI AGREGAR LOS ARCHIVOS QUE HAYA HECHO NUEVOS</strong></span>
 
-La carpeta [`app`] concentra la lógica principal del sistema. En ella se encuentran:
+La carpeta [`app`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/tree/cabf6f2aa755565a832ac6392c2ffda81915aa82/stm32-project/app) concentra la lógica principal del sistema. En ella se encuentran:
 - `app_main.c / .h`: núcleo de la aplicación y gestión general del flujo.
 - `sound_detector.c / .h`: implementación del algoritmo de detección de sonido.
 - `mode_manager.c / .h`: gestión de los distintos modos de funcionamiento.
 - `notifications.c / .h`: administración del envío y recepción de notificaciones.
 - `logger.c / .h`: registro de eventos del sistema.
 
-<span style="color:red"><strong>⚠ LINKEAR CARPETA HARDWARE Y ARCHIVOS CONFIG CUANDO MARI SUBA LA CARPETA STM32-PROYECT. MARI AGREGAR LOS ARCHIVOS QUE HAYA HECHO NUEVOS</strong></span>
+<span style="color:red"><strong>⚠ MARI AGREGAR LOS ARCHIVOS QUE HAYA HECHO NUEVOS</strong></span>
+<span style="color:red"><strong>⚠ LOA RCHIVOS CONFIG NO ESTÁN EN LA CARPETA DE HARDWARE. ver qué hacer con eso y si quedan acá tmb linkearlos</strong></span
 
-Por su parte, la carpeta [`hardware`] contiene los archivos [`config.c / .h`] (donde se centralizan parámetros configurables del sistema) e incluye los módulos encargados de la interacción directa con los periféricos físicos:
+Por su parte, la carpeta [`hardware`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/tree/cabf6f2aa755565a832ac6392c2ffda81915aa82/stm32-project/hardware) contiene los archivos [`config.c`]() y [`config.h`]() (donde se centralizan parámetros configurables del sistema) e incluye los módulos encargados de la interacción directa con los periféricos físicos:
 - `mic.c / .h_: adquisición de señal analógica del micrófono mediante el _ADC_.
 - `bluetooth.c / .h`: comunicación serial a través de _USART1_.
 - `dip_switch.c / .h`: lectura del estado de los interruptores.
@@ -576,9 +573,7 @@ Por otro lado, la función `HAL_TIM_PeriodElapsedCallback()` se ejecuta periódi
 
 En conjunto, ambos _callbacks_ demuestran un uso adecuado de interrupciones para tareas asíncronas (comunicación serie) y periódicas (muestreo del sensor), favoreciendo una arquitectura eficiente, no bloqueante y coherente con buenas prácticas en sistemas embebidos.
 
-<span style="color:red"><strong>⚠ LINKEAR CARPETA stm CUANDO MARI SUBA LA CARPETA STM32-PROYECT</strong></span>
-
-Esta separación entre lógica de aplicación y acceso a _hardware_ permitió mantener una arquitectura clara, donde cada módulo cumplió una función específica y bien delimitada. Todos los archivos mencionados se encuentran a disposición en la carpeta [`stm32-proyect`].
+Esta separación entre lógica de aplicación y acceso a _hardware_ permitió mantener una arquitectura clara, donde cada módulo cumplió una función específica y bien delimitada. Todos los archivos mencionados se encuentran a disposición en la carpeta [`stm32-proyect`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/tree/cabf6f2aa755565a832ac6392c2ffda81915aa82/stm32-project).
 
 ## **3.2.2 Flujo de ejecución del _firmware_**
 
@@ -900,4 +895,4 @@ También se emplearon para asistencia en la redacción y aspectos formales del d
 
 Fin de la memoria técnica
 Autores: Cavalitto Emilia, Diaz Tubiñez María Teresa, Ferrero Ulises
-Fecha de edición: 26 de febrero de 2026
+Fecha de edición: 26 de febrero de 2026 <span style="color:red"><strong>⚠ SE SIGUE ACTUALIZANDO</strong></span>
