@@ -446,7 +446,9 @@ El diseño de _hardware_ del sistema se basó en la placa, cuya configuración d
 
 Dado que la placa dispone de un único pin de salida de 3,3 V, se realizó una distribución de dicha tensión mediante la placa para alimentar los módulos correspondientes. Todas las masas fueron unificadas para garantizar referencia común en el sistema.
 
-En las Figuras 3.1.b y 3.1.c se incluyen las vistas deL _hardware_ una vez finalizado el proceso de soldadura, permitiendo visualizar la disposición física de los componentes y las conexiones realizadas.
+<span style="color:red"><strong>⚠AGREGAR LINK DEL VIDEO</strong></span>
+
+En las Figuras 3.1.b y 3.1.c se incluyen las vistas deL _hardware_ una vez finalizado el proceso de soldadura, permitiendo visualizar la disposición física de los componentes y las conexiones realizadas. Además, se ceunta con un [video explicativo](), en el cual se explica y evidencia brevemente el funcionamiento del dispositivo [9\].
 
 <div align="center">
 
@@ -641,7 +643,7 @@ La descripción detallada de la implementación de cada bloque y su interconexi�
 
 Con el objetivo de evaluar el consumo energético del sistema, se realizaron mediciones de corriente sobre la placa NUCLEO-F103RB utilizando un multímetro digital configurado como miliamperímetro.
 
-De acuerdo con lo especificado en el manual [`UM1724 (STM32 Nucleo-64 boards)`](https://www.st.com/resource/en/user_manual/um1724-stm32-nucleo64-boards-mb1136-stmicroelectronics.pdf) y en el esquema eléctrico [`MB1136`](https://www.st.com/resource/en/schematic_pack/mb1136-default-c04_schematic.pdf), la placa dispone de _jumpers_ específicos que permiten medir el consumo de las líneas de 5 V y 3,3 V \[9\]\[10\]. Para realizar la medición correctamente, se retiró el _jumper_ correspondiente a la línea a analizar y se conectó el miliamperímetro en serie entre los pines del mismo, de manera de registrar la corriente total consumida por dicha línea.
+De acuerdo con lo especificado en el manual [`UM1724 (STM32 Nucleo-64 boards)`](https://www.st.com/resource/en/user_manual/um1724-stm32-nucleo64-boards-mb1136-stmicroelectronics.pdf) y en el esquema eléctrico [`MB1136`](https://www.st.com/resource/en/schematic_pack/mb1136-default-c04_schematic.pdf), la placa dispone de _jumpers_ específicos que permiten medir el consumo de las líneas de 5 V y 3,3 V \[10\]\[11\]. Para realizar la medición correctamente, se retiró el _jumper_ correspondiente a la línea a analizar y se conectó el miliamperímetro en serie entre los pines del mismo, de manera de registrar la corriente total consumida por dicha línea.
 
 Los corrientes máximas obtenidas son mostradas en la Tabla 4.1.1.
 <div align="center">
@@ -945,9 +947,11 @@ También se emplearon para asistencia en la redacción y aspectos formales del d
 
 \[8\] Manual de usuario del _DIP switch_. [Online]. Available: https://www.alldatasheet.es/datasheet-pdf/view/2015587/AGELECTRONICA/DIP-3.html
 
-\[9\] UM1724 - User manual - STM32 Nucleo-64 boards. [Online]. Available: https://www.st.com/resource/en/user_manual/um1724-stm32-nucleo64-boards-mb1136-stmicroelectronics.pdf
+\[9\] Video explicativo del funcionamiento del dispositivo. [Online]. Available: <span style="color:red"><strong>⚠ AGREGAR LINK</strong></span>
 
-\[10\] MB1136 - Electrical Schematic - ST M32 Nucleo-64 boards. [Online]. Available: https://www.st.com/resource/en/schematic_pack/mb1136-default-c04_schematic.pdf
+\[10\] UM1724 - User manual - STM32 Nucleo-64 boards. [Online]. Available: https://www.st.com/resource/en/user_manual/um1724-stm32-nucleo64-boards-mb1136-stmicroelectronics.pdf
+
+\[11\] MB1136 - Electrical Schematic - ST M32 Nucleo-64 boards. [Online]. Available: https://www.st.com/resource/en/schematic_pack/mb1136-default-c04_schematic.pdf
 
 
 Fin de la memoria técnica
