@@ -1,3 +1,4 @@
 ../app/app_main.c:31:7:App_Init	1
-../app/app_main.c:55:6:App_Loop	10
-../app/app_main.c:104:6:App_UpdateStatusIndicator	3
+../app/app_main.c:55:6:App_Loop	11
+../app/app_main.c:109:6:App_UpdateStatusIndicator	3
+../app/app_main.c:131:6:App_Loop_Test	18

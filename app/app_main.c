@@ -60,10 +60,12 @@ void App_Loop(void)
 
 	// verificar si se recibio un cambio de modo por el switch
     mode_changed = Mode_Update();
+
 	if(mode_changed)
 	{
 		Notifications_SendStatusUpdate();
 		Mode_UpdateIndicators(Mode_Get(), &led1, &led2, &led3);
+
 		// Detectar si salio de MODE_IDLE
 		if (last_mode == MODE_IDLE && Mode_Get() != MODE_IDLE)
 		{
@@ -76,13 +78,15 @@ void App_Loop(void)
     if (rx_buffer_ready)
     {
     	rx_buffer_ready = 0;
+
 		remote_mode_changed = Notifications_ProcessCommand(rx_buffer);
-		if (remote_mode_changed)
+
+		if (remote_mode_changed && last_mode != MODE_IDLE)
 		{
 			Notifications_SendStatusUpdate();
 			Mode_UpdateIndicators(Mode_Get(), &led1, &led2, &led3);
+			last_mode = Mode_Get();
 		}
-
     }
 
     // verificar si se detectó un sonido
@@ -92,6 +96,7 @@ void App_Loop(void)
 		if ((now - last_alert_time) >= ALERT_COOLDOWN_MS)
 		    {
 				sound_alert_flag = 0;
+
 				Notifications_SendNoiseDetected();
 		        last_alert_time = now;
 		    }
@@ -123,7 +128,6 @@ void App_UpdateStatusIndicator(void)
 
 }
 
-/*
 void App_Loop_Test(void)
 {
 	uint32_t time_us;
@@ -131,6 +135,7 @@ void App_Loop_Test(void)
 	bool mode_changed;
 	bool remote_mode_changed;
 
+	// verificar si se recibio un cambio de modo por el switch
 	cycle_counter_reset();
     mode_changed = Mode_Update();
     time_us = cycle_counter_get_time_us();
@@ -146,7 +151,7 @@ void App_Loop_Test(void)
 			wcet_send_status = time_us;
 
 		cycle_counter_reset();
-		Led_Update(Mode_Get());
+		Mode_UpdateIndicators(Mode_Get(), &led1, &led2, &led3);
 		time_us = cycle_counter_get_time_us();
 		if (time_us > wcet_leds_update)
 			wcet_leds_update = time_us;
@@ -158,16 +163,10 @@ void App_Loop_Test(void)
 		}
 	}
 
+
 	// verificar si se recibio un cambio de modo por la app
     if (rx_buffer_ready)
     {
-
-    	LOGGER_INFO("LEN: %d", strlen(rx_buffer));
-    	for (int i = 0; i < strlen(rx_buffer); i++)
-    	{
-    	    LOGGER_INFO("byte[%d] = 0x%02X", i, rx_buffer[i]);
-    	}
-
     	rx_buffer_ready = 0;
 
     	cycle_counter_reset();
@@ -176,7 +175,8 @@ void App_Loop_Test(void)
 		if (time_us > wcet_receive_status)
 			wcet_receive_status = time_us;
 
-		if (remote_mode_changed)
+
+		if (remote_mode_changed && last_mode != MODE_IDLE)
 		{
 			cycle_counter_reset();
 			Notifications_SendStatusUpdate();
@@ -185,24 +185,34 @@ void App_Loop_Test(void)
 				wcet_send_status = time_us;
 
 			cycle_counter_reset();
-			Leds_Update(Mode_Get());
+			Mode_UpdateIndicators(Mode_Get(), &led1, &led2, &led3);
 			time_us = cycle_counter_get_time_us();
 			if (time_us > wcet_leds_update)
 				wcet_leds_update = time_us;
+
+			last_mode = Mode_Get();
 		}
 
     }
 
     // verificar si se detectó un sonido
-    if (sound_alert_flag && Mode_Get() != MODE_IDLE)
+    if (sound_alert_flag && Mode_Get() != MODE_IDLE && Bluetooth_IsConnected())
 	{
-		sound_alert_flag = 0;
-		cycle_counter_reset();
-		Notifications_SendNoiseDetected();
-		time_us = cycle_counter_get_time_us();
-		if (time_us > wcet_send_alert)
-			wcet_send_alert = time_us;
-	}
-}
+		uint32_t now = HAL_GetTick();
+		if ((now - last_alert_time) >= ALERT_COOLDOWN_MS)
+		    {
+				sound_alert_flag = 0;
 
-*/
+				cycle_counter_reset();
+				Notifications_SendNoiseDetected();
+				time_us = cycle_counter_get_time_us();
+				if (time_us > wcet_send_alert)
+					wcet_send_alert = time_us;
+
+		        last_alert_time = now;
+		    }
+
+	}
+
+    App_UpdateStatusIndicator();
+}

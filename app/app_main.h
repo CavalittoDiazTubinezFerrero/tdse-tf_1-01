@@ -10,4 +10,5 @@ extern uint32_t wcet_leds_update;
 
 void App_Init(void);
 void App_Loop(void);
+void App_Loop_Test(void);
 void App_UpdateStatusIndicator(void);

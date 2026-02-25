@@ -5,7 +5,7 @@
 
 #define ALERT_TEXT_MAX 32
 #define TH_MAX_VALUE 500
-#define ALERT_COOLDOWN_MS 4000
+#define ALERT_COOLDOWN_MS 10000
 
 typedef struct
 {

@@ -47,16 +47,14 @@ void Notifications_SendStatusUpdate(void)
 {
     char buffer[32];
 
-    snprintf(buffer, sizeof(buffer), "UMBRAL:%d          ", SoundDetector_GetThreshold());
+    snprintf(buffer, sizeof(buffer), "STATUS:%sUMBRAL:%d;", Mode_ToString(Mode_Get()) ,SoundDetector_GetThreshold() );
     Bluetooth_Send(buffer);
 
-    snprintf(buffer, sizeof(buffer), "STATUS:%s", Mode_ToString(Mode_Get()));
-    Bluetooth_Send(buffer);
 }
 
 void Notifications_SendNoiseDetected(void)
 {
-    Bluetooth_Send("ALERTA\r\n");
+    Bluetooth_Send("ALERTA\r\n;");
 }
 
 

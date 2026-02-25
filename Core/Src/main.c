@@ -106,7 +106,7 @@ int main(void)
 
   /* Configure the system clock */
   SystemClock_Config();
-
+  cycle_counter_init();
   /* USER CODE BEGIN SysInit */
 
   /* USER CODE END SysInit */
@@ -130,7 +130,7 @@ int main(void)
 
   //uint32_t start_time = HAL_GetTick();
 
-  //while ((HAL_GetTick() - start_time) < 30000)
+  //while ((HAL_GetTick() - start_time) < 60000) 	//60 segundos para testear todas las acciones y medir los wcet
   while(1)
   {
     /* USER CODE END WHILE */
@@ -139,7 +139,8 @@ int main(void)
 	App_Loop();
 
   }
-  /*
+
+/*
   LOGGER_INFO("----- WCET RESULTS -----");
   LOGGER_INFO("Mode update: %lu us", wcet_mode_update);
   LOGGER_INFO("Send status update: %lu us", wcet_send_status);
@@ -148,7 +149,7 @@ int main(void)
   LOGGER_INFO("leds update: %lu us", wcet_leds_update);
 
   while(1);
-   */
+*/
   /* USER CODE END 3 */
 }
 
