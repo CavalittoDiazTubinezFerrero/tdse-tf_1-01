@@ -339,7 +339,7 @@ Como microcontrolador del sistema se utilizó la placa [NUCLEO-F103RB](https://w
 
 <span style="color:red"><strong>⚠ LINKEAR LOS ARCHIVOS CONFIG CUANDO MARI SUBA LA CARPETA STM32-PROYECT</strong></span>
 
-El sistema utiliza la memoria de la _flash_ interna del microcontrolador como almacenamiento no vólatil para conservar la configuración de usuario (`SET_UP` en los archivos [`config.h`] y [`config.c`] del proyecto), evitando la pérdida de parámetros ante reinicios o cortes de energía. Así, las variables inicializadas en el código se recargan desde la misma a la _RAM_ en cada _reset_, por lo que cualquier modificación realizada en tiempo de ejecución se pierde.
+El sistema utiliza la memoria _flash_ interna del microcontrolador como almacenamiento no vólatil para conservar la configuración de usuario (`SET_UP` en los archivos [`config.h`] y [`config.c`] del proyecto), evitando la pérdida de parámetros ante reinicios o cortes de energía. En cada reinicio, el sistema lee los parámetros previamente guardados en la memoria _flash_ y los carga en memoria _RAM_ para su utilización durante la operación. Por lo tanto, los valores almacenados en la memoria no volátil son los que el dispositivo utiliza de manera habitual, mientras que los definidos en config.c actúan únicamente como valores iniciales o de respaldo.
 
 ## **2.3.3 Módulo del micrófono**
 
