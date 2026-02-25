@@ -650,10 +650,24 @@ Los corrientes máximas obtenidas son mostradas en la Tabla 4.1.1.
 
 </div>
 
-| Línea de alimentación | Corriente máxima (mA) |
-|-----------------------|-----------------------|
-| 5 V                   | 26,5                  |
-| 3,3 V                 | 10,2                  |
+<div align="center">
+
+<table>
+<tr>
+<th>Línea de alimentación</th>
+<th>Corriente máxima (mA)</th>
+</tr>
+<tr>
+<td>5 V</td>
+<td>26,5</td>
+</tr>
+<tr>
+<td>3,3 V</td>
+<td>10,2</td>
+</tr>
+</table>
+
+</div>
 
 ## **4.1.2 Tiempos de ejecución de cada tarea (_WCET_)**
 
@@ -666,13 +680,36 @@ Los valores obtenidos fueron los observados en la Tabla 4.1.2.
 
 </div>
 
-| Función / Evento              |_WCET_ (µs)|
-|-------------------------------|-----------|
-| Mode update                   | 211       |
-| Send status update            | 26545     |
-| Receive status update         | 22906     |
-| Send alert                    | 9506      |
-| LEDs update                   | 175       |
+<div align="center">
+
+<table>
+<tr>
+<th>Función / Evento</th>
+<th>WCET (µs)</th>
+</tr>
+<tr>
+<td align="center">Mode update</td>
+<td align="center">211</td>
+</tr>
+<tr>
+<td align="center">Send status update</td>
+<td align="center">26 545</td>
+</tr>
+<tr>
+<td align="center">Receive status update</td>
+<td align="center">22 906</td>
+</tr>
+<tr>
+<td align="center">Send alert</td>
+<td align="center">9 506</td>
+</tr>
+<tr>
+<td align="center">LEDs update</td>
+<td align="center">175</td>
+</tr>
+</table>
+
+</div>
 
 
 ## **4.1.3 Cálculo del factor de uso (U) de la _CPU_**
