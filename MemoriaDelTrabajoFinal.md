@@ -452,14 +452,14 @@ En las Figuras 3.1.b y 3.1.c se incluyen las vistas deL _hardware_ una vez final
 
 <img width="600" src="Figuras/DispositivoTerminado1.jpeg">
 
-<p><strong>Figura 3.1.b</strong>: Montaje final del prototipo (vista superior).</p>
+<p><strong>Figura 3.1.b</strong>: Montaje final del prototipo (vista lateral superior).</p>
 
 </div>
 <div align="center">
 
 <img width="600" src="Figuras/DispositivoTerminado2.jpeg">
 
-<p><strong>Figura 3.1.c</strong>: Montaje final del prototipo (vista lateral).</p>
+<p><strong>Figura 3.1.c</strong>: Montaje final del prototipo (vista superior).</p>
 
 </div>
 
