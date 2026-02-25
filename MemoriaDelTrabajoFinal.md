@@ -622,7 +622,7 @@ La descripción detallada de la implementación de cada bloque y su interconexi�
 
 Con el objetivo de evaluar el consumo energético del sistema, se realizaron mediciones de corriente sobre la placa NUCLEO-F103RB utilizando un multímetro digital configurado como miliamperímetro.
 
-De acuerdo con lo especificado en el manual _UM1724_ (_STM32 Nucleo-64 boards_) y en el esquema eléctrico _MB1136_, la placa dispone de _jumpers_ específicos que permiten medir el consumo de las líneas de 5 V y 3,3 V \[19\]\[20\]. Para realizar la medición correctamente, se retiró el _jumper_ correspondiente a la línea a analizar y se conectó el miliamperímetro en serie entre los pines del mismo, de manera de registrar la corriente total consumida por dicha línea.
+De acuerdo con lo especificado en el manual [`UM1724 (STM32 Nucleo-64 boards)`](https://www.st.com/resource/en/user_manual/um1724-stm32-nucleo64-boards-mb1136-stmicroelectronics.pdf) y en el esquema eléctrico [`MB1136`](https://www.st.com/resource/en/schematic_pack/mb1136-default-c04_schematic.pdf), la placa dispone de _jumpers_ específicos que permiten medir el consumo de las líneas de 5 V y 3,3 V \[9\]\[10\]. Para realizar la medición correctamente, se retiró el _jumper_ correspondiente a la línea a analizar y se conectó el miliamperímetro en serie entre los pines del mismo, de manera de registrar la corriente total consumida por dicha línea.
 
 Las corrientes máximas medidas fueron las siguientes: 
 
@@ -630,15 +630,15 @@ Línea de 5 V: 26,5 mA
 
 Línea de 3,3 V: 10,2 mA
 
-## **4.1.2 Tiempos de ejecución de cada tarea (WCET)**
+## **4.1.2 Tiempos de ejecución de cada tarea (_WCET_)**
 
-Para la estimación experimental del _Worst Case Execution Time_ (_WCET_) de cada tarea del sistema se utilizó el contador de ciclos del procesador (_DWT_). Cada función relevante fue instrumentada reiniciando el contador antes de su ejecución y leyendo el tiempo transcurrido en microsegundos inmediatamente después, almacenando el mayor valor observado durante el período de prueba. Con el objetivo de poder recorrer sistemáticamente todos los caminos posibles de ejecución (recepción de comandos, cambios de estado, envío de notificaciones y generación de alertas), el lazo principal del programa fue modificado temporalmente, reemplazando el _while(1)_ infinito por un lazo con duración aproximada de tres minutos. Esto permitió ejecutar múltiples iteraciones bajo distintas condiciones de funcionamiento y registrar valores representativos del tiempo máximo observado para cada tarea. Finalizado el período de medición, los valores de _WCET_ obtenidos fueron impresos mediante _LOGGER_, y posteriormente se restauró la estructura original de ejecución infinita del sistema.
+Para la estimación experimental del _Worst Case Execution Time_ (_WCET_) de cada tarea del sistema se utilizó el contador de ciclos del procesador (_DWT_). Cada función relevante fue instrumentada reiniciando el contador antes de su ejecución y leyendo el tiempo transcurrido en microsegundos inmediatamente después, almacenando el mayor valor observado durante el período de prueba. Con el objetivo de poder recorrer sistemáticamente todos los caminos posibles de ejecución (recepción de comandos, cambios de estado, envío de notificaciones y generación de alertas), el lazo principal del programa fue modificado temporalmente, reemplazando el `while(1)` infinito por un lazo con duración aproximada de tres minutos. Esto permitió ejecutar múltiples iteraciones bajo distintas condiciones de funcionamiento y registrar valores representativos del tiempo máximo observado para cada tarea. Finalizado el período de medición, los valores de _WCET_ obtenidos fueron impresos mediante _LOGGER_, y posteriormente se restauró la estructura original de ejecución infinita del sistema.
 
 <span style="color:red"><strong>⚠ Captura de pantalla o valores obtenidos de "Console & Build Analyzer" luego de compilar la versión final</strong></span>
 
 ## **4.1.3 Cálculo del factor de uso (U) de la _CPU_**
 
-Con el objetivo de evaluar la utilización de recursos del sistema embebido, se analizó el factor de uso (U) de la _CPU_ a partir de la información obtenida durante la compilación del proyecto. Dichos datos fueron extraídos desde la consola de compilación y del análisis de memoria generado por STM32CubeIDE (Figura 4.1.3). En este caso, se evaluaron tanto la memoria _RAM_ como la memoria _FLASH_.
+Con el objetivo de evaluar la utilización de recursos del sistema embebido, se analizó el factor de uso (U) de la _CPU_ a partir de la información obtenida durante la compilación del proyecto. Dichos datos fueron extraídos desde la consola de compilación y del análisis de memoria generado por [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html) (Figura 4.1.3). En este caso, se evaluaron tanto la memoria _RAM_ como la memoria _FLASH_.
 
 <div align="center">
 
@@ -654,15 +654,15 @@ Estos valores indican que el sistema utiliza una fracción reducida de los recur
 
 El desarrollo del trabajo se llevó a cabo de manera incremental, organizándose en distintas etapas que permitieron estructurarlo y recibir devoluciones parciales antes de avanzar a la siguiente instancia. Cada etapa estuvo respaldada por la elaboración de archivos específicos que concentraron la información relevante para su revisión y posterior validación.
 
-En una primera instancia se elaboró el archivo _README.md_, en el cual se presentó el proyecto, se definió su objetivo, la necesidad que motivó su desarrollo, los requisitos funcionales y se realizó una comparación general con productos preexistentes en el mercado \[12\]. Este documento permitió establecer el marco conceptual del trabajo.
+En una primera instancia se elaboró el archivo [`README.md`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/README.md), en el cual se presentó el proyecto, se definió su objetivo, la necesidad que motivó su desarrollo, los requisitos funcionales y se realizó una comparación general con productos preexistentes en el mercado. Este documento permitió establecer el marco conceptual del trabajo.
 
-Posteriormente, se confeccionó el archivo _Lista_componentes_a_confirmar.txt_, que consistió en un listado preliminar de los componentes electrónicos a utilizar en el prototipo, incluyendo enlaces a las publicaciones correspondientes para su compra \[13\]. Este documento tuvo como finalidad someter la selección de _hardware_ a la revisión del docente antes de efectuar la compra de cada uno de ellos.
+Posteriormente, se confeccionó el archivo [`Lista_componentes_a_confirmar.txt`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/Lista_componentes_a_confirmar.txt), que consistió en un listado preliminar de los componentes electrónicos a utilizar en el prototipo, incluyendo enlaces a las publicaciones correspondientes para su compra. Este documento tuvo como finalidad someter la selección de _hardware_ a la revisión del docente antes de efectuar la compra de cada uno de ellos.
 
-Finalmente, se elaboró el _InformeDeAvances.md_, donde se retomaron los requisitos definidos inicialmente y se actualizó periódicamente el estado de cumplimiento de cada uno \[14\]. Este archivo permitió documentar el progreso del desarrollo.
+Finalmente, se elaboró el [`InformeDeAvances.md`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/InformeDeAvances.md), donde se retomaron los requisitos definidos inicialmente y se actualizó periódicamente el estado de cumplimiento de cada uno. Este archivo permitió documentar el progreso del desarrollo.
 
 ## **4.3 Cumplimiento de requisitos**
 
-Una vez finalizado el trabajo, se tomó la Tabla 2.1.1 (definida anteriormente en la Sección 2.1) y se definió el estado de cada uno de los requisitos iniciales del dispositivo, detallados a continuación en la Tabla 4.3.1.
+Una vez finalizado el trabajo, se tomó la Tabla 2.1.1 (definida anteriormente en la [Sección 2.1](#21-requisitos)) y se definió el estado de cada uno de los requisitos iniciales del dispositivo, detallados a continuación en la Tabla 4.3.1.
 
 <div align="center">
 <p><strong>Tabla 4.3.1:</strong> Estado de los requisitos del proyecto.</p>
@@ -689,7 +689,7 @@ Una vez finalizado el trabajo, se tomó la Tabla 2.1.1 (definida anteriormente e
 <tr>
 <td></td>
 <td>1.2</td>
-<td>El sistema digitaliza la señal sonora mediante el ADC de la placa STM.</td>
+<td>El sistema digitaliza la señal sonora mediante el <em>ADC</em> de la placa <em>STM</em>.</td>
 <td>COMPLETADO</td>
 </tr>
 
@@ -702,7 +702,7 @@ Una vez finalizado el trabajo, se tomó la Tabla 2.1.1 (definida anteriormente e
 <tr>
 <td></td>
 <td>2.2</td>
-<td>El usuario puede configurar sensibilidad y parámetros mediante un switch.</td>
+<td>El usuario puede configurar sensibilidad y parámetros mediante un <em>switch</em>.</td>
 <td>COMPLETADO</td>
 </tr>
 <tr>
@@ -759,7 +759,7 @@ Una vez finalizado el trabajo, se tomó la Tabla 2.1.1 (definida anteriormente e
 <tr>
 <td>Interfaz física</td>
 <td>5.1</td>
-<td>El sistema cuenta con un switch para seleccionar el modo de operación.</td>
+<td>El sistema cuenta con un <em>switch</em> para seleccionar el modo de operación.</td>
 <td>COMPLETADO</td>
 </tr>
 <tr>
@@ -799,7 +799,7 @@ Una vez finalizado el trabajo, se tomó la Tabla 2.1.1 (definida anteriormente e
 
 ## **4.4 Comparación con otros productos similares**
 
-Como se mencionó previamente en la Sección 1.1, el mercado actual cuenta con diversos dispositivos de monitoreo con características relacionadas a la captación y transmisión de sonido. Sin embargo, la mayoría de estos están pensados para usuarios sin limitaciones auditivas y no contemplan específicamente la problemática abordada en este trabajo. Por este motivo, y considerando la diversidad de enfoques presentes en el mercado, resulta complejo establecer una comparación estrictamente equivalente entre el prototipo desarrollado y los dispositivos disponibles, ya que cada uno prioriza distintos criterios de diseño y aplicación.
+Como se mencionó previamente en la [Sección 1.1](#11-análisis-de-necesidad-y-objetivos), el mercado actual cuenta con diversos dispositivos de monitoreo con características relacionadas a la captación y transmisión de sonido. Sin embargo, la mayoría de estos están pensados para usuarios sin limitaciones auditivas y no contemplan específicamente la problemática abordada en este trabajo. Por este motivo, y considerando la diversidad de enfoques presentes en el mercado, resulta complejo establecer una comparación estrictamente equivalente entre el prototipo desarrollado y los dispositivos disponibles, ya que cada uno prioriza distintos criterios de diseño y aplicación.
 
 En este contexto, el aporte principal del presente desarrollo radica en su enfoque inclusivo, orientado a brindar una alternativa accesible frente a soluciones convencionales existentes. Asimismo, el sistema presenta posibilidades de evolución futura, tales como la incorporación de dispositivos de notificación háptica (por ejemplo, mediante una pulsera con vibración) o el uso de sensores portátiles, lo que permitiría mejorar la comodidad y adaptabilidad del usuario.
 
@@ -813,10 +813,10 @@ A continuación, en la Tabla 4.5.1 se muestra la documentación del desarrollo d
 
 | Nombre                 | Fecha de Finalización     |
 |------------------------|---------------------------|
-| _README.md_    | 11 de Diciembre del 2025    |
-| _Lista_componentes_a_confirmar.txt_    | 23 de Diciembre del 2025    |
-| _InformeDeAvances.md_    | 22 de Febrero del 2026  |
-| _MemoriaDelTrabajoFinal.md_ | <span style="color:red"><strong>⚠ SE SIGUE ACTUALIZANDO</strong></span>   |
+| [`README.md`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/README.md)    | 11 de Diciembre del 2025    |
+| [`Lista_componentes_a_confirmar.txt`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/Lista_componentes_a_confirmar.txt)    | 23 de Diciembre del 2025    |
+| [`InformeDeAvances.md`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/InformeDeAvances.md)    | 22 de Febrero del 2026  |
+| [`MemoriaDelTrabajoFinal.md`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/209e34cd15df3201a05f59f1aa5d7f0c5443c734/MemoriaDelTrabajoFinal.md) | <span style="color:red"><strong>⚠ SE SIGUE ACTUALIZANDO</strong></span>   |
 
 ---
 # **CAPÍTULO 5**
@@ -842,6 +842,15 @@ Desde el punto de vista funcional, el sistema se proyecta hacia la incorporació
 Finalmente, el desarrollo futuro incluye la migración del prototipo actual a una placa _PCB_ diseñada específicamente para el sistema, integrando los módulos utilizados en un formato reducido y más adecuado para una implementación definitiva
 
 ---
+# **CAPÍTULO 6**
+
+# **Uso de herramientas de IA**
+
+## **6.1 Uso individual y conjunto**
+
+## **6.1 Uso individual y conjunto**
+
+
 # **Bibliografía** 
 \[1\] MIT App Inventor. [Online]. Available: https://appinventor.mit.edu/
 
