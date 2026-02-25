@@ -110,7 +110,8 @@ Inicialmente, se adjunta la Tabla 0, la cual registra las diferentes versiones d
 | 1.3 | Redacción del tercer capítulo | 22/02/2026 |
 | 1.4 | Redacción del cuarto capítulo | 16/02/2026 |
 | 1.5 | Redacción del quinto capítulo | 24/02/2026 |
-| 1.6 | Revisión y ajustes finales | ... |
+| 1.6 | Redacción del sexto capítulo | 25/02/2026 |
+| 1.7 | Revisión y ajustes finales | .../02/2026|
 
 <span style="color:red"><strong>⚠ IR COMPLETANDO A MEDIDA QUE SE VAYAN ESCRIBIENDO CADA UNA DE LAS SECCIONES</strong></span>
  
@@ -309,7 +310,7 @@ Posteriormente, se incluye la máquina de estados correspondiente a la aplicaci�
 
 ## **2.3.1 Alimentación**
 
-La alimentación de _BeepBuddy_ se realizó mediante la placa de desarrollo [NUCLEO-F103RB](https://www.st.com/en/evaluation-tools/nucleo-f103rb.html), la cual se conectó a una computadora portátil a través de un cable _USB Type A Type mini B_ \[1\].
+La alimentación de _BeepBuddy_ se realizó mediante la placa de desarrollo NUCLEO-F103RB, la cual se conectó a una computadora portátil a través de un cable _USB Type A Type mini B_ \[1\].
 
 El puerto _USB_ proporcionó una tensión nominal de 5 V _DC_. La placa NUCLEO incorpora reguladores de tensión internos que generan 3,3 V para el microcontrolador y permiten disponer de líneas de 5 V y 3,3 V para la alimentación de dispositivos externos (como se muestra en la Figura 2.3.1.1), tales como el _buzzer_ y el módulo _Bluetooth BLE_, ambos conectados a 3,3 V.
 
@@ -339,7 +340,7 @@ Como microcontrolador del sistema se utilizó la placa [NUCLEO-F103RB](https://w
 
 <span style="color:red"><strong>⚠ LINKEAR LOS ARCHIVOS CONFIG CUANDO MARI SUBA LA CARPETA STM32-PROYECT</strong></span>
 
-El sistema utiliza la memoria _flash_ interna del microcontrolador como almacenamiento no vólatil para conservar la configuración de usuario (`SET_UP` en los archivos [`config.h`] y [`config.c`] del proyecto), evitando la pérdida de parámetros ante reinicios o cortes de energía. En cada reinicio, el sistema lee los parámetros previamente guardados en la memoria _flash_ y los carga en memoria _RAM_ para su utilización durante la operación. Por lo tanto, los valores almacenados en la memoria no volátil son los que el dispositivo utiliza de manera habitual, mientras que los definidos en config.c actúan únicamente como valores iniciales o de respaldo.
+El sistema utiliza la memoria _flash_ interna del microcontrolador como almacenamiento no vólatil para conservar la configuración de usuario (`SET_UP` en los archivos [`config.h`]() y [`config.c`] del proyecto), evitando la pérdida de parámetros ante reinicios o cortes de energía. En cada reinicio, el sistema lee los parámetros previamente guardados en la memoria _flash_ y los carga en memoria _RAM_ para su utilización durante la operación. Por lo tanto, los valores almacenados en la memoria no volátil son los que el dispositivo utiliza de manera habitual, mientras que los definidos en config.c actúan únicamente como valores iniciales o de respaldo.
 
 ## **2.3.3 Módulo del micrófono**
 
@@ -450,7 +451,7 @@ En las Figuras 3.1.b y 3.1.c se incluyen las vistas deL _hardware_ una vez final
 
 <div align="center">
 
-<img width="600" src="Figuras/DispositivoTerminado.jpeg">
+<img width="600" src="Figuras/DispositivoTerminado1.jpeg">
 
 <p><strong>Figura 3.1.b</strong>: Montaje final del prototipo (vista superior).</p>
 
@@ -605,11 +606,33 @@ En segundo lugar, la configuración del sistema se realiza mediante el envío de
 
 Finalmente, la recepción y procesamiento de eventos se gestionan mediante `BluetoothLE1.StringsReceived`, que interpreta las cadenas enviadas por la placa y ejecuta las acciones correspondientes en la interfaz. Al iniciar la aplicación, `Screen1.Initialize` carga el historial previamente almacenado, permitiendo al usuario consultar eventos anteriores.
 
-De esta manera, la aplicación actúa como interfaz de usuario del sistema embebido, centralizando la configuración y visualización de alertas de forma remota. Seguidamente, se adjuntan capturas de pantalla de la interfaz de la aplicación ante diferentes eventos (<span style="color:red"><strong>⚠ AGREGAR SCREENSHOTS QUE ME VA A MANDAR MARI CUANDO LA APP ANDE 100% BIEN Y NOMBRAR LAS FIGURAS ACÁ ADENTRO DE LOS (.)</strong></span>).
+De esta manera, la aplicación actúa como interfaz de usuario del sistema embebido, centralizando la configuración y visualización de alertas de forma remota. Seguidamente, se adjuntan capturas de pantalla de la interfaz de la aplicación ante diferentes eventos (Figuras 3.3.2, 3.3.3 y 3.3.4).
 
-<span style="color:red"><strong>⚠ LINKEAR APP NUEVA VERSI[ON CUANDO ULI LA MANDE</strong></span>
+<div align="center">
 
-La descripción detallada de la implementación de cada bloque y su interconexión lógica puede consultarse en el archivo [`BeepBuddy.apk`].
+<img width="300" src="Figuras/CapturaApp1.jpeg">
+
+<p><strong>Figura 3.3.2</strong>: Captura de pantalla de la interfaz de la aplicación en Modo Día con historial de alertas.</p>
+
+</div>
+<div align="center">
+
+<img width="300" src="Figuras/CapturaApp2.jpeg">
+
+<p><strong>Figura 3.3.3</strong>: Captura de pantalla de la interfaz de la aplicación en Modo Noche con historial de alertas.</p>
+
+<span style="color:red"><strong>⚠ AGREGAR CAPTURA DE PANTALLA DE LA APP CUANDO LLEGA UNA ALERTA</strong></span>
+
+</div>
+<div align="center">
+
+<img width="300" src="Figuras/CapturaApp4.jpeg">
+
+<p><strong>Figura 3.3.4</strong>: Captura de pantalla de la interfaz de la aplicación al recibir la notificación de alerta.</p>
+
+</div>
+
+La descripción detallada de la implementación de cada bloque y su interconexión lógica puede consultarse en el archivo [`BeepBuddy.apk`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/b2a7b0f1fec3dafd1492798bf15d7c766927add9/BeepBuddy.apk).
  
 ---
 # **CAPÍTULO 4**
@@ -852,51 +875,25 @@ Finalmente, el desarrollo futuro incluye la migración del prototipo actual a un
 
 
 # **Bibliografía** 
-\[1\] MIT App Inventor. [Online]. Available: https://appinventor.mit.edu/
+\[1\] Manual de usuario de la placa NUCLEO-F103RB. [Online]. Available: https://www.st.com/en/evaluation-tools/nucleo-f103rb.html
 
-\[2\] Manual de usuario de la placa NUCLEO-F103RB. [Online]. Available: https://www.st.com/en/evaluation-tools/nucleo-f103rb.html
+\[2\] Aula virtual de la cátedra TA134 TALLER DE SISTEMAS EMBEBIDOS. [Online]. Available: https://campusgrado.fi.uba.ar/course/view.php?id=1217
 
-\[3\] Aula virtual de la cátedra TA134 TALLER DE SISTEMAS EMBEBIDOS. [Online]. Available: https://campusgrado.fi.uba.ar/course/view.php?id=1217
+\[3\] Manual de usuario del módulo del micrófono. [Online]. Available: https://www.alldatasheet.com/datasheet-pdf/download/1284506/JOY-IT/KY037.html
 
-\[4\] STM32CubeIDE. Integrated Development Environment for STM32. [Online]. Available:https://www.st.com/en/development-tools/stm32cubeide.html
+\[4\] Módulo HM-10 bluetooth 4.0 BLE a UART. TodoMicro. [Online]. Available: https://www.todomicro.com.ar/comunicacion/637-modulo-hm-10-bluetooth-40-ble-a-uart.html?srsltid=AfmBOopp0r5laITQYUaryYYiX3FX0pVC3rmiN0xScYLpI9sgNRYFOCRr
 
-\[5\] Carpeta donde se pueden hallar los archivos _config.h_ y _config.c_. [Online]. Available: https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/tree/23b1ec407466f7fa20007029bb58381ecce89ee9/config
+\[5\] Manual de usuario del módulo _Bluetooth_. [Online]. Available: https://www.alldatasheet.com/datasheet-pdf/download/1179058/ETC1/HM-10.html
 
-\[6\] Manual de usuario del módulo del micrófono. [Online]. Available: https://www.alldatasheet.com/datasheet-pdf/download/1284506/JOY-IT/KY037.html
+\[6\] Módulo Buzzer Activo 3,3v A 5v. [Online]. Available: https://www.mercadolibre.com.ar/modulo-buzzer-activo-33v-a-5v/p/MLA2048303554?pdp_filters=seller_id%3A302249631#polycard_client=recommendations_vip-seller_data_items-above&reco_backend=ranker-retsys-same-seller&reco_model=rk_entity_sameseller&reco_client=vip-seller_data_items-above&reco_item_pos=0&reco_backend_type=low_level&reco_id=4009794f-8183-4ec4-8aa5-5448369b409f&wid=MLA752290080&sid=recos
 
-\[7\] Módulo HM-10 bluetooth 4.0 BLE a UART. TodoMicro. [Online]. Available: https://www.todomicro.com.ar/comunicacion/637-modulo-hm-10-bluetooth-40-ble-a-uart.html?srsltid=AfmBOopp0r5laITQYUaryYYiX3FX0pVC3rmiN0xScYLpI9sgNRYFOCRr
+\[7\] Manual de usuario del módulo _buzzer_. [Online]. Available: https://www.alldatasheet.com/datasheet-pdf/pdf/169124/ETC2/EFM-236L.html
 
-\[8\] Manual de usuario del módulo _Bluetooth_. [Online]. Available: https://www.alldatasheet.com/datasheet-pdf/download/1179058/ETC1/HM-10.html
+\[8\] Manual de usuario del _DIP switch_. [Online]. Available: https://www.alldatasheet.es/datasheet-pdf/view/2015587/AGELECTRONICA/DIP-3.html
 
-\[9\] Módulo Buzzer Activo 3,3v A 5v. [Online]. Available: https://www.mercadolibre.com.ar/modulo-buzzer-activo-33v-a-5v/p/MLA2048303554?pdp_filters=seller_id%3A302249631#polycard_client=recommendations_vip-seller_data_items-above&reco_backend=ranker-retsys-same-seller&reco_model=rk_entity_sameseller&reco_client=vip-seller_data_items-above&reco_item_pos=0&reco_backend_type=low_level&reco_id=4009794f-8183-4ec4-8aa5-5448369b409f&wid=MLA752290080&sid=recos
+\[9\] UM1724 - User manual - STM32 Nucleo-64 boards. [Online]. Available: https://www.st.com/resource/en/user_manual/um1724-stm32-nucleo64-boards-mb1136-stmicroelectronics.pdf
 
-\[10\] Manual de usuario del módulo _buzzer_. [Online]. Available: https://www.alldatasheet.com/datasheet-pdf/pdf/169124/ETC2/EFM-236L.html
-
-\[11\] Manual de usuario del _DIP switch_. [Online]. Available: https://www.alldatasheet.es/datasheet-pdf/view/2015587/AGELECTRONICA/DIP-3.html
-
-\[12\] Archivo _README.md_. [Online]. Available: https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/README.md
-
-\[13\] Archivo _Lista_componentes_a_confirmar.txt_. [Online]. Available: https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/Lista_componentes_a_confirmar.txt
-
-\[14\] Archivo _InformeDeAvances.md_. [Online]. Available: https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/InformeDeAvances.md
-
-\[15\] Carpeta _Statecharts.exe_. [Online]. Available: https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/tree/Entrega-de-memoria-del-trabajo-final/Statecharts
-
-\[16\] Archivo _Placa_Statechart.ysc_. [Online]. Available: https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/829bed8b9a3a83fd0f2c6891f38c5a664aa42d09/Statecharts/Placa_Statechart.ysc
-
-\[17\] Archivo _App_Statechart.ysc_. [Online]. Available: https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/829bed8b9a3a83fd0f2c6891f38c5a664aa42d09/Statecharts/App_statechart.ysc
-
-\[18\] Carpeta _stm32-proyect_. [Online]. Available: <span style="color:red"><strong>⚠ SUBIR CARPETA DEL PROYECTO TERMINADA A LA BRANCH QUE SE ENTREGUE</strong></span>
-
-\[19\] UM1724 - User manual - STM32 Nucleo-64 boards. [Online]. Available: https://www.st.com/resource/en/user_manual/um1724-stm32-nucleo64-boards-mb1136-stmicroelectronics.pdf
-
-\[20\] MB1136 - Electrical Schematic - ST M32 Nucleo-64 boards. [Online]. Available: https://www.st.com/resource/en/schematic_pack/mb1136-default-c04_schematic.pdf
-
-\[21\] Archivo de la aplicación móvil _BeepBuddy.apk_. [Online]. Available: https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/7183d1253e6a652f54fe6edf92968422408bb41f/BeepBuddy.apk
-
-\[22\] itemis CREATE. [Online]. Available: https://www.itemis.com/en/products/itemis-create/
-
-\[23\] Archivo _Statechart.xlsx_. [Online]. Available: https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/209e34cd15df3201a05f59f1aa5d7f0c5443c734/Statecharts/Statechart.xlsx
+\[10\] MB1136 - Electrical Schematic - ST M32 Nucleo-64 boards. [Online]. Available: https://www.st.com/resource/en/schematic_pack/mb1136-default-c04_schematic.pdf
 
 \[.\] Google Gemini. [Online]. Available: https://gemini.google.com/app?hl=es_419
 
