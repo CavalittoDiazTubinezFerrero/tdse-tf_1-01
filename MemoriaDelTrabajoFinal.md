@@ -90,6 +90,7 @@ This document describes the system architecture, design methodology, implementat
   - [**Conclusiones**](#conclusiones)
     - [5.1 Resultados obtenidos](#51-resultados-obtenidos)
     - [5.2 Próximos pasos y posibles futuras mejoras](#52-próximos-pasos-y-posibles-futuras-mejoras)
+  - [**Uso de herramientas de _IA_**](#uso-de-herramientas-de-ia)
 - [**Bibliografía**](#bibliografía)
 
 ---
@@ -867,14 +868,15 @@ Finalmente, el desarrollo futuro incluye la migración del prototipo actual a un
 ---
 # **CAPÍTULO 6**
 
-# **Uso de herramientas de IA**
+# **Uso de herramientas de _IA_**
 
-## **6.1 Uso individual y conjunto**
+Durante la elaboración del presente trabajo se utilizaron herramientas de inteligencia artificial (tales como [ChatGPT](https://chatgpt.com) y [Gemini](https://gemini.google.com/app?hl=es_419)) como apoyo complementario. Su uso estuvo orientado principalmente a la organización y estructuración del informe, ayudando a ordenar ideas y definir una base sobre la cual desarrollar los contenidos de manera coherente. Asimismo, sirvieron como guía inicial para organizar el trabajo práctico de forma modular y para establecer un punto de partida claro en las distintas etapas del desarrollo.
 
-## **6.1 Uso individual y conjunto**
+También se emplearon para asistencia en la redacción y aspectos formales del documento, incluyendo cuestiones vinculadas al formato en _Markdown_ y correcciones menores de escritura. Las decisiones técnicas, el diseño del sistema y la implementación del _hardware_ y _software_ fueron desarrollados íntegramente por el equipo, utilizándose la _IA_ únicamente como herramienta de apoyo.
 
+---
+# **Bibliografía**
 
-# **Bibliografía** 
 \[1\] Manual de usuario de la placa NUCLEO-F103RB. [Online]. Available: https://www.st.com/en/evaluation-tools/nucleo-f103rb.html
 
 \[2\] Aula virtual de la cátedra TA134 TALLER DE SISTEMAS EMBEBIDOS. [Online]. Available: https://campusgrado.fi.uba.ar/course/view.php?id=1217
@@ -895,6 +897,7 @@ Finalmente, el desarrollo futuro incluye la migración del prototipo actual a un
 
 \[10\] MB1136 - Electrical Schematic - ST M32 Nucleo-64 boards. [Online]. Available: https://www.st.com/resource/en/schematic_pack/mb1136-default-c04_schematic.pdf
 
-\[.\] Google Gemini. [Online]. Available: https://gemini.google.com/app?hl=es_419
 
-\[.\] Chat GPT. [Online]. Available: https://chatgpt.com
+Fin de la memoria técnica
+Autores: Cavalitto Emilia, Diaz Tubiñez María Teresa, Ferrero Ulises
+Fecha de edición: 26 de febrero de 2026
