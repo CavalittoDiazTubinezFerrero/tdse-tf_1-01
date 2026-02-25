@@ -1,7 +1,7 @@
 <div align="center">
 
-<p align="right">
-<img src="https://github.com/user-attachments/assets/15600b18-f73b-4ba3-a959-47f0048a1ab6" width="200">
+<p align="center">
+<img src="Figuras/logo-fiuba.png" width="300">
 </p>
 
 <strong>UNIVERSIDAD DE BUENOS AIRES</strong><br>
@@ -16,9 +16,9 @@ Memoria del Trabajo Final
 </h2>
 
 <strong>Autores:</strong><br>
-**Emilia Cavalitto** – 109394<br>
-**María Teresa Diaz Tubiñez** – 104838<br>
-**Ulises Ferrero** – 105034
+**Emilia Cavalitto** – Legajo 109394<br>
+**María Teresa Diaz Tubiñez** – Legajo 104838<br>
+**Ulises Ferrero** – Legajo 105034
 
 <br>
 
@@ -43,9 +43,9 @@ En esta memoria se describen la motivación, la arquitectura del sistema, las de
 
 **ABSTRACT**
 
-This work presents the design and implementation of BeepBuddy, an embedded system for real-time detection and notification of acoustic events. The system is intended as an assistive solution for individuals with hearing impairments and as a support tool in caregiving scenarios, generating alerts when relevant environmental sounds are identified. The proposed device provides a portable and configurable platform for acoustic monitoring in everyday environments.
+This work presents the design and implementation of _BeepBuddy_, an embedded system for real-time detection and notification of acoustic events. The system is intended as an assistive solution for individuals with hearing impairments and as a support tool in caregiving scenarios, generating alerts when relevant environmental sounds are identified. The proposed device provides a portable and configurable platform for acoustic monitoring in everyday environments.
 
-The system is based on a development board integrating a microcontroller with an analog-to-digital converter, hardware timers, and a low-energy Bluetooth communication module. Audio acquisition and control logic were implemented in the C programming language, while the mobile application for system configuration and notification reception was developed using MIT App Inventor. The project required the integration of hardware and software following modular design principles and efficient resource management typical of embedded systems, for which the itemis CREATE modeling environment was employed.
+The system is based on a development board integrating a microcontroller with an analog-to-digital converter, hardware timers, and a low-energy _Bluetooth_ communication module. Audio acquisition and control logic were implemented in the C programming language, while the mobile application for system configuration and notification reception was developed using MIT App Inventor. The project required the integration of hardware and software following modular design principles and efficient resource management typical of embedded systems, for which the itemis CREATE modeling environment was employed.
 
 This document describes the system architecture, design methodology, implementation details, and validation results.
 
@@ -98,7 +98,7 @@ This document describes the system architecture, design methodology, implementat
 Inicialmente, se adjunta la Tabla 0, la cual registra las diferentes versiones la memoria del trabajo práctico final.
 <div align="center">
 
-<p><strong>Tabla 0:</strong> Registro de versiones de BeepBuddy.</p>
+<p><strong>Tabla 0:</strong> Registro de versiones de <em>BeepBuddy</em>.</p>
 
 </div>
 
@@ -132,15 +132,15 @@ En este contexto, surge la necesidad de desarrollar un dispositivo embebido dedi
 ## **1.2 Descripción general del sistema**
 
 _BeepBuddy_ está compuesto por dos subsistemas principales: el dispositivo embebido de detección sonora y la aplicación móvil de notificación y configuración.
-El primero integra un micrófono para la captación de señales acústicas, el microcontrolador con conversor analógico-digital para la digitalización de la señal, temporizadores para el control del muestreo y un módulo de comunicación _Bluetooth_ para el envío y recepción de alertas. Asimismo, cuenta con una interfaz física básica compuesta por botones de configuración (_DIP switch_) e indicadores luminosos de estado.
-La aplicación móvil fue desarrollada utilizando la herramienta MIT App Inventor, la cual permite la visualización de alertas, elección de estados, consulta de historial y verificación del estado de conexión [1].
+El primero integra un micrófono para la captación de señales acústicas, el microcontrolador con conversor analógico-digital para la digitalización de la señal, temporizadores para el control del muestreo y un módulo de comunicación _Bluetooth_ para el envío y recepción de alertas. Asimismo, cuenta con una interfaz física básica compuesta por botones de configuración (_DIP switch_) e indicadores luminosos de estado (_LEDs_).
+La aplicación móvil fue desarrollada utilizando la herramienta [MIT App Inventor](https://appinventor.mit.edu/), la cual permite la visualización de alertas, elección de estados, consulta de historial y verificación del estado de conexión [1].
 
 En la Figura 1.2.1 se presenta el diagrama en bloques general del sistema, donde se observan los principales módulos y su interconexión.
 <div align="center">
 
 <img width="600" src="Figuras/DiagramaenBloquesdetallado.png">
 
-<p><strong>Figura 1.2.1</strong>: Diagrama en bloques general de BeepBuddy.</p>
+<p><strong>Figura 1.2.1</strong>: Diagrama en bloques general de <em>BeepBuddy</em>.</p>
 
 </div>
 
@@ -180,7 +180,7 @@ Habiendo analizado las características principales del dispositivo, se definier
 <tr>
 <td></td>
 <td>1.2</td>
-<td>El sistema digitaliza la señal sonora mediante el ADC de la placa STM.</td>
+<td>El sistema digitaliza la señal sonora mediante el <em>ADC</em> de la placa <em>STM</em>.</td>
 </tr>
 
 <tr>
@@ -191,7 +191,7 @@ Habiendo analizado las características principales del dispositivo, se definier
 <tr>
 <td></td>
 <td>2.2</td>
-<td>El usuario puede configurar sensibilidad y parámetros mediante un switch.</td>
+<td>El usuario puede configurar sensibilidad y parámetros mediante un <em>switch</em>.</td>
 </tr>
 <tr>
 <td></td>
@@ -202,7 +202,7 @@ Habiendo analizado las características principales del dispositivo, se definier
 <tr>
 <td>Notificación</td>
 <td>3.1</td>
-<td>El sistema envía notificaciones a un dispositivo móvil vía Bluetooth.</td>
+<td>El sistema envía notificaciones a un dispositivo móvil vía <em>Bluetooth</em>.</td>
 </tr>
 <tr>
 <td></td>
@@ -223,7 +223,7 @@ Habiendo analizado las características principales del dispositivo, se definier
 <tr>
 <td></td>
 <td>4.3</td>
-<td>La aplicación indica el estado de conexión Bluetooth del dispositivo.</td>
+<td>La aplicación indica el estado de conexión <em>Bluetooth</em> del dispositivo.</td>
 </tr>
 <tr>
 <td></td>
@@ -239,12 +239,12 @@ Habiendo analizado las características principales del dispositivo, se definier
 <tr>
 <td>Interfaz física</td>
 <td>5.1</td>
-<td>El sistema cuenta con un switch para seleccionar el modo de operación.</td>
+<td>El sistema cuenta con un <em>switch</em> para seleccionar el modo de operación.</td>
 </tr>
 <tr>
 <td></td>
 <td>5.2</td>
-<td>El sistema cuenta con indicadores LEDs básicos de funcionamiento (encendido/apagado, modos y estado de conexión Bluetooth).</td>
+<td>El sistema cuenta con indicadores <em>LEDs</em> básicos de funcionamiento (encendido/apagado, modos y estado de conexión <em>Bluetooth</em>).</td>
 </tr>
 <tr>
 <td></td>
@@ -281,11 +281,11 @@ Habiendo analizado las características principales del dispositivo, se definier
 | Elemento | Definición |
 | :---- | :---- |
 | Disparador | Se produce un sonido en el entorno que supera el umbral de sensibilidad configurado. |
-| Precondiciones | El sistema se encuentra encendido. El dispositivo está correctamente alimentado. El módulo Bluetooth se encuentra emparejado con la aplicación móvil. Los parámetros de sensibilidad están configurados.  |
-| Flujo principal | El micrófono capta el sonido del entorno y lo convierte en una señal eléctrica analógica. El microcontrolador digitaliza la señal mediante el conversor analógico-digital y procesa las muestras adquiridas en tiempo real. Si el nivel del sonido supera el umbral configurado, el algoritmo de detección valida el evento como relevante. El microcontrolador envía una notificación a través del módulo Bluetooth al dispositivo móvil. La aplicación recibe el evento, lo muestra en pantalla generando una alerta visual para el usuario y lo guarda en su historial. |
-| Flujos alternativos | a. El sonido detectado no supera el umbral configurado. El sistema continúa monitoreando sin generar notificación. b. El módulo Bluetooth no se encuentra conectado al dispositivo móvil. El evento puede registrarse localmente, pero no se envía notificación. c. El usuario modifica los parámetros de sensibilidad desde la aplicación. El sistema actualiza la configuración y continúa operando con los nuevos valores. |
+| Precondiciones | El sistema se encuentra encendido. El dispositivo está correctamente alimentado. El módulo _Bluetooth_ se encuentra emparejado con la aplicación móvil. Los parámetros de sensibilidad están configurados.  |
+| Flujo principal | El micrófono capta el sonido del entorno y lo convierte en una señal eléctrica analógica. El microcontrolador digitaliza la señal mediante el conversor analógico-digital y procesa las muestras adquiridas en tiempo real. Si el nivel del sonido supera el umbral configurado, el algoritmo de detección valida el evento como relevante. El microcontrolador envía una notificación a través del módulo _Bluetooth_ al dispositivo móvil. La aplicación recibe el evento, lo muestra en pantalla generando una alerta visual para el usuario y lo guarda en su historial. |
+| Flujos alternativos | a. El sonido detectado no supera el umbral configurado. El sistema continúa monitoreando sin generar notificación. b. El módulo _Bluetooth_ no se encuentra conectado al dispositivo móvil. El evento puede registrarse localmente, pero no se envía notificación. c. El usuario modifica los parámetros de sensibilidad desde la aplicación. El sistema actualiza la configuración y continúa operando con los nuevos valores. |
 
-A continuación, se incorporan los diagramas de estado correspondientes al sistema desarrollado. En primer lugar, en la Figura 2.2.1, se presenta la máquina de estados asociada a la placa, donde se describe el comportamiento del _hardware_ del microcontrolador, incluyendo los estados de inicialización, monitoreo, detección de eventos, notificación y configuración. El modelado fue realizado utilizando la herramienta itemis CREATE, y pueden consultarse tanto el archivo _Placa_Statechart.ysc_ como el archivo _Statecharts.exe_ adjuntos (ambos en la carpeta _Statecharts_), donde se detallan los estados, eventos y transiciones implementadas \[15\]\[16\].
+A continuación, se incorporan los diagramas de estado correspondientes al sistema desarrollado. En primer lugar, en la Figura 2.2.1, se presenta la máquina de estados asociada a la placa, donde se describe el comportamiento del _hardware_ del microcontrolador, incluyendo los estados de inicialización, monitoreo, detección de eventos, notificación y configuración. El modelado fue realizado utilizando la herramienta [itemis CREATE](https://www.itemis.com/en/products/itemis-create/), y pueden consultarse tanto el archivo [`Placa_Statechart.ysc`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/829bed8b9a3a83fd0f2c6891f38c5a664aa42d09/Statecharts/Placa_Statechart.ysc) como el archivo [`Statecharts.xlsx`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/209e34cd15df3201a05f59f1aa5d7f0c5443c734/Statecharts/Statechart.xlsx) adjuntos (ambos en la carpeta [`Statecharts`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/tree/Entrega-de-memoria-del-trabajo-final/Statecharts)), donde se detallan los estados, eventos y transiciones implementadas \[22\]\\[23\][15\]\[16\].
 
 <div align="center">
 
@@ -295,7 +295,7 @@ A continuación, se incorporan los diagramas de estado correspondientes al siste
 
 </div>
 
-Posteriormente, se incluye la máquina de estados correspondiente a la aplicación móvil (Figura 2.2.2), en la cual se representan los distintos estados vinculados a la conexión _Bluetooth_, recepción de eventos, visualización de alertas y configuración de parámetros. Del mismo modo, el diagrama puede observarse en el archivo _App_Statechart.ysc_ junto con el archivo _Statecharts.exe_ asociado (ambos en la carpeta _Statecharts_), donde se documenta formalmente su estructura \[17\].
+Posteriormente, se incluye la máquina de estados correspondiente a la aplicación móvil (Figura 2.2.2), en la cual se representan los distintos estados vinculados a la conexión __, recepción de eventos, visualización de alertas y configuración de parámetros. Del mismo modo, el diagrama puede observarse en el archivo [`App_Statechart.ysc`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/829bed8b9a3a83fd0f2c6891f38c5a664aa42d09/Statecharts/App_statechart.ysc) junto con el archivo [`Statecharts.xlsx`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/209e34cd15df3201a05f59f1aa5d7f0c5443c734/Statecharts/Statechart.xlsx) asociado (ambos en la carpeta [`Statecharts`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/tree/Entrega-de-memoria-del-trabajo-final/Statecharts)), donde se documenta formalmente su estructura \[17\]\[23\].
 
 <div align="center">
 
@@ -692,7 +692,7 @@ Una vez finalizado el trabajo, se tomó la Tabla 2.1.1 (definida anteriormente e
 <tr>
 <td>Notificación</td>
 <td>3.1</td>
-<td>El sistema envía notificaciones a un dispositivo móvil vía Bluetooth.</td>
+<td>El sistema envía notificaciones a un dispositivo móvil vía <em>Bluetooth</em>.</td>
 <td>COMPLETADO</td>
 </tr>
 <tr>
@@ -717,7 +717,7 @@ Una vez finalizado el trabajo, se tomó la Tabla 2.1.1 (definida anteriormente e
 <tr>
 <td></td>
 <td>4.3</td>
-<td>La aplicación indica el estado de conexión Bluetooth del dispositivo.</td>
+<td>La aplicación indica el estado de conexión <em>Bluetooth</em> del dispositivo.</td>
 <td>COMPLETADO</td>
 </tr>
 <tr>
@@ -742,7 +742,7 @@ Una vez finalizado el trabajo, se tomó la Tabla 2.1.1 (definida anteriormente e
 <tr>
 <td></td>
 <td>5.2</td>
-<td>El sistema cuenta con indicadores LEDs básicos de funcionamiento (encendido/apagado, modo y estado de conexión Bluetooth).</td>
+<td>El sistema cuenta con indicadores <em>LEDs</em> básicos de funcionamiento (encendido/apagado, modo y estado de conexión <em>Bluetooth</em>).</td>
 <td>COMPLETADO</td>
 </tr>
 <tr>
@@ -861,6 +861,10 @@ Finalmente, el desarrollo futuro incluye la migración del prototipo actual a un
 \[20\] MB1136 - Electrical Schematic - ST M32 Nucleo-64 boards. [Online]. Available: https://www.st.com/resource/en/schematic_pack/mb1136-default-c04_schematic.pdf
 
 \[21\] Archivo de la aplicación móvil _BeepBuddy.apk_. [Online]. Available: https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/7183d1253e6a652f54fe6edf92968422408bb41f/BeepBuddy.apk
+
+\[22\] itemis CREATE. [Online]. Available: https://www.itemis.com/en/products/itemis-create/
+
+\[23\] Archivo _Statechart.xlsx_. [Online]. Available: https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/209e34cd15df3201a05f59f1aa5d7f0c5443c734/Statecharts/Statechart.xlsx
 
 \[.\] Google Gemini. [Online]. Available: https://gemini.google.com/app?hl=es_419
 
