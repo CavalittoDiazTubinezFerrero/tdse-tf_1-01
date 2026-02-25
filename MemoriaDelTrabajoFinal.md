@@ -421,7 +421,7 @@ La interfaz de usuario del dispositivo está compuesta por un [_DIP switch_](htt
 
 </div>
 
-La primera posición del _switch_ corresponde al encendido general del sistema. Cuando se la coloca en posición _ON_, el dispositivo se energiza, se enciende el _LED_ verde y el _buzzer_ emite un breve pitido. El _LED_ verde comienza a titilar indicando que el sistema se encuentra en espera de vinculación _Bluetooth_; una vez establecida la conexión, el mismo permanece encendido de forma fija. En caso de que no se seleccione ningún modo de operación, también se enciende el _LED_ rojo, indicando estado por defecto (modo no definido).
+La primera posición del _switch_ corresponde al encendido general del sistema. Cuando se la coloca en posición _ON_, se enciende el _LED_ verde y el _buzzer_ emite un breve pitido. El _LED_ verde comienza a titilar indicando que el sistema se encuentra en espera de vinculación _Bluetooth_; una vez establecida la conexión, el mismo permanece encendido de forma fija. En caso de que no se seleccione ningún modo de operación, también se enciende el _LED_ rojo, indicando estado por defecto (modo no definido).
 
 La segunda posición del interruptor _DIP_ habilita el modo día, encendiéndose el _LED_ amarillo como indicador visual, mientras que, al colocarlo en la tercera posición, se activa el modo noche encendiéndose el _LED_ azul.
 
