@@ -654,15 +654,15 @@ Los corrientes máximas obtenidas son mostradas en la Tabla 4.1.1.
 
 <table>
 <tr>
-<th>Línea de alimentación</th>
+<th>Línea de alimentación (V)</th>
 <th>Corriente máxima (mA)</th>
 </tr>
 <tr>
-<td>5 V</td>
+<td>5</td>
 <td>26,5</td>
 </tr>
 <tr>
-<td>3,3 V</td>
+<td>3,3</td>
 <td>10,2</td>
 </tr>
 </table>
