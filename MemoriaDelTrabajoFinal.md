@@ -955,5 +955,7 @@ También se emplearon para asistencia en la redacción y aspectos formales del d
 
 
 Fin de la memoria técnica
+
 Autores: Cavalitto Emilia, Diaz Tubiñez María Teresa, Ferrero Ulises
+
 Fecha de edición: 26 de febrero de 2026 <span style="color:red"><strong>⚠ SE SIGUE ACTUALIZANDO</strong></span>
