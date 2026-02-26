@@ -1020,8 +1020,8 @@ También se emplearon para asistencia en la redacción y aspectos formales del d
 \[11\] MB1136 - Electrical Schematic - ST M32 Nucleo-64 boards. [Online]. Available: https://www.st.com/resource/en/schematic_pack/mb1136-default-c04_schematic.pdf
 
 
-Fin de la memoria técnica
+Fin de la memoria técnica.
 
-Autores: Cavalitto Emilia, Diaz Tubiñez María Teresa, Ferrero Ulises
+Autores: Cavalitto Emilia, Diaz Tubiñez María Teresa, Ferrero Ulises.
 
-Fecha de edición: 26 de febrero de 2026
+Fecha de edición: 26 de febrero de 2026.
