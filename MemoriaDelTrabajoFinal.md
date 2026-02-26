@@ -489,7 +489,7 @@ Dado que la placa dispone de un único pin de salida de 3,3 V, se realizó una d
 
 <span style="color:red"><strong>⚠AGREGAR LINK DEL VIDEO</strong></span>
 
-En las Figuras 3.1.b y 3.1.c se incluyen las vistas deL _hardware_ una vez finalizado el proceso de soldadura, permitiendo visualizar la disposición física de los componentes y las conexiones realizadas. Además, se ceunta con un [video explicativo](), en el cual se explica y evidencia brevemente el funcionamiento del dispositivo [9\].
+En las Figuras 3.1.b y 3.1.c se incluyen las vistas deL _hardware_ una vez finalizado el proceso de soldadura, permitiendo visualizar la disposición física de los componentes y las conexiones realizadas. Además, se cuenta con un [video explicativo](), en el cual se explica y evidencia brevemente el funcionamiento del dispositivo [9\].
 
 <div align="center">
 
