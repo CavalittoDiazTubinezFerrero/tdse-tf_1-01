@@ -103,7 +103,10 @@ Inicialmente, se adjunta la Tabla 0, la cual registra las diferentes versiones d
 
 </div>
 
-<center>
+<table align="center">
+<tr>
+<td>
+
 <table>
 <tr>
 <th>Revisión</th>
@@ -151,7 +154,10 @@ Inicialmente, se adjunta la Tabla 0, la cual registra las diferentes versiones d
 <td>.../02/2026</td>
 </tr>
 </table>
-</center>
+
+</td>
+</tr>
+</table>
 
 <span style="color:red"><strong>⚠ IR COMPLETANDO A MEDIDA QUE SE VAYAN ESCRIBIENDO CADA UNA DE LAS SECCIONES</strong></span>
  
