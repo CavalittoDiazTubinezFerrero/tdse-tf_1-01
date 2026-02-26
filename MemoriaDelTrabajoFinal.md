@@ -733,26 +733,26 @@ Los valores obtenidos fueron los observados en la Tabla 4.1.2.
 <table>
 <tr>
 <th>Función / Evento</th>
-<th>WCET (µs)</th>
+<th><em>WCET</em> (µs)</th>
 </tr>
 <tr>
-<td align="center">Mode update</td>
+<td align="center"><em>Mode update</em></td>
 <td align="center">211</td>
 </tr>
 <tr>
-<td align="center">Send status update</td>
+<td align="center"><em>Send status update</em></td>
 <td align="center">26 545</td>
 </tr>
 <tr>
-<td align="center">Receive status update</td>
+<td align="center"><em>Receive status update</em></td>
 <td align="center">22 906</td>
 </tr>
 <tr>
-<td align="center">Send alert</td>
+<td align="center"><em>Send alert</em></td>
 <td align="center">9 506</td>
 </tr>
 <tr>
-<td align="center">LEDs update</td>
+<td align="center"><em>LEDs update</em></td>
 <td align="center">175</td>
 </tr>
 </table>
