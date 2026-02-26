@@ -166,7 +166,7 @@ Inicialmente, se adjunta la Tabla 0, la cual registra las diferentes versiones d
 
 En los últimos años, el desarrollo de diferentes tecnologías ha permitido la creación de dispositivos dedicados a tareas específicas con mayor eficiencia, bajo consumo y mayor confiabilidad que otras opciones más generales. Sin embargo, en el ámbito del monitoreo sonoro aplicado al cuidado infantil o supervisión del entorno, muchas soluciones comerciales no contemplan las necesidades de personas con discapacidad auditiva.
 
-Los monitores de bebé convencionales, por ejemplo, transmiten audio hacia un receptor portátil, pero requieren que el usuario pueda escuchar los sonidos detectados. Por otro lado, los monitores inteligentes con video suelen depender de conectividad _Wi-Fi_, servicios en la nube y aplicaciones complejas, lo que incrementa su costo como así también el consumo energético. Asimismo, las aplicaciones móviles de detección de sonido utilizan el micrófono del teléfono, lo que implica alto consumo de batería y baja confiabilidad.
+Los monitores de bebé convencionales, por ejemplo, transmiten audio hacia un receptor portátil, pero requieren que el usuario pueda escuchar los sonidos detectados. Por otro lado, los monitores inteligentes con video suelen depender de conectividad _Wi-Fi_, servicios en la nube y aplicaciones complejas, lo que incrementa tanto su costo como su consumo energético. Asimismo, las aplicaciones móviles de detección de sonido utilizan el micrófono del teléfono, lo que implica alto consumo de batería y baja confiabilidad.
 
 En este contexto, surge la necesidad de desarrollar un dispositivo embebido dedicado, autónomo y configurable, capaz de detectar eventos sonoros relevantes y notificar de manera inmediata mediante comunicación _Bluetooth_, sin requerir conexión a internet. Así, el objetivo de este trabajo fue diseñar e implementar un sistema que permitiera asistir a personas con discapacidad auditiva en tareas de cuidado, particularmente en contextos donde la detección rápida de sonidos como llanto, alarmas o golpes resulta crítica. _BeepBuddy_ se propuso como un producto mínimo viable que solventara cada una de estas características, priorizando confiabilidad, facilidad de uso y bajo consumo energético. A su vez, el valor agregado del proyecto radica en la posibilidad de configurar parámetros como sensibilidad y modos de operación.
 
@@ -380,7 +380,7 @@ Como microcontrolador del sistema se utilizó la placa [NUCLEO-F103RB](https://w
 
 </div>
 
-El sistema utiliza la memoria _flash_ interna del microcontrolador como almacenamiento no vólatil para conservar la configuración de usuario (`SET_UP` en los archivos [`config.h`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/cabf6f2aa755565a832ac6392c2ffda81915aa82/stm32-project/config/config.h) y [`config.c`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/cabf6f2aa755565a832ac6392c2ffda81915aa82/stm32-project/config/config.c) del proyecto), evitando la pérdida de parámetros ante reinicios o cortes de energía. En cada reinicio, el sistema lee los parámetros previamente guardados en la memoria _flash_ y los carga en memoria _RAM_ para su utilización durante la operación. Por lo tanto, los valores almacenados en la memoria no volátil son los que el dispositivo utiliza de manera habitual, mientras que los definidos en [`config.c`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/cabf6f2aa755565a832ac6392c2ffda81915aa82/stm32-project/config/config.c) actúan únicamente como valores iniciales o de respaldo.
+El sistema utiliza la memoria _flash_ interna del microcontrolador como almacenamiento no volátil para conservar la configuración de usuario (`SET_UP` en los archivos [`config.h`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/cabf6f2aa755565a832ac6392c2ffda81915aa82/stm32-project/config/config.h) y [`config.c`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/cabf6f2aa755565a832ac6392c2ffda81915aa82/stm32-project/config/config.c) del proyecto), evitando la pérdida de parámetros ante reinicios o cortes de energía. En cada reinicio, el sistema lee los parámetros previamente guardados en la memoria _flash_ y los carga en memoria _RAM_ para su utilización durante la operación. Por lo tanto, los valores almacenados en la memoria no volátil son los que el dispositivo utiliza de manera habitual, mientras que los definidos en [`config.c`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/cabf6f2aa755565a832ac6392c2ffda81915aa82/stm32-project/config/config.c) actúan únicamente como valores iniciales o de respaldo.
 
 ## **2.3.3 Módulo del micrófono**
 
@@ -394,9 +394,9 @@ Para la detección acústica se utilizó un módulo sensor de sonido con micróf
 
 </div>
 
-El mismo, permite detectar la presencia de sonido ambiente y generar una salida digital cuando el nivel de sonido supera el umbral configurable a partir del potenciómetro incorporado en la placa (el cual se ajustó aproximadamente a la mitad del rango de operación del micrófono), y una salida analógica proporcional a la amplitud de la señal captada por el sensor.
+Dicho módulo permite detectar la presencia de sonido ambiente y generar una salida digital cuando el nivel de sonido supera el umbral configurable a partir del potenciómetro incorporado en la placa (el cual se ajustó aproximadamente a la mitad del rango de operación del micrófono), y una salida analógica proporcional a la amplitud de la señal captada por el sensor.
 
-El micrófono _electret_ convierte la onda sonora en una señal eléctrica analógica de baja amplitud, la cual es amplificada por el circuito interno del módulo. Posteriormente, el comparador interno evalúa si la señal amplificada supera el umbral y, si esto ocurre, la salida digital cambia de estado y se enciende el _LED_ indicador de detección. Por útlimo, la salida analógica entrega una señal proporcional a la amplitud del sonido captado, permitiendo su lectura mediante el conversor analógico-digital del microcontrolador.
+El micrófono _electret_ convierte la onda sonora en una señal eléctrica analógica de baja amplitud, la cual es amplificada por el circuito interno del módulo. Posteriormente, el comparador interno evalúa si la señal amplificada supera el umbral y, si esto ocurre, la salida digital cambia de estado y se enciende el _LED_ indicador de detección. Por último, la salida analógica entrega una señal proporcional a la amplitud del sonido captado, permitiendo su lectura mediante el conversor analógico-digital del microcontrolador.
 
 ## **2.3.4 Módulo _Bluetooth_**
 
@@ -466,7 +466,7 @@ La primera posición del _switch_ corresponde al encendido general del sistema. 
 
 La segunda posición del interruptor _DIP_ habilita el modo día, encendiéndose el _LED_ amarillo como indicador visual, mientras que, al colocarlo en la tercera posición, se activa el modo noche encendiéndose el _LED_ azul.
 
-Los modos de operación (día/noche) solo pueden activarse cuando la primera posición (encendido general, inidicada con el _LED_ verde) se encuentra en estado _ON_. Si las tres posiciones del _switch_ se encuentran activadas simultáneamente, el sistema entra nuevamente en el estado de _default_, encendiéndose el _LED_ rojo.
+Los modos de operación (día/noche) solo pueden activarse cuando la primera posición (encendido general, indicada con el _LED_ verde) se encuentra en estado _ON_. Si las tres posiciones del _switch_ se encuentran activadas simultáneamente, el sistema entra nuevamente en el estado de _default_, encendiéndose el _LED_ rojo.
 
 ---
 # **CAPÍTULO 3**
@@ -487,7 +487,7 @@ El diseño de _hardware_ del sistema se basó en la placa, cuya configuración d
 
 Dado que la placa dispone de un único pin de salida de 3,3 V, se realizó una distribución de dicha tensión mediante la placa para alimentar los módulos correspondientes. Todas las masas fueron unificadas para garantizar referencia común en el sistema.
 
-En las Figuras 3.1.b y 3.1.c se incluyen las vistas deL _hardware_ una vez finalizado el proceso de soldadura, permitiendo visualizar la disposición física de los componentes y las conexiones realizadas. Además, se cuenta con un [video explicativo](https://youtu.be/XqPOsRWu6jE), en el cual se explica y evidencia brevemente el funcionamiento del dispositivo [9\].
+En las Figuras 3.1.b y 3.1.c se incluyen las vistas del _hardware_ una vez finalizado el proceso de soldadura, permitiendo visualizar la disposición física de los componentes y las conexiones realizadas. Además, se cuenta con un [video explicativo](https://youtu.be/XqPOsRWu6jE), en el cual se explica y evidencia brevemente el funcionamiento del dispositivo [9\].
 
 <div align="center">
 
@@ -614,7 +614,7 @@ Finalmente, la función `HAL_GPIO_EXTI_Callback()` se ejecuta ante la detección
 
 En conjunto, los tres _callbacks_ demuestran un uso adecuado de interrupciones para tareas asíncronas (comunicación serie y cambios en el estado de un pin) y periódicas (muestreo del sensor), favoreciendo una arquitectura eficiente, no bloqueante y coherente con buenas prácticas en sistemas embebidos.
 
-Esta separación entre lógica de aplicación y acceso a _hardware_ permitió mantener una arquitectura clara, donde cada módulo cumplió una función específica y bien delimitada. Todos los archivos mencionados se encuentran a disposición en la carpeta [`stm32-proyect`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/tree/cabf6f2aa755565a832ac6392c2ffda81915aa82/stm32-project).
+Esta separación entre lógica de aplicación y acceso a _hardware_ permitió mantener una arquitectura clara, donde cada módulo cumplió una función específica y bien delimitada. Todos los archivos mencionados se encuentran a disposición en la carpeta [`stm32-project`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/tree/cabf6f2aa755565a832ac6392c2ffda81915aa82/stm32-project).
 
 ## **3.2.2 Flujo de ejecución del _firmware_**
 
@@ -689,7 +689,7 @@ Con el objetivo de evaluar el consumo energético del sistema, se realizaron med
 
 De acuerdo con lo especificado en el manual [`UM1724 (STM32 Nucleo-64 boards)`](https://www.st.com/resource/en/user_manual/um1724-stm32-nucleo64-boards-mb1136-stmicroelectronics.pdf) y en el esquema eléctrico [`MB1136`](https://www.st.com/resource/en/schematic_pack/mb1136-default-c04_schematic.pdf), la placa dispone de _jumpers_ específicos que permiten medir el consumo de las líneas de 5 V y 3,3 V \[10\]\[11\]. Para realizar la medición correctamente, se retiró el _jumper_ correspondiente a la línea a analizar y se conectó el miliamperímetro en serie entre los pines del mismo, de manera de registrar la corriente total consumida por dicha línea.
 
-Los corrientes máximas obtenidas son mostradas en la Tabla 4.1.1.
+Las corrientes máximas obtenidas se muestran en la Tabla 4.1.1.
 <div align="center">
 
 <p><strong>Tabla 4.1.1</strong>: Valores máximos de corriente obtenidos.</p>
@@ -717,7 +717,7 @@ Los corrientes máximas obtenidas son mostradas en la Tabla 4.1.1.
 
 ## **4.1.2 Tiempos de ejecución de cada tarea (_WCET_)**
 
-Para la estimación experimental del _Worst Case Execution Time_ (_WCET_) de cada tarea del sistema se utilizó el contador de ciclos del procesador (_DWT_). Cada función relevante fue instrumentada reiniciando el contador antes de su ejecución y leyendo el tiempo transcurrido en microsegundos inmediatamente después, almacenando el mayor valor observado durante el período de prueba. Con el objetivo de poder recorrer sistemáticamente todos los caminos posibles de ejecución (recepción de comandos, cambios de estado, envío de configuraciones y generación de alertas), el lazo principal del programa fue modificado temporalmente, reemplazando el `while(1)` infinito por un lazo con duración aproximada de dos minutos. Esto permitió ejecutar múltiples iteraciones bajo distintas condiciones de funcionamiento y registrar valores representativos del tiempo máximo observado para cada tarea. Finalizado el período de medición, los valores de _WCET_ obtenidos fueron impresos mediante _LOGGER_INFO()_.
+Para la estimación experimental del _Worst Case Execution Time_ (_WCET_) de cada tarea del sistema se utilizó el contador de ciclos del procesador (_DWT_). Cada función relevante fue instrumentada reiniciando el contador antes de su ejecución y leyendo el tiempo transcurrido en microsegundos inmediatamente después, almacenando el mayor valor observado durante el período de prueba. Con el objetivo de poder recorrer sistemáticamente todos los caminos posibles de ejecución (recepción de comandos, cambios de estado, envío de configuraciones y generación de alertas), el lazo principal del programa fue modificado temporalmente, reemplazando el `while(1)` infinito por un lazo con duración aproximada de dos minutos. Esto permitió ejecutar múltiples iteraciones bajo distintas condiciones de funcionamiento y registrar valores representativos del tiempo máximo observado para cada tarea. Finalizado el período de medición, los valores de _WCET_ obtenidos fueron impresos mediante `LOGGER_INFO()`.
 
 Los valores obtenidos fueron los observados en la Tabla 4.1.2.
 <div align="center">
@@ -983,7 +983,7 @@ En términos de interfaz física, se prevé la sustitución del _DIP switch_ por
 
 Desde el punto de vista funcional, el sistema se proyecta hacia la incorporación de un módulo de notificación háptica portátil, como una banda o pulsera vibratoria destinada a la persona con dificultad auditiva. Esta mejora permitiría generar alertas por vibración directamente en el usuario, incrementando la accesibilidad y la efectividad del dispositivo.
 
-Finalmente, el desarrollo futuro incluye la migración del prototipo actual a una placa _PCB_ diseñada específicamente para el sistema, integrando los módulos utilizados en un formato reducido y más adecuado para una implementación definitiva
+Finalmente, el desarrollo futuro incluye la migración del prototipo actual a una placa _PCB_ diseñada específicamente para el sistema, integrando los módulos utilizados en un formato reducido y más adecuado para una implementación definitiva.
 
 ---
 # **CAPÍTULO 6**
