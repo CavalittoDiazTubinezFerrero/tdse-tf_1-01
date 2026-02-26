@@ -315,6 +315,8 @@ Habiendo analizado las características principales del dispositivo, se definier
 
 ## **2.2 Descripción de uso y diagramas de estado**
 
+En la Tabla 2.2.1 a continuación se detalla brevemente el flujo de funcionamiento del dispositivo.
+
 <div align="center">
 <p><strong>Tabla 2.2.1:</strong> Descripción de uso.</p>
 </div>
