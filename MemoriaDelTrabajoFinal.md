@@ -592,19 +592,19 @@ El archivo principal del sistema ([`main.c`](https://github.com/CavalittoDiazTub
 A diferencia de una implementación monolítica, el proyecto fue estructurado en módulos funcionales organizados en carpetas específicas, lo que facilita la lectura, mantenimiento y escalabilidad del código.
 
 La carpeta [`app`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/tree/cabf6f2aa755565a832ac6392c2ffda81915aa82/stm32-project/app) concentra la lógica principal del sistema. En ella se encuentran:
-- `app_main.c / .h`: núcleo de la aplicación y gestión general del flujo.
-- `sound_detector.c / .h`: implementación del algoritmo de detección de sonido.
-- `mode_manager.c / .h`: gestión de los distintos modos de funcionamiento.
-- `notifications.c / .h`: administración del envío y recepción de notificaciones.
-- `logger.c / .h`: registro de eventos del sistema.
-- `dwt.c / .h`: implementación y configuración del contador de ciclos del procesador para la medición de los _WCET_.
+- [`app_main.c`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/5b824c62b6a07a8ee2b825b4a9dd6021c081fd4c/stm32-project/app/app_main.c)/[`.h`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/5b824c62b6a07a8ee2b825b4a9dd6021c081fd4c/stm32-project/app/app_main.h): núcleo de la aplicación y gestión general del flujo.
+- [`sound_detector.c`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/5b824c62b6a07a8ee2b825b4a9dd6021c081fd4c/stm32-project/app/sound_detection/sound_detector.c)/[`.h`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/5b824c62b6a07a8ee2b825b4a9dd6021c081fd4c/stm32-project/app/sound_detection/sound_detector.h): implementación del algoritmo de detección de sonido.
+- [`mode_manager.c`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/5b824c62b6a07a8ee2b825b4a9dd6021c081fd4c/stm32-project/app/modes/mode_manager.c)/[`.h`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/5b824c62b6a07a8ee2b825b4a9dd6021c081fd4c/stm32-project/app/modes/mode_manager.h): gestión de los distintos modos de funcionamiento.
+- [`notifications.c`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/5b824c62b6a07a8ee2b825b4a9dd6021c081fd4c/stm32-project/app/notifications/notifications.c)/[`.h`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/5b824c62b6a07a8ee2b825b4a9dd6021c081fd4c/stm32-project/app/notifications/notifications.h): administración del envío y recepción de notificaciones.
+- [`logger.c`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/5b824c62b6a07a8ee2b825b4a9dd6021c081fd4c/stm32-project/app/logger.c)/[`.h`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/5b824c62b6a07a8ee2b825b4a9dd6021c081fd4c/stm32-project/app/logger.h): registro de eventos del sistema.
+- [`dwt.c`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/5b824c62b6a07a8ee2b825b4a9dd6021c081fd4c/stm32-project/app/dwt.c)/[`.h`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/5b824c62b6a07a8ee2b825b4a9dd6021c081fd4c/stm32-project/app/dwt.h): implementación y configuración del contador de ciclos del procesador para la medición de los _WCET_.
 
 Por su parte, la carpeta [`hardware`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/tree/cabf6f2aa755565a832ac6392c2ffda81915aa82/stm32-project/hardware) incluye los módulos encargados de la interacción directa con los periféricos físicos:
-- `mic.c / .h`: adquisición de señal analógica del micrófono mediante el _ADC_.
-- `bluetooth.c / .h`: comunicación serial a través de _USART1_.
-- `dip_switch.c / .h`: lectura del estado de los interruptores.
-- `buzzer.c / .h`: generación de señal _PWM_ utilizando el temporizador _TIM3_.
-- `led.c / .h`: control de los indicadores visuales.
+- [`mic.c`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/5b824c62b6a07a8ee2b825b4a9dd6021c081fd4c/stm32-project/hardware/audio/mic.c)/[`.h`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/5b824c62b6a07a8ee2b825b4a9dd6021c081fd4c/stm32-project/hardware/audio/mic.h): adquisición de señal analógica del micrófono mediante el _ADC_.
+- [`bluetooth.c`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/5b824c62b6a07a8ee2b825b4a9dd6021c081fd4c/stm32-project/hardware/bluetooth/bluetooth.c)/[`.h`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/5b824c62b6a07a8ee2b825b4a9dd6021c081fd4c/stm32-project/hardware/bluetooth/bluetooth.h): comunicación serial a través de _USART1_.
+- [`dip_switch.c`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/5b824c62b6a07a8ee2b825b4a9dd6021c081fd4c/stm32-project/hardware/buttons/dip_switch.c)/[`.h`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/5b824c62b6a07a8ee2b825b4a9dd6021c081fd4c/stm32-project/hardware/buttons/dip_switch.h): lectura del estado de los interruptores.
+- [`buzzer.c`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/5b824c62b6a07a8ee2b825b4a9dd6021c081fd4c/stm32-project/hardware/buzzer/buzzer.c)/[`.h`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/5b824c62b6a07a8ee2b825b4a9dd6021c081fd4c/stm32-project/hardware/buzzer/buzzer.h): generación de señal _PWM_ utilizando el temporizador _TIM3_.
+- [`led.c`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/5b824c62b6a07a8ee2b825b4a9dd6021c081fd4c/stm32-project/hardware/leds/led.c)/[`.h`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/5b824c62b6a07a8ee2b825b4a9dd6021c081fd4c/stm32-project/hardware/leds/led.h): control de los indicadores visuales.
 
 Y la carpeta [`config`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/tree/cabf6f2aa755565a832ac6392c2ffda81915aa82/stm32-project/config) centraliza las configuraciones del proyecto para facilitar su mantenimiento y modificación sin afectar la lógica principal. Contiene constantes, definiciones y parámetros globales utilizados por la aplicación.
 
