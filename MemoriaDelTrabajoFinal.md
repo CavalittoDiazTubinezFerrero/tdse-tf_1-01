@@ -487,9 +487,7 @@ El diseño de _hardware_ del sistema se basó en la placa, cuya configuración d
 
 Dado que la placa dispone de un único pin de salida de 3,3 V, se realizó una distribución de dicha tensión mediante la placa para alimentar los módulos correspondientes. Todas las masas fueron unificadas para garantizar referencia común en el sistema.
 
-<span style="color:red"><strong>⚠AGREGAR LINK DEL VIDEO</strong></span>
-
-En las Figuras 3.1.b y 3.1.c se incluyen las vistas deL _hardware_ una vez finalizado el proceso de soldadura, permitiendo visualizar la disposición física de los componentes y las conexiones realizadas. Además, se cuenta con un [video explicativo](), en el cual se explica y evidencia brevemente el funcionamiento del dispositivo [9\].
+En las Figuras 3.1.b y 3.1.c se incluyen las vistas deL _hardware_ una vez finalizado el proceso de soldadura, permitiendo visualizar la disposición física de los componentes y las conexiones realizadas. Además, se cuenta con un [video explicativo](https://youtu.be/XqPOsRWu6jE), en el cual se explica y evidencia brevemente el funcionamiento del dispositivo [9\].
 
 <div align="center">
 
@@ -1015,7 +1013,7 @@ También se emplearon para asistencia en la redacción y aspectos formales del d
 
 \[8\] Manual de usuario del _DIP switch_. [Online]. Available: https://www.alldatasheet.es/datasheet-pdf/view/2015587/AGELECTRONICA/DIP-3.html
 
-\[9\] Video explicativo del funcionamiento del dispositivo. [Online]. Available: <span style="color:red"><strong>⚠ AGREGAR LINK</strong></span>
+\[9\] Video explicativo del funcionamiento del dispositivo. [Online]. Available: https://youtu.be/XqPOsRWu6jE
 
 \[10\] UM1724 - User manual - STM32 Nucleo-64 boards. [Online]. Available: https://www.st.com/resource/en/user_manual/um1724-stm32-nucleo64-boards-mb1136-stmicroelectronics.pdf
 
