@@ -86,7 +86,7 @@ bool Mode_UpdateRemote(system_mode_t mode)
     if (mode >= MODE_COUNT)
         return false;
 
-    if (mode != Mode_Get())
+    if (mode != Mode_Get() && last_mode != MODE_IDLE)
     {
         current_mode = mode;
         return true;

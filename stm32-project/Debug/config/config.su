@@ -1,0 +1,5 @@
+../config/config.c:19:13:Mode_ToString	16	static
+../config/config.c:27:13:Config_SetDefaults	4	static
+../config/config.c:38:16:Config_IsValid	24	static
+../config/config.c:52:6:Config_Init	8	static
+../config/config.c:63:6:Config_Save	48	static
