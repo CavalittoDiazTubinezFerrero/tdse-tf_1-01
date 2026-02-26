@@ -103,16 +103,55 @@ Inicialmente, se adjunta la Tabla 0, la cual registra las diferentes versiones d
 
 </div>
 
-| Revisión | Cambios realizados | Fecha de finalización |
-| :---: | ----- | ----- |
-| 1.0 | Creación del documento | 10/02/2026 |
-| 1.1 | Redacción del primer capítulo | 11/02/2026 |
-| 1.2 | Redacción del segundo capítulo | 14/02/2026 |
-| 1.3 | Redacción del tercer capítulo | 22/02/2026 |
-| 1.4 | Redacción del cuarto capítulo | 16/02/2026 |
-| 1.5 | Redacción del quinto capítulo | 24/02/2026 |
-| 1.6 | Redacción del sexto capítulo | 25/02/2026 |
-| 1.7 | Revisión y ajustes finales | .../02/2026|
+<center>
+<table>
+<tr>
+<th>Revisión</th>
+<th>Cambios realizados</th>
+<th>Fecha de finalización</th>
+</tr>
+<tr>
+<td>1.0</td>
+<td>Creación del documento</td>
+<td>10/02/2026</td>
+</tr>
+<tr>
+<td>1.1</td>
+<td>Redacción del primer capítulo</td>
+<td>11/02/2026</td>
+</tr>
+<tr>
+<td>1.2</td>
+<td>Redacción del segundo capítulo</td>
+<td>14/02/2026</td>
+</tr>
+<tr>
+<td>1.3</td>
+<td>Redacción del tercer capítulo</td>
+<td>22/02/2026</td>
+</tr>
+<tr>
+<td>1.4</td>
+<td>Redacción del cuarto capítulo</td>
+<td>16/02/2026</td>
+</tr>
+<tr>
+<td>1.5</td>
+<td>Redacción del quinto capítulo</td>
+<td>24/02/2026</td>
+</tr>
+<tr>
+<td>1.6</td>
+<td>Redacción del sexto capítulo</td>
+<td>25/02/2026</td>
+</tr>
+<tr>
+<td>1.7</td>
+<td>Revisión y ajustes finales</td>
+<td>.../02/2026</td>
+</tr>
+</table>
+</center>
 
 <span style="color:red"><strong>⚠ IR COMPLETANDO A MEDIDA QUE SE VAYAN ESCRIBIENDO CADA UNA DE LAS SECCIONES</strong></span>
  
