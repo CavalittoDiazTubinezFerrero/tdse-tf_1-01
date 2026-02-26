@@ -44,8 +44,6 @@
 									<listOptionValue builtIn="false" value="../Core/Inc"/>
 									<listOptionValue builtIn="false" value="../app"/>
 									<listOptionValue builtIn="false" value="../config"/>
-									<listOptionValue builtIn="false" value="../app/bluetooth"/>
-									<listOptionValue builtIn="false" value="../app/menu"/>
 									<listOptionValue builtIn="false" value="../app/modes"/>
 									<listOptionValue builtIn="false" value="../app/notifications"/>
 									<listOptionValue builtIn="false" value="../app/sound_detection"/>

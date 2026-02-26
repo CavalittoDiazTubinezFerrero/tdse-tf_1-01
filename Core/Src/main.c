@@ -485,8 +485,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
     if (GPIO_Pin == BLE_STATE_Pin)
     {
-    	ble_connected = HAL_GPIO_ReadPin(BLE_STATE_PORT, BLE_STATE_PIN);
-    	Bluetooth_OnConnectionChange(ble_connected);
+    	ble_connected = Bluetooth_IsConnected();
     }
 }
 /* USER CODE END 4 */

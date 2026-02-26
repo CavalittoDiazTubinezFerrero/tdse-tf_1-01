@@ -44,34 +44,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := tdse-tf
+BUILD_ARTIFACT_NAME := tdse-tf_1-01
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-tdse-tf.elf \
+tdse-tf_1-01.elf \
 
 MAP_FILES += \
-tdse-tf.map \
+tdse-tf_1-01.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-tdse-tf.list \
+tdse-tf_1-01.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: tdse-tf.elf secondary-outputs
+main-build: tdse-tf_1-01.elf secondary-outputs
 
 # Tool invocations
-tdse-tf.elf tdse-tf.map: $(OBJS) $(USER_OBJS) C:\Users\Maria\ Diaz\Documents\embebidos\BeepBuddy\tdse-tf\STM32F103RBTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "tdse-tf.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\Maria Diaz\Documents\embebidos\BeepBuddy\tdse-tf\STM32F103RBTX_FLASH.ld" -Wl,-Map="tdse-tf.map" -Wl,--gc-sections -static -specs=rdimon.specs --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+tdse-tf_1-01.elf tdse-tf_1-01.map: $(OBJS) $(USER_OBJS) C:\Users\Maria\ Diaz\Documents\embebidos\BeepBuddy\tdse-tf_1-01\STM32F103RBTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "tdse-tf_1-01.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\Maria Diaz\Documents\embebidos\BeepBuddy\tdse-tf_1-01\STM32F103RBTX_FLASH.ld" -Wl,-Map="tdse-tf_1-01.map" -Wl,--gc-sections -static -specs=rdimon.specs --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -80,14 +80,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-tdse-tf.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "tdse-tf.list"
+tdse-tf_1-01.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "tdse-tf_1-01.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) default.size.stdout tdse-tf.elf tdse-tf.list tdse-tf.map
+	-$(RM) default.size.stdout tdse-tf_1-01.elf tdse-tf_1-01.list tdse-tf_1-01.map
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)

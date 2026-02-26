@@ -49,6 +49,9 @@ void  App_Init(void)
     Led_Update(&led2);
     Led_Update(&led3);
     Led_Update(&led_status);
+
+    ble_connected = Bluetooth_IsConnected();
+
 }
 
 
@@ -96,7 +99,6 @@ void App_Loop(void)
 		if ((now - last_alert_time) >= ALERT_COOLDOWN_MS)
 		    {
 				sound_alert_flag = 0;
-
 				Notifications_SendNoiseDetected();
 		        last_alert_time = now;
 		    }

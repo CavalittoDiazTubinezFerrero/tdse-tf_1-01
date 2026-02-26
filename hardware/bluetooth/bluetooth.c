@@ -6,6 +6,7 @@
 #include "stm32f1xx_hal.h"
 #include <string.h>
 #include "logger.h"
+#include "board.h"
 
 char rx_buffer[RX_BUFFER_SIZE];
 static uint8_t rx_index = 0;
@@ -54,5 +55,6 @@ void Bluetooth_OnConnectionChange(uint8_t status)
 
 uint8_t Bluetooth_IsConnected(void)
 {
+	ble_connected = HAL_GPIO_ReadPin(BLE_STATE_PORT, BLE_STATE_PIN);
     return ble_connected;
 }

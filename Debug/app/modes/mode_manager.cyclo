@@ -1,5 +1,5 @@
 ../app/modes/mode_manager.c:24:6:Mode_Init	1
 ../app/modes/mode_manager.c:32:6:Mode_Update	9
-../app/modes/mode_manager.c:84:6:Mode_UpdateRemote	3
+../app/modes/mode_manager.c:84:6:Mode_UpdateRemote	4
 ../app/modes/mode_manager.c:99:15:Mode_Get	1
 ../app/modes/mode_manager.c:104:6:Mode_UpdateIndicators	4

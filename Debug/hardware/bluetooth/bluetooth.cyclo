@@ -1,4 +1,4 @@
-../hardware/bluetooth/bluetooth.c:16:6:Bluetooth_Send	2
-../hardware/bluetooth/bluetooth.c:25:6:Bluetooth_OnRxByte	5
-../hardware/bluetooth/bluetooth.c:50:6:Bluetooth_OnConnectionChange	1
-../hardware/bluetooth/bluetooth.c:55:9:Bluetooth_IsConnected	1
+../hardware/bluetooth/bluetooth.c:17:6:Bluetooth_Send	2
+../hardware/bluetooth/bluetooth.c:26:6:Bluetooth_OnRxByte	5
+../hardware/bluetooth/bluetooth.c:51:6:Bluetooth_OnConnectionChange	1
+../hardware/bluetooth/bluetooth.c:56:9:Bluetooth_IsConnected	1
