@@ -151,7 +151,7 @@ Inicialmente, se adjunta la Tabla 0, la cual registra las diferentes versiones d
 <tr>
 <td>1.7</td>
 <td>Revisión y ajustes finales</td>
-<td>.../02/2026</td>
+<td>26/02/2026</td>
 </tr>
 </table>
 
@@ -159,7 +159,6 @@ Inicialmente, se adjunta la Tabla 0, la cual registra las diferentes versiones d
 </tr>
 </table>
 
-<span style="color:red"><strong>⚠ IR COMPLETANDO A MEDIDA QUE SE VAYAN ESCRIBIENDO CADA UNA DE LAS SECCIONES</strong></span>
  
 ---
 ### 
@@ -647,31 +646,38 @@ En segundo lugar, la configuración del sistema se realiza mediante el envío de
 
 Finalmente, la recepción y procesamiento de eventos se gestionan mediante `BluetoothLE1.StringsReceived`, que interpreta las cadenas enviadas por la placa y ejecuta las acciones correspondientes en la interfaz. Al iniciar la aplicación, `Screen1.Initialize` carga el historial previamente almacenado, permitiendo al usuario consultar eventos anteriores.
 
-De esta manera, la aplicación actúa como interfaz de usuario del sistema embebido, centralizando la configuración y visualización de alertas de forma remota. Seguidamente, se adjuntan capturas de pantalla de la interfaz de la aplicación ante diferentes eventos (Figuras 3.3.2, 3.3.3 y 3.3.4).
+De esta manera, la aplicación actúa como interfaz de usuario del sistema embebido, centralizando la configuración y visualización de alertas de forma remota. Seguidamente, se adjuntan capturas de pantalla de la interfaz de la aplicación ante diferentes eventos (Figuras 3.3.2, 3.3.3, 3.3.4 y 3.3.5).
 
-<span style="color:red"><strong>⚠ MODIFICAR CAPTURAS DE PANTALLAS POR LA [ULTIMA VERISIÓN</strong></span>
 
 <div align="center">
 
-<img width="300" src="Figuras/CapturaApp1.jpeg">
+<img width="300" src="Figuras/CapturaApp0.jpeg">
 
-<p><strong>Figura 3.3.2</strong>: Captura de pantalla de la interfaz de la aplicación en Modo Día con historial de alertas.</p>
-
-</div>
-<div align="center">
-
-<img width="300" src="Figuras/CapturaApp2.jpeg">
-
-<p><strong>Figura 3.3.3</strong>: Captura de pantalla de la interfaz de la aplicación en Modo Noche con historial de alertas.</p>
+<p><strong>Figura 3.3.2</strong>: Captura de pantalla de la interfaz de la aplicación sin emparejamiento por <em>Bluetooth</em>.</p>
 
 </div>
 <div align="center">
 
 <img width="300" src="Figuras/CapturaApp3.jpeg">
 
-<p><strong>Figura 3.3.4</strong>: Captura de pantalla de la interfaz de la aplicación al recibir la notificación de alerta.</p>
+<p><strong>Figura 3.3.3</strong>: Captura de pantalla de la interfaz de la aplicación vinculada por <em>Bluetooth</em>.</p>
 
 </div>
+<div align="center">
+
+<img width="300" src="Figuras/CapturaApp1.jpeg">
+
+<p><strong>Figura 3.3.4</strong>: Captura de pantalla de la interfaz de la aplicación en Modo Día con notificación de alerta.</p>
+
+</div>
+<div align="center">
+
+<img width="300" src="Figuras/CapturaApp2.jpeg">
+
+<p><strong>Figura 3.3.5</strong>: Captura de pantalla de la interfaz de la aplicación en Modo Noche con historial de alertas.</p>
+
+</div>
+
 
 La descripción detallada de la implementación de cada bloque y su interconexión lógica puede consultarse en el archivo [`BeepBuddy.apk`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/b2a7b0f1fec3dafd1492798bf15d7c766927add9/BeepBuddy.apk).
  
@@ -937,7 +943,7 @@ A continuación, en la Tabla 4.5.1 se muestra la documentación del desarrollo d
 | [`README.md`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/README.md)    | 11 de Diciembre del 2025    |
 | [`Lista_componentes_a_confirmar.txt`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/Lista_componentes_a_confirmar.txt)    | 23 de Diciembre del 2025    |
 | [`InformeDeAvances.md`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/InformeDeAvances.md)    | 22 de Febrero del 2026  |
-| [`MemoriaDelTrabajoFinal.md`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/209e34cd15df3201a05f59f1aa5d7f0c5443c734/MemoriaDelTrabajoFinal.md) | <span style="color:red"><strong>⚠ SE SIGUE ACTUALIZANDO</strong></span>   |
+| [`MemoriaDelTrabajoFinal.md`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/209e34cd15df3201a05f59f1aa5d7f0c5443c734/MemoriaDelTrabajoFinal.md) | 26 de Febrero del 2026   |
 
 ---
 # **CAPÍTULO 5**
