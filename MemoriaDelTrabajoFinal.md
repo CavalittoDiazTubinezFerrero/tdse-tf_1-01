@@ -736,24 +736,24 @@ Los valores obtenidos fueron los observados en la Tabla 4.1.2.
 <th><em>WCET</em> (µs)</th>
 </tr>
 <tr>
-<td align="center"><em>Mode update</em></td>
-<td align="center">211</td>
+<td><em>Mode update</em></td>
+<td>211,000</td>
 </tr>
 <tr>
-<td align="center"><em>Send status update</em></td>
-<td align="center">26 545</td>
+<td><em>Send status update</em></td>
+<td>26,545</td>
 </tr>
 <tr>
-<td align="center"><em>Receive status update</em></td>
-<td align="center">22 906</td>
+<td><em>Receive status update</em></td>
+<td>22,906</td>
 </tr>
 <tr>
-<td align="center"><em>Send alert</em></td>
-<td align="center">9 506</td>
+<td><em>Send alert</em></td>
+<td>9,506</td>
 </tr>
 <tr>
-<td align="center"><em>LEDs update</em></td>
-<td align="center">175</td>
+<td><em>LEDs update</em></td>
+<td>175,000</td>
 </tr>
 </table>
 
@@ -943,24 +943,25 @@ A continuación, en la Tabla 4.5.1 se muestra la documentación del desarrollo d
 <th>Fecha de Finalización</th>
 </tr>
 <tr>
-<td align="center"><a href="https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/README.md"><code>README.md</code></a></td>
-<td align="center">11 de Diciembre del 2025</td>
+<td><a href="https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/README.md"><code>README.md</code></a></td>
+<td>11 de Diciembre del 2025</td>
 </tr>
 <tr>
-<td align="center"><a href="https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/Lista_componentes_a_confirmar.txt"><code>Lista_componentes_a_confirmar.txt</code></a></td>
-<td align="center">23 de Diciembre del 2025</td>
+<td><a href="https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/Lista_componentes_a_confirmar.txt"><code>Lista_componentes_a_confirmar.txt</code></a></td>
+<td>23 de Diciembre del 2025</td>
 </tr>
 <tr>
-<td align="center"><a href="https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/InformeDeAvances.md"><code>InformeDeAvances.md</code></a></td>
-<td align="center">22 de Febrero del 2026</td>
+<td><a href="https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/InformeDeAvances.md"><code>InformeDeAvances.md</code></a></td>
+<td>22 de Febrero del 2026</td>
 </tr>
 <tr>
-<td align="center"><a href="https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/209e34cd15df3201a05f59f1aa5d7f0c5443c734/MemoriaDelTrabajoFinal.md"><code>MemoriaDelTrabajoFinal.md</code></a></td>
-<td align="center">26 de Febrero del 2026</td>
+<td><a href="https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/209e34cd15df3201a05f59f1aa5d7f0c5443c734/MemoriaDelTrabajoFinal.md"><code>MemoriaDelTrabajoFinal.md</code></a></td>
+<td>26 de Febrero del 2026</td>
 </tr>
 </table>
 
 </div>
+
 ---
 # **CAPÍTULO 5**
 
