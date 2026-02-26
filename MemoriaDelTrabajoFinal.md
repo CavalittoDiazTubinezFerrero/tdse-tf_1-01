@@ -103,9 +103,7 @@ Inicialmente, se adjunta la Tabla 0, la cual registra las diferentes versiones d
 
 </div>
 
-<table align="center">
-<tr>
-<td>
+<div align="center">
 
 <table>
 <tr>
@@ -114,51 +112,48 @@ Inicialmente, se adjunta la Tabla 0, la cual registra las diferentes versiones d
 <th>Fecha de finalización</th>
 </tr>
 <tr>
-<td>1.0</td>
+<td align="center">1.0</td>
 <td>Creación del documento</td>
-<td>10/02/2026</td>
+<td align="center">10/02/2026</td>
 </tr>
 <tr>
-<td>1.1</td>
+<td align="center">1.1</td>
 <td>Redacción del primer capítulo</td>
-<td>11/02/2026</td>
+<td align="center">11/02/2026</td>
 </tr>
 <tr>
-<td>1.2</td>
+<td align="center">1.2</td>
 <td>Redacción del segundo capítulo</td>
-<td>14/02/2026</td>
+<td align="center">14/02/2026</td>
 </tr>
 <tr>
-<td>1.3</td>
+<td align="center">1.3</td>
 <td>Redacción del tercer capítulo</td>
-<td>22/02/2026</td>
+<td align="center">22/02/2026</td>
 </tr>
 <tr>
-<td>1.4</td>
+<td align="center">1.4</td>
 <td>Redacción del cuarto capítulo</td>
-<td>16/02/2026</td>
+<td align="center">16/02/2026</td>
 </tr>
 <tr>
-<td>1.5</td>
+<td align="center">1.5</td>
 <td>Redacción del quinto capítulo</td>
-<td>24/02/2026</td>
+<td align="center">24/02/2026</td>
 </tr>
 <tr>
-<td>1.6</td>
+<td align="center">1.6</td>
 <td>Redacción del sexto capítulo</td>
-<td>25/02/2026</td>
+<td align="center">25/02/2026</td>
 </tr>
 <tr>
-<td>1.7</td>
+<td align="center">1.7</td>
 <td>Revisión y ajustes finales</td>
-<td>26/02/2026</td>
+<td align="center">26/02/2026</td>
 </tr>
 </table>
 
-</td>
-</tr>
-</table>
-
+</div>
  
 ---
 ### 
@@ -938,13 +933,32 @@ A continuación, en la Tabla 4.5.1 se muestra la documentación del desarrollo d
 <p><strong>Tabla 4.5.1:</strong> Desarrollo del proyecto.</p>
 </div>
 
-| Nombre                 | Fecha de Finalización     |
-|------------------------|---------------------------|
-| [`README.md`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/README.md)    | 11 de Diciembre del 2025    |
-| [`Lista_componentes_a_confirmar.txt`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/Lista_componentes_a_confirmar.txt)    | 23 de Diciembre del 2025    |
-| [`InformeDeAvances.md`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/InformeDeAvances.md)    | 22 de Febrero del 2026  |
-| [`MemoriaDelTrabajoFinal.md`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/209e34cd15df3201a05f59f1aa5d7f0c5443c734/MemoriaDelTrabajoFinal.md) | 26 de Febrero del 2026   |
+<div align="center">
 
+<table>
+<tr>
+<th>Nombre</th>
+<th>Fecha de Finalización</th>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/README.md"><code>README.md</code></a></td>
+<td align="center">11 de Diciembre del 2025</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/Lista_componentes_a_confirmar.txt"><code>Lista_componentes_a_confirmar.txt</code></a></td>
+<td align="center">23 de Diciembre del 2025</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/InformeDeAvances.md"><code>InformeDeAvances.md</code></a></td>
+<td align="center">22 de Febrero del 2026</td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/209e34cd15df3201a05f59f1aa5d7f0c5443c734/MemoriaDelTrabajoFinal.md"><code>MemoriaDelTrabajoFinal.md</code></a></td>
+<td align="center">26 de Febrero del 2026</td>
+</tr>
+</table>
+
+</div>
 ---
 # **CAPÍTULO 5**
 
@@ -1009,4 +1023,4 @@ Fin de la memoria técnica
 
 Autores: Cavalitto Emilia, Diaz Tubiñez María Teresa, Ferrero Ulises
 
-Fecha de edición: 26 de febrero de 2026 <span style="color:red"><strong>⚠ SE SIGUE ACTUALIZANDO</strong></span>
+Fecha de edición: 26 de febrero de 2026
