@@ -612,7 +612,7 @@ Por otro lado, en el archivo [`main.c`](https://github.com/CavalittoDiazTubinezF
 
 Por otro lado, la función `HAL_TIM_PeriodElapsedCallback()` se ejecuta periódicamente a partir del desborde del temporizador _TIM2_. En cada interrupción se realiza la lectura de una muestra del micrófono y se evalúa si existe detección de sonido mediante `Sound_IsDetected()`. En caso afirmativo, se activa una bandera (_sound_alert_flag_) que luego será procesada en el lazo principal. Este enfoque desacopló la adquisición temporalmente crítica del procesamiento de alto nivel, manteniendo tiempos determinísticos y evitando sobrecargar la rutina de interrupción.
 
-Finalmente, la función `HAL_GPIO_EXTI_Callback()` se ejecuta ante la detección de una interrupción externa asociada al pin `BLE_STATE`. Cuando se produce un cambio en dicho pin, se lee para determinar si el módulo Bluetooth se encuentra conectado o desconectado.
+Finalmente, la función `HAL_GPIO_EXTI_Callback()` se ejecuta ante la detección de una interrupción externa asociada al pin `BLE_STATE`. Cuando se produce un cambio en dicho pin, se lee para determinar si el módulo _Bluetooth_ se encuentra conectado o desconectado.
 
 En conjunto, los tres _callbacks_ demuestran un uso adecuado de interrupciones para tareas asíncronas (comunicación serie y cambios en el estado de un pin) y periódicas (muestreo del sensor), favoreciendo una arquitectura eficiente, no bloqueante y coherente con buenas prácticas en sistemas embebidos.
 
