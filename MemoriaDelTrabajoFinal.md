@@ -178,6 +178,8 @@ La aplicación móvil fue desarrollada utilizando la herramienta [MIT App Invent
 
 En la Figura 1.2.1 se presenta el diagrama en bloques general del sistema, donde se observan los principales módulos y su interconexión. El funcionamiento general del dispositivo puede resumirse de la siguiente manera: el micrófono capta continuamente los sonidos del entorno y el microcontrolador digitaliza la señal mediante el conversor analógico-digital a una frecuencia de muestreo controlada por temporizadores internos. Las muestras adquiridas son procesadas en tiempo real para determinar si el sonido detectado cumple con los criterios configurados de sensibilidad o corresponde a un evento relevante previamente definido. En caso de detectarse una condición válida, el sistema genera una alerta y la transmite mediante el módulo _Bluetooth_ al dispositivo móvil emparejado. La aplicación recibe la notificación, la muestra de forma visual al usuario y la registra en el historial de eventos. En ausencia de eventos significativos, el sistema continúa monitoreando el entorno de manera autónoma y con bajo consumo energético.
 
+<a id="fig-digramaenbloques"></a>
+
 <div align="center">
 
 <img width="600" src="Figuras/DiagramaenBloquesdetallado.png">
@@ -329,6 +331,8 @@ En la Tabla 2.2.1 a continuación se detalla brevemente el flujo de funcionamien
 
 A continuación, se incorporan los diagramas de estado correspondientes al sistema desarrollado. En primer lugar, en la Figura 2.2.1, se presenta la máquina de estados asociada a la placa, donde se describe el comportamiento del _hardware_ del sistema, incluyendo los estados de inicialización, monitoreo, detección de eventos, notificación y configuración. El modelado fue realizado utilizando la herramienta [itemis CREATE](https://www.itemis.com/en/products/itemis-create/), y pueden consultarse tanto el archivo [`Placa_Statechart.ysc`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/829bed8b9a3a83fd0f2c6891f38c5a664aa42d09/Statecharts/Placa_Statechart.ysc) como el archivo [`Statecharts.xlsx`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/209e34cd15df3201a05f59f1aa5d7f0c5443c734/Statecharts/Statechart.xlsx) adjuntos (ambos en la carpeta [`Statecharts`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/tree/Entrega-de-memoria-del-trabajo-final/Statecharts)), donde se detallan los estados, eventos y transiciones implementadas.
 
+<a id="fig-maquina"></a>
+
 <div align="center">
 
 <img width="600" src="Figuras/Placa_Statechart.png">
@@ -338,6 +342,8 @@ A continuación, se incorporan los diagramas de estado correspondientes al siste
 </div>
 
 Posteriormente, se incluye la máquina de estados correspondiente a la aplicación móvil (Figura 2.2.2), en la cual se representan los distintos estados vinculados a la conexión _Bluetooth_, recepción de eventos, visualización de alertas y configuración de parámetros. Del mismo modo, el diagrama puede observarse en el archivo [`App_Statechart.ysc`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/829bed8b9a3a83fd0f2c6891f38c5a664aa42d09/Statecharts/App_Statechart.ysc) junto con el archivo [`Statecharts.xlsx`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/209e34cd15df3201a05f59f1aa5d7f0c5443c734/Statecharts/Statechart.xlsx) asociado (ambos en la carpeta [`Statecharts`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/tree/Entrega-de-memoria-del-trabajo-final/Statecharts)), donde se documenta formalmente su estructura.
+
+<a id="fig-app"></a>
 
 <div align="center">
 
@@ -929,32 +935,69 @@ En este contexto, el aporte principal del presente desarrollo radica en su enfoq
 A continuación, en la Tabla 4.5.1 se muestra la documentación del desarrollo del proyecto.
 
 <div align="center">
-<p><strong>Tabla 4.5.1:</strong> Desarrollo del proyecto.</p>
-</div>
+<p align="center"><b>Tabla 4.5.1: Elementos que resumen la información principal del proyecto.</b></p>
 
-<div align="center">
+<table align="center">
+<tr>
+<th>Elemento</th>
+<th>Referencia en el informe</th>
+</tr>
 
-<table>
 <tr>
-<th>Nombre</th>
-<th>Fecha de Finalización</th>
+<td>Justificación del proyecto</td>
+<td>[Sección 1.1](#11-análisis-de-necesidad-y-objetivos)</td>
 </tr>
+
 <tr>
-<td><a href="https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/README.md"><code>README.md</code></a></td>
-<td>11 de Diciembre del 2025</td>
+<td>Requisitos del sistema</td>
+<td>[Sección 2.1](#21-requisitos)</td>
 </tr>
+
 <tr>
-<td><a href="https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/Lista_componentes_a_confirmar.txt"><code>Lista_componentes_a_confirmar.txt</code></a></td>
-<td>23 de Diciembre del 2025</td>
+<td>Casos de uso</td>
+<td><span style="color:red; font-weight:bold;">‼️ COMPLETAR CUANDO ARIEL NOS RESPONDA</span></td>
 </tr>
+
 <tr>
-<td><a href="https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/InformeDeAvances.md"><code>InformeDeAvances.md</code></a></td>
-<td>22 de Febrero del 2026</td>
+<td>Diagrama de estados del <em>hardware</em></td>
+<td>[Figura 2.2.1](#fig-maquina)</td>
 </tr>
+
 <tr>
-<td><a href="https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/209e34cd15df3201a05f59f1aa5d7f0c5443c734/MemoriaDelTrabajoFinal.md"><code>MemoriaDelTrabajoFinal.md</code></a></td>
-<td>26 de Febrero del 2026</td>
+<td>Diagrama en bloques de los módulos</td>
+<td>[Figura 1.2.1](#fig-digramaenbloques)</td>
 </tr>
+
+<tr>
+<td>Lista de materiales</td>
+<td>Archivo [`Lista_componentes_a_confirmar.txt`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/964b9f42fc1145ce66fe35c535a2403cc25c3377/Lista_componentes_a_confirmar.txt)</td>
+</tr>
+
+<tr>
+<td>Diagrama de estados de la aplicación</td>
+<td>[Figura 2.2.2](#fig-app)</td>
+</tr>
+
+<tr>
+<td>Descripción de los módulos de la aplicación</td>
+<td>[Sección 3.3](#33-diseño-de-la-aplicación)</td>
+</tr>
+
+<tr>
+<td>Implementación del <em>firmware</em></td>
+<td>[Sección 3.2.2](322-flujo-de-ejecución-del-firmware)</td>
+</tr>
+
+<tr>
+<td>Verificación del cumplimiento de requisitos</td>
+<td>[Sección 4.3](#43-cumplimiento-de-requisitos)</td>
+</tr>
+
+<tr>
+<td>Conclusiones</td>
+<td>[Sección 5.1](#51-resultados-obtenidos)</td>
+</tr>
+
 </table>
 
 </div>
