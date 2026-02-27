@@ -971,7 +971,7 @@ A continuación, en la Tabla 4.5.1 se muestra la documentación del desarrollo d
 <tr>
 <td>Lista de materiales</td>
 <td>Archivo <a href="https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/964b9f42fc1145ce66fe35c53a2403cc25c3377/Lista_componentes_a_confirmar.txt">
-Lista_componentes_a_confirmar.txt</a>
+`Lista_componentes_a_confirmar.txt`</a>
 </td></td>
 </tr>
 
