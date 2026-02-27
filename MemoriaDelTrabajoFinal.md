@@ -935,7 +935,7 @@ En este contexto, el aporte principal del presente desarrollo radica en su enfoq
 A continuación, en la Tabla 4.5.1 se muestra la documentación del desarrollo del proyecto.
 
 <div align="center">
-<p align="center"><b>Tabla 4.5.1: Elementos que resumen la información principal del proyecto.</b></p>
+<p align="center"><b>Tabla 4.5.1:</b> Elementos que resumen la información principal del proyecto.</p>
 
 <table align="center">
 <tr>
