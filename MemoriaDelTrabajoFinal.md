@@ -945,12 +945,12 @@ A continuación, en la Tabla 4.5.1 se muestra la documentación del desarrollo d
 
 <tr>
 <td>Justificación del proyecto</td>
-<td>[Sección 1.1](#11-análisis-de-necesidad-y-objetivos)</td>
+<td><a href="#11-analisis-de-necesidad-y-objetivos">Sección 1.1</a></td>
 </tr>
 
 <tr>
 <td>Requisitos del sistema</td>
-<td>[Sección 2.1](#21-requisitos)</td>
+<td><a href="#21-requisitos">Sección 2.1</a></td>
 </tr>
 
 <tr>
@@ -960,42 +960,44 @@ A continuación, en la Tabla 4.5.1 se muestra la documentación del desarrollo d
 
 <tr>
 <td>Diagrama de estados del <em>hardware</em></td>
-<td>[Figura 2.2.1](#fig-maquina)</td>
+<td><a href="#fig-maquina">Figura 2.2.1</a></td>
 </tr>
 
 <tr>
 <td>Diagrama en bloques de los módulos</td>
-<td>[Figura 1.2.1](#fig-digramaenbloques)</td>
+<td><a href="#fig-digramaenbloques">Figura 1.2.1</a></td>
 </tr>
 
 <tr>
 <td>Lista de materiales</td>
-<td>Archivo [`Lista_componentes_a_confirmar.txt`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/964b9f42fc1145ce66fe35c535a2403cc25c3377/Lista_componentes_a_confirmar.txt)</td>
+<td>Archivo <a href="https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/964b9f42fc1145ce66fe35c53a2403cc25c3377/Lista_componentes_a_confirmar.txt">
+Lista_componentes_a_confirmar.txt</a>
+</td></td>
 </tr>
 
 <tr>
 <td>Diagrama de estados de la aplicación</td>
-<td>[Figura 2.2.2](#fig-app)</td>
+<td><a href="#fig-app">Figura 2.2.2</a></td>
 </tr>
 
 <tr>
 <td>Descripción de los módulos de la aplicación</td>
-<td>[Sección 3.3](#33-diseño-de-la-aplicación)</td>
+<td><a href="#33-diseño-de-la-aplicacion">Sección 3.3</a></td>
 </tr>
 
 <tr>
 <td>Implementación del <em>firmware</em></td>
-<td>[Sección 3.2.2](322-flujo-de-ejecución-del-firmware)</td>
+<td><a href="#322-flujo-de-ejecucion-del-firmware">Sección 3.2.2</a></td>
 </tr>
 
 <tr>
 <td>Verificación del cumplimiento de requisitos</td>
-<td>[Sección 4.3](#43-cumplimiento-de-requisitos)</td>
+<td><a href="#43-cumplimiento-de-requisitos">Sección 4.3</a></td>
 </tr>
 
 <tr>
 <td>Conclusiones</td>
-<td>[Sección 5.1](#51-resultados-obtenidos)</td>
+<td><a href="#51-resultados-obtenidos">Sección 5.1</a></td>
 </tr>
 
 </table>
