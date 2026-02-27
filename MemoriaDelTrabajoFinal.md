@@ -686,18 +686,26 @@ La descripción detallada de la implementación de cada bloque y su interconexi�
 
 # **Ensayos y resultados**
 
-## **4.1 Mediciones**
+## **4.1 Pruebas funcionales del _hardware_**
 
-## **4.1.1 Consumo energético**
+## **4.2 Pruebas funcionales del _firmware_**
+
+## **4.3 Pruebas de integración**
+
+<span style="color:red; font-weight:bold;">‼️ACÁ VA EL LINK DEL VIDEO</span>
+
+## **4.4 Medición y análisis de consumo**
+
+<span style="color:red; font-weight:bold;">‼️EXPLICAR METODOLOGÍA DE MEDICIÓN</span>
 
 Con el objetivo de evaluar el consumo energético del sistema, se realizaron mediciones de corriente sobre la placa NUCLEO-F103RB utilizando un multímetro digital configurado como miliamperímetro.
 
 De acuerdo con lo especificado en el manual [`UM1724 (STM32 Nucleo-64 boards)`](https://www.st.com/resource/en/user_manual/um1724-stm32-nucleo64-boards-mb1136-stmicroelectronics.pdf) y en el esquema eléctrico [`MB1136`](https://www.st.com/resource/en/schematic_pack/mb1136-default-c04_schematic.pdf), la placa dispone de _jumpers_ específicos que permiten medir el consumo de las líneas de 5 V y 3,3 V \[10\]\[11\]. Para realizar la medición correctamente, se retiró el _jumper_ correspondiente a la línea a analizar y se conectó el miliamperímetro en serie entre los pines del mismo, de manera de registrar la corriente total consumida por dicha línea.
 
-Las corrientes máximas obtenidas se muestran en la Tabla 4.1.1.
+Las corrientes máximas obtenidas se muestran en la Tabla 4.4.1.
 <div align="center">
 
-<p><strong>Tabla 4.1.1</strong>: Valores máximos de corriente obtenidos.</p>
+<p><strong>Tabla 4.4.1</strong>: Valores máximos de corriente obtenidos.</p>
 
 </div>
 
@@ -720,7 +728,25 @@ Las corrientes máximas obtenidas se muestran en la Tabla 4.1.1.
 
 </div>
 
-## **4.1.2 Tiempos de ejecución de cada tarea (_WCET_)**
+## **4.5 _Console and Build Analyzer_**
+
+<span style="color:red; font-weight:bold;">‼️QUITAR LO DE LA CPU, DEJAR LO DE LA FLASH Y LA RAM (RESUMIR UN POCO)</span>
+
+Con el objetivo de evaluar la utilización de recursos del sistema embebido, se analizó el factor de uso (U) de la _CPU_ a partir de la información obtenida durante la compilación del proyecto. Dichos datos fueron extraídos desde la consola de compilación y del análisis de memoria generado por [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html) (Figura 4.5.1). En este caso, se evaluaron tanto la memoria _RAM_ como la memoria _FLASH_.
+
+<div align="center">
+
+<img width="600" src="Figuras/ConsolaFLASH.jpeg">
+
+<p><strong>Figura 4.5.1</strong>: Captura de la consola <em>Build Analyzer</em>.</p>
+
+</div>
+
+Estos valores indican que el sistema utiliza una fracción reducida de los recursos disponibles del microcontrolador STM32F103RB, manteniendo un amplio margen para futuras ampliaciones funcionales o incorporación de nuevas características. Además, confirma que la arquitectura modular implementada y la organización del _firmware_ resultaron eficientes en términos de consumo de memoria.
+
+## **4.6 Medición y análisis del _WCET_ por tarea**
+
+<span style="color:red; font-weight:bold;">‼️EXPLICAR ALGO MÁS </span>
 
 Para la estimación experimental del _Worst Case Execution Time_ (_WCET_) de cada tarea del sistema se utilizó el contador de ciclos del procesador (_DWT_). Cada función relevante fue instrumentada reiniciando el contador antes de su ejecución y leyendo el tiempo transcurrido en microsegundos inmediatamente después, almacenando el mayor valor observado durante el período de prueba. Con el objetivo de poder recorrer sistemáticamente todos los caminos posibles de ejecución (recepción de comandos, cambios de estado, envío de configuraciones y generación de alertas), el lazo principal del programa fue modificado temporalmente, reemplazando el `while(1)` infinito por un lazo con duración aproximada de dos minutos. Esto permitió ejecutar múltiples iteraciones bajo distintas condiciones de funcionamiento y registrar valores representativos del tiempo máximo observado para cada tarea. Finalizado el período de medición, los valores de _WCET_ obtenidos fueron impresos mediante `LOGGER_INFO()`.
 
@@ -762,8 +788,13 @@ Los valores obtenidos fueron los observados en la Tabla 4.1.2.
 
 </div>
 
+## **4.7 Cálculo del factor de uso (U) de la _CPU_**
+
+<span style="color:red; font-weight:bold;">‼️COMPLETAR CON LA INFO. CORRECTA</span>
 
 ## **4.1.3 Cálculo del factor de uso (U) de la _CPU_**
+
+<span style="color:red; font-weight:bold;">‼️ESTA SECCION ESTÁ MAL PERO NO LA BORRO POR SI ALGO SIRVE</span>
 
 Con el objetivo de evaluar la utilización de recursos del sistema embebido, se analizó el factor de uso (U) de la _CPU_ a partir de la información obtenida durante la compilación del proyecto. Dichos datos fueron extraídos desde la consola de compilación y del análisis de memoria generado por [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html) (Figura 4.1.3). En este caso, se evaluaron tanto la memoria _RAM_ como la memoria _FLASH_.
 
@@ -779,6 +810,8 @@ Estos valores indican que el sistema utiliza una fracción reducida de los recur
 
 ## **4.2 Metodología de desarrollo**
 
+<span style="color:red; font-weight:bold;">‼️VER QUÉ QUEDA DE ESTO</span>
+
 El desarrollo del trabajo se llevó a cabo de manera incremental, organizándose en distintas etapas que permitieron estructurarlo y recibir devoluciones parciales antes de avanzar a la siguiente instancia. Cada etapa estuvo respaldada por la elaboración de archivos específicos que concentraron la información relevante para su revisión y posterior validación.
 
 En una primera instancia se elaboró el archivo [`README.md`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/README.md), en el cual se presentó el proyecto, se definió su objetivo, la necesidad que motivó su desarrollo, los requisitos funcionales y se realizó una comparación general con productos preexistentes en el mercado. Este documento permitió establecer el marco conceptual del trabajo.
@@ -788,6 +821,8 @@ Posteriormente, se confeccionó el archivo [`Lista_componentes_a_confirmar.txt`]
 Finalmente, se elaboró el [`InformeDeAvances.md`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/InformeDeAvances.md), donde se retomaron los requisitos definidos inicialmente y se actualizó periódicamente el estado de cumplimiento de cada uno. Este archivo permitió documentar el progreso del desarrollo.
 
 ## **4.3 Cumplimiento de requisitos**
+
+<span style="color:red; font-weight:bold;">‼️ESTA SECCIÓN VA PERO HAY QUE VER QUÉ DÓNDE</span>
 
 Una vez finalizado el trabajo, se tomó la Tabla 2.1.1 (definida anteriormente en la [Sección 2.1](#21-requisitos)) y se definió el estado de cada uno de los requisitos iniciales del dispositivo, detallados a continuación en la Tabla 4.3.1.
 
@@ -926,11 +961,15 @@ Una vez finalizado el trabajo, se tomó la Tabla 2.1.1 (definida anteriormente e
 
 ## **4.4 Comparación con otros productos similares**
 
+<span style="color:red; font-weight:bold;">‼️ESTA SECCIÓN VA PERO HAY QUE VER QUÉ DÓNDE</span>
+
 Como se mencionó previamente en la [Sección 1.1](#11-análisis-de-necesidad-y-objetivos), el mercado actual cuenta con diversos dispositivos de monitoreo con características relacionadas a la captación y transmisión de sonido. Sin embargo, la mayoría de estos están pensados para usuarios sin limitaciones auditivas y no contemplan específicamente la problemática abordada en este trabajo. Por este motivo, y considerando la diversidad de enfoques presentes en el mercado, resulta complejo establecer una comparación estrictamente equivalente entre el prototipo desarrollado y los dispositivos disponibles, ya que cada uno prioriza distintos criterios de diseño y aplicación.
 
 En este contexto, el aporte principal del presente desarrollo radica en su enfoque inclusivo, orientado a brindar una alternativa accesible frente a soluciones convencionales existentes. Asimismo, el sistema presenta posibilidades de evolución futura, tales como la incorporación de dispositivos de notificación háptica (por ejemplo, mediante una pulsera con vibración) o el uso de sensores portátiles, lo que permitiría mejorar la comodidad y adaptabilidad del usuario.
 
 ## **4.5 Documentación del desarrollo realizado**
+
+<span style="color:red; font-weight:bold;">‼️ESTA SECCIÓN VA PERO HAY QUE VER QUÉ DÓNDE</span>
 
 A continuación, en la Tabla 4.5.1 se muestra la documentación del desarrollo del proyecto.
 
@@ -1003,6 +1042,8 @@ A continuación, en la Tabla 4.5.1 se muestra la documentación del desarrollo d
 </table>
 
 </div>
+
+<span style="color:red; font-weight:bold;">‼️EDESPUÉS DE ORGANIZAR EL CAP.4 ACTUALIZAR SUBTÍTULOS DEL ÍNDICE</span>
 
 ---
 # **CAPÍTULO 5**
