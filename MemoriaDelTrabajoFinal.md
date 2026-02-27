@@ -36,7 +36,7 @@ entre Diciembre 2025 y Febrero 2026_
 
 En este trabajo se presenta el diseño e implementación de _BeepBuddy_, un sistema embebido destinado a la detección y notificación de eventos sonoros en tiempo real. El mismo fue concebido como una herramienta de asistencia para personas con discapacidad auditiva y como apoyo en el cuidado de personas, permitiendo alertar ante la presencia de sonidos relevantes del entorno. Su objetivo es ofrecer una solución portátil y configurable que facilite el monitoreo acústico en contextos cotidianos.
 
-El sistema está compuesto por una plataforma de desarrollo provista por la cátedra de Taller de Sistemas Embebidos de la Facultad de Ingeniería de la Universidad de Buenos Aires que integra un microcontrolador con conversor analógico-digital, temporizadores y un módulo de comunicación _Bluetooth_ de bajo consumo. El procesamiento de audio y la lógica de control fueron desarrollados en lenguaje C, mientras que la aplicación móvil utilizada para la configuración y recepción de notificaciones se implementó mediante la herramienta [MIT App Inventor](https://appinventor.mit.edu/) . El desarrollo del proyecto implicó la integración de _hardware_ y _software_ bajo criterios de diseño modular y uso eficiente de recursos, para lo cual se empleó la plataforma [itemis CREATE](https://www.itemis.com/en/products/itemis-create/).
+El sistema está compuesto por una plataforma de desarrollo NUCLEO-F103RB provista por la cátedra de Taller de Sistemas Embebidos de la Facultad de Ingeniería de la Universidad de Buenos Aires que integra un microcontrolador con conversor analógico-digital, temporizadores y un módulo de comunicación _Bluetooth_ de bajo consumo. El procesamiento de audio y la lógica de control fueron desarrollados en lenguaje C, mientras que la aplicación móvil utilizada para la configuración y recepción de notificaciones se implementó mediante la herramienta [MIT App Inventor](https://appinventor.mit.edu/) . El desarrollo del proyecto implicó la integración de _hardware_ y _software_ bajo criterios de diseño modular y uso eficiente de recursos, para lo cual se empleó la plataforma [itemis CREATE](https://www.itemis.com/en/products/itemis-create/).
 
 En esta memoria se describen la motivación, la arquitectura del sistema, las decisiones de diseño adoptadas y las pruebas realizadas para validar su funcionamiento.
 
@@ -168,7 +168,7 @@ En los últimos años, el desarrollo de diferentes tecnologías ha permitido la 
 
 Los monitores de bebé convencionales, por ejemplo, transmiten audio hacia un receptor portátil, pero requieren que el usuario pueda escuchar los sonidos detectados. Por otro lado, los monitores inteligentes con video suelen depender de conectividad _Wi-Fi_, servicios en la nube y aplicaciones complejas, lo que incrementa tanto su costo como su consumo energético. Asimismo, las aplicaciones móviles de detección de sonido utilizan el micrófono del teléfono, lo que implica alto consumo de batería y baja confiabilidad.
 
-En este contexto, surge la necesidad de desarrollar un dispositivo embebido dedicado, autónomo y configurable, capaz de detectar eventos sonoros relevantes y notificar de manera inmediata mediante comunicación _Bluetooth_, sin requerir conexión a internet. Así, el objetivo de este trabajo fue diseñar e implementar un sistema que permitiera asistir a personas con discapacidad auditiva en tareas de cuidado, particularmente en contextos donde la detección rápida de sonidos como llanto, alarmas o golpes resulta crítica. _BeepBuddy_ se propuso como un producto mínimo viable que solventara cada una de estas características, priorizando confiabilidad, facilidad de uso y bajo consumo energético. A su vez, el valor agregado del proyecto radica en la posibilidad de configurar parámetros como sensibilidad y modos de operación.
+En este contexto, surge la necesidad de desarrollar un dispositivo embebido dedicado, autónomo y configurable, capaz de detectar eventos sonoros relevantes y notificar de manera inmediata mediante comunicación _Bluetooth_, sin requerir conexión a Internet. Así, el objetivo de este trabajo fue diseñar e implementar un sistema que permitiera asistir a personas con discapacidad auditiva en tareas de cuidado, particularmente en contextos donde la detección rápida de sonidos como llanto, alarmas o golpes resulta crítica. _BeepBuddy_ se propuso como un producto mínimo viable que solventara cada una de estas características, priorizando confiabilidad, facilidad de uso y bajo consumo energético. A su vez, el valor agregado del proyecto radica en la posibilidad de configurar parámetros como sensibilidad y modos de operación.
 
 ## **1.2 Descripción general del sistema**
 
@@ -176,7 +176,8 @@ _BeepBuddy_ está compuesto por dos subsistemas principales: el dispositivo embe
 El primero integra un micrófono para la captación de señales acústicas, el microcontrolador con conversor analógico-digital para la digitalización de la señal, temporizadores para el control del muestreo y un módulo de comunicación _Bluetooth_ para el envío y recepción de alertas. Asimismo, cuenta con una interfaz física básica compuesta por botones de configuración (_DIP switch_) e indicadores luminosos de estado (_LEDs_).
 La aplicación móvil fue desarrollada utilizando la herramienta [MIT App Inventor](https://appinventor.mit.edu/), la cual permite la visualización de alertas, elección de estados, consulta de historial y verificación del estado de conexión.
 
-En la Figura 1.2.1 se presenta el diagrama en bloques general del sistema, donde se observan los principales módulos y su interconexión.
+En la Figura 1.2.1 se presenta el diagrama en bloques general del sistema, donde se observan los principales módulos y su interconexión. El funcionamiento general del dispositivo puede resumirse de la siguiente manera: el micrófono capta continuamente los sonidos del entorno y el microcontrolador digitaliza la señal mediante el conversor analógico-digital a una frecuencia de muestreo controlada por temporizadores internos. Las muestras adquiridas son procesadas en tiempo real para determinar si el sonido detectado cumple con los criterios configurados de sensibilidad o corresponde a un evento relevante previamente definido. En caso de detectarse una condición válida, el sistema genera una alerta y la transmite mediante el módulo _Bluetooth_ al dispositivo móvil emparejado. La aplicación recibe la notificación, la muestra de forma visual al usuario y la registra en el historial de eventos. En ausencia de eventos significativos, el sistema continúa monitoreando el entorno de manera autónoma y con bajo consumo energético.
+
 <div align="center">
 
 <img width="600" src="Figuras/DiagramaenBloquesdetallado.png">
@@ -184,8 +185,6 @@ En la Figura 1.2.1 se presenta el diagrama en bloques general del sistema, donde
 <p><strong>Figura 1.2.1</strong>: Diagrama en bloques general de <em>BeepBuddy</em>.</p>
 
 </div>
-
-El funcionamiento general del dispositivo puede resumirse de la siguiente manera: el micrófono capta continuamente los sonidos del entorno y el microcontrolador digitaliza la señal mediante el conversor analógico-digital a una frecuencia de muestreo controlada por temporizadores internos. Las muestras adquiridas son procesadas en tiempo real para determinar si el sonido detectado cumple con los criterios configurados de sensibilidad o corresponde a un evento relevante previamente definido. En caso de detectarse una condición válida, el sistema genera una alerta y la transmite mediante el módulo _Bluetooth_ al dispositivo móvil emparejado. La aplicación recibe la notificación, la muestra de forma visual al usuario y la registra en el historial de eventos. En ausencia de eventos significativos, el sistema continúa monitoreando el entorno de manera autónoma y con bajo consumo energético.
 
 En las próximas secciones se describen con mayor detalle los módulos utilizados y sus características.
 
@@ -296,7 +295,7 @@ Habiendo analizado las características principales del dispositivo, se definier
 <tr>
 <td>Requisitos de operación</td>
 <td>6.1</td>
-<td>El dispositivo funciona sin conexión a internet.</td>
+<td>El dispositivo funciona sin conexión a Internet.</td>
 </tr>
 <tr>
 <td></td>
@@ -475,7 +474,7 @@ Los modos de operación (día/noche) solo pueden activarse cuando la primera pos
 
 ## **3.1 Diseño del _hardware_**
 
-El diseño de _hardware_ del sistema se basó en la placa, cuya configuración de pines fue realizado mediante la herramienta de inicialización de periféricos [STM32CubeIDE 1.19.0](https://www.st.com/en/development-tools/stm32cubeide.html), permitiendo asignar las funciones correspondientes a cada módulo externo. Esto se puede observar en la Figura 3.1.a a continuación.
+El diseño de _hardware_ del sistema se basó en la placa NUCLEO-F103RB, cuya configuración de pines fue realizado mediante la herramienta de inicialización de periféricos [STM32CubeIDE 1.19.0](https://www.st.com/en/development-tools/stm32cubeide.html), permitiendo asignar las funciones correspondientes a cada módulo externo. Esto se puede observar en la Figura 3.1.a a continuación.
 
 <div align="center">
 
@@ -735,23 +734,23 @@ Los valores obtenidos fueron los observados en la Tabla 4.1.2.
 </tr>
 <tr>
 <td><em>Mode update</em></td>
-<td>211,000</td>
+<td>211</td>
 </tr>
 <tr>
 <td><em>Send status update</em></td>
-<td>26,545</td>
+<td>26,5</td>
 </tr>
 <tr>
 <td><em>Receive status update</em></td>
-<td>22,906</td>
+<td>22,9</td>
 </tr>
 <tr>
 <td><em>Send alert</em></td>
-<td>9,506</td>
+<td>9,5</td>
 </tr>
 <tr>
 <td><em>LEDs update</em></td>
-<td>175,000</td>
+<td>175</td>
 </tr>
 </table>
 
@@ -900,7 +899,7 @@ Una vez finalizado el trabajo, se tomó la Tabla 2.1.1 (definida anteriormente e
 <tr>
 <td>Requisitos de operación</td>
 <td>6.1</td>
-<td>El dispositivo funciona sin conexión a internet.</td>
+<td>El dispositivo funciona sin conexión a Internet.</td>
 <td>COMPLETADO</td>
 </tr>
 <tr>
