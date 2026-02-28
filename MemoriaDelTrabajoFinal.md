@@ -83,11 +83,11 @@ _This document describes the system architecture, design methodology, implementa
     - [4.1 Pruebas funcionales del _hardware_](#41-pruebas-funcionales-del-hardware)
     - [4.2 Pruebas funcionales del _firmware_](#42-pruebas-funcionales-del-firmware)
     - [4.3 Pruebas de integración](#43-pruebas-de-integración)
-    - [4.4 Medición y análisis de consumo](#44-medición-y-análisis-de-consumo)
+    - [4.4 Medición y análisis de consumo](#44-medición-y-analisis-de-consumo)
     - [4.5 _Console and Build Analyzer_](#45-console-and-build-analyzer)
-    - [4.6 Medición y análisis del _WCET_ por tarea](#46-medición-y-análisis-del-wcet-por-tarea)
-    - [4.7 Cálculo del factor de uso (U) de la _CPU_](#47-cálculo-del-factor-de-uso-u-de-la-cpu)
-    - [4.8 Gestión de bajo consumo y justificación](#48-gestión-de-bajo-consumo-y-justificación)
+    - [4.6 Medición y análisis del _WCET_ por tarea](#46-medicion-y-analisis-del-wcet-por-tarea)
+    - [4.7 Cálculo del factor de uso (U) de la _CPU_](#47-calculo-del-factor-de-uso-u-de-la-cpu)
+    - [4.8 Gestión de bajo consumo y justificación](#48-gestion-de-bajo-consumo-y-justificación)
     - [4.9 Cumplimiento de requisitos](#49-cumplimiento-de-requisitos)
     - [4.10 Comparación con otros productos similares](#410-comparación-con-otros-productos-similares)
     - [4.11 Documentación del desarrollo realizado](#411-documentación-del-desarrollo-realizado)
@@ -820,7 +820,7 @@ Por su parte, la carpeta [`hardware`](https://github.com/CavalittoDiazTubinezFer
 - [`mic.c`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/5b824c62b6a07a8ee2b825b4a9dd6021c081fd4c/stm32-project/hardware/audio/mic.c)/[`.h`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/5b824c62b6a07a8ee2b825b4a9dd6021c081fd4c/stm32-project/hardware/audio/mic.h): adquisición de señal analógica del micrófono mediante el _ADC_.
 - [`bluetooth.c`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/5b824c62b6a07a8ee2b825b4a9dd6021c081fd4c/stm32-project/hardware/bluetooth/bluetooth.c)/[`.h`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/5b824c62b6a07a8ee2b825b4a9dd6021c081fd4c/stm32-project/hardware/bluetooth/bluetooth.h): comunicación serial a través de _USART1_.
 - [`dip_switch.c`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/5b824c62b6a07a8ee2b825b4a9dd6021c081fd4c/stm32-project/hardware/buttons/dip_switch.c)/[`.h`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/5b824c62b6a07a8ee2b825b4a9dd6021c081fd4c/stm32-project/hardware/buttons/dip_switch.h): lectura del estado de los interruptores.
-- [`buzzer.c`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/5b824c62b6a07a8ee2b825b4a9dd6021c081fd4c/stm32-project/hardware/buzzer/buzzer.c)/[`.h`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/5b824c62b6a07a8ee2b825b4a9dd6021c081fd4c/stm32-project/hardware/buzzer/buzzer.h): generación de señal _PWM_ utilizando el temporizador _TIM3_.
+- [`buzzer.c`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/5b824c62b6a07a8ee2b825b4a9dd6021c081fd4c/stm32-project/hardware/buzzer/buzzer.c)/[`.h`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/5b824c62b6a07a8ee2b825b4a9dd6021c081fd4c/stm32-project/hardware/buzzer/buzzer.h): generación de señal _PWM_ utilizando el temporizador `TIM3`.
 - [`led.c`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/5b824c62b6a07a8ee2b825b4a9dd6021c081fd4c/stm32-project/hardware/leds/led.c)/[`.h`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/5b824c62b6a07a8ee2b825b4a9dd6021c081fd4c/stm32-project/hardware/leds/led.h): control de los indicadores visuales.
 
 Y la carpeta [`config`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/tree/cabf6f2aa755565a832ac6392c2ffda81915aa82/stm32-project/config) centraliza las configuraciones del proyecto para facilitar su mantenimiento y modificación sin afectar la lógica principal. Contiene constantes, definiciones y parámetros globales utilizados por la aplicación.
@@ -1054,13 +1054,11 @@ Los valores obtenidos fueron los observados en la Tabla 4.6.1.
 
 El sistema implementa una única tarea periódica correspondiente a la interrupción del `TIM2`, configurada con un período de 1 ms (1 kHz). Esta interrupción realiza la adquisición de la muestra del micrófono y la evaluación de detección de sonido.
 
-El _WCET_ medido experimentalmente para dicha interrupción fue 103 µs. Por lo tanto, el factor de uso del sistema se calcula como:
-
-<div align="center">
+El _WCET_ medido experimentalmente para dicha interrupción fue 103 µs. Por lo tanto, el factor de uso del sistema se calcula mediante la Fórmula 4.7 a continuación:
   
-$U  = \frac{103}{1000} \cdot 100 = 10,3 \%$
-
-</div>
+<p align="center">
+U = (103 / 1000) · 100 = 10,3 % &nbsp;&nbsp; (4.7)
+</p>
 
 Esto implica que la _CPU_ permanece inactiva aproximadamente un 89,7 % del tiempo entre interrupciones periódicas.
 
