@@ -197,10 +197,115 @@ En las próximas secciones se describen con mayor detalle los módulos utilizado
 
 ## **2.1 Requisitos**
 
-Habiendo analizado las características principales del dispositivo, se definieron los principales requisitos para que el sistema cumpla con su función de forma correcta y resulte útil para su propósito. Para esto, se realizó la Tabla 2.1.1, en la cual se definieron los principales requisitos a implementar.
+Habiendo analizado las características principales del dispositivo, se listan en la Tabla 2.1.1 los requisitos originalmente definidos al inicio del proyecto en el archivo [`README.md`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/0b6a4d9647a35acec69d8fcf0115db33198db30e/README.md). Sin embargo, el alcance se ajustó para asegurar la entrega del trabajo práctico en la fecha estipulada, manteniendo la esencia del dispositivo. Estas modificaciones se adjuntan en la Tabla 2.1.2.
 
 <div align="center">
-<p><strong>Tabla 2.1.1:</strong> Requisitos del proyecto.</p>
+<p><strong>Tabla 2.1.1:</strong> Requisitos del proyecto (archivo original).</p>
+</div>
+
+<table>
+<thead>
+<tr>
+<th>Grupo</th>
+<th>ID</th>
+<th>Descripción</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>Adquisición</td>
+<td>1.1</td>
+<td>El sistema contará con un micrófono para captar sonidos del entorno.</td>
+</tr>
+<tr>
+<td></td>
+<td>1.2</td>
+<td>El sistema digitalizará la señal sonora mediante el <em>ADC</em> de la placa <em>STM</em>.</td>
+</tr>
+
+<tr>
+<td>Procesamiento</td>
+<td>2.1</td>
+<td>El sistema deberá detectar sonidos relevantes (llanto, alarma, golpes, palabra clave).</td>
+</tr>
+<tr>
+<td></td>
+<td>2.2</td>
+<td>El usuario podrá configurar sensibilidad y parámetros mediante botones o interfaz sencilla.</td>
+</tr>
+<tr>
+<td></td>
+<td>2.3</td>
+<td>El sistema almacenará parámetros configurables en memoria.</td>
+</tr>
+
+<tr>
+<td>Notificación</td>
+<td>3.1</td>
+<td>El sistema enviará notificaciones a un dispositivo móvil vía <em>Bluetooth</em>.</td>
+</tr>
+<tr>
+<td></td>
+<td>3.2</td>
+<td>Las notificaciones deberán incluir el tipo de sonido detectado.</td>
+</tr>
+<tr>
+<td></td>
+<td>3.3</td>
+<td>Las notificaciones deberán ser inmediatas ante detección de eventos críticos.</td>
+</tr>
+
+<tr>
+<td>Aplicación</td>
+<td>4.1</td>
+<td>La aplicación mostrará alertas visuales asociadas a los sonidos detectados.</td>
+</tr>
+<tr>
+<td></td>
+<td>4.2</td>
+<td>La aplicación deberá permitir consultar el historial de alertas.</td>
+</tr>
+<tr>
+<td></td>
+<td>4.3</td>
+<td>La aplicación deberá indicar el estado de conexión <em>Bluetooth</em> del dispositivo.</td>
+</tr>
+
+<tr>
+<td>Interfaz física</td>
+<td>5.1</td>
+<td>El sistema contará con botones o <em>switches</em> para seleccionar modo de operación.</td>
+</tr>
+<tr>
+<td></td>
+<td>5.2</td>
+<td>El sistema tendrá un indicador <em>LED</em> básico de funcionamiento (encendido / alerta).</td>
+</tr>
+
+<tr>
+<td>Requisitos de operación</td>
+<td>6.1</td>
+<td>El dispositivo deberá funcionar sin conexión a Internet.</td>
+</tr>
+<tr>
+<td></td>
+<td>6.2</td>
+<td>El sistema deberá tener bajo consumo energético.</td>
+</tr>
+<tr>
+<td></td>
+<td>6.3</td>
+<td>El sistema deberá ser seguro y confiable, priorizando evitar omitir eventos reales.</td>
+</tr>
+
+</tbody>
+</table>
+
+
+<div align="center">
+<p><strong>Tabla 2.1.2:</strong> Requisitos del proyecto (alcance reducido).</p>
 </div>
 
 <table>
@@ -228,7 +333,7 @@ Habiendo analizado las características principales del dispositivo, se definier
 <tr>
 <td>Procesamiento</td>
 <td>2.1</td>
-<td>El sistema detecta sonidos relevantes (llanto, alarma, golpes, palabra clave).</td>
+<td>El sistema detecta sonidos relevantes (llanto, alarma, golpes).</td>
 </tr>
 <tr>
 <td></td>
@@ -313,45 +418,106 @@ Habiendo analizado las características principales del dispositivo, se definier
 </tbody>
 </table>
 
+## **2.2 Casos de uso**
 
-## **2.2 Descripción de uso y diagramas de estado**
-
-En la Tabla 2.2.1 a continuación se detalla brevemente el flujo de funcionamiento del dispositivo.
-
-<div align="center">
-<p><strong>Tabla 2.2.1:</strong> Descripción de uso.</p>
-</div>
-
-| Elemento | Definición |
-| :---- | :---- |
-| Disparador | Se produce un sonido en el entorno que supera el umbral de sensibilidad configurado. |
-| Precondiciones | El sistema se encuentra encendido. El dispositivo está correctamente alimentado. El módulo _Bluetooth_ se encuentra emparejado con la aplicación móvil. Los parámetros de sensibilidad están configurados.  |
-| Flujo principal | El micrófono capta el sonido del entorno y lo convierte en una señal eléctrica analógica. El microcontrolador digitaliza la señal mediante el conversor analógico-digital y procesa las muestras adquiridas en tiempo real. Si el nivel del sonido supera el umbral configurado, el algoritmo de detección valida el evento como relevante. El microcontrolador envía una notificación a través del módulo _Bluetooth_ al dispositivo móvil. La aplicación recibe el evento, lo muestra en pantalla generando una alerta visual para el usuario y lo guarda en su historial. |
-| Flujos alternativos | a. El sonido detectado no supera el umbral configurado. El sistema continúa monitoreando sin generar notificación. b. El módulo _Bluetooth_ no se encuentra conectado al dispositivo móvil. El evento puede registrarse localmente, pero no se envía notificación. c. El usuario modifica los parámetros de sensibilidad desde la aplicación. El sistema actualiza la configuración y continúa operando con los nuevos valores. |
-
-A continuación, se incorporan los diagramas de estado correspondientes al sistema desarrollado. En primer lugar, en la Figura 2.2.1, se presenta la máquina de estados asociada a la placa, donde se describe el comportamiento del _hardware_ del sistema, incluyendo los estados de inicialización, monitoreo, detección de eventos, notificación y configuración. El modelado fue realizado utilizando la herramienta [itemis CREATE](https://www.itemis.com/en/products/itemis-create/), y pueden consultarse tanto el archivo [`Placa_Statechart.ysc`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/829bed8b9a3a83fd0f2c6891f38c5a664aa42d09/Statecharts/Placa_Statechart.ysc) como el archivo [`Statecharts.xlsx`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/209e34cd15df3201a05f59f1aa5d7f0c5443c734/Statecharts/Statechart.xlsx) adjuntos (ambos en la carpeta [`Statecharts`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/tree/Entrega-de-memoria-del-trabajo-final/Statecharts)), donde se detallan los estados, eventos y transiciones implementadas.
-
-<a id="fig-maquina"></a>
+A continuación, en las Tablas 2.2.1, 2.2.2 y 2.2.3 se presentan los casos de uso previstos para el sistema.
 
 <div align="center">
-
-<img width="600" src="Figuras/Placa_Statechart.png">
-
-<p><strong>Figura 2.2.1</strong>: Máquina de estados de la placa.</p>
-
+<p><strong>Tabla 2.2.1:</strong> Caso de uso 1 — Detección de ruido.</p>
 </div>
 
-Posteriormente, se incluye la máquina de estados correspondiente a la aplicación móvil (Figura 2.2.2), en la cual se representan los distintos estados vinculados a la conexión _Bluetooth_, recepción de eventos, visualización de alertas y configuración de parámetros. Del mismo modo, el diagrama puede observarse en el archivo [`App_Statechart.ysc`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/829bed8b9a3a83fd0f2c6891f38c5a664aa42d09/Statecharts/App_Statechart.ysc) junto con el archivo [`Statecharts.xlsx`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/209e34cd15df3201a05f59f1aa5d7f0c5443c734/Statecharts/Statechart.xlsx) asociado (ambos en la carpeta [`Statecharts`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/tree/Entrega-de-memoria-del-trabajo-final/Statecharts)), donde se documenta formalmente su estructura.
+<table>
+<tr><td><b>Elemento</b></td><td><b>Definición</b></td></tr>
 
-<a id="fig-app"></a>
+<tr>
+<td>Disparador</td>
+<td>Se detecta llanto o ruido fuerte mediante el monitoreo de audio.</td>
+</tr>
+
+<tr>
+<td>Precondiciones</td>
+<td>- El sistema está encendido. <br>
+- El micrófono y <em>ADC</em> están funcionando. <br>
+- La aplicación está emparejada por <em>Bluetooth</em>.</td>
+</tr>
+
+<tr>
+<td>Flujo principal</td>
+<td>
+El micrófono capta un sonido que supera el umbral determinado. Se genera una alerta y se envía vía <em>Bluetooth</em> a la aplicación, que muestra una notificación visual.  
+El usuario recibe la alerta inmediatamente.
+</td>
+</tr>
+
+<tr>
+<td>Flujos alternativos</td>
+<td> 
+El sonido no supera el umbral: no se envía la alerta.
+</td>
+</tr>
+
+</table>
 
 <div align="center">
-
-<img width="600" src="Figuras/App_Statechart.png">
-
-<p><strong>Figura 2.2.2</strong>: Máquina de estados de la aplicación móvil.</p>
-
+<p><strong>Tabla 2.2.2:</strong> Caso de uso 2 — Configuración de sensibilidad.</p>
 </div>
+
+<table>
+<tr><td><b>Elemento</b></td><td><b>Definición</b></td></tr>
+
+<tr>
+<td>Disparador</td>
+<td>El usuario desea ajustar la sensibilidad del sistema.</td>
+</tr>
+
+<tr>
+<td>Precondiciones</td>
+<td>- El sistema está encendido. <br>
+- El dispositivo móvil se encuentra emparejado vía <em>Bluetooth</em>.</td>
+</tr>
+
+<tr>
+<td>Flujo principal</td>
+<td>
+El usuario modifica el umbral mediante el botón correspondiente en la aplicación para aumentar o disminuir sensibilidad. El sistema actualiza el valor y lo almacena en memoria.
+</td>
+</tr>
+
+</table>
+
+<div align="center">
+<p><strong>Tabla 2.2.3:</strong> Caso de uso 3 — Notificaciones en la aplicación.</p>
+</div>
+
+<table>
+<tr><td><b>Elemento</b></td><td><b>Definición</b></td></tr>
+
+<tr>
+<td>Disparador</td>
+<td>El sistema envía una alerta <em>Bluetooth</em> a la aplicación.</td>
+</tr>
+
+<tr>
+<td>Precondiciones</td>
+<td>El emparejamiento con el dispositivo está activo.</td>
+</tr>
+
+<tr>
+<td>Flujo principal</td>
+<td>
+El módulo <em>Bluetooth</em> transmite una alerta. La aplicación recibe la notificación, la muestra de manera visual y la registra en el historial.  
+</td>
+</tr>
+
+<tr>
+<td>Flujos alternativos</td>
+<td>    
+El usuario tiene la app cerrada: no se muestra la notificación.
+</td>
+</tr>
+
+</table>
+
 
 ## **2.3 Descripción de los módulos del sistema**
 
@@ -478,93 +644,132 @@ Los modos de operación (día/noche) solo pueden activarse cuando la primera pos
 
 # **Diseño e implementación**
 
-## **3.1 Diseño del _hardware_**
+## **3.1 Arquitectura general**
 
-El diseño de _hardware_ del sistema se basó en la placa NUCLEO-F103RB, cuya configuración de pines fue realizado mediante la herramienta de inicialización de periféricos [STM32CubeIDE 1.19.0](https://www.st.com/en/development-tools/stm32cubeide.html), permitiendo asignar las funciones correspondientes a cada módulo externo. Esto se puede observar en la Figura 3.1.a a continuación.
+En la Tabla 3.1.1 a continuación se detalla brevemente el flujo de funcionamiento del dispositivo.
+
+<div align="center">
+<p><strong>Tabla 3.1.1:</strong> Descripción de uso.</p>
+</div>
+
+| Elemento | Definición |
+| :---- | :---- |
+| Disparador | Se produce un sonido en el entorno que supera el umbral de sensibilidad configurado. |
+| Precondiciones | El sistema se encuentra encendido. El dispositivo está correctamente alimentado. El módulo _Bluetooth_ se encuentra emparejado con la aplicación móvil. Los parámetros de sensibilidad están configurados.  |
+| Flujo principal | El micrófono capta el sonido del entorno y lo convierte en una señal eléctrica analógica. El microcontrolador digitaliza la señal mediante el conversor analógico-digital y procesa las muestras adquiridas en tiempo real. Si el nivel del sonido supera el umbral configurado, el algoritmo de detección valida el evento como relevante. El microcontrolador envía una notificación a través del módulo _Bluetooth_ al dispositivo móvil. La aplicación recibe el evento, lo muestra en pantalla generando una alerta visual para el usuario y lo guarda en su historial. |
+| Flujos alternativos | a. El sonido detectado no supera el umbral configurado. El sistema continúa monitoreando sin generar notificación. b. El módulo _Bluetooth_ no se encuentra conectado al dispositivo móvil. El evento puede registrarse localmente, pero no se envía notificación. c. El usuario modifica los parámetros de sensibilidad desde la aplicación. El sistema actualiza la configuración y continúa operando con los nuevos valores. |
+
+A continuación, se incorporan los diagramas de estado correspondientes al sistema desarrollado. En primer lugar, en la Figura 3.1.1, se presenta la máquina de estados asociada a la placa, donde se describe el comportamiento del _hardware_ del sistema, incluyendo los estados de inicialización, monitoreo, detección de eventos, notificación y configuración. El modelado fue realizado utilizando la herramienta [itemis CREATE](https://www.itemis.com/en/products/itemis-create/), y pueden consultarse tanto el archivo [`Placa_Statechart.ysc`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/829bed8b9a3a83fd0f2c6891f38c5a664aa42d09/Statecharts/Placa_Statechart.ysc) como el archivo [`Statecharts.xlsx`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/209e34cd15df3201a05f59f1aa5d7f0c5443c734/Statecharts/Statechart.xlsx) adjuntos (ambos en la carpeta [`Statecharts`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/tree/Entrega-de-memoria-del-trabajo-final/Statecharts)), donde se detallan los estados, eventos y transiciones implementadas.
+
+<a id="fig-maquina"></a>
+
+<div align="center">
+
+<img width="600" src="Figuras/Placa_Statechart.png">
+
+<p><strong>Figura 3.1.1</strong>: Máquina de estados de la placa.</p>
+
+</div>
+
+Posteriormente, se incluye la máquina de estados correspondiente a la aplicación móvil (Figura 3.1.2), en la cual se representan los distintos estados vinculados a la conexión _Bluetooth_, recepción de eventos, visualización de alertas y configuración de parámetros. Del mismo modo, el diagrama puede observarse en el archivo [`App_Statechart.ysc`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/829bed8b9a3a83fd0f2c6891f38c5a664aa42d09/Statecharts/App_Statechart.ysc) junto con el archivo [`Statecharts.xlsx`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/209e34cd15df3201a05f59f1aa5d7f0c5443c734/Statecharts/Statechart.xlsx) asociado (ambos en la carpeta [`Statecharts`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/tree/Entrega-de-memoria-del-trabajo-final/Statecharts)), donde se documenta formalmente su estructura.
+
+<a id="fig-app"></a>
+
+<div align="center">
+
+<img width="600" src="Figuras/App_Statechart.png">
+
+<p><strong>Figura 3.1.2</strong>: Máquina de estados de la aplicación móvil.</p>
+
+</div>
+
+## **3.2 Diseño del _hardware_**
+
+El diseño de _hardware_ del sistema se basó en la placa NUCLEO-F103RB, cuya configuración de pines fue realizado mediante la herramienta de inicialización de periféricos [STM32CubeIDE 1.19.0](https://www.st.com/en/development-tools/stm32cubeide.html), permitiendo asignar las funciones correspondientes a cada módulo externo. Esto se puede observar en la Figura 3.2.a a continuación.
 
 <div align="center">
 
 <img width="600" src="Figuras/ConfigPinesPlaca.jpeg">
 
-<p><strong>Figura 3.1.a</strong>: Configuración de los pines del NUCLEO-F103RB.</p>
+<p><strong>Figura 3.2.a</strong>: Configuración de los pines del NUCLEO-F103RB.</p>
 
 </div>
 
 Dado que la placa dispone de un único pin de salida de 3,3 V, se realizó una distribución de dicha tensión mediante la placa para alimentar los módulos correspondientes. Todas las masas fueron unificadas para garantizar referencia común en el sistema.
 
-En las Figuras 3.1.b y 3.1.c se incluyen las vistas del _hardware_ una vez finalizado el proceso de soldadura, permitiendo visualizar la disposición física de los componentes y las conexiones realizadas. Además, se cuenta con un [video explicativo](https://youtu.be/XqPOsRWu6jE), en el cual se explica y evidencia brevemente el funcionamiento del dispositivo [9\].
+En las Figuras 3.2.b y 3.2.c se incluyen las vistas del _hardware_ una vez finalizado el proceso de soldadura, permitiendo visualizar la disposición física de los componentes y las conexiones realizadas. Además, se cuenta con un [video explicativo](https://youtu.be/XqPOsRWu6jE), en el cual se explica y evidencia brevemente el funcionamiento del dispositivo [9\].
 
 <div align="center">
 
 <img width="600" src="Figuras/DispositivoTerminado1.jpeg">
 
-<p><strong>Figura 3.1.b</strong>: Montaje final del prototipo (vista lateral superior).</p>
+<p><strong>Figura 3.2.b</strong>: Montaje final del prototipo (vista lateral superior).</p>
 
 </div>
 <div align="center">
 
 <img width="600" src="Figuras/DispositivoTerminado2.jpeg">
 
-<p><strong>Figura 3.1.c</strong>: Montaje final del prototipo (vista superior).</p>
+<p><strong>Figura 3.2.c</strong>: Montaje final del prototipo (vista superior).</p>
 
 </div>
 
 A continuación, se describe la conexión de cada uno de los módulos externos, acompañada por sus respectivos esquemas eléctricos.
 
-## **3.1.1 Conexión del módulo del micrófono**
+## **3.2.1 Conexión del módulo del micrófono**
 
-El micrófono utilizado posee salida analógica (`AO`), la cual fue conectada al pin `PA0` (`MIC`) del microcontrolador, configurado como entrada del conversor analógico-digital (_ADC_). La alimentación del módulo se realizó con 5 V y masa común del sistema. La salida digital (`DO`) del módulo no fue utilizada en esta implementación. Como se muestra en la Figura 3.1.1, el procesamiento de la señal se realiza a partir de la lectura analógica directa del pin `PA0`.
+El micrófono utilizado posee salida analógica (`AO`), la cual fue conectada al pin `PA0` (`MIC`) del microcontrolador, configurado como entrada del conversor analógico-digital (_ADC_). La alimentación del módulo se realizó con 5 V y masa común del sistema. La salida digital (`DO`) del módulo no fue utilizada en esta implementación. Como se muestra en la Figura 3.2.1, el procesamiento de la señal se realiza a partir de la lectura analógica directa del pin `PA0`.
 
 <div align="center">
 
 <img width="400" src="Figuras/EsquemáticoMicro.jpg">
 
-<p><strong>Figura 3.1.1</strong>: Esquemático del módulo del micrófono.</p>
+<p><strong>Figura 3.2.1</strong>: Esquemático del módulo del micrófono.</p>
 
 </div>
 
-## **3.1.2 Conexión del módulo _Bluetooth_**
+## **3.2.2 Conexión del módulo _Bluetooth_**
 
 El pin `TX` del módulo _Bluetooth_ fue conectado al pin `PA10` (`USART1_RX`) y el `RX` al `PA9` (`USART1_TX`), estableciendo la comunicación serial cruzada correspondiente. Por otro lado, el pin `STATE` fue conectado al `PB6` (`BLE_STATE`) para conocer el estado de conexión del dispositivo. El módulo fue alimentado con 3,3 V provenientes del pin de alimentación de la placa, el cual fue distribuido a través de la placa para alimentar tanto el _Bluetooth_ como el _buzzer_, ya que como se mencionó anteriormente, el microcontrolador dispone de un único pin de 3,3 V.
 
-El pin `EN` no fue utilizado en esta implementación. La Figura 3.1.2 presenta el esquema de conexión del módulo.
+El pin `EN` no fue utilizado en esta implementación. La Figura 3.2.2 presenta el esquema de conexión del módulo.
 
 <div align="center">
 
 <img width="400" src="Figuras/EsquemáticoBlue.png">
 
-<p><strong>Figura 3.1.2</strong>: Esquemático del módulo <em>Bluetooth</em>.</p>
+<p><strong>Figura 3.2.2</strong>: Esquemático del módulo <em>Bluetooth</em>.</p>
 
 </div>.
 
-## **3.1.3 Conexión del módulo del _buzzer_**
+## **3.2.3 Conexión del módulo del _buzzer_**
 
 El _buzzer_ fue conectado al pin `PC7` (`TIM3_CH2`) del microcontrolador configurado como salida del temporizador, permitiendo la generación de señal _PWM_ para la emisión del sonido. La alimentación del módulo se realizó a 3,3 V y masa común.
 
-El esquema correspondiente se presenta en la Figura 3.1.3 a continuación.
+El esquema correspondiente se presenta en la Figura 3.2.3 a continuación.
 
 <div align="center">
 
 <img width="400" src="Figuras/EsquemáticoBuzzer.png">
 
-<p><strong>Figura 3.1.3</strong>: Esquemático del módulo del <em>buzzer</em>.</p>
+<p><strong>Figura 3.2.3</strong>: Esquemático del módulo del <em>buzzer</em>.</p>
 
 </div>
 
-## **3.1.4 Conexión del _DIP switch_**
+## **3.2.4 Conexión del _DIP switch_**
 
 El _DIP switch_ se conectó configurando cada línea como entrada digital del microcontrolador. Los terminales posteriores fueron conectados a `GND`, mientras que los terminales frontales se vincularon a `PA1` (`DIP_SWITCH_1`), `PA4` (`DIP_SWITCH_2`) y a `PB0` (`DIP_SWITCH_3`). Esta configuración permite detectar el estado lógico de cada interruptor mediante lectura digital directa.
-La conexión se muestra en la Figura 3.1.4.
+La conexión se muestra en la Figura 3.2.4.
 
 <div align="center">
 
 <img width="400" src="Figuras/EsquemáticoDIPswitch.png">
 
-<p><strong>Figura 3.1.4</strong>: Esquemático del <em>DIP switch</em>.</p>
+<p><strong>Figura 3.2.4</strong>: Esquemático del <em>DIP switch</em>.</p>
 
 </div>
 
-## **3.1.5 Conexión de los _LEDs_**
+## **3.2.5 Conexión de los _LEDs_**
 
 Se colocaron los cuatro _LEDs_ indicadores (verde, rojo, amarillo y azul) a los pines del microcontrolador indicados a continuación (configurados como salida digital) y, a través de una resistencia limitadora, a masa:
 
@@ -576,21 +781,21 @@ Se colocaron los cuatro _LEDs_ indicadores (verde, rojo, amarillo y azul) a los 
 
 - _LED_ azul: `PB5` (1 kΩ)
 
-## **3.2 _Firmware_ de _BeepBuddy_**
+## **3.3 _Firmware_ de _BeepBuddy_**
 
 La implementación del _firmware_ se realizó en C utilizando el entorno [STM32CubeIDE 1.19.0](https://www.st.com/en/development-tools/stm32cubeide.html). La configuración inicial de la placa STM32F103RB y sus periféricos (_GPIO_, _ADC_, _USART_ y temporizadores) fue generada mediante [STM32CubeMX](https://www.st.com/content/st_com/en/stm32cubemx.html), lo que permitió establecer el mapeo de pines y la configuración base del microcontrolador.
 
-El archivo principal del sistema ([`main.c`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/cabf6f2aa755565a832ac6392c2ffda81915aa82/stm32-project/Core/Src/main.c)) contiene la inicialización de _hardware_ generada automáticamente y, posteriormente, ejecuta un bucle infinito (`while(1)`) en el cual se invoca de manera periódica la función principal de la aplicación, como se muestra en la Figura 3.2.
+El archivo principal del sistema ([`main.c`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/cabf6f2aa755565a832ac6392c2ffda81915aa82/stm32-project/Core/Src/main.c)) contiene la inicialización de _hardware_ generada automáticamente y, posteriormente, ejecuta un bucle infinito (`while(1)`) en el cual se invoca de manera periódica la función principal de la aplicación, como se muestra en la Figura 3.3.
 
 <div align="center">
 
 <img width="250" src="Figuras/main.jpeg">
 
-<p><strong>Figura 3.2</strong>: Líneas de código del archivo <code>main.c</code>.</p>
+<p><strong>Figura 3.3</strong>: Líneas de código del archivo <code>main.c</code>.</p>
 
 </div>
 
-## **3.2.1 Organización modular del _firmware_**
+## **3.3.1 Organización modular del _firmware_**
 
 A diferencia de una implementación monolítica, el proyecto fue estructurado en módulos funcionales organizados en carpetas específicas, lo que facilita la lectura, mantenimiento y escalabilidad del código.
 
@@ -621,22 +826,22 @@ En conjunto, los tres _callbacks_ demuestran un uso adecuado de interrupciones p
 
 Esta separación entre lógica de aplicación y acceso a _hardware_ permitió mantener una arquitectura clara, donde cada módulo cumplió una función específica y bien delimitada. Todos los archivos mencionados se encuentran a disposición en la carpeta [`stm32-project`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/tree/cabf6f2aa755565a832ac6392c2ffda81915aa82/stm32-project).
 
-## **3.2.2 Flujo de ejecución del _firmware_**
+## **3.3.2 Flujo de ejecución del _firmware_**
 
 Durante su ejecución, el sistema inicializa los periféricos y luego entra en el ciclo principal, donde:
 - Se gestiona la comunicación _Bluetooth_ con la aplicación móvil.
 - Se actualiza el estado del sistema según el modo seleccionado.
 - Se activan indicadores visuales o sonoros cuando corresponde.
 
-## **3.3 Diseño de la aplicación**
+## **3.4 Diseño de la aplicación**
 
-Como se indicó anteriormente, la aplicación móvil fue desarrollada en [MIT App Inventor](https://appinventor.mit.edu/) utilizando programación basada en bloques. Su función principal es permitir la comunicación con la placa mediante _Bluetooth Low Energy_ (_BLE_), configurar parámetros de funcionamiento y visualizar las alertas generadas por el sistema. En la Figura 3.3.1 se muestran estos bloques y a continuación se explica brevemente el funcionamiento de cada uno de ellos.
+Como se indicó anteriormente, la aplicación móvil fue desarrollada en [MIT App Inventor](https://appinventor.mit.edu/) utilizando programación basada en bloques. Su función principal es permitir la comunicación con la placa mediante _Bluetooth Low Energy_ (_BLE_), configurar parámetros de funcionamiento y visualizar las alertas generadas por el sistema. En la Figura 3.4.1 se muestran estos bloques y a continuación se explica brevemente el funcionamiento de cada uno de ellos.
 
 <div align="center">
 
 <img width="300" src="Figuras/BloquesApp.png">
 
-<p><strong>Figura 3.3.1</strong>: Bloques de la aplicación.</p>
+<p><strong>Figura 3.4.1</strong>: Bloques de la aplicación.</p>
 
 </div>
 
@@ -646,38 +851,37 @@ En segundo lugar, la configuración del sistema se realiza mediante el envío de
 
 Finalmente, la recepción y procesamiento de eventos se gestionan mediante `BluetoothLE1.StringsReceived`, que interpreta las cadenas enviadas por la placa y ejecuta las acciones correspondientes en la interfaz. Al iniciar la aplicación, `Screen1.Initialize` carga el historial previamente almacenado, permitiendo al usuario consultar eventos anteriores.
 
-De esta manera, la aplicación actúa como interfaz de usuario del sistema embebido, centralizando la configuración y visualización de alertas de forma remota. Seguidamente, se adjuntan capturas de pantalla de la interfaz de la aplicación ante diferentes eventos (Figuras 3.3.2, 3.3.3, 3.3.4 y 3.3.5).
+De esta manera, la aplicación actúa como interfaz de usuario del sistema embebido, centralizando la configuración y visualización de alertas de forma remota. Seguidamente, se adjuntan capturas de pantalla de la interfaz de la aplicación ante diferentes eventos (Figuras 3.4.2, 3.4.3, 3.4.4 y 3.4.5).
 
 
 <div align="center">
 
 <img width="300" src="Figuras/CapturaApp0.jpeg">
 
-<p><strong>Figura 3.3.2</strong>: Captura de pantalla de la interfaz de la aplicación sin emparejamiento por <em>Bluetooth</em>.</p>
+<p><strong>Figura 3.4.2</strong>: Captura de pantalla de la interfaz de la aplicación sin emparejamiento por <em>Bluetooth</em>.</p>
 
 </div>
 <div align="center">
 
 <img width="300" src="Figuras/CapturaApp3.jpeg">
 
-<p><strong>Figura 3.3.3</strong>: Captura de pantalla de la interfaz de la aplicación vinculada por <em>Bluetooth</em>.</p>
+<p><strong>Figura 3.4.3</strong>: Captura de pantalla de la interfaz de la aplicación vinculada por <em>Bluetooth</em>.</p>
 
 </div>
 <div align="center">
 
 <img width="300" src="Figuras/CapturaApp1.jpeg">
 
-<p><strong>Figura 3.3.4</strong>: Captura de pantalla de la interfaz de la aplicación en Modo Día con notificación de alerta.</p>
+<p><strong>Figura 3.4.4</strong>: Captura de pantalla de la interfaz de la aplicación en Modo Día con notificación de alerta.</p>
 
 </div>
 <div align="center">
 
 <img width="300" src="Figuras/CapturaApp2.jpeg">
 
-<p><strong>Figura 3.3.5</strong>: Captura de pantalla de la interfaz de la aplicación en Modo Noche con historial de alertas.</p>
+<p><strong>Figura 3.4.5</strong>: Captura de pantalla de la interfaz de la aplicación en Modo Noche con historial de alertas.</p>
 
 </div>
-
 
 La descripción detallada de la implementación de cada bloque y su interconexión lógica puede consultarse en el archivo [`BeepBuddy.apk`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/b2a7b0f1fec3dafd1492798bf15d7c766927add9/BeepBuddy.apk).
  
