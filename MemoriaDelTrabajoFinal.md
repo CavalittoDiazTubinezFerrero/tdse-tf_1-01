@@ -686,7 +686,7 @@ La descripción detallada de la implementación de cada bloque y su interconexi�
 
 # **Ensayos y resultados**
 
-## **4.1 Pruebas funcionales del _hardware_**z
+## **4.1 Pruebas funcionales del _hardware_**
 
 | Componente | Resultado | Estado |
 | --- | --- | :---: |
