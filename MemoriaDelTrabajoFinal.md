@@ -1057,7 +1057,6 @@ Esto implica que la _CPU_ permanece inactiva aproximadamente un 89,7 % del tiemp
 
 Por otro lado, las tareas asociadas a comunicación _Bluetooth_ presentan tiempos de ejecución elevados (hasta ~26 ms), sin embargo, estas se ejecutan dentro del lazo principal bajo una arquitectura basada en _flags_, evitando bloquear la interrupción crítica del sistema.
 
-
 ## **4.8 Gestión de bajo consumo y justificación**
 
 Para la presente entrega académica no se consideró necesario implementar mecanismos explícitos de bajo consumo, ya que el factor de uso es bajo (~10 %). El sistema cumple holgadamente sus restricciones temporales y el consumo energético no constituye un requerimiento crítico del proyecto en esta instancia.
@@ -1069,27 +1068,12 @@ Desde el punto de vista de ingeniería, una optimización energética más signi
 - Uso de instrucciones _WFI_ o modos _Sleep_/_Stop_ del microcontrolador.
 - Eliminación de _polling_ continuo del _DIP switch_ mediante uso de interrupciones externas.
 
+## **4.9 Cumplimiento de requisitos**
 
-## **4.2 Metodología de desarrollo**
-
-<span style="color:red; font-weight:bold;">‼️VER QUÉ QUEDA DE ESTO</span>
-
-El desarrollo del trabajo se llevó a cabo de manera incremental, organizándose en distintas etapas que permitieron estructurarlo y recibir devoluciones parciales antes de avanzar a la siguiente instancia. Cada etapa estuvo respaldada por la elaboración de archivos específicos que concentraron la información relevante para su revisión y posterior validación.
-
-En una primera instancia se elaboró el archivo [`README.md`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/README.md), en el cual se presentó el proyecto, se definió su objetivo, la necesidad que motivó su desarrollo, los requisitos funcionales y se realizó una comparación general con productos preexistentes en el mercado. Este documento permitió establecer el marco conceptual del trabajo.
-
-Posteriormente, se confeccionó el archivo [`Lista_componentes_a_confirmar.txt`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/Lista_componentes_a_confirmar.txt), que consistió en un listado preliminar de los componentes electrónicos a utilizar en el prototipo, incluyendo enlaces a las publicaciones correspondientes para su compra. Este documento tuvo como finalidad someter la selección de _hardware_ a la revisión del docente antes de efectuar la compra de cada uno de ellos.
-
-Finalmente, se elaboró el [`InformeDeAvances.md`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/InformeDeAvances.md), donde se retomaron los requisitos definidos inicialmente y se actualizó periódicamente el estado de cumplimiento de cada uno. Este archivo permitió documentar el progreso del desarrollo.
-
-## **4.3 Cumplimiento de requisitos**
-
-<span style="color:red; font-weight:bold;">‼️ESTA SECCIÓN VA PERO HAY QUE VER QUÉ DÓNDE</span>
-
-Una vez finalizado el trabajo, se tomó la Tabla 2.1.1 (definida anteriormente en la [Sección 2.1](#21-requisitos)) y se definió el estado de cada uno de los requisitos iniciales del dispositivo, detallados a continuación en la Tabla 4.3.1.
+Una vez finalizado el trabajo, se tomó la Tabla 2.1.2 (definida anteriormente en la [Sección 2.1](#21-requisitos)) y se definió el estado de cada uno de los requisitos iniciales del dispositivo, detallados a continuación en la Tabla 4.9.1.
 
 <div align="center">
-<p><strong>Tabla 4.3.1:</strong> Estado de los requisitos del proyecto.</p>
+<p><strong>Tabla 4.9.1:</strong> Estado de los requisitos del proyecto.</p>
 </div>
 
 <table>
@@ -1221,22 +1205,18 @@ Una vez finalizado el trabajo, se tomó la Tabla 2.1.1 (definida anteriormente e
 </tbody>
 </table>
 
-## **4.4 Comparación con otros productos similares**
-
-<span style="color:red; font-weight:bold;">‼️ESTA SECCIÓN VA PERO HAY QUE VER QUÉ DÓNDE</span>
+## **4.10 Comparación con otros productos similares**
 
 Como se mencionó previamente en la [Sección 1.1](#11-análisis-de-necesidad-y-objetivos), el mercado actual cuenta con diversos dispositivos de monitoreo con características relacionadas a la captación y transmisión de sonido. Sin embargo, la mayoría de estos están pensados para usuarios sin limitaciones auditivas y no contemplan específicamente la problemática abordada en este trabajo. Por este motivo, y considerando la diversidad de enfoques presentes en el mercado, resulta complejo establecer una comparación estrictamente equivalente entre el prototipo desarrollado y los dispositivos disponibles, ya que cada uno prioriza distintos criterios de diseño y aplicación.
 
 En este contexto, el aporte principal del presente desarrollo radica en su enfoque inclusivo, orientado a brindar una alternativa accesible frente a soluciones convencionales existentes. Asimismo, el sistema presenta posibilidades de evolución futura, tales como la incorporación de dispositivos de notificación háptica (por ejemplo, mediante una pulsera con vibración) o el uso de sensores portátiles, lo que permitiría mejorar la comodidad y adaptabilidad del usuario.
 
-## **4.5 Documentación del desarrollo realizado**
+## **4.11 Documentación del desarrollo realizado**
 
-<span style="color:red; font-weight:bold;">‼️ESTA SECCIÓN VA PERO HAY QUE VER QUÉ DÓNDE</span>
-
-A continuación, en la Tabla 4.5.1 se muestra la documentación del desarrollo del proyecto.
+A continuación, en la Tabla 4.11.1 se muestra la documentación del desarrollo del proyecto.
 
 <div align="center">
-<p align="center"><b>Tabla 4.5.1:</b> Elementos que resumen la información principal del proyecto.</p>
+<p align="center"><b>Tabla 4.11.1:</b> Elementos que resumen la información principal del proyecto.</p>
 
 <table align="center">
 <tr>
@@ -1256,12 +1236,12 @@ A continuación, en la Tabla 4.5.1 se muestra la documentación del desarrollo d
 
 <tr>
 <td>Casos de uso</td>
-<td><span style="color:red; font-weight:bold;">‼️ COMPLETAR CUANDO ARIEL NOS RESPONDA</span></td>
+<td><a href="#22-casos-de-uso">Sección 2.2</a></td>
 </tr>
 
 <tr>
 <td>Diagrama de estados del <em>hardware</em></td>
-<td><a href="#fig-maquina">Figura 2.2.1</a></td>
+<td><a href="#fig-maquina">Figura 3.1.1</a></td>
 </tr>
 
 <tr>
@@ -1278,22 +1258,22 @@ A continuación, en la Tabla 4.5.1 se muestra la documentación del desarrollo d
 
 <tr>
 <td>Diagrama de estados de la aplicación</td>
-<td><a href="#fig-app">Figura 2.2.2</a></td>
-</tr>
-
-<tr>
-<td>Descripción de los módulos de la aplicación</td>
-<td><a href="#33-diseño-de-la-aplicacion">Sección 3.3</a></td>
+<td><a href="#fig-app">Figura 3.1.2</a></td>
 </tr>
 
 <tr>
 <td>Implementación del <em>firmware</em></td>
-<td><a href="#322-flujo-de-ejecucion-del-firmware">Sección 3.2.2</a></td>
+<td><a href="#33-firmware-de-beepbuddy">Sección 3.3</a></td>
+</tr>
+
+<tr>
+<td>Diseño de la aplicación</td>
+<td><a href="#34-diseño-de-la-aplicacion">Sección 3.4</a></td>
 </tr>
 
 <tr>
 <td>Verificación del cumplimiento de requisitos</td>
-<td><a href="#43-cumplimiento-de-requisitos">Sección 4.3</a></td>
+<td><a href="#49-cumplimiento-de-requisitos">Sección 4.9</a></td>
 </tr>
 
 <tr>
@@ -1305,7 +1285,13 @@ A continuación, en la Tabla 4.5.1 se muestra la documentación del desarrollo d
 
 </div>
 
-<span style="color:red; font-weight:bold;">‼️EDESPUÉS DE ORGANIZAR EL CAP.4 ACTUALIZAR SUBTÍTULOS DEL ÍNDICE</span>
+El desarrollo del trabajo se llevó a cabo de manera incremental, organizándose en distintas etapas que permitieron estructurarlo y recibir devoluciones parciales antes de avanzar a la siguiente instancia. Cada etapa estuvo respaldada por la elaboración de archivos específicos que concentraron la información relevante para su revisión y posterior validación.
+
+En una primera instancia se elaboró el archivo [`README.md`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/README.md), en el cual se presentó el proyecto, se definió su objetivo, la necesidad que motivó su desarrollo, los requisitos funcionales y se realizó una comparación general con productos preexistentes en el mercado. Este documento permitió establecer el marco conceptual del trabajo.
+
+Posteriormente, se confeccionó el archivo [`Lista_componentes_a_confirmar.txt`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/Lista_componentes_a_confirmar.txt), que consistió en un listado preliminar de los componentes electrónicos a utilizar en el prototipo, incluyendo enlaces a las publicaciones correspondientes para su compra. Este documento tuvo como finalidad someter la selección de _hardware_ a la revisión del docente antes de efectuar la compra de cada uno de ellos.
+
+Finalmente, se elaboró el [`InformeDeAvances.md`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/blob/887ec480aa596c8a60271f712966aa281ff874fb/InformeDeAvances.md), donde se retomaron los requisitos definidos inicialmente y se actualizó periódicamente el estado de cumplimiento de cada uno. Este archivo permitió documentar el progreso del desarrollo.
 
 ---
 # **CAPÍTULO 5**
