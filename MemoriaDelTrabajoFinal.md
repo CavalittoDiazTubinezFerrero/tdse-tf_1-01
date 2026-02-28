@@ -1361,6 +1361,7 @@ También se emplearon para asistencia en la redacción y aspectos formales del d
 
 \[11\] MB1136 - Electrical Schematic - ST M32 Nucleo-64 boards. [Online]. Available: https://www.st.com/resource/en/schematic_pack/mb1136-default-c04_schematic.pdf
 
+\[.\] A Beginner’s Guide to Designing Embedded System Applications on Arm Cortex-M Microcontrollers, por Ariel Lutenberg, Pablo Gomez y Eric Pernia. [Online]. Available: https://www.arm.com/resources/education/books/designing-embedded-systems
 
 Fin de la memoria técnica.
 
