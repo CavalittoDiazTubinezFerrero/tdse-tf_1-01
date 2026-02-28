@@ -818,7 +818,7 @@ Y la carpeta [`config`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1
 
 Por otro lado, en el archivo [`main.c`](https://github.com/CavalittoDiazTubinezFerrero/tdse-tf_1-01/tree/cabf6f2aa755565a832ac6392c2ffda81915aa82/stm32-project/Core/Src/main.c) se implementaron tres _callbacks_ asociados a interrupciones de _hardware_. Por un lado, la función `HAL_UART_RxCpltCallback()` gestiona la recepción de datos por _UART_ mediante interrupciones. Cada vez que se recibe un _byte_ por _USART1_, la rutina invoca `Bluetooth_OnRxByte()` para procesarlo y re-habilita inmediatamente la recepción con `HAL_UART_Receive_IT()`. Este esquema evitó el uso de _polling_, redujo el tiempo de _CPU_ ocioso y garantizó una atención inmediata a los datos entrantes sin bloquear la ejecución principal.
 
-Por otro lado, la función `HAL_TIM_PeriodElapsedCallback()` se ejecuta periódicamente a partir del desborde del temporizador _TIM2_. En cada interrupción se realiza la lectura de una muestra del micrófono y se evalúa si existe detección de sonido mediante `Sound_IsDetected()`. En caso afirmativo, se activa una bandera (_sound_alert_flag_) que luego será procesada en el lazo principal. Este enfoque desacopló la adquisición temporalmente crítica del procesamiento de alto nivel, manteniendo tiempos determinísticos y evitando sobrecargar la rutina de interrupción.
+Por otro lado, la función `HAL_TIM_PeriodElapsedCallback()` se ejecuta periódicamente a partir del desborde del temporizador `TIM2`. En cada interrupción se realiza la lectura de una muestra del micrófono y se evalúa si existe detección de sonido mediante `Sound_IsDetected()`. En caso afirmativo, se activa una bandera (_sound_alert_flag_) que luego será procesada en el lazo principal. Este enfoque desacopló la adquisición temporalmente crítica del procesamiento de alto nivel, manteniendo tiempos determinísticos y evitando sobrecargar la rutina de interrupción.
 
 Finalmente, la función `HAL_GPIO_EXTI_Callback()` se ejecuta ante la detección de una interrupción externa asociada al pin `BLE_STATE`. Cuando se produce un cambio en dicho pin, se lee para determinar si el módulo _Bluetooth_ se encuentra conectado o desconectado.
 
@@ -892,41 +892,61 @@ La descripción detallada de la implementación de cada bloque y su interconexi�
 
 ## **4.1 Pruebas funcionales del _hardware_**
 
+La Tabla 4.1.1 resume las pruebas funcionales de _hardware_ realizadas y su estado de validación.
+
+<div align="center">
+
+<p><strong>Tabla 4.1.1</strong>: Pruebas funcionales de <em>hardware</em>.</p>
+
+</div>
+
 | Componente | Resultado | Estado |
 | --- | --- | :---: |
-| Micrófono | Variación del valor _ADC_ con relación a los sonidos del ambiente | Exitoso |
-| _LEDs_  | Encendido y apagado correcto | Exitoso |
-| _Buzzer_ | Señal sonora con la frecuencia indicada | Exitoso |
-| _Bluetooth_ (transmisión) | Envío y recepción de bytes | Exitoso |
-| _Bluetooth_ (conexión) | Variación de la tensión entre los pines `STATE` y `GND` cuando está conectado en relación a cuando está desconectado | Exitoso |
+| Micrófono | Variación del valor _ADC_ con relación a los sonidos del ambiente. | Exitoso |
+| _LEDs_  | Encendido y apagado correcto. | Exitoso |
+| _Buzzer_ | Señal sonora con la frecuencia indicada. | Exitoso |
+| _Bluetooth_ (transmisión) | Envío y recepción de _bytes_. | Exitoso |
+| _Bluetooth_ (conexión) | Variación de la tensión entre los pines `STATE` y `GND` cuando está conectado en relación a cuando está desconectado. | Exitoso |
 
 ## **4.2 Pruebas funcionales del _firmware_**
 
+La Tabla 4.2.1 resume las pruebas funcionales de _firmware_ realizadas y su estado de validación.
+
+<div align="center">
+
+<p><strong>Tabla 4.2.1</strong>: Pruebas funcionales de <em>firmware</em>.</p>
+
+</div>
+
 | Ensayo | Resultado | Estado |
 | --- | --- | :---: |
-| Cambio de modos | Actualización correcta de los indicadores tanto físicos (_LEDs_) como en la _app_ | Exitoso |
-| Actualización de umbrales | Visualización de cambios en la variable `g_config` | Exitoso |
-| Detección de sonido  | Visualización de alertas en la _app_ luego de un ruido | Exitoso |
-| Detención de alertas | Ausencia de alertas luego de un ruido | Exitoso |
+| Cambio de modos | Actualización correcta de los indicadores tanto físicos (_LEDs_) como en la _app_. | Exitoso |
+| Actualización de umbrales | Visualización de cambios en la variable `g_config`. | Exitoso |
+| Detección de sonido  | Visualización de alertas en la _app_ luego de un ruido. | Exitoso |
+| Detención de alertas | Ausencia de alertas luego de un ruido. | Exitoso |
 
 ## **4.3 Pruebas de integración**
 
-Para las pruebas de integracion se validaron los siguientes escenarios:
+Para las pruebas de integración se validaron los escenarios listados en la Tabla 4.3.1.
+
+<div align="center">
+
+<p><strong>Tabla 4.3.1</strong>: Pruebas de integración realizadas.</p>
+
+</div>
 
 | Escenario | Resultado | Estado |
 | --- | --- | :---: |
-| Encendido en modo _Default_ | Se encienden el _LED_ rojo y el verde (éste parpadea), el _buzzer_ emite un sonido corto | Exitoso |
-| Conexión de la _app_ | El _LED_ verde queda fijo | Exitoso|
-| Disminución del umbral | Se reciben alertas debido a los sonidos que superan el nuevo umbral | Exitoso |
-| Cambio a modo día (_DIP Switch_) | Se enciende el led amarillo y se apaga el rojo. El slider del umbral se ajusta. Cambia de color el botón correspondiente en la _app_ | Exitoso |
-| Cambio a modo día (_app_) | Se enciende el led azul y se apaga el amarillo. El slider del umbral se ajusta. Cambia de color el botón correspondiente en la _app_. Aparecen alertas debido a la disminución del umbral | Exitoso |
-| Detención de alertas | Se apagan todos los leds. Se ajusta el slider a su valor máximo. Todos los botones de la _app_ quedan en gris. Ausencia de alertas bajo las mismas condiciones sonoras | Exitoso | 
+| Encendido en modo _Default_ | Se encienden el _LED_ rojo y el verde (éste parpadea), el _buzzer_ emite un sonido corto. | Exitoso |
+| Conexión de la _app_ | El _LED_ verde queda fijo. | Exitoso|
+| Disminución del umbral | Se reciben alertas debido a los sonidos que superan el nuevo umbral. | Exitoso |
+| Cambio a Modo Día (_DIP switch_) | Se enciende el _LED_ amarillo y se apaga el rojo. El _slider_ del umbral se ajusta. Cambia de color el botón correspondiente en la _app_. | Exitoso |
+| Cambio a Modo Noche (_app_) | Se enciende el _LED_ azul y se apaga el amarillo. El _slider_ del umbral se ajusta. Cambia de color el botón correspondiente en la _app_. Aparecen alertas debido a la disminución del umbral. | Exitoso |
+| Detención de alertas | Se apagan todos los _LEDs_. Se ajusta el _slider_ a su valor máximo. Todos los botones de la _app_ quedan en gris. Ausencia de alertas bajo las mismas condiciones sonoras. | Exitoso | 
 
-[Video de las pruebas](https://youtu.be/XqPOsRWu6jE)
+Posteriormente se adjunta el [video](https://youtu.be/XqPOsRWu6jE) donde se muestran las pruebas de integración realizadas.
 
 ## **4.4 Medición y análisis de consumo**
-
-<span style="color:red; font-weight:bold;">‼️EXPLICAR METODOLOGÍA DE MEDICIÓN</span>
 
 Con el objetivo de evaluar el consumo energético del sistema, se realizaron mediciones de corriente sobre la placa NUCLEO-F103RB utilizando un multímetro digital configurado como miliamperímetro.
 
@@ -960,8 +980,6 @@ Las corrientes máximas obtenidas se muestran en la Tabla 4.4.1.
 
 ## **4.5 _Console and Build Analyzer_**
 
-<span style="color:red; font-weight:bold;">‼️QUITAR LO DE LA CPU, DEJAR LO DE LA FLASH Y LA RAM (RESUMIR UN POCO)</span>
-
 El uso de memoria del sistema se muestra en la Figura 4.5.1.
 
 <div align="center">
@@ -978,12 +996,13 @@ Estos valores indican que el sistema utiliza una fracción reducida de los recur
 
 Para la estimación experimental del _Worst Case Execution Time_ (_WCET_) de cada tarea del sistema se utilizó el contador de ciclos del procesador (_DWT_). Cada función relevante fue instrumentada desabilitando las interrupciones y reiniciando el contador antes de su ejecución, leyendo el tiempo transcurrido en microsegundos y habilitando las interrupciones inmediatamente después, almacenando el mayor valor observado durante el período de prueba. Con el objetivo de poder recorrer sistemáticamente todos los caminos posibles de ejecución (recepción de comandos, cambios de estado, envío de configuraciones y generación de alertas), el lazo principal del programa fue modificado temporalmente, reemplazando el `while(1)` infinito por un lazo con duración aproximada de dos minutos. Esto permitió ejecutar múltiples iteraciones bajo distintas condiciones de funcionamiento y registrar valores representativos del tiempo máximo observado para cada tarea. Finalizado el período de medición, los valores de _WCET_ obtenidos fueron impresos mediante `LOGGER_INFO()`.
 
-Sin embargo, la medición del _WCET_ correspondiente a la toma periódica de muestras del micrófono requirió un tratamiento diferente para evitar alterar los valores registrados del resto de las tareas, por lo que ésta fue hecha empleando la misma metología pero de forma independiente dentro de la rutina de interrupción del `TIM2`.
+Sin embargo, la medición del _WCET_ correspondiente a la toma periódica de muestras del micrófono requirió un tratamiento diferente para evitar alterar los valores registrados del resto de las tareas, por lo que ésta fue hecha empleando la misma metodología pero de forma independiente dentro de la rutina de interrupción del `TIM2`.
 
-Los valores obtenidos fueron los observados en la Tabla 4.1.2.
+Los valores obtenidos fueron los observados en la Tabla 4.6.1.
+
 <div align="center">
 
-<p><strong>Tabla 4.1.2</strong>: Valores obtenidos de <em>WCET</em>.</p>
+<p><strong>Tabla 4.6.1</strong>: Valores obtenidos de <em>WCET</em>.</p>
 
 </div>
 
@@ -1024,28 +1043,28 @@ Los valores obtenidos fueron los observados en la Tabla 4.1.2.
 
 ## **4.7 Cálculo del factor de uso (U) de la _CPU_**
 
-El sistema implementa una única tarea periódica correspondiente a la interrupción del _TIM2_, configurada con un período de 1 ms (1 kHz). Esta interrupción realiza la adquisición de la muestra del micrófono y la evaluación de detección de sonido.
+El sistema implementa una única tarea periódica correspondiente a la interrupción del `TIM2`, configurada con un período de 1 ms (1 kHz). Esta interrupción realiza la adquisición de la muestra del micrófono y la evaluación de detección de sonido.
 
-El _WCET_ medido experimentalmente para dicha interrupción fue 103µs. Por lo tanto, el factor de uso del sistema se calcula como:
+El _WCET_ medido experimentalmente para dicha interrupción fue 103 µs. Por lo tanto, el factor de uso del sistema se calcula como:
 
 <div align="center">
   
-$U  = \frac{103}{1000} \cdot 100 = 10,3 %$
+$U  = \frac{103}{1000} \cdot 100 = 10,3 \%$
 
 </div>
 
 Esto implica que la _CPU_ permanece inactiva aproximadamente un 89,7 % del tiempo entre interrupciones periódicas.
 
-Por otro lado, las tareas asociadas a comunicación Bluetooth presentan tiempos de ejecución elevados (hasta ~26 ms), sin embargo, estas se ejecutan dentro del lazo principal bajo una arquitectura basada en flags, evitando bloquear la interrupción crítica del sistema.
+Por otro lado, las tareas asociadas a comunicación _Bluetooth_ presentan tiempos de ejecución elevados (hasta ~26 ms), sin embargo, estas se ejecutan dentro del lazo principal bajo una arquitectura basada en _flags_, evitando bloquear la interrupción crítica del sistema.
 
 
 ## **4.8 Gestión de bajo consumo y justificación**
 
-Para la presente entrega académica no se consideró necesario implementar mecanismos explícitos de bajo consumo, ya que el factor de uso es bajo (~10 %). El sistema cumple holgadamente sus restricciones temporales y el consumo energético no constituye un requerimiento crítico del proyecto en esta isntancia.
+Para la presente entrega académica no se consideró necesario implementar mecanismos explícitos de bajo consumo, ya que el factor de uso es bajo (~10 %). El sistema cumple holgadamente sus restricciones temporales y el consumo energético no constituye un requerimiento crítico del proyecto en esta instancia.
 
-Desde el punto de vista de ingeniería, una optimización energética más significativa podría lograrse mediante mejoras en el diseño de hardware y configuración de periféricos, tales como:
+Desde el punto de vista de ingeniería, una optimización energética más significativa podría lograrse mediante mejoras en el diseño de _hardware_ y configuración de periféricos, tales como:
 
-- Selección de LEDs de menor corriente.
+- Selección de _LEDs_ de menor consumo.
 - Desactivación física o mediante transistor de periféricos cuando no se utilicen (por ejemplo, _buzzer_ o módulo _Bluetooth_).
 - Uso de instrucciones _WFI_ o modos _Sleep_/_Stop_ del microcontrolador.
 - Eliminación de _polling_ continuo del _DIP switch_ mediante uso de interrupciones externas.
