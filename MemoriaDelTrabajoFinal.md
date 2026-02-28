@@ -24,7 +24,7 @@ Memoria del Trabajo Final
 
 _Este trabajo fue realizado en la<br>
 Ciudad Autónoma de Buenos Aires,<br>
-entre Diciembre 2025 y Febrero 2026_
+entre diciembre de 2025 y febrero de 2026_
 
 <br><br><br>
 
@@ -157,7 +157,7 @@ Inicialmente, se adjunta la Tabla 0, la cual registra las diferentes versiones d
 </tr>
 <tr>
 <td align="center">1.7</td>
-<td>Corrección de errores</td></td>
+<td>Corrección de errores</td>
 <td align="center">28/02/2026</td>
 </tr>
 </table>
@@ -187,7 +187,7 @@ La aplicación móvil fue desarrollada utilizando la herramienta [MIT App Invent
 
 En la Figura 1.2.1 se presenta el diagrama en bloques general del sistema, donde se observan los principales módulos y su interconexión. El funcionamiento general del dispositivo puede resumirse de la siguiente manera: el micrófono capta continuamente los sonidos del entorno y el microcontrolador digitaliza la señal mediante el conversor analógico-digital a una frecuencia de muestreo controlada por temporizadores internos. Las muestras adquiridas son procesadas en tiempo real para determinar si el sonido detectado cumple con los criterios configurados de sensibilidad o corresponde a un evento relevante previamente definido. En caso de detectarse una condición válida, el sistema genera una alerta y la transmite mediante el módulo _Bluetooth_ al dispositivo móvil emparejado. La aplicación recibe la notificación, la muestra de forma visual al usuario y la registra en el historial de eventos. En ausencia de eventos significativos, el sistema continúa monitoreando el entorno de manera autónoma y con bajo consumo energético.
 
-<a id="fig-digramaenbloques"></a>
+<a id="fig-diagramaenbloques"></a>
 
 <div align="center">
 
@@ -749,7 +749,7 @@ El pin `EN` no fue utilizado en esta implementación. La Figura 3.2.2 presenta e
 
 <p><strong>Figura 3.2.2</strong>: Esquemático del módulo <em>Bluetooth</em>.</p>
 
-</div>.
+</div>
 
 ## **3.2.3 Conexión del módulo del _buzzer_**
 
@@ -1253,7 +1253,7 @@ A continuación, en la Tabla 4.11.1 se muestra la documentación del desarrollo 
 
 <tr>
 <td>Diagrama en bloques de los módulos</td>
-<td><a href="#fig-digramaenbloques">Figura 1.2.1</a></td>
+<td><a href="#fig-diagramaenbloques">Figura 1.2.1</a></td>
 </tr>
 
 <tr>
