@@ -155,6 +155,11 @@ Inicialmente, se adjunta la Tabla 0, la cual registra las diferentes versiones d
 <td>Revisión y ajustes finales</td>
 <td align="center">26/02/2026</td>
 </tr>
+<tr>
+<td align="center">1.7</td>
+<td>Corrección de errores</td></td>
+<td align="center">28/02/2026</td>
+</tr>
 </table>
 
 </div>
