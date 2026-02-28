@@ -689,7 +689,7 @@ Posteriormente, se incluye la máquina de estados correspondiente a la aplicaci�
 
 ## **3.2 Diseño del _hardware_**
 
-El diseño de _hardware_ del sistema se basó en la placa NUCLEO-F103RB, cuya configuración de pines fue realizado mediante la herramienta de inicialización de periféricos [STM32CubeIDE 1.19.0](https://www.st.com/en/development-tools/stm32cubeide.html), permitiendo asignar las funciones correspondientes a cada módulo externo. Esto se puede observar en la Figura 3.2.a a continuación.
+El diseño de _hardware_ del sistema se basó en la placa NUCLEO-F103RB, cuya configuración de pines fue realizada mediante la herramienta de inicialización de periféricos [STM32CubeIDE 1.19.0](https://www.st.com/en/development-tools/stm32cubeide.html), permitiendo asignar las funciones correspondientes a cada módulo externo. Esto se puede observar en la Figura 3.2.a a continuación.
 
 <div align="center">
 
@@ -941,7 +941,7 @@ Para las pruebas de integración se validaron los escenarios listados en la Tabl
 
 | Escenario | Resultado | Estado |
 | --- | --- | :---: |
-| Encendido en modo _Default_ | Se encienden el _LED_ rojo y el verde (éste parpadea), el _buzzer_ emite un sonido corto. | Exitoso |
+| Encendido en modo _Default_ | Se encienden el _LED_ rojo y el verde (este parpadea), el _buzzer_ emite un sonido corto. | Exitoso |
 | Conexión de la _app_ | El _LED_ verde queda fijo. | Exitoso|
 | Disminución del umbral | Se reciben alertas debido a los sonidos que superan el nuevo umbral. | Exitoso |
 | Cambio a Modo Día (_DIP switch_) | Se enciende el _LED_ amarillo y se apaga el rojo. El _slider_ del umbral se ajusta. Cambia de color el botón correspondiente en la _app_. | Exitoso |
@@ -998,7 +998,7 @@ Estos valores indican que el sistema utiliza una fracción reducida de los recur
 
 ## **4.6 Medición y análisis del _WCET_ por tarea**
 
-Para la estimación experimental del _Worst Case Execution Time_ (_WCET_) de cada tarea del sistema se utilizó el contador de ciclos del procesador (_DWT_). Cada función relevante fue instrumentada desabilitando las interrupciones y reiniciando el contador antes de su ejecución, leyendo el tiempo transcurrido en microsegundos y habilitando las interrupciones inmediatamente después, almacenando el mayor valor observado durante el período de prueba. Con el objetivo de poder recorrer sistemáticamente todos los caminos posibles de ejecución (recepción de comandos, cambios de estado, envío de configuraciones y generación de alertas), el lazo principal del programa fue modificado temporalmente, reemplazando el `while(1)` infinito por un lazo con duración aproximada de dos minutos. Esto permitió ejecutar múltiples iteraciones bajo distintas condiciones de funcionamiento y registrar valores representativos del tiempo máximo observado para cada tarea. Finalizado el período de medición, los valores de _WCET_ obtenidos fueron impresos mediante `LOGGER_INFO()`.
+Para la estimación experimental del _Worst Case Execution Time_ (_WCET_) de cada tarea del sistema se utilizó el contador de ciclos del procesador (_DWT_). Cada función relevante fue instrumentada deshabilitando las interrupciones y reiniciando el contador antes de su ejecución, leyendo el tiempo transcurrido en microsegundos y habilitando las interrupciones inmediatamente después, almacenando el mayor valor observado durante el período de prueba. Con el objetivo de poder recorrer sistemáticamente todos los caminos posibles de ejecución (recepción de comandos, cambios de estado, envío de configuraciones y generación de alertas), el lazo principal del programa fue modificado temporalmente, reemplazando el `while(1)` infinito por un lazo con duración aproximada de dos minutos. Esto permitió ejecutar múltiples iteraciones bajo distintas condiciones de funcionamiento y registrar valores representativos del tiempo máximo observado para cada tarea. Finalizado el período de medición, los valores de _WCET_ obtenidos fueron impresos mediante `LOGGER_INFO()`.
 
 Sin embargo, la medición del _WCET_ correspondiente a la toma periódica de muestras del micrófono requirió un tratamiento diferente para evitar alterar los valores registrados del resto de las tareas, por lo que ésta fue hecha empleando la misma metodología pero de forma independiente dentro de la rutina de interrupción del `TIM2`.
 
