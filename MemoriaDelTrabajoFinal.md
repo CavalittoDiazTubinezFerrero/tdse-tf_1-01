@@ -51,7 +51,7 @@ _This document describes the system architecture, design methodology, implementa
 
 ---
 
-# Índice General
+# Índice general
 
 - [**Registro de versiones**](#registro-de-versiones)
 - [**Introducción general**](#introducción-general)
