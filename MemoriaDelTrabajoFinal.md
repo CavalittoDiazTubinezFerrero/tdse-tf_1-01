@@ -686,13 +686,39 @@ La descripción detallada de la implementación de cada bloque y su interconexi�
 
 # **Ensayos y resultados**
 
-## **4.1 Pruebas funcionales del _hardware_**
+## **4.1 Pruebas funcionales del _hardware_**z
+
+| Componente | Resultado | Estado |
+| --- | --- | :---: |
+| Micrófono | Variación del valor _ADC_ con relación a los sonidos del ambiente | Exitoso |
+| _LEDs_  | Encendido y apagado correcto | Exitoso |
+| _Buzzer_ | Señal sonora con la frecuencia indicada | Exitoso |
+| _Bluetooth_ (transmisión) | Envío y recepción de bytes | Exitoso |
+| _Bluetooth_ (conexión) | Variación de la tensión entre los pines `STATE` y `GND` cuando está conectado en relación a cuando está desconectado | Exitoso |
 
 ## **4.2 Pruebas funcionales del _firmware_**
 
+| Ensayo | Resultado | Estado |
+| --- | --- | :---: |
+| Cambio de modos | Actualización correcta de los indicadores tanto físicos (_LEDs_) como en la _app_ | Exitoso |
+| Actualización de umbrales | Visualización de cambios en la variable `g_config` | Exitoso |
+| Detección de sonido  | Visualización de alertas en la _app_ luego de un ruido | Exitoso |
+| Detención de alertas | Ausencia de alertas luego de un ruido | Exitoso |
+
 ## **4.3 Pruebas de integración**
 
-<span style="color:red; font-weight:bold;">‼️ACÁ VA EL LINK DEL VIDEO</span>
+Para las pruebas de integracion se validaron los siguientes escenarios:
+
+| Escenario | Resultado | Estado |
+| --- | --- | :---: |
+| Encendido en modo _Default_ | Se encienden el _LED_ rojo y el verde (éste parpadea), el _buzzer_ emite un sonido corto | Exitoso |
+| Conexión de la _app_ | El _LED_ verde queda fijo | Exitoso|
+| Disminución del umbral | Se reciben alertas debido a los sonidos que superan el nuevo umbral | Exitoso |
+| Cambio a modo día (_DIP Switch_) | Se enciende el led amarillo y se apaga el rojo. El slider del umbral se ajusta. Cambia de color el botón correspondiente en la _app_ | Exitoso |
+| Cambio a modo día (_app_) | Se enciende el led azul y se apaga el amarillo. El slider del umbral se ajusta. Cambia de color el botón correspondiente en la _app_. Aparecen alertas debido a la disminución del umbral | Exitoso |
+| Detención de alertas | Se apagan todos los leds. Se ajusta el slider a su valor máximo. Todos los botones de la _app_ quedan en gris. Ausencia de alertas bajo las mismas condiciones sonoras | Exitoso | 
+
+[Video de las pruebas](https://youtu.be/XqPOsRWu6jE)
 
 ## **4.4 Medición y análisis de consumo**
 
@@ -732,7 +758,7 @@ Las corrientes máximas obtenidas se muestran en la Tabla 4.4.1.
 
 <span style="color:red; font-weight:bold;">‼️QUITAR LO DE LA CPU, DEJAR LO DE LA FLASH Y LA RAM (RESUMIR UN POCO)</span>
 
-Con el objetivo de evaluar la utilización de recursos del sistema embebido, se analizó el factor de uso (U) de la _CPU_ a partir de la información obtenida durante la compilación del proyecto. Dichos datos fueron extraídos desde la consola de compilación y del análisis de memoria generado por [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html) (Figura 4.5.1). En este caso, se evaluaron tanto la memoria _RAM_ como la memoria _FLASH_.
+El uso de memoria del sistema se muestra en la Figura 4.5.1.
 
 <div align="center">
 
@@ -742,13 +768,13 @@ Con el objetivo de evaluar la utilización de recursos del sistema embebido, se 
 
 </div>
 
-Estos valores indican que el sistema utiliza una fracción reducida de los recursos disponibles del microcontrolador STM32F103RB, manteniendo un amplio margen para futuras ampliaciones funcionales o incorporación de nuevas características. Además, confirma que la arquitectura modular implementada y la organización del _firmware_ resultaron eficientes en términos de consumo de memoria.
+Estos valores indican que el sistema utiliza una fracción reducida de los recursos disponibles del microcontrolador STM32F103RB, manteniendo un amplio margen para futuras ampliaciones funcionales o incorporación de nuevas características.
 
 ## **4.6 Medición y análisis del _WCET_ por tarea**
 
-<span style="color:red; font-weight:bold;">‼️EXPLICAR ALGO MÁS </span>
+Para la estimación experimental del _Worst Case Execution Time_ (_WCET_) de cada tarea del sistema se utilizó el contador de ciclos del procesador (_DWT_). Cada función relevante fue instrumentada desabilitando las interrupciones y reiniciando el contador antes de su ejecución, leyendo el tiempo transcurrido en microsegundos y habilitando las interrupciones inmediatamente después, almacenando el mayor valor observado durante el período de prueba. Con el objetivo de poder recorrer sistemáticamente todos los caminos posibles de ejecución (recepción de comandos, cambios de estado, envío de configuraciones y generación de alertas), el lazo principal del programa fue modificado temporalmente, reemplazando el `while(1)` infinito por un lazo con duración aproximada de dos minutos. Esto permitió ejecutar múltiples iteraciones bajo distintas condiciones de funcionamiento y registrar valores representativos del tiempo máximo observado para cada tarea. Finalizado el período de medición, los valores de _WCET_ obtenidos fueron impresos mediante `LOGGER_INFO()`.
 
-Para la estimación experimental del _Worst Case Execution Time_ (_WCET_) de cada tarea del sistema se utilizó el contador de ciclos del procesador (_DWT_). Cada función relevante fue instrumentada reiniciando el contador antes de su ejecución y leyendo el tiempo transcurrido en microsegundos inmediatamente después, almacenando el mayor valor observado durante el período de prueba. Con el objetivo de poder recorrer sistemáticamente todos los caminos posibles de ejecución (recepción de comandos, cambios de estado, envío de configuraciones y generación de alertas), el lazo principal del programa fue modificado temporalmente, reemplazando el `while(1)` infinito por un lazo con duración aproximada de dos minutos. Esto permitió ejecutar múltiples iteraciones bajo distintas condiciones de funcionamiento y registrar valores representativos del tiempo máximo observado para cada tarea. Finalizado el período de medición, los valores de _WCET_ obtenidos fueron impresos mediante `LOGGER_INFO()`.
+Sin embargo, la medición del _WCET_ correspondiente a la toma periódica de muestras del micrófono requirió un tratamiento diferente para evitar alterar los valores registrados del resto de las tareas, por lo que ésta fue hecha empleando la misma metología pero de forma independiente dentro de la rutina de interrupción del `TIM2`.
 
 Los valores obtenidos fueron los observados en la Tabla 4.1.2.
 <div align="center">
@@ -765,24 +791,28 @@ Los valores obtenidos fueron los observados en la Tabla 4.1.2.
 <th><em>WCET</em> (µs)</th>
 </tr>
 <tr>
+<td><em>Sound detection</em></td>
+<td>103</td>
+</tr>
+<tr>
 <td><em>Mode update</em></td>
-<td>211</td>
+<td>32</td>
 </tr>
 <tr>
 <td><em>Send status update</em></td>
-<td>26,5</td>
+<td>26400</td>
 </tr>
 <tr>
 <td><em>Receive status update</em></td>
-<td>22,9</td>
+<td>22600</td>
 </tr>
 <tr>
 <td><em>Send alert</em></td>
-<td>9,5</td>
+<td>9500</td>
 </tr>
 <tr>
 <td><em>LEDs update</em></td>
-<td>175</td>
+<td>50</td>
 </tr>
 </table>
 
@@ -790,23 +820,32 @@ Los valores obtenidos fueron los observados en la Tabla 4.1.2.
 
 ## **4.7 Cálculo del factor de uso (U) de la _CPU_**
 
-<span style="color:red; font-weight:bold;">‼️COMPLETAR CON LA INFO. CORRECTA</span>
+El sistema implementa una única tarea periódica correspondiente a la interrupción del _TIM2_, configurada con un período de 1 ms (1 kHz). Esta interrupción realiza la adquisición de la muestra del micrófono y la evaluación de detección de sonido.
 
-## **4.1.3 Cálculo del factor de uso (U) de la _CPU_**
-
-<span style="color:red; font-weight:bold;">‼️ESTA SECCION ESTÁ MAL PERO NO LA BORRO POR SI ALGO SIRVE</span>
-
-Con el objetivo de evaluar la utilización de recursos del sistema embebido, se analizó el factor de uso (U) de la _CPU_ a partir de la información obtenida durante la compilación del proyecto. Dichos datos fueron extraídos desde la consola de compilación y del análisis de memoria generado por [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html) (Figura 4.1.3). En este caso, se evaluaron tanto la memoria _RAM_ como la memoria _FLASH_.
+El _WCET_ medido experimentalmente para dicha interrupción fue 103µs. Por lo tanto, el factor de uso del sistema se calcula como:
 
 <div align="center">
-
-<img width="600" src="Figuras/ConsolaFLASH.jpeg">
-
-<p><strong>Figura 4.1.3</strong>: Captura de la consola <em>Build Analyzer</em>.</p>
+  
+$U  = \frac{103}{1000} \cdot 100 = 10,3 %$
 
 </div>
 
-Estos valores indican que el sistema utiliza una fracción reducida de los recursos disponibles del microcontrolador STM32F103RB, manteniendo un amplio margen para futuras ampliaciones funcionales o incorporación de nuevas características. Además, confirma que la arquitectura modular implementada y la organización del _firmware_ resultaron eficientes en términos de consumo de memoria.
+Esto implica que la _CPU_ permanece inactiva aproximadamente un 89,7 % del tiempo entre interrupciones periódicas.
+
+Por otro lado, las tareas asociadas a comunicación Bluetooth presentan tiempos de ejecución elevados (hasta ~26 ms), sin embargo, estas se ejecutan dentro del lazo principal bajo una arquitectura basada en flags, evitando bloquear la interrupción crítica del sistema.
+
+
+## **4.8 Gestión de bajo consumo y justificación**
+
+Para la presente entrega académica no se consideró necesario implementar mecanismos explícitos de bajo consumo, ya que el factor de uso es bajo (~10 %). El sistema cumple holgadamente sus restricciones temporales y el consumo energético no constituye un requerimiento crítico del proyecto en esta isntancia.
+
+Desde el punto de vista de ingeniería, una optimización energética más significativa podría lograrse mediante mejoras en el diseño de hardware y configuración de periféricos, tales como:
+
+- Selección de LEDs de menor corriente.
+- Desactivación física o mediante transistor de periféricos cuando no se utilicen (por ejemplo, _buzzer_ o módulo _Bluetooth_).
+- Uso de instrucciones _WFI_ o modos _Sleep_/_Stop_ del microcontrolador.
+- Eliminación de _polling_ continuo del _DIP switch_ mediante uso de interrupciones externas.
+
 
 ## **4.2 Metodología de desarrollo**
 
