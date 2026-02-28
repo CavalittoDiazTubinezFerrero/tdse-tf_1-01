@@ -53,11 +53,11 @@ _This document describes the system architecture, design methodology, implementa
 
 # Índice General
 
-- [**Registro de versiones**](#-registro-de-versiones)
-- [**Introducción general**](#-introducción-general)
+- [**Registro de versiones**](#registro-de-versiones)
+- [**Introducción general**](#introducción-general)
   - [1.1 Análisis de necesidad y objetivos](#11-análisis-de-necesidad-y-objetivos)
   - [1.2 Descripción general del sistema](#12-descripción-general-del-sistema)
-- [**Introducción específica**](#-introducción-especifica) 
+- [**Introducción específica**](#introducción-específica) 
   - [2.1 Requisitos](#21-requisitos)
   - [2.2 Casos de uso](#22-casos-de-uso)
   - [2.3 Descripción de los módulos del sistema](#23-descripción-de-los-módulos-del-sistema)
@@ -95,7 +95,7 @@ _This document describes the system architecture, design methodology, implementa
     - [5.1 Resultados obtenidos](#51-resultados-obtenidos)
     - [5.2 Próximos pasos y posibles futuras mejoras](#52-próximos-pasos-y-posibles-futuras-mejoras)
   - [**Uso de herramientas de _IA_**](#uso-de-herramientas-de-ia)
-- [**Bibliografía**](#bibliografia)
+- [**Bibliografía**](#bibliografía)
 
 ---
 ## Registro de versiones
