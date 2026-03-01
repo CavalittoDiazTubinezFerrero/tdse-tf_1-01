@@ -1,0 +1,3 @@
+../app/notifications/notifications.c:12:6:Notifications_ProcessCommand	9
+../app/notifications/notifications.c:46:6:Notifications_SendStatusUpdate	1
+../app/notifications/notifications.c:55:6:Notifications_SendNoiseDetected	1

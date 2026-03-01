@@ -1,0 +1,4 @@
+../app/app_main.c:31:7:App_Init	8	static
+../app/app_main.c:58:6:App_Loop	16	static
+../app/app_main.c:111:6:App_UpdateStatusIndicator	8	static
+../app/app_main.c:133:6:App_Loop_Test	24	static

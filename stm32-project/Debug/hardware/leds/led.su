@@ -1,0 +1,3 @@
+../hardware/leds/led.c:5:6:Led_Init	24	static
+../hardware/leds/led.c:14:6:Led_SetStatus	16	static
+../hardware/leds/led.c:19:6:Led_Update	16	static
